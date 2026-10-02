@@ -231,7 +231,7 @@ function about_page()
 <h1>About</h1>
 <div class="prose">
 <p>This site collects reproductions of published neutrino-oscillation results with
-<a href="https://github.com/philippeller/Newtrinos.jl">Newtrinos.jl</a>, using public material only
+<a href="https://github.com/Newtrinos-org/Newtrinos.jl">Newtrinos.jl</a>, using public material only
 (data releases and published figures). Entries are organised by the DOI of the reproduced paper.</p>
 <p>Each entry pins the exact Newtrinos.jl commit. The fits are run with <code>tools/run_entry.jl</code>, which
 checks out that commit into a clean worktree, runs the entry's <code>reproduce.jl</code> and records the commit,

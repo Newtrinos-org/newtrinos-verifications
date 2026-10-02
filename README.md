@@ -2,7 +2,7 @@
 
 **Website: https://newtrinos-org.github.io/newtrinos-verifications/**
 
-Reproductions of published neutrino results with [Newtrinos.jl](https://github.com/philippeller/Newtrinos.jl),
+Reproductions of published neutrino results with [Newtrinos.jl](https://github.com/Newtrinos-org/Newtrinos.jl),
 organised by the DOI of the reproduced paper. Each entry shows the original paper figure next to the
 reproduction, the code that produced it, the exact Newtrinos.jl commit and the fit results.
 
