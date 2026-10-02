@@ -1,0 +1,4 @@
+.worktrees/
+public/
+public_artifact/
+entries/*/cache/

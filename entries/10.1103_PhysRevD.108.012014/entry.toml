@@ -1,0 +1,50 @@
+title = "Measurement of atmospheric neutrino mixing with improved IceCube DeepCore calibration and data processing"
+short = "IceCube DeepCore 7.5 years: atmospheric neutrino mixing"
+collaboration = "IceCube"
+doi = "10.1103/PhysRevD.108.012014"
+journal = "Phys. Rev. D 108, 012014"
+year = 2023
+arxiv = "2304.12236"
+inspire = 2653713
+experiments = ["IceCube DeepCore"]
+parameters = ["θ23", "Δm²32"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Atmospheric νμ disappearance with 7.5 years of IceCube DeepCore data (2012–2019), using the public verification \
+sample (binned Monte Carlo and data, with hypersurface detector systematics), normal ordering."""
+caveats = [
+  "Uses the public verification sample with its simplified systematics; the official contour is the one shipped with the data release.",
+  "The paper's 1D curves show a modified Δχ² compared to pseudo-experiment bands; ours are the plain profile likelihood.",
+  "In Newtrinos.jl the module currently lives under `deepcore_9y_verification_sample`; the analysis is the 7.5-year one.",
+]
+links = [
+  { label = "Data release (Harvard Dataverse)", url = "https://doi.org/10.7910/DVN/B4RITM" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["deepcore"]
+
+[[figures]]
+id = "contour_90"
+title = "sin²θ₂₃ – Δm²₃₂, 90% C.L."
+paper_ref = "Fig. 27"
+original = "original/wilks_contour_v3.png"
+ours = "ours/contour_90.png"
+agreement = "Our 90% contour is compared with the official contour from the data release; the paper figure also shows other experiments."
+
+[[figures]]
+id = "mixing_profile"
+title = "Δχ² profile in sin²θ₂₃"
+paper_ref = "Fig. 23 (top)"
+original = "original/mixing_brazil_band.png"
+ours = "ours/mixing_profile.png"
+
+[[figures]]
+id = "mass_splitting_profile"
+title = "Δχ² profile in Δm²₃₂"
+paper_ref = "Fig. 23 (bottom)"
+original = "original/mass_splitting_brazil_band.png"
+ours = "ours/mass_splitting_profile.png"

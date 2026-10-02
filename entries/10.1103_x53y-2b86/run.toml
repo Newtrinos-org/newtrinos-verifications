@@ -1,0 +1,31 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/dcp_ssth23_IO.png" = "171e1bae86f5c4e1451e2a9b6c8d7adfd10c81bfa43991cd3236b839d4b92558"
+"ours/dcp_ssth23_NO.png" = "d3bdea3760b79f18f7d6a8bd0e92f86e5c9ed36b150d8ed87bef7b6d16aedf7b"
+"ours/ssth23_dm32_IO.png" = "c301a853379d32f5b6ac9e45f0f626a3419b3e83ba674313ba901f594feba532"
+"ours/ssth23_dm32_NO.png" = "1e28dce3b72c99b03136576c320e58d44ac1a5a129f925f497e12e0dbe860ebf"
+"results/nova_IO.jld2" = "a46f968fd89a1cd0aaf91b460bbdb3884e1ee485f5cd89a72887acad1d1f6d6a"
+"results/nova_IO_dcp_ssth23.csv" = "66de8e508fd7ae73e79315b45fba154fe67e5f830258fd3c29cb81519b302a4c"
+"results/nova_IO_ssth23_dm32.csv" = "c48c8b4908a7d8a50132251549a15fc1a8b6e92f8707f3281a3ecb8cdab00ac0"
+"results/nova_NO.jld2" = "c1bef36c7efd03c2dc284c76313a2242929012d1c69403d9ff41369620a07238"
+"results/nova_NO_dcp_ssth23.csv" = "97db0e1e829982e532beccb394d6f51fcd5d1b919401df2da9aa1155de3406a8"
+"results/nova_NO_ssth23_dm32.csv" = "dc3ab14e04d89f309ed061ce9209f9e629221928910de560d05bc5ab025c31f4"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 1932
+total_points = 1932
+
+[newtrinos]
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+repository = "https://github.com/philippeller/Newtrinos.jl"
+
+[run]
+command = "julia -t 4 --project=<Newtrinos.jl @ 8fe6897670> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-02T08:52:08Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 4
+wall_time_s = 123.1

@@ -1,0 +1,61 @@
+title = "Precision measurement of neutrino oscillation parameters with 10 years of data from the NOvA experiment"
+short = "NOvA 2024: three-flavour oscillations with 10 years of data"
+collaboration = "NOvA"
+doi = "10.1103/x53y-2b86"
+journal = "Phys. Rev. Lett. 136, 011802"
+year = 2026
+arxiv = "2509.04361"
+inspire = 2966613
+experiments = ["NOvA"]
+parameters = ["δCP", "θ23", "Δm²32", "mass ordering"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Three-flavour fit to the NOvA far-detector νμ disappearance (4 quartiles × FHC/RHC) and νe appearance \
+samples of the 2024 data release (26.6×10²⁰ ν + 12.5×10²⁰ ν̄ POT), with the 1D Daya Bay constraint on θ₁₃, \
+conditional on each mass ordering."""
+caveats = [
+  "The release contains no true-energy information or systematic templates: predictions reweight the released components with oscillation probabilities averaged over an effective, calibrated energy response.",
+  "Systematics are a reduced set (normalisations, νe/νμ cross-section ratios, muon/hadronic energy scales) sized to the paper's post-extrapolation uncertainties.",
+  "Official regions are Bayesian (marginalised); ours are profile likelihood (Wilks).",
+]
+links = [
+  { label = "Data release (zenodo 17822358)", url = "https://doi.org/10.5281/zenodo.17822358" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["nova"]
+
+[[figures]]
+id = "ssth23_dm32_NO"
+title = "sin²θ₂₃ – Δm²₃₂, normal ordering"
+paper_ref = "Suppl. Fig. S8"
+original = "original/ssth23_dm32_NO.png"
+ours = "ours/ssth23_dm32_NO.png"
+agreement = "Δm²₃₂ range agrees well; our 1σ region splits into two θ₂₃ lobes around maximal mixing (NOvA's own frequentist 1σ interval has a gap there too)."
+
+[[figures]]
+id = "ssth23_dm32_IO"
+title = "sin²θ₂₃ – Δm²₃₂, inverted ordering"
+paper_ref = "Suppl. Fig. S8"
+original = "original/ssth23_dm32_IO.png"
+ours = "ours/ssth23_dm32_IO.png"
+agreement = "Good agreement in extent; |Δm²₃₂| slightly wider than official."
+
+[[figures]]
+id = "dcp_ssth23_NO"
+title = "δCP – sin²θ₂₃, normal ordering"
+paper_ref = "Suppl. Fig. S7"
+original = "original/dcp_ssth23_NO.png"
+ours = "ours/dcp_ssth23_NO.png"
+agreement = "Shape, the hole around δCP ≈ π/2 at low sin²θ₂₃ and the 3σ envelope are reproduced."
+
+[[figures]]
+id = "dcp_ssth23_IO"
+title = "δCP – sin²θ₂₃, inverted ordering"
+paper_ref = "Suppl. Fig. S7"
+original = "original/dcp_ssth23_IO.png"
+ours = "ours/dcp_ssth23_IO.png"
+agreement = "Regions centred at δCP ≈ 3π/2 as in the paper."

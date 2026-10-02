@@ -1,0 +1,12 @@
+[NO]
+abs_dm2_32 = 2.4578  # official 2.43 (1e-3 eV²)
+sin2_theta23 = 0.5575  # official 0.561
+dcp_over_pi = -1.000  # official -0.87
+minus2_dlogL_vs_global = 0.000
+
+[IO]
+abs_dm2_32 = 2.4961  # official 2.48 (1e-3 eV²)
+sin2_theta23 = 0.5569  # official 0.563
+dcp_over_pi = -0.450  # official -0.47
+minus2_dlogL_vs_global = 0.458
+

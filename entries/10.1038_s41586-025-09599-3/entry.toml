@@ -1,0 +1,36 @@
+title = "Joint neutrino oscillation analysis from the T2K and NOvA experiments"
+short = "NOvA + T2K joint oscillation analysis"
+collaboration = "NOvA, T2K"
+doi = "10.1038/s41586-025-09599-3"
+journal = "Nature 646, 818–824"
+year = 2025
+arxiv = "2510.19888"
+inspire = 3072534
+experiments = ["NOvA", "T2K"]
+parameters = ["δCP", "θ23", "Δm²32", "mass ordering"]
+status = "partial"
+added = "2026-10-02"
+summary = """
+Joint fit of the Newtrinos NOvA and T2K modules as they are (no shared systematics), with the reactor \
+constraint sin²θ₁₃ = 0.0218 ± 0.0007, compared with the official joint Bayesian analysis."""
+caveats = [
+  "Not like-for-like: the official analysis uses the NOvA 2020 data set and the T2K 2023 analysis; here NOvA 2024 (twice the ν exposure) and the T2K 2025 model are used.",
+  "Official results are Bayesian (marginalised, HPD); ours are profile likelihood.",
+  "Best fits (results/bestfit_vs_official.toml): NO |Δm²₃₂| 2.458 (2.43), sin²θ₂₃ 0.557 (0.561), δCP −1.00π (−0.87π); IO 2.496 (2.48), 0.557 (0.563), −0.45π (−0.47π). Mass ordering: we prefer NO by Δχ² = 0.46, official Bayes factor 1.3 for IO.",
+]
+links = [
+  { label = "Open access (PMC)", url = "https://pmc.ncbi.nlm.nih.gov/articles/PMC12545204/" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["nova", "t2k"]
+
+[[figures]]
+id = "fig3_dcp_ssth23"
+title = "δCP – sin²θ₂₃, normal and inverted ordering"
+paper_ref = "Fig. 3"
+original = "original/fig3_dcp_ssth23.png"
+ours = "ours/fig3_dcp_ssth23.png"
+agreement = "IO: 1σ/2σ/3σ regions and the 1σ δCP interval match closely. NO: 3σ envelope agrees; our 1σ sits at δCP ≈ ±π (NOvA-2024 prefers +0.8π, T2K −π/2)."

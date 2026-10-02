@@ -1,0 +1,29 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig3_dcp.png" = "3444aa1cc0937e658be0410666eadd424f0cbeadda5cb2b0ba28c473e2def83a"
+"ours/fig4_ssth23_dm2.png" = "1439602f28c2701d619ce778c27da659c056089ba6dd5159113b40fd65c9b62b"
+"results/t2k_IO.jld2" = "f1f9d7f972f57789bf7034937cd29df0639de618d25e7b24a7c85340956c5ae3"
+"results/t2k_IO_dcp.csv" = "2c876743dad183da71bcfa1c7426d0b70e0667743a01076198a79172d4b28d98"
+"results/t2k_IO_ssth23_dm2.csv" = "889638cb05eeeda49be122b757dbf4a5b56e65d82ebb71ef9d4fa32ce35cff00"
+"results/t2k_NO.jld2" = "e69e9a4836e23e1a71f33c50d707d71c5dc6f6e36ebc2270e3d89adcf420966e"
+"results/t2k_NO_dcp.csv" = "23269f1041fc789d38d29e0f312362a38b429798e2fd2c248031a05d38f322f5"
+"results/t2k_NO_ssth23_dm2.csv" = "7e0307552c61c382179ac2d0694256a775d86f46edd4b82be584bd8bfc231f6e"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 1414
+total_points = 1414
+
+[newtrinos]
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+repository = "https://github.com/philippeller/Newtrinos.jl"
+
+[run]
+command = "julia -t 4 --project=<Newtrinos.jl @ 8fe6897670> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-02T08:54:34Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 4
+wall_time_s = 123.0

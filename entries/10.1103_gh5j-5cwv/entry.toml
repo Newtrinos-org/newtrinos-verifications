@@ -1,0 +1,46 @@
+title = "Results from the T2K Experiment on Neutrino Mixing Including a New Far Detector μ-like Sample"
+short = "T2K 2025: neutrino mixing with the new νμCC1π⁺ sample"
+collaboration = "T2K"
+doi = "10.1103/gh5j-5cwv"
+journal = "Phys. Rev. Lett. 135, 261801"
+year = 2025
+arxiv = "2506.05889"
+inspire = 2931390
+experiments = ["T2K"]
+parameters = ["δCP", "θ23", "Δm²32", "mass ordering"]
+status = "partial"
+added = "2026-10-02"
+summary = """
+Three-flavour fit to the six T2K far-detector samples (FHC/RHC 1Rμ, FHC νμCC1π⁺, FHC/RHC 1Re, FHC 1Re1de; \
+19.7 (16.3)×10²⁰ POT in ν (ν̄) mode) with the reactor constraint on θ₁₃. All inputs are extracted from vector \
+PDFs: predictions from the T2K data release, data events from the figures of arXiv:2303.03222."""
+caveats = [
+  "e-like samples are fitted in E_rec only (T2K fits momentum–angle), which weakens the δCP and mass-ordering sensitivity (max Δχ² ≈ 10 vs 14.7 in NO).",
+  "The released predictions are ~5–9% above T2K's own fitted rates; FHC 1Rμ data are 15% below the release prediction.",
+  "The official θ₂₃–Δm² contours are digitised from a raster image; the official Δm² contour is smeared for simulated-data studies.",
+]
+links = [
+  { label = "Data release (zenodo 15701867)", url = "https://doi.org/10.5281/zenodo.15701867" },
+  { label = "Data events: arXiv:2303.03222", url = "https://arxiv.org/abs/2303.03222" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["t2k"]
+
+[[figures]]
+id = "fig3_dcp"
+title = "Δχ² as a function of δCP"
+paper_ref = "Fig. 3"
+original = "original/fig3_dcp.png"
+ours = "ours/fig3_dcp.png"
+agreement = "Best-fit δCP in both orderings reproduced (≈ −2.0 / −1.4); exclusion of δCP ≈ +π/2 and the IO penalty are weaker than official."
+
+[[figures]]
+id = "fig4_ssth23_dm2"
+title = "sin²θ₂₃ – Δm², 68%, 90%, 99.7% CL"
+paper_ref = "Fig. 4"
+original = "original/fig4_ssth23_dm2.png"
+ours = "ours/fig4_ssth23_dm2.png"
+agreement = "sin²θ₂₃ extent agrees; our Δm² regions are wider and centred ~0.02×10⁻³ eV² lower."
