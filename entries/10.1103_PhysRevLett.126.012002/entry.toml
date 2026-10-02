@@ -1,0 +1,35 @@
+title = "First Measurement of Coherent Elastic Neutrino-Nucleus Scattering on Argon"
+short = "COHERENT CENNS-10: first CEvNS on argon"
+collaboration = "COHERENT"
+doi = "10.1103/PhysRevLett.126.012002"
+journal = "Phys. Rev. Lett. 126, 012002"
+year = 2021
+arxiv = "2003.10630"
+inspire = 1787880
+experiments = ["COHERENT"]
+parameters = ["CEvNS cross section"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Number of CEvNS events in the CENNS-10 liquid-argon detector (Analysis A, fit in energy, time and F90), with \
+the SM-scaled cross-section model and all background and systematic nuisances profiled."""
+caveats = [
+  "The x axis is scale × the SM prediction of our model; the paper's SM prediction is 128 ± 17 events.",
+  "Only Analysis A is implemented; the official Analysis A curve is extracted from the vector figure.",
+  "Our SM prediction is 125.9 events (paper 128 ± 17); our best fit (≈ 140 events) lies about 20 events, half a standard deviation, below the official 159 ± 43, with a similar width.",
+]
+links = [
+  { label = "Data release: arXiv:2006.12659", url = "https://arxiv.org/abs/2006.12659" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "62de371619236b5ed553b1b938f91c96e505deac"
+modules = ["coherent_lAr", "cevns_xsec (xsec_model = :sm_scale)", "sns_flux"]
+
+[[figures]]
+id = "likelihood_nevents"
+title = "-2Δ ln L vs number of CEvNS events"
+paper_ref = "Fig. 8"
+original = "original/fig8_likelihood_nevents.png"
+ours = "ours/fig8_likelihood_nevents.png"

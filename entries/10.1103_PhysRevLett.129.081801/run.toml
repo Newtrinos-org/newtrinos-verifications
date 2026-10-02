@@ -1,0 +1,24 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/supp_fig4_dchi2_xsec.png" = "e9c6980aea50621e284d4477daaa962258192b1da653eece990bfe6b7232f022"
+"results/coherent_csi.jld2" = "a80264d4662ed6f323f0e510d15fa604f3d4c02945e554d078eebe6c72e511e6"
+"results/coherent_csi_scale.csv" = "55b19355bc5bcebb2a483dbfd8f3e18172c5b8026ca8e21cae76dc62a0ef5179"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 41
+
+[newtrinos]
+commit = "62de371619236b5ed553b1b938f91c96e505deac"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 16 --project=<Newtrinos.jl @ 62de371619> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-02T13:46:48Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 16
+wall_time_s = 72.4

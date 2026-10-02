@@ -1,0 +1,35 @@
+title = "Measurement of the Coherent Elastic Neutrino-Nucleus Scattering Cross Section on CsI by COHERENT"
+short = "COHERENT CsI[Na]: CEvNS cross section"
+collaboration = "COHERENT"
+doi = "10.1103/PhysRevLett.129.081801"
+journal = "Phys. Rev. Lett. 129, 081801"
+year = 2022
+arxiv = "2110.07730"
+inspire = 1945677
+experiments = ["COHERENT"]
+parameters = ["CEvNS cross section"]
+status = "partial"
+added = "2026-10-02"
+summary = """
+Flux-averaged CEvNS cross section on CsI[Na] from the full COHERENT CsI data set, fitted in recoil (PE) and \
+time, with the SM-scaled cross-section model (σ = scale × σ_SM) and all background and detector nuisances profiled."""
+caveats = [
+  "The x axis is scale × the paper's SM prediction ⟨σ⟩_Φ = 189 × 10⁻⁴⁰ cm²; the official curve is a raster image, so the paper's quoted result (165 +30 −25) × 10⁻⁴⁰ cm² is shown instead.",
+  "sin²θ_W is fixed; the nuclear radii are constrained by their priors (form-factor uncertainty).",
+  "Our fit finds fewer CEvNS events than the paper: 260 (best-fit scale 0.71 × our SM prediction of 365 events) vs. 306 ± 20 observed by COHERENT (SM prediction 341 ± 11 ± 42); the cross section is correspondingly low, ≈ 134 × 10⁻⁴⁰ cm² vs. 165 +30 −25.",
+]
+links = [
+  { label = "Supplemental material and data", url = "https://arxiv.org/abs/2110.07730" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "62de371619236b5ed553b1b938f91c96e505deac"
+modules = ["coherent_csi", "cevns_xsec (xsec_model = :sm_scale)", "sns_flux"]
+
+[[figures]]
+id = "dchi2_xsec"
+title = "Δχ² vs flux-averaged CEvNS cross section"
+paper_ref = "Suppl. Fig. 4"
+original = "original/supp_fig4_dchi2_xsec.png"
+ours = "ours/supp_fig4_dchi2_xsec.png"
