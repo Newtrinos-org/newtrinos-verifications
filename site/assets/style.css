@@ -159,3 +159,5 @@ th, td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); text-al
 .tool { padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); margin-top: 1.5rem; }
 .tool h2 { border: 0; margin-top: 0; padding-bottom: 0; }
 .tool p { max-width: 760px; }
+.pair .credit { margin: 0.5rem 0 0; font-size: 0.78rem; line-height: 1.4; color: #5d6676; }
+.pair .credit a { color: #2f5fd0; }

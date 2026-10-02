@@ -253,7 +253,9 @@ function entry_page(e)
     run = e["run"]
     figs = join(map(get(e, "figures", [])) do f
         orig = haskey(f, "original") ?
-            """<figure><figcaption>Paper · $(esc(get(f, "paper_ref", "")))</figcaption><a href="$(esc(f["original"]))"><img src="$(esc(f["original"]))" alt="Original: $(esc(f["title"]))" loading="lazy"></a></figure>""" :
+            """<figure><figcaption>Paper · $(esc(get(f, "paper_ref", "")))</figcaption><a href="$(esc(f["original"]))"><img src="$(esc(f["original"]))" alt="Original: $(esc(f["title"]))" loading="lazy"></a>
+<p class="credit">Original figure: $(esc(e["collaboration"])), $(esc(e["journal"])) ($(e["year"])), $(esc(get(f, "paper_ref", ""))),
+<a href="https://doi.org/$(esc(e["doi"]))">doi:$(esc(e["doi"]))</a>. Not our work; shown for comparison, all rights with the authors and publisher.</p></figure>""" :
             """<figure class="missing"><figcaption>Paper</figcaption><p class="muted">$(esc(get(f, "paper_ref", "no figure")))</p></figure>"""
         ours = isfile(joinpath(e["dir"], f["ours"])) ?
             """<figure><figcaption>Newtrinos.jl</figcaption><a href="$(esc(f["ours"]))"><img src="$(esc(f["ours"]))" alt="Reproduction: $(esc(f["title"]))" loading="lazy"></a></figure>""" :
@@ -332,8 +334,6 @@ $prov
 <h2>Downloads</h2>
 $downloads
 
-<p class="muted small">Original figures: $(esc(e["collaboration"])), $(esc(e["journal"])) ($(e["year"])),
-<a href="https://doi.org/$(esc(e["doi"]))">doi:$(esc(e["doi"]))</a>; reproduced for scientific comparison, all rights with the authors and publisher.</p>
 """
     page("$(e["short"]) · $(SITE.name)", body; depth = 2, description = e["title"], active = "entries")
 end
