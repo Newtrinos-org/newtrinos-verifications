@@ -1,0 +1,35 @@
+title = "Precision Constraints for Three-Flavor Neutrino Oscillations from the Full MINOS+ and MINOS Dataset"
+short = "MINOS/MINOS+: three-flavour constraints from the full dataset"
+collaboration = "MINOS+"
+doi = "10.1103/PhysRevLett.125.131802"
+journal = "Phys. Rev. Lett. 125, 131802"
+year = 2020
+arxiv = "2006.15208"
+inspire = 1803577
+experiments = ["MINOS/MINOS+"]
+parameters = ["θ23", "Δm²32"]
+status = "partial"
+added = "2026-10-02"
+summary = """
+νμ disappearance with the MINOS and MINOS+ beam data, compared with the beam-only contours of the full \
+three-flavour analysis.
+"""
+caveats = [
+  "Newtrinos uses the two-detector νμ CC data release of the sterile-neutrino search (arXiv:1710.06488, 16×10²⁰ POT), not the exact beam data set and systematics of this paper.",
+  "The official beam contours are digitised from Fig. 3.",
+]
+links = [
+  { label = "Data release: arXiv:1710.06488", url = "https://arxiv.org/abs/1710.06488" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["minos"]
+
+[[figures]]
+id = "beam_contours"
+title = "sin²θ₂₃ – Δm²₃₂, beam data, 68% and 90% C.L."
+paper_ref = "Fig. 3"
+original = "original/beam_vs_atmos.png"
+ours = "ours/beam_contours.png"

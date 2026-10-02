@@ -1,0 +1,33 @@
+title = "Constraints on θ13 from A Three-Flavor Oscillation Analysis of Reactor Antineutrinos at KamLAND"
+short = "KamLAND: reactor antineutrino oscillations"
+collaboration = "KamLAND"
+doi = "10.1103/PhysRevD.83.052002"
+journal = "Phys. Rev. D 83, 052002"
+year = 2011
+arxiv = "1009.4771"
+inspire = 870962
+experiments = ["KamLAND"]
+parameters = ["θ12", "Δm²21"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Reactor ν̄e disappearance at KamLAND in the (tan²θ₁₂, Δm²₂₁) plane with θ₁₃ = 0, compared with the KamLAND-only \
+regions of the paper.
+"""
+caveats = [
+  "The prompt-energy spectra are digitised from the paper's figures.",
+  "The paper figure also shows solar and combined regions; only the KamLAND-only contours are reproduced.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["kamland"]
+
+[[figures]]
+id = "fig2a"
+title = "tan²θ₁₂ – Δm²₂₁, θ₁₃ = 0, 95%, 99%, 99.73% C.L."
+paper_ref = "Fig. 2(a)"
+original = "original/fig2a_tan2th12_dm21.png"
+ours = "ours/fig2a_tan2th12_dm21.png"

@@ -273,10 +273,11 @@ function entry_page(e)
 
     code = read(joinpath(e["dir"], "reproduce.jl"), String)
     commit = run === nothing ? e["newtrinos"]["commit"] : run["newtrinos"]["commit"]
+    short_commit = occursin(r"^[0-9a-f]{40}$", commit) ? commit[1:10] : commit
     repo = e["newtrinos"]["repository"]
 
     prov = if run === nothing
-        "<p class=\"muted\">This entry has not been run yet.</p>"
+        "<p class=\"muted\">This entry has not been run yet$(haskey(e["newtrinos"], "requires") ? " (it needs a Newtrinos.jl commit that contains $(join(e["newtrinos"]["requires"], ", ")))" : "").</p>"
     else
         rr = run["run"]
         """
@@ -319,7 +320,7 @@ $caveats
 
 <h2>Reproduce</h2>
 <ol class="steps">
-  <li><code>git clone $(esc(repo)).git && cd Newtrinos.jl && git checkout $(commit[1:10])</code></li>
+  <li><code>git clone $(esc(repo)).git && cd Newtrinos.jl && git checkout $(esc(short_commit))</code></li>
   <li>Download <a href="reproduce.jl" download>reproduce.jl</a>$(isdir(joinpath(e["dir"], "data")) ? " and the <code>data/</code> folder of this entry" : "") into an empty directory.</li>
   <li><code>julia -t 8 --project=/path/to/Newtrinos.jl reproduce.jl</code></li>
 </ol>

@@ -5,6 +5,9 @@
 #
 #   julia tools/run_entry.jl entries/<slug> --newtrinos=/path/to/Newtrinos.jl [--threads=8]
 #
+# The pinned commit may be a ref (e.g. origin/main); it is resolved and recorded as a hash. An optional
+# `requires = [...]` list in [newtrinos] names commits that must be contained in it (e.g. bug fixes).
+#
 # --newtrinos is a local clone of Newtrinos.jl that contains the pinned commit; a detached git worktree
 # of that commit is created under .worktrees/ (so local modifications of the clone are never used).
 using TOML, SHA, Dates
@@ -13,7 +16,7 @@ function parse_args(args)
     entry = nothing; opts = Dict("threads" => "8")
     for a in args
         if startswith(a, "--")
-            k, v = split(a[3:end], "=", limit = 2); opts[k] = v
+            kv = split(a[3:end], "=", limit = 2); opts[kv[1]] = length(kv) == 2 ? kv[2] : "true"
         else
             entry = a
         end
@@ -36,6 +39,10 @@ if !isdir(worktree)
     run(`git -C $clone worktree add --detach $worktree $commit`)
 end
 @assert strip(read(`git -C $worktree rev-parse HEAD`, String)) == commit
+for req in get(meta["newtrinos"], "requires", String[])
+    success(`git -C $clone merge-base --is-ancestor $req $commit`) ||
+        error("pinned commit $(commit[1:10]) does not contain required commit $req; update [newtrinos].commit in entry.toml")
+end
 @assert isempty(strip(read(`git -C $worktree status --porcelain --untracked-files=no`, String))) "worktree is not clean"
 
 julia = Base.julia_cmd()

@@ -1,0 +1,37 @@
+title = "Atmospheric neutrino oscillation analysis with neutron tagging and an expanded fiducial volume in Super-Kamiokande I–V"
+short = "Super-Kamiokande I–V: atmospheric neutrino oscillations"
+collaboration = "Super-Kamiokande"
+doi = "10.1103/PhysRevD.109.072014"
+journal = "Phys. Rev. D 109, 072014"
+year = 2024
+arxiv = "2311.05105"
+inspire = 2720510
+experiments = ["Super-Kamiokande"]
+parameters = ["δCP", "θ13", "θ23", "Δm²32", "mass ordering"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+SK-only atmospheric neutrino fit with sin²θ₁₃ free, using the Super-K I–V data release (binned data and MC with \
+systematic response), for both mass orderings, compared with the official Δχ² tables of the release."""
+caveats = [
+  "The detector response is modelled from the released MC (smoothed response matrices); the official tables come from the full SK analysis.",
+  "The official tables are relative to each ordering; the IO curves are shifted by the quoted Δχ²(IO − NO) = 5.23.",
+  "Computationally expensive (≈80 free parameters per fit): run on a large machine with many threads.",
+]
+links = [
+  { label = "Data release (zenodo 8401262)", url = "https://doi.org/10.5281/zenodo.8401262" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "origin/main"
+# the physics-review fixes (Super-K ν + ν̄ sum, masks) and the T2K module must be merged first
+requires = ["b84e9fc", "8fe6897"]
+modules = ["super_k"]
+
+[[figures]]
+id = "fig14"
+title = "1D Δχ² profiles of δCP, sin²θ₁₃, |Δm²|, sin²θ₂₃ (θ₁₃ free)"
+paper_ref = "Fig. 14"
+original = "original/fig14_1d_profiles.png"
+ours = "ours/fig14_1d_profiles.png"

@@ -1,0 +1,35 @@
+title = "Measurement of neutrino oscillation parameters with the first six detection units of KM3NeT/ORCA"
+short = "KM3NeT/ORCA6: atmospheric oscillations with 433 kton-years"
+collaboration = "KM3NeT"
+doi = "10.1007/JHEP10(2024)206"
+journal = "JHEP 10 (2024) 206"
+year = 2024
+arxiv = "2408.07015"
+inspire = 2817709
+experiments = ["KM3NeT/ORCA"]
+parameters = ["θ23", "Δm²31", "mass ordering"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Atmospheric neutrino oscillations with the first six detection units of KM3NeT/ORCA (433 kton-years), using the \
+KM3NeT open-data release of the binned event sample and response, for both mass orderings.
+"""
+caveats = [
+  "The official contours are computed from the χ² landscapes shipped with the data release; both are shown relative to the minimum over both orderings.",
+  "The up/down flux ratio systematic is fixed, as in the Newtrinos validation.",
+]
+links = [
+  { label = "KM3NeT open data", url = "https://opendata.km3net.de/dataset.xhtml?persistentId=doi:10.5072/FK2/Y0UXVW" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["orca"]
+
+[[figures]]
+id = "contour_NOIO"
+title = "sin²θ₂₃ – |Δm²₃₁|, 90% CL, NO and IO"
+paper_ref = "Fig. 6 (left)"
+original = "original/contour_NOIO.png"
+ours = "ours/contour_NOIO.png"

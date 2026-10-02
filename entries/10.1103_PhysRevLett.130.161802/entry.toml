@@ -1,0 +1,34 @@
+title = "Precision Measurement of Reactor Antineutrino Oscillation at Kilometer-Scale Baselines by Daya Bay"
+short = "Daya Bay: full 3158-day data set"
+collaboration = "Daya Bay"
+doi = "10.1103/PhysRevLett.130.161802"
+journal = "Phys. Rev. Lett. 130, 161802"
+year = 2023
+arxiv = "2211.14988"
+inspire = 2601288
+experiments = ["Daya Bay"]
+parameters = ["θ13", "Δm²ee"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Reactor ν̄e disappearance with the complete Daya Bay data set (3158 days, three experimental halls), using the \
+prompt spectra, backgrounds and covariance from the supplemental material.
+"""
+caveats = [
+  "Both our result and the official Δχ² table (given in Δm²₃₂) are converted to Δm²ee = Δm²₃₁ − sin²θ₁₂ Δm²₂₁ for the comparison.",
+]
+links = [
+  { label = "Supplemental material (arXiv)", url = "https://arxiv.org/abs/2211.14988" },
+]
+
+[newtrinos]
+repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+modules = ["dayabay"]
+
+[[figures]]
+id = "contour"
+title = "sin²2θ₁₃ – Δm²ee, 1σ, 2σ, 3σ"
+paper_ref = "Fig. 1"
+original = "original/contour_dmee_ss2th13.png"
+ours = "ours/contour_dmee_ss2th13.png"

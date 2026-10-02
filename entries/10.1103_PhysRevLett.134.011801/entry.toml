@@ -1,0 +1,42 @@
+title = "First Joint Oscillation Analysis of Super-Kamiokande Atmospheric and T2K Accelerator Neutrino Data"
+short = "Super-K + T2K joint oscillation analysis"
+collaboration = "Super-Kamiokande, T2K"
+doi = "10.1103/PhysRevLett.134.011801"
+journal = "Phys. Rev. Lett. 134, 011801"
+year = 2025
+arxiv = "2405.12488"
+inspire = 2788741
+experiments = ["Super-Kamiokande", "T2K"]
+parameters = ["δCP", "θ23", "mass ordering"]
+status = "partial"
+added = "2026-10-02"
+summary = """
+Joint fit of the Newtrinos Super-K atmospheric and T2K modules as they are (no correlated systematics), with the \
+reactor constraint, compared with the official joint analysis and its frequentist data release."""
+caveats = [
+  "Not like-for-like: the official analysis uses the T2K 2023 analysis and correlated SK systematics; here the T2K 2025 model and independent systematics are used.",
+  "The paper figure shows Bayesian credible regions (mass ordering marginalised); ours are profile-likelihood regions with the mass ordering profiled.",
+  "Computationally expensive: run on a large machine with many threads.",
+]
+links = [
+  { label = "Data release (zenodo 12702685)", url = "https://doi.org/10.5281/zenodo.12702685" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "origin/main"
+requires = ["b84e9fc", "8fe6897"]
+modules = ["t2k", "super_k"]
+
+[[figures]]
+id = "fig1"
+title = "(sin²θ₂₃, δCP) regions, 1σ and 2σ, mass ordering profiled"
+paper_ref = "Fig. 1"
+original = "original/fig1_ssth23_dcp.png"
+ours = "ours/fig1_ssth23_dcp.png"
+
+[[figures]]
+id = "dcp"
+title = "Δχ² vs δCP per mass ordering"
+paper_ref = "Data release (Frequentist2)"
+ours = "ours/dcp_dchi2.png"

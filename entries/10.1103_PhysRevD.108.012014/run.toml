@@ -1,0 +1,28 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/contour_90.png" = "69fa58b6b3fae856c3f5fa21b1652607e1354373f42f0bb0adb4f3f9fd90a39e"
+"ours/mass_splitting_profile.png" = "ba52dc265ddbe46f47385131868a6f978dd0494cc9a00aa302a034a57a5f9d75"
+"ours/mixing_profile.png" = "51da4f3894cd99cceeddd17d52598760f4485d2b9b7a639b1d9f726140cdd58d"
+"results/deepcore.jld2" = "fc3d099d408f4de1b0224f63ab3760d36afc31a33714a175ee6d9e2430f7a29f"
+"results/deepcore_dm32.csv" = "cbd71909c44e3333a2c8250cb801ec660e69486d3909bfe966d42d8630907fda"
+"results/deepcore_ssth23.csv" = "a6eb7af59cabc0505f8041cbfec0f7425321b3f266f47d2b5c0a6849363c7e6a"
+"results/deepcore_ssth23_dm32.csv" = "0c2b8f520f8fe82cced05f6005c6fcf13dde6326c1d0dad9ed5802a5d14aa6ef"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 211
+total_points = 211
+
+[newtrinos]
+commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+repository = "https://github.com/philippeller/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ 8fe6897670> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-02T09:43:51Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 8
+wall_time_s = 61.8

@@ -38,6 +38,19 @@ site/build.jl                build the static site into public/
 
 Fits are never run in CI; the GitHub Pages workflow only builds the site from the committed outputs.
 
+## Expensive entries (Super-K, SK + T2K)
+
+These fits take long; run them on a large machine with many threads:
+
+```bash
+julia tools/run_entry.jl entries/<slug> --newtrinos=/path/to/Newtrinos.jl --threads=100
+```
+
+Finished scan points are cached (per commit), so an interrupted run can simply be restarted.
+
+The Super-K and SK + T2K entries are pinned to `origin/main` and require the Newtrinos.jl physics-review fixes and
+the T2K module (`requires` in their `entry.toml`); use a clone of Newtrinos-org/Newtrinos.jl after both are merged.
+
 ## License
 
 - **Code** (`tools/`, `site/`, every `entries/*/reproduce.jl`): [MIT](LICENSE).
