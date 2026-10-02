@@ -37,3 +37,12 @@ site/build.jl                build the static site into public/
    ```
 
 Fits are never run in CI; the GitHub Pages workflow only builds the site from the committed outputs.
+
+## License
+
+- **Code** (`tools/`, `site/`, every `entries/*/reproduce.jl`): [MIT](LICENSE).
+- **Our results** (`entries/*/ours/`, `entries/*/results/`, `run.toml`): [CC BY 4.0](LICENSE-CC-BY-4.0.txt).
+  Please cite the reproduced paper and [Newtrinos.jl](https://doi.org/10.21105/joss.09644) when reusing them.
+- **Not covered:** the original figures in `entries/*/original/` and inputs derived from them (`entries/*/data/`)
+  remain the property of the respective collaborations and publishers. They are reproduced here, with citation,
+  for scientific comparison only.

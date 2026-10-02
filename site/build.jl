@@ -84,7 +84,9 @@ $body
     Built with <a href="https://github.com/Newtrinos-org/Newtrinos.jl">Newtrinos.jl</a> ·
     <a href="https://newtrinos-org.github.io/Newtrinos.jl/stable/">docs</a> ·
     <a href="https://doi.org/10.21105/joss.09644">JOSS</a> ·
-    <a href="$(SITE.repo)">source</a> · generated $(Dates.format(now(UTC), "yyyy-mm-dd"))
+    <a href="$(SITE.repo)">source</a> · generated $(Dates.format(now(UTC), "yyyy-mm-dd"))<br>
+    Code: <a href="$(SITE.repo)/blob/main/LICENSE">MIT</a> · our figures and results:
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · original paper figures: © the respective collaborations and publishers
   </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -236,6 +238,12 @@ checks out that commit into a clean worktree, runs the entry's <code>reproduce.j
 Julia version, machine, run time and SHA-256 checksums of all outputs in <code>run.toml</code>.</p>
 <p>Original figures are reproduced from the cited publications for the purpose of scientific comparison;
 all rights remain with the respective collaborations and publishers.</p>
+<h2>License</h2>
+<p>The code (reproduction scripts, tools and this site) is released under the
+<a href="$(SITE.repo)/blob/main/LICENSE">MIT license</a>. Our reproduced figures and fit results are released under
+<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; please cite the reproduced paper and
+<a href="https://doi.org/10.21105/joss.09644">Newtrinos.jl</a> when reusing them. The original paper figures, and inputs
+derived from them, are not covered by these licenses.</p>
 </div>"""
     page("About · $(SITE.name)", body; depth = 1, active = "about")
 end
