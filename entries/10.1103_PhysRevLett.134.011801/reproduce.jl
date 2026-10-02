@@ -48,11 +48,12 @@ priors = merge(priors, (θ₁₂ = p.θ₁₂, Δm²₂₁ = p.Δm²₂₁, θ�
 orderings = (NO = (Δm²₃₂ = (2.2e-3, 2.8e-3), start = (Δm²₃₂ = 2.49e-3, δCP = mod(-1.9, 2π))),
              IO = (Δm²₃₂ = (-2.8e-3, -2.2e-3), start = (Δm²₃₂ = -2.53e-3, δCP = mod(-1.5, 2π))))
 
-function profile_octants(pr, p0, vars, cache_dir)
+function profile_octants(pr, p0, vars, cache_dir)   # octants scanned concurrently
+    mkpath(cache_dir)
     oct = map((lower = (θ₂₃_range[1], π / 4), upper = (π / 4, θ₂₃_range[2]))) do r
-        mkpath(cache_dir)
-        Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
+        Threads.@spawn Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
     end
+    oct = map(fetch, oct)
     better = oct.lower.values.log_posterior .>= oct.upper.values.log_posterior
     Newtrinos.NewtrinosResult(axes = oct.lower.axes, values = map((l, u) -> ifelse.(better, l, u), oct.lower.values, oct.upper.values), meta = oct.lower.meta)
 end
@@ -61,10 +62,12 @@ results = map(keys(orderings), values(orderings)) do mo, o
     pr = @set priors.Δm²₃₁ = Uniform((o.Δm²₃₂ .+ p.Δm²₂₁)...)
     p0 = merge(p, (Δm²₃₁ = o.start.Δm²₃₂ + p.Δm²₂₁, δCP = o.start.δCP, θ₂₃ = asin(sqrt(0.53))))
     mkpath("cache/$(mo)_th23dcp")
-    th23dcp = Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 21, :δCP => 25), p0, cache_dir = "cache/$(mo)_th23dcp")
-    dcp = profile_octants(pr, p0, OrderedDict(:δCP => 41), "cache/$(mo)_dcp")
+    # all scans of both orderings start at once (Threads.@spawn) to keep many threads busy
+    th23dcp = Threads.@spawn Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 21, :δCP => 25), p0, cache_dir = "cache/$(mo)_th23dcp")
+    dcp = Threads.@spawn profile_octants(pr, p0, OrderedDict(:δCP => 41), "cache/$(mo)_dcp")
     mo => (; th23dcp, dcp)
 end |> NamedTuple
+results = map(t -> map(fetch, t), results)
 
 global_max = maximum(r -> maximum(r.dcp.values.log_posterior), results)
 FileIO.save("results/t2k_sk.jld2", Dict("$(mo)_$(k)" => results[mo][k] for mo in keys(results) for k in keys(results[mo])))

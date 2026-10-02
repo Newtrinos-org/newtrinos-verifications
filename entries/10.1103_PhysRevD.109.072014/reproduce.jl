@@ -46,11 +46,12 @@ priors = merge(priors, (θ₁₂ = p.θ₁₂, Δm²₂₁ = p.Δm²₂₁, θ�
                         δCP = Uniform(0, 2π), θ₂₃ = Uniform(θ₂₃_range...)))
 orderings = (NO = (Δm²₃₂ = (1.2e-3, 3.6e-3), start = 2.4e-3), IO = (Δm²₃₂ = (-3.6e-3, -1.2e-3), start = -2.4e-3))
 
-function profile_octants(pr, p0, vars, cache_dir)   # θ₂₃ octants are separate minima
+function profile_octants(pr, p0, vars, cache_dir)   # θ₂₃ octants are separate minima, scanned concurrently
+    mkpath(cache_dir)
     oct = map((lower = (θ₂₃_range[1], π / 4), upper = (π / 4, θ₂₃_range[2]))) do r
-        mkpath(cache_dir)
-        Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
+        Threads.@spawn Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
     end
+    oct = map(fetch, oct)
     better = oct.lower.values.log_posterior .>= oct.upper.values.log_posterior
     Newtrinos.NewtrinosResult(axes = oct.lower.axes, values = map((l, u) -> ifelse.(better, l, u), oct.lower.values, oct.upper.values), meta = oct.lower.meta)
 end
@@ -59,15 +60,17 @@ function prof(pr, p0, vars, cache_dir)
     Newtrinos.profile(likelihood, pr, vars, p0, cache_dir = cache_dir)
 end
 
-# 1D profiles per ordering (Δm²₃₁ = Δm²₃₂ + Δm²₂₁)
-results = map(keys(orderings), values(orderings)) do mo, o
+# 1D profiles per ordering (Δm²₃₁ = Δm²₃₂ + Δm²₂₁). All scans are started at once (Threads.@spawn), so their
+# ~290 points fill a machine with many threads instead of one 16–25-point scan at a time.
+tasks = map(keys(orderings), values(orderings)) do mo, o
     pr = @set priors.Δm²₃₁ = Uniform((o.Δm²₃₂ .+ p.Δm²₂₁)...)
     p0 = merge(p, (Δm²₃₁ = o.start + p.Δm²₂₁, θ₂₃ = asin(sqrt(0.45))))
-    mo => (dcp = profile_octants(pr, p0, OrderedDict(:δCP => 21), "cache/$(mo)_dcp"),
-           th13 = profile_octants(pr, p0, OrderedDict(:θ₁₃ => 16), "cache/$(mo)_th13"),
-           dm2 = profile_octants(pr, p0, OrderedDict(:Δm²₃₁ => 25), "cache/$(mo)_dm2"),
-           th23 = prof(pr, p0, OrderedDict(:θ₂₃ => 20), "cache/$(mo)_th23"))
+    mo => (dcp = Threads.@spawn(profile_octants(pr, p0, OrderedDict(:δCP => 21), "cache/$(mo)_dcp")),
+           th13 = Threads.@spawn(profile_octants(pr, p0, OrderedDict(:θ₁₃ => 16), "cache/$(mo)_th13")),
+           dm2 = Threads.@spawn(profile_octants(pr, p0, OrderedDict(:Δm²₃₁ => 25), "cache/$(mo)_dm2")),
+           th23 = Threads.@spawn(prof(pr, p0, OrderedDict(:θ₂₃ => 20), "cache/$(mo)_th23")))
 end |> NamedTuple
+results = map(t -> map(fetch, t), tasks)
 
 global_max = maximum(r -> maximum(x -> maximum(x.values.log_posterior), r), results)
 FileIO.save("results/superk.jld2", Dict("$(mo)_$(k)" => results[mo][k] for mo in keys(results) for k in keys(results[mo])))
