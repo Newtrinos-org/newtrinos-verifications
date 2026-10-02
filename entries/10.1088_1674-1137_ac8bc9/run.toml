@@ -1,0 +1,29 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig7_dchi2_6years.png" = "4455bfb1f7701665cd22236fd90cfa9787314c42cced18570024bc2ad8dea227"
+"ours/fig8_precision_vs_time.png" = "a8e3b318c72f54c29e6de66a7ad6b3840eb6541df9f550e3d9f4796d873cffd3"
+"results/juno_6years.jld2" = "d8998ce58ec644f1a34ff45c64f382e6cc6d91811a204d66ef4fea0619742066"
+"results/juno_6years_Δm²₂₁.csv" = "04e8d3ffde149a91c3c637cd1dbd0c6de6b5f70b31c1a9f1adaea6aab1005fc1"
+"results/juno_6years_Δm²₃₁.csv" = "7177dd2b0b893fd0aef577b878f0c1e83987aaefe3a9c67b0ccea7735a4ae230"
+"results/juno_6years_θ₁₂.csv" = "d4561b15cea7e14df52beb8d84fc35dad48361e4c724368e1d4f9886a6de7c9d"
+"results/juno_6years_θ₁₃.csv" = "44c0f166f3389b958dcfd3627331373299d5891e387c123197f2c669777110e6"
+"results/juno_precision_vs_time.csv" = "13b03aae2cd0fbd907826f364cbda3dbdbda06ed0a6bb8b81d9fd38f9662cd52"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 504
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 16 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-02T14:00:24Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 16
+wall_time_s = 164.1

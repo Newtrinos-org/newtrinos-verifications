@@ -1,0 +1,40 @@
+title = "Sub-percent precision measurement of neutrino oscillation parameters with JUNO"
+short = "JUNO: sub-percent precision of oscillation parameters (sensitivity)"
+collaboration = "JUNO"
+doi = "10.1088/1674-1137/ac8bc9"
+journal = "Chin. Phys. C 46, 123001"
+year = 2022
+arxiv = "2204.13249"
+inspire = 2075005
+experiments = ["JUNO"]
+parameters = ["θ12", "θ13", "Δm²21", "Δm²31"]
+status = "reproduced"
+added = "2026-10-02"
+summary = """
+Expected (Asimov) sensitivity of JUNO to Δm²₃₁, Δm²₂₁, sin²θ₁₂ and sin²θ₁₃ in the normal ordering, without an \
+external θ₁₃ constraint, as a function of data-taking time. This is a sensitivity study: there are no data."""
+caveats = [
+  "Sensitivity reproduction: the Asimov data set at the paper's true point is fitted; the paper's 1σ precisions (Table 6) are compared as Gaussian Δχ² curves and markers.",
+  "The Newtrinos JUNO model (backgrounds, detector response, TAO-constrained reference spectrum) is built from the paper's inputs.",
+  "Agreement within ~10% at 100 days and 6 years except Δm²₂₁ (ours 0.25% vs 0.32% at 6 years); at 20 years our Δm²₂₁ and sin²θ₁₃ precisions (0.13%, 6.0%) are better than the paper's (0.23%, 7.3%), i.e. our systematic floor on the spectral shape is weaker.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["juno"]
+
+[[figures]]
+id = "fig7"
+title = "1D Δχ² profiles after 6 years"
+paper_ref = "Fig. 7"
+original = "original/fig7_dchi2_6years.png"
+ours = "ours/fig7_dchi2_6years.png"
+
+[[figures]]
+id = "fig8"
+title = "Relative precision vs data-taking time"
+paper_ref = "Fig. 8, Table 6"
+original = "original/fig8_precision_vs_time.png"
+ours = "ours/fig8_precision_vs_time.png"
