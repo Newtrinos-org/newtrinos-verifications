@@ -24,9 +24,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "origin/main"
-# the physics-review fixes (Super-K ν + ν̄ sum, masks) and the T2K module must be merged first
-requires = ["b84e9fc", "8fe6897"]
+commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
 modules = ["super_k"]
 
 [[figures]]

@@ -25,8 +25,8 @@ links = [
 ]
 
 [newtrinos]
-repository = "https://github.com/philippeller/Newtrinos.jl"
-commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
 modules = ["t2k"]
 
 [[figures]]

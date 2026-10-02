@@ -1,28 +1,28 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/contour_90.png" = "69fa58b6b3fae856c3f5fa21b1652607e1354373f42f0bb0adb4f3f9fd90a39e"
-"ours/mass_splitting_profile.png" = "ba52dc265ddbe46f47385131868a6f978dd0494cc9a00aa302a034a57a5f9d75"
-"ours/mixing_profile.png" = "51da4f3894cd99cceeddd17d52598760f4485d2b9b7a639b1d9f726140cdd58d"
-"results/deepcore.jld2" = "fc3d099d408f4de1b0224f63ab3760d36afc31a33714a175ee6d9e2430f7a29f"
-"results/deepcore_dm32.csv" = "cbd71909c44e3333a2c8250cb801ec660e69486d3909bfe966d42d8630907fda"
-"results/deepcore_ssth23.csv" = "a6eb7af59cabc0505f8041cbfec0f7425321b3f266f47d2b5c0a6849363c7e6a"
-"results/deepcore_ssth23_dm32.csv" = "0c2b8f520f8fe82cced05f6005c6fcf13dde6326c1d0dad9ed5802a5d14aa6ef"
+"ours/contour_90.png" = "071d9dfe50d394a702847852d90f1f94284b571b56317529b5dcc65e6a9a3aa4"
+"ours/mass_splitting_profile.png" = "114968807a5fb32e4c8eb068065ebf2b03c2c9a9a33c3ae802e7af107079fa26"
+"ours/mixing_profile.png" = "468d411d68824684dc299d26ef7321ffc32277be255e04dfa5e228b34a6c29b4"
+"results/deepcore.jld2" = "0e29fb604fea2c0b1612fa538bc607cf6d08651d95dc40e090687aed669ebe95"
+"results/deepcore_dm32.csv" = "8a9401cf1ace8a92b318d3d96a71427ab810f9a2f7b59c42e19f36ea9ca0f60d"
+"results/deepcore_ssth23.csv" = "6faee8339a64e243bd43a185886c316b02cb5a1eafc8eb6575ec42d7aa1f2357"
+"results/deepcore_ssth23_dm32.csv" = "a0b6a285ed8c1884083701aebc3c681875637fa96fd0ade09182a0dc1ef3b542"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 211
+reused_points = 0
 total_points = 211
 
 [newtrinos]
-commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
-repository = "https://github.com/philippeller/Newtrinos.jl"
+commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 8 --project=<Newtrinos.jl @ 8fe6897670> reproduce.jl"
+command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-02T09:43:51Z"
+date = "2026-10-02T10:30:49Z"
 julia = "1.13.0"
 os = "Linux"
-threads = 8
-wall_time_s = 61.8
+threads = 16
+wall_time_s = 1724.8

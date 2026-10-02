@@ -1,13 +1,14 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/contour_dmee_ss2th13.png" = "676ec58fd12eaa7e7eb3aab77affafce2c09ac66ff9a495c4fbf6836e4f38334"
-"results/dayabay.jld2" = "142fcaf558e889b8e8b73f630d045a00b0cc5a81e172b3261dab35a0b154aa08"
-"results/dayabay_th13_dm31.csv" = "243f025f0ff14de2dca0407550747e4d85d31a122b16fe7246c256c55db22295"
+"ours/contour_NOIO.png" = "b07fbeab20188f16a2147a6015e1159681ff775d68b210c43a21d6646cda1903"
+"results/orca6.jld2" = "6b2bd735acc525a629d3bfedc3f655fefa2ab1b8d604fd7fdf8fec86a9b65a5f"
+"results/orca6_IO_ssth23_dm31.csv" = "57439d08616f1a3759f09160a59c37235b3490887a4996ca7523b208b13cd95b"
+"results/orca6_NO_ssth23_dm31.csv" = "72ba432a3ff0c5e345c4b1ade8cab05902426f1fb1424f6fd55eb29fadda0378"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
 reused_points = 0
-total_points = 0
+total_points = 882
 
 [newtrinos]
 commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
@@ -17,8 +18,8 @@ repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-02T10:20:32Z"
+date = "2026-10-02T10:59:50Z"
 julia = "1.13.0"
 os = "Linux"
 threads = 16
-wall_time_s = 47.9
+wall_time_s = 676.2

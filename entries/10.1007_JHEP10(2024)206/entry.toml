@@ -8,7 +8,7 @@ arxiv = "2408.07015"
 inspire = 2817709
 experiments = ["KM3NeT/ORCA"]
 parameters = ["θ23", "Δm²31", "mass ordering"]
-status = "reproduced"
+status = "partial"
 added = "2026-10-02"
 summary = """
 Atmospheric neutrino oscillations with the first six detection units of KM3NeT/ORCA (433 kton-years), using the \
@@ -17,14 +17,15 @@ KM3NeT open-data release of the binned event sample and response, for both mass 
 caveats = [
   "The official contours are computed from the χ² landscapes shipped with the data release; both are shown relative to the minimum over both orderings.",
   "The up/down flux ratio systematic is fixed, as in the Newtrinos validation.",
+  "Approximate agreement only: our NO region extends further to large sin²θ₂₃ at |Δm²₃₁| ≈ 2.3×10⁻³ eV², and our IO region is narrower in |Δm²₃₁| than the official one.",
 ]
 links = [
   { label = "KM3NeT open data", url = "https://opendata.km3net.de/dataset.xhtml?persistentId=doi:10.5072/FK2/Y0UXVW" },
 ]
 
 [newtrinos]
-repository = "https://github.com/philippeller/Newtrinos.jl"
-commit = "8fe689767033e5a2f2cfb98b8832a408f566a13e"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
 modules = ["orca"]
 
 [[figures]]
