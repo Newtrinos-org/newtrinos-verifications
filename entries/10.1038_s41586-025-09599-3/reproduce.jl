@@ -50,6 +50,11 @@ function profile_octants(pr, p0, vars, cache_dir)
     oct = map((lower = (θ₂₃_range[1], π / 4), upper = (π / 4, θ₂₃_range[2]))) do r
         Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
     end
+    # the two octant scans use θ₂₃ priors of different widths, which shifts each log_posterior by its own
+    # constant −log(width): remove it before comparing the octants (nuisance-parameter priors are kept)
+    widths = (lower = π / 4 - θ₂₃_range[1], upper = θ₂₃_range[2] - π / 4)
+    oct = map((r, w) -> Newtrinos.NewtrinosResult(axes = r.axes, meta = r.meta,
+                                                   values = merge(r.values, (log_posterior = r.values.log_posterior .+ log(w),))), oct, widths)
     better = oct.lower.values.log_posterior .>= oct.upper.values.log_posterior
     Newtrinos.NewtrinosResult(axes = oct.lower.axes, values = map((l, u) -> ifelse.(better, l, u), oct.lower.values, oct.upper.values), meta = oct.lower.meta)
 end
@@ -62,10 +67,13 @@ results = map(keys(orderings), values(orderings)) do mo, o
     FileIO.save("results/nova_t2k_$(mo).jld2", Dict("dcp" => dcp, "dcpth23" => dcpth23))
     mo => (; dcp, dcpth23)
 end |> NamedTuple
+# Δχ² references: each scan type carries the log density of its own scanned-parameter priors, so a scan is
+# referenced to the best fit over both orderings of the same scan type
+scan_max(k) = maximum(r -> maximum(r[k].values.log_posterior), results)
 global_max = maximum(r -> maximum(r.dcp.values.log_posterior), results)
 for mo in keys(results)   # dchi2 relative to the global best fit over both orderings
     save_csv("results/nova_t2k_$(mo)_dcp.csv", results[mo].dcp; ref = global_max)
-    save_csv("results/nova_t2k_$(mo)_dcp_ssth23.csv", results[mo].dcpth23; ref = global_max)
+    save_csv("results/nova_t2k_$(mo)_dcp_ssth23.csv", results[mo].dcpth23; ref = scan_max(:dcpth23))
 end
 
 # Fig. 3: δCP – sin²θ₂₃, 1σ / 2σ / 3σ, per ordering, with the official Bayesian regions (data/, extracted from the vector figure)

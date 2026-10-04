@@ -1,17 +1,17 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig3_dcp.png" = "3444aa1cc0937e658be0410666eadd424f0cbeadda5cb2b0ba28c473e2def83a"
+"ours/fig3_dcp.png" = "d2cd9c95f70f71e2bd4cb93bfc576848fba26bb4c5d5781b48bd53aace8792ec"
 "ours/fig4_ssth23_dm2.png" = "1439602f28c2701d619ce778c27da659c056089ba6dd5159113b40fd65c9b62b"
-"results/t2k_IO.jld2" = "2609ee4915c6ff54d81e8626c7c4d8d78f6d18349dfd176bb16965c734020943"
-"results/t2k_IO_dcp.csv" = "2c876743dad183da71bcfa1c7426d0b70e0667743a01076198a79172d4b28d98"
-"results/t2k_IO_ssth23_dm2.csv" = "889638cb05eeeda49be122b757dbf4a5b56e65d82ebb71ef9d4fa32ce35cff00"
-"results/t2k_NO.jld2" = "179e6cf2458630f06727fe890bac4e5ec82cc9fc3b1466798ae8110e3359380b"
-"results/t2k_NO_dcp.csv" = "23269f1041fc789d38d29e0f312362a38b429798e2fd2c248031a05d38f322f5"
-"results/t2k_NO_ssth23_dm2.csv" = "7e0307552c61c382179ac2d0694256a775d86f46edd4b82be584bd8bfc231f6e"
+"results/t2k_IO.jld2" = "8cfbc0b71ed17f2dd574d7abb16c3c0207f46a2076527b34d07b99e3876ea8e1"
+"results/t2k_IO_dcp.csv" = "56766caf77c66f0e030e70fb8aa2fcde0d74b50fa5aaef91bf506d70aa21f350"
+"results/t2k_IO_ssth23_dm2.csv" = "54871e811a64d06436ed810b0b44c0dfe45caf666a192368a1cb2ac2d41a8b22"
+"results/t2k_NO.jld2" = "4ac0f43954959e89bc47ccdffa82eb243d64ff9192d28248894d6b7db6d0df28"
+"results/t2k_NO_dcp.csv" = "be823af55b672cba877a43ffa5bc5a1add35ab49885975aaffd3e3dd52325613"
+"results/t2k_NO_ssth23_dm2.csv" = "38e4d91d6e604189b6686741555ec5b6233ef0b7c38cf29ffe615a8665a59f39"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 0
+reused_points = 1414
 total_points = 1414
 
 [newtrinos]
@@ -22,8 +22,8 @@ repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-02T10:26:19Z"
+date = "2026-10-04T08:16:53Z"
 julia = "1.13.0"
 os = "Linux"
 threads = 16
-wall_time_s = 88.1
+wall_time_s = 73.9

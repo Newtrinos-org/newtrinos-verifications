@@ -2,16 +2,16 @@
 [files]
 "ours/fig3_dcp_ssth23.png" = "f35b2ac890d3f00d507b6706435a203ee317f0bad895fbcf35c291620cf5e85a"
 "results/bestfit_vs_official.toml" = "fe5f4d9c56f9ebedf38854b9923fedafe32ed715f8db0bdce60cc507c710e326"
-"results/nova_t2k_IO.jld2" = "1e7f50cbc3619fcea20d515af5f6c7acd557bafb431f3929091ffbbacd5eec46"
-"results/nova_t2k_IO_dcp.csv" = "d4259bcbd2fc9a81ad5a74441d7033ebbceca0c83d32f435a202cf8478fb2adf"
-"results/nova_t2k_IO_dcp_ssth23.csv" = "1025c950639ef951813beb9b875d38c19bd33efd9367eb617d1671d1dc80f814"
-"results/nova_t2k_NO.jld2" = "dbc622ac6b89d526519cb9ff7967d1d640cb67a44a5fc168343dd59037b2402d"
-"results/nova_t2k_NO_dcp.csv" = "592ac22a2d75c68a3204957016fd223076fa0c644d9903e774da632227421c03"
-"results/nova_t2k_NO_dcp_ssth23.csv" = "310c8bdbee62bc09d54dcc8d4e73d9b2d4719f1210622f9c0ddd1ff4252c8bd4"
+"results/nova_t2k_IO.jld2" = "3b86fdd1e14b30f187017d2c581c4b512df42c2a443a7c6f0cfb2560803b4785"
+"results/nova_t2k_IO_dcp.csv" = "649cec910a6a795b027baf2124230941ae3ad7378ed9e0e7a863380d417d53a8"
+"results/nova_t2k_IO_dcp_ssth23.csv" = "af22b0c60e6484cde6a32b54bc4c17e0be29822d94b5b7ea4532f1ca75fceff4"
+"results/nova_t2k_NO.jld2" = "0e27b3d06dc8672bf6f4995e3a8b44a1da3576126697dcf6e094aa9949eb1415"
+"results/nova_t2k_NO_dcp.csv" = "c24e4fdc19cdd0a6de30e7554b1288bfa75457dae43285f6483da625a2561b8f"
+"results/nova_t2k_NO_dcp_ssth23.csv" = "f00c1854b33598b579693189f9025b5387b3599fbe5f645ac9228ba7250ab15a"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 0
+reused_points = 1214
 total_points = 1214
 
 [newtrinos]
@@ -22,8 +22,8 @@ repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-02T10:28:10Z"
+date = "2026-10-04T08:18:25Z"
 julia = "1.13.0"
 os = "Linux"
 threads = 16
-wall_time_s = 137.3
+wall_time_s = 71.9

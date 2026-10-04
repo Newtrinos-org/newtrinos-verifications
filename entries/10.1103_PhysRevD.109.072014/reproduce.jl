@@ -52,6 +52,11 @@ function profile_octants(pr, p0, vars, cache_dir)   # θ₂₃ octants are separ
         Threads.@spawn Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
     end
     oct = map(fetch, oct)
+    # the two octant scans use θ₂₃ priors of different widths, which shifts each log_posterior by its own
+    # constant −log(width): remove it before comparing the octants (nuisance-parameter priors are kept)
+    widths = (lower = π / 4 - θ₂₃_range[1], upper = θ₂₃_range[2] - π / 4)
+    oct = map((r, w) -> Newtrinos.NewtrinosResult(axes = r.axes, meta = r.meta,
+                                                   values = merge(r.values, (log_posterior = r.values.log_posterior .+ log(w),))), oct, widths)
     better = oct.lower.values.log_posterior .>= oct.upper.values.log_posterior
     Newtrinos.NewtrinosResult(axes = oct.lower.axes, values = map((l, u) -> ifelse.(better, l, u), oct.lower.values, oct.upper.values), meta = oct.lower.meta)
 end
@@ -72,10 +77,14 @@ tasks = map(keys(orderings), values(orderings)) do mo, o
 end |> NamedTuple
 results = map(t -> map(fetch, t), tasks)
 
-global_max = maximum(r -> maximum(x -> maximum(x.values.log_posterior), r), results)
+# Each 1D scan carries the constant log density of its own scanned-parameter prior, so Δχ² is taken per
+# panel: relative to the best fit over both orderings *of that scan* (NO and IO use equal-width ranges,
+# so the IO − NO offset is kept)
+panel_max = map(k -> max(maximum(results.NO[k].values.log_posterior), maximum(results.IO[k].values.log_posterior)), keys(results.NO)) |>
+            v -> NamedTuple{keys(results.NO)}(v)
 FileIO.save("results/superk.jld2", Dict("$(mo)_$(k)" => results[mo][k] for mo in keys(results) for k in keys(results[mo])))
 for mo in keys(results), k in keys(results[mo])
-    save_csv("results/superk_$(mo)_$(k).csv", results[mo][k]; ref = global_max)
+    save_csv("results/superk_$(mo)_$(k).csv", results[mo][k]; ref = panel_max[k])
 end
 
 # official SK-only Δχ² (θ₁₃ free) on the 4D grid (Δm², sin²θ₂₃, δCP, sin²θ₁₃), profiled to 1D; each table is
@@ -103,7 +112,7 @@ for (row, col, key, xlabel, xr, xo, yo, lims) in panels
         x, y = xo(off[mo]), yo(off[mo]); i = sortperm(x)
         lines!(ax, x[i], y[i], color = colors[mo], linestyle = :dash, label = "SK $(mo) (data release)")
         r = results[mo][key]; x = xr(r); i = sortperm(x)
-        lines!(ax, x[i], 2 .* (global_max .- r.values.log_posterior[i]), color = colors[mo], linewidth = 3, label = "Newtrinos $(mo)")
+        lines!(ax, x[i], 2 .* (panel_max[key] .- r.values.log_posterior[i]), color = colors[mo], linewidth = 3, label = "Newtrinos $(mo)")
     end
     hlines!(ax, quantile.(Chisq(1), [0.68, 0.9, 0.95, 0.99]), color = :gray, linestyle = :dot)
     xlims!(ax, lims...); ylims!(ax, 0, 16)
