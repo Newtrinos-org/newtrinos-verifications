@@ -161,3 +161,6 @@ th, td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); text-al
 .tool p { max-width: 760px; }
 .pair .credit { margin: 0.5rem 0 0; font-size: 0.78rem; line-height: 1.4; color: #5d6676; }
 .pair .credit a { color: #2f5fd0; }
+.versions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1rem 0 0; font-size: 0.92rem; }
+.versions select { font: inherit; padding: 0.35rem 0.5rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); max-width: 100%; }
+.notice { margin: 0.8rem 0 0; padding: 0.6rem 0.8rem; border-left: 3px solid var(--warn); background: var(--warn-soft); border-radius: 0 8px 8px 0; }

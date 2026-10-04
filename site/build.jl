@@ -116,6 +116,53 @@ function load_entries()
     sort!(entries, by = e -> (e["added"], e["year"]), rev = true)
 end
 
+# ------------------------------------------------------------------------------------------------
+# run history from git: every earlier, distinct run.toml of an entry is a browsable version
+# ------------------------------------------------------------------------------------------------
+gitout(args::Vector{String}) = try read(`git -C $ROOT $args`, String) catch; "" end
+
+"Earlier runs of an entry (newest first), excluding the current one: (commit, run, id)"
+function run_history(e)
+    path = "entries/$(e["slug"])/run.toml"
+    seen = Set{String}(e["run"] === nothing ? String[] : [e["run"]["run"]["date"]])
+    versions = []
+    for c in split(strip(gitout(["log", "--format=%H", "--", path])))
+        txt = gitout(["show", "$c:$path"])
+        isempty(txt) && continue
+        run = TOML.parse(txt)
+        date = run["run"]["date"]
+        date in seen && continue
+        push!(seen, date)
+        push!(versions, (commit = String(c), run = run, id = replace(date, r"[^0-9T]" => "")))
+    end
+    versions
+end
+
+"Extract an entry as it was at `commit` into `dst` and load it like a current entry"
+function load_entry_at(e, v, dst)
+    prefix = "entries/$(e["slug"])/"
+    for f in split(strip(gitout(["ls-tree", "-r", "--name-only", v.commit, prefix])))
+        target = joinpath(dst, f[length(prefix)+1:end])
+        mkpath(dirname(target))
+        write(target, read(`git -C $ROOT show $(v.commit):$f`))
+    end
+    old = TOML.parsefile(joinpath(dst, "entry.toml"))
+    merge(old, Dict("slug" => e["slug"], "dir" => dst, "run" => v.run))
+end
+
+version_label(run, sha) = "$(run["run"]["date"][1:10]) · Newtrinos $(run["newtrinos"]["commit"][1:7]) · verifications $(sha[1:7])"
+
+function version_nav(e, versions, current; to_latest, to_version)
+    isempty(versions) && return ""
+    sha = strip(gitout(["log", "-1", "--format=%H", "--", "entries/$(e["slug"])/run.toml"]))
+    latest = e["run"] === nothing ? "latest (not run yet)" :
+             "Latest: " * version_label(e["run"], isempty(sha) ? "uncommitted" : sha)
+    opts = """<option value="$(esc(to_latest))"$(current === nothing ? " selected" : "")>$(esc(latest))</option>""" *
+           join(["""<option value="$(esc(to_version(v)))"$(current == v.id ? " selected" : "")>$(esc(version_label(v.run, v.commit)))</option>""" for v in versions])
+    """<label class="versions">Results <select onchange="location.href = this.value" aria-label="Choose a run">$opts</select>
+<span class="muted small">$(length(versions)) earlier run$(length(versions) == 1 ? "" : "s")</span></label>"""
+end
+
 function index_record(e)
     Dict("slug" => e["slug"], "title" => e["title"], "short" => e["short"], "doi" => e["doi"], "journal" => e["journal"],
          "year" => e["year"], "arxiv" => get(e, "arxiv", ""), "inspire" => get(e, "inspire", ""),
@@ -248,8 +295,8 @@ derived from them, are not covered by these licenses.</p>
     page("About · $(SITE.name)", body; depth = 1, active = "about")
 end
 
-function entry_page(e)
-    r = "../../"
+function entry_page(e; depth = 2, nav = "", notice = "")
+    r = "../"^depth
     run = e["run"]
     figs = join(map(get(e, "figures", [])) do f
         orig = haskey(f, "original") ?
@@ -312,6 +359,8 @@ and the log-likelihood. JLD2 files contain the full <code>NewtrinosResult</code>
   <div class="tags">$tags</div>
   <div class="links">$(links_html(e)) $extlinks</div>
 </header>
+$nav
+$notice
 <p class="summary">$(esc(e["summary"]))</p>
 
 <h2>Figures</h2>
@@ -336,7 +385,7 @@ $prov
 $downloads
 
 """
-    page("$(e["short"]) · $(SITE.name)", body; depth = 2, description = e["title"], active = "entries")
+    page("$(e["short"]) · $(SITE.name)", body; depth = depth, description = e["title"], active = "entries")
 end
 
 # ------------------------------------------------------------------------------------------------
@@ -359,7 +408,19 @@ function build()
             src = joinpath(e["dir"], item)
             ispath(src) && cp(src, joinpath(dst, item), force = true)
         end
-        write(joinpath(dst, "index.html"), entry_page(e))
+        versions = run_history(e)
+        write(joinpath(dst, "index.html"),
+              entry_page(e; nav = version_nav(e, versions, nothing; to_latest = d("./"), to_version = v -> d("v/$(v.id)/"))))
+        for v in versions
+            vdir = joinpath(dst, "v", v.id)
+            ev = load_entry_at(e, v, vdir)
+            notice = """<p class="notice">You are viewing an earlier run from $(esc(v.run["run"]["date"])) (Newtrinos.jl
+<code>$(v.run["newtrinos"]["commit"][1:10])</code>). <a href="$(d("../../"))">Show the latest results →</a></p>"""
+            write(joinpath(vdir, "index.html"),
+                  entry_page(ev; depth = 4, notice = notice,
+                             nav = version_nav(e, versions, v.id; to_latest = d("../../"), to_version = w -> d("../$(w.id)/"))))
+        end
+        isempty(versions) || println("  $(e["slug"]): $(length(versions)) earlier run(s)")
     end
     write(joinpath(OUT, ".nojekyll"), "")
     println("built $(length(entries)) entries → $OUT")
