@@ -1,0 +1,40 @@
+title = "Preliminary reference Earth model"
+short = "PREM: the Earth density model"
+collaboration = "A. M. Dziewonski, D. L. Anderson"
+doi = "10.1016/0031-9201(81)90046-7"
+journal = "Phys. Earth Planet. Inter. 25, 297–356"
+year = 1981
+experiments = ["Earth model"]
+parameters = ["matter density"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-05"
+summary = """
+The Earth density profile used for matter effects (module `earth_layers`): the PREM tabulation read by \
+Newtrinos.jl is checked against the published Table 1 polynomials, and the constant-density layers built from it \
+are compared with PREM radially and as path-averaged densities along atmospheric-neutrino trajectories."""
+caveats = [
+  "The paper is not openly available, so its figures are not shown; the reference is the PREM definition itself (Table 1 piecewise polynomials).",
+  "The tabulation read by Newtrinos (PREM_1s.csv) agrees with Table 1 to better than 10⁻⁴ g/cm³.",
+  "By default Newtrinos groups PREM into four constant-density zones (crust + upper mantle, lower mantle, outer core, inner core). Path-averaged densities agree exactly through the core, within −1 to +6 % for mantle-only paths, and are increasingly too high towards the horizon (+18 % at cos θ_z = −0.1), where the true path stays in the ocean and crust.",
+]
+links = [
+  { label = "IRIS EMC: PREM", url = "https://ds.iris.edu/ds/products/emc-prem/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["earth_layers"]
+
+[[figures]]
+id = "density_profile"
+title = "Radial density profile"
+paper_ref = "Table 1 (polynomials)"
+ours = "ours/density_profile.png"
+
+[[figures]]
+id = "path_mean_density"
+title = "Path-averaged density vs. cos θ_z"
+paper_ref = "derived from Table 1"
+ours = "ours/path_mean_density.png"

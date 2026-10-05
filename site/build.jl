@@ -48,7 +48,7 @@ const CATEGORIES = [
     ("theory", "Theory", "Theory",
      "Oscillation probabilities in vacuum and matter, analytic approximations and new-physics scenarios, compared with published calculations."),
     ("phenomenology", "Phenomenology", "Phenomenology",
-     "Global fits and new-physics studies, including re-runs of the papers produced with Newtrinos.jl."),
+     "Global fits and new-physics studies compared with published global analyses."),
 ]
 const CATEGORY_KEYS = first.(CATEGORIES)
 category_title(k) = CATEGORIES[findfirst(c -> c[1] == k, CATEGORIES)][3]

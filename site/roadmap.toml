@@ -18,13 +18,6 @@ note = "Fractional uncertainties of the flux and its ratios vs. energy from the 
 
 [[item]]
 category = "inputs"
-title = "PREM Earth density model"
-reference = "Dziewonski & Anderson, Phys. Earth Planet. Inter. 25, 297 (1981)"
-module = "earth_layers"
-note = "Radial density profile, layer crossings and average densities along atmospheric neutrino paths vs. cos θ_z."
-
-[[item]]
-category = "inputs"
 title = "Neutrino–nucleon charged-current cross sections"
 reference = "Formaggio & Zeller, Rev. Mod. Phys. 84, 1307 (2012), arXiv:1305.7513"
 module = "xsec"
@@ -153,41 +146,6 @@ module = "juno"
 note = "Median Δχ²(IO − NO) vs. exposure, reactor-only and with external Δm²₃₁."
 
 # ---- phenomenology -------------------------------------------------------------------------------
-[[item]]
-category = "phenomenology"
-title = "Testing the number of neutrino species with a global fit"
-reference = "Phys. Rev. D 109, 095016 (2024), arXiv:2402.00490"
-module = "Newtrinos.jl paper"
-note = "Re-run of a published Newtrinos.jl analysis with the current code."
-
-[[item]]
-category = "phenomenology"
-title = "Non-unitary neutrino mixing from atmospheric and reactor data"
-reference = "JHEP 05 (2025) 130, arXiv:2407.20388"
-module = "Newtrinos.jl paper"
-note = "Re-run of a published Newtrinos.jl analysis with the current code."
-
-[[item]]
-category = "phenomenology"
-title = "Extra-dimensional theories with massive bulk fields"
-reference = "Phys. Rev. D 112, 055009 (2025), arXiv:2508.04274"
-module = "Newtrinos.jl paper"
-note = "Re-run of a published Newtrinos.jl analysis with the current code."
-
-[[item]]
-category = "phenomenology"
-title = "Atmospheric neutrino oscillations: the full picture"
-reference = "Phys. Rev. D 114, 053005 (2026), arXiv:2606.09714"
-module = "Newtrinos.jl paper"
-note = "Re-run of a published Newtrinos.jl analysis with the current code."
-
-[[item]]
-category = "phenomenology"
-title = "The N-naturalness tower of neutrinos"
-reference = "Accepted by Phys. Rev. D, arXiv:2607.14243"
-module = "Newtrinos.jl paper"
-note = "Re-run of a published Newtrinos.jl analysis with the current code."
-
 [[item]]
 category = "phenomenology"
 title = "Three-flavour global fit (NuFIT 6.0)"
