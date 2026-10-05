@@ -1,0 +1,36 @@
+title = "Compact Perturbative Expressions For Neutrino Oscillations in Matter"
+short = "Matter probabilities: DMP expansion and exact solution"
+collaboration = "P. B. Denton, H. Minakata, S. J. Parke"
+doi = "10.1007/JHEP06(2016)051"
+journal = "JHEP 06 (2016) 051"
+year = 2016
+arxiv = "1604.08167"
+inspire = 1452689
+experiments = ["long-baseline accelerators"]
+parameters = ["matter effects"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-05"
+summary = """
+Three-flavour oscillation probabilities in constant-density matter from Newtrinos.jl (module `osc`, standard matter \
+interactions, one constant-density layer) for the DUNE setting of the paper's Fig. 4 (L = 1300 km, Yₑρ = 1.4 g/cm³, \
+δ = 3π/2, NO). They are compared with the zeroth-order Denton–Minakata–Parke expansion, implemented independently in \
+reproduce.jl, and with an independent exact solution, the matrix exponential of the full Hamiltonian, for all nine \
+channels of neutrinos and antineutrinos."""
+caveats = [
+  "Newtrinos and the independent matrix exponential agree to 2·10⁻¹⁴ in all channels when both use the physical constants of osc.jl. With CODATA constants they differ by up to 1.4·10⁻⁶, almost entirely because osc.jl uses N_A = 6.022·10²³ mol⁻¹ (instead of 6.02214076·10²³), which scales the matter potential by −2.4·10⁻⁵.",
+  "The fractional precision of the zeroth-order DMP expansion vs. Newtrinos follows the paper's red curve (≈ 2·10⁻⁵ at 0.3 GeV, a bump of ≈ 5·10⁻⁴ near 1.2 GeV, ≈ 2·10⁻² at 10 GeV); at the first oscillation maximum and minimum it is 3.4·10⁻⁴ and 5.0·10⁻⁴ (paper's Table 3: 5·10⁻⁴ and 4·10⁻⁴, with its own unlisted parameter values). The first- and second-order expansions are not implemented here.",
+  "The paper does not list its oscillation parameters; typical 2016 values are used (sin²θ₁₂ = 0.31, sin²θ₁₃ = 0.022, sin²θ₂₃ = 0.5, Δm²₂₁ = 7.5·10⁻⁵ eV², Δm²₃₁ = 2.5·10⁻³ eV²). The matter potential is computed from G_F and N_A (1.5265·10⁻⁴ Yₑρ E eV²; the paper's eq. (2.3) quotes the rounded 1.52·10⁻⁴).",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["osc (ThreeFlavour, SI)"]
+
+[[figures]]
+id = "fig4"
+title = "P(νμ → νe) for DUNE and the precision of the zeroth-order expansion"
+paper_ref = "Fig. 4"
+original = "original/fig4_precision.png"
+ours = "ours/fig4_precision.png"

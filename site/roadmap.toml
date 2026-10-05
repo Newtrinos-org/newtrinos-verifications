@@ -26,13 +26,6 @@ note = "Total and differential IBD cross section used for reactor ν̄e (if not 
 # ---- theory ------------------------------------------------------------------------------------
 [[item]]
 category = "theory"
-title = "Three-flavour probabilities in matter: perturbative expansions"
-reference = "Denton, Minakata, Parke, JHEP 06 (2016) 051, arXiv:1604.08167; Akhmedov et al., JHEP 04 (2004) 078, hep-ph/0402175"
-module = "osc"
-note = "Exact constant-density P(νμ→νe), P(νμ→νμ) against the published approximations, for T2K, NOvA and DUNE baselines."
-
-[[item]]
-category = "theory"
 title = "Exact oscillation probabilities (SU(3) expansion)"
 reference = "Bustamante, arXiv:1904.12391 (NuOscProbExact)"
 module = "osc"
