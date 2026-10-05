@@ -61,13 +61,6 @@ note = "Code benchmark of vacuum and matter probabilities, including non-standar
 
 [[item]]
 category = "theory"
-title = "Atmospheric oscillograms through the Earth"
-reference = "Akhmedov, Razzaque, Smirnov, JHEP 02 (2013) 082, arXiv:1205.7071"
-module = "osc, earth_layers"
-note = "P(νμ→νμ), P(νμ→νe) vs. (E, cos θ_z) for both orderings: MSW resonance in the mantle and parametric enhancement in the core."
-
-[[item]]
-category = "theory"
 title = "Non-standard interactions in propagation"
 reference = "Ohlsson, Rep. Prog. Phys. 76, 044201 (2013), arXiv:1209.2710"
 module = "osc (NSI)"

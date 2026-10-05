@@ -1,0 +1,76 @@
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+short = "Atmospheric oscillograms of the Earth"
+collaboration = "E. Kh. Akhmedov, S. Razzaque, A. Yu. Smirnov"
+doi = "10.1007/JHEP02(2013)082"
+journal = "JHEP 02 (2013) 082"
+year = 2013
+arxiv = "1205.7071"
+inspire = 1116664
+experiments = ["atmospheric neutrinos"]
+parameters = ["matter effects", "mass ordering"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-05"
+summary = """
+Three-flavour oscillation probabilities of atmospheric neutrinos crossing the Earth (modules `osc` with \
+standard matter interactions and `earth_layers`): probabilities vs. energy at fixed zenith angles for both \
+mass orderings, and the E–cos θ_z oscillograms with the MSW resonance in the mantle and the parametric \
+enhancement for core-crossing trajectories. A second set of figures shows how much the default four-zone \
+Newtrinos Earth changes the probabilities compared with a finely layered PREM."""
+caveats = [
+  "Reproduction conventions inferred from the paper's own curves: the quoted 2.35·10⁻³ eV² is used as Δm²₃₁ (the paper's formulae use Δ = Δm²₃₁/2E), and Yₑ = 0.5 throughout the Earth. With Δm²₃₁ = Δm²₃₂ + Δm²₂₁ the extrema shift up by ~3 % in energy, and with Yₑ = 0.466 in the core the core-crossing amplitudes change visibly (e.g. the second Pμe maximum at cos θ_z = −1 falls from 0.12 to 0.08).",
+  "The paper-like Earth is PREM (the tabulation shipped with Newtrinos) averaged in 100 shells of 63.7 km and built in reproduce.jl. Analyses use the default Newtrinos Earth, which averages PREM into four constant-density zones. That shifts the probabilities by up to |ΔP| ≈ 0.2–0.3 for core-crossing and near-core trajectories and produces visible steps at the zone boundaries (cos θ_z ≈ −0.45 and −0.84); mean |ΔP| over the plane is ≈ 0.01. See the last two figures.",
+  "In the paper's Fig. 3 the mantle resonance (the minimum of Pee) appears near 4.8 GeV. The paper's own Figs. 1 and 2, and our calculation, put it near 5.8 GeV at cos θ_z = −0.8. The channel maxima quoted in Fig. 3 (Peμ 0.42, Peτ 0.61, Pμτ 0.97) are reproduced (0.424, 0.607, 0.972).",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["osc (ThreeFlavour, SI)", "earth_layers"]
+
+[[figures]]
+id = "fig1a"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "Fig. 1 (left)"
+original = "original/fig1a_numu.png"
+ours = "ours/fig1a_numu.png"
+
+[[figures]]
+id = "fig1b"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "Fig. 1 (right)"
+original = "original/fig1b_nue.png"
+ours = "ours/fig1b_nue.png"
+
+[[figures]]
+id = "fig2a"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "Fig. 2 (left)"
+original = "original/fig2a_nu.png"
+ours = "ours/fig2a_nu.png"
+
+[[figures]]
+id = "fig2b"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "Fig. 2 (right)"
+original = "original/fig2b_nubar.png"
+ours = "ours/fig2b_nubar.png"
+
+[[figures]]
+id = "fig3"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "Fig. 3"
+original = "original/fig3_oscillograms.png"
+ours = "ours/fig3_oscillograms.png"
+
+[[figures]]
+id = "fig3_4zone"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "not in the paper"
+ours = "ours/fig3_oscillograms_4zone.png"
+
+[[figures]]
+id = "layering"
+title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+paper_ref = "not in the paper"
+ours = "ours/layering_difference.png"

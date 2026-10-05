@@ -1,0 +1,30 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig1a_numu.png" = "8014ae01301b60872e69952d1d75db38f7cc38aba1a987503657a4cec2e9d9a0"
+"ours/fig1b_nue.png" = "3a6598c336536b7574c0d1c8e9a4cd733234292cfe1e8d95fe9af7d5713f198d"
+"ours/fig2a_nu.png" = "2139c0a307040ee1f6599f8a38552dac52fab83b063fbcff4518d6d62b18e479"
+"ours/fig2b_nubar.png" = "5137498ac7d8fcfdecaa0942a6c7be8965564aadf039d702cb1b8abeef1d014a"
+"ours/fig3_oscillograms.png" = "7b8de485f2095e8e53e8179569855a7c6e36567c8729d174ab10f980c40f8a57"
+"ours/fig3_oscillograms_4zone.png" = "2e909c76af4113457ac27c8f9938667fd3b5718f0e07d49bf71bfb2f75981821"
+"ours/layering_difference.png" = "de21d438e553ebc0c89f0d276a2e1776ae9b8e00bd4da88af1c1de0bcfe56d61"
+"results/fig3_channel_maxima.csv" = "8650a7c1c69196e4710d6950ab07938c0b249d605af3fbb3037fbd87162ff73e"
+"results/layering_4zone_vs_fine.csv" = "ab533782477d1854e6a115df407d6e8031bc19e351f2faa430ab851d888a7455"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 4 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T07:14:47Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 4
+wall_time_s = 53.5
