@@ -26,17 +26,10 @@ note = "Total and differential IBD cross section used for reactor ν̄e (if not 
 # ---- theory ------------------------------------------------------------------------------------
 [[item]]
 category = "theory"
-title = "Exact oscillation probabilities (SU(3) expansion)"
-reference = "Bustamante, arXiv:1904.12391 (NuOscProbExact)"
-module = "osc"
-note = "Code benchmark of vacuum and matter probabilities, including non-standard Hamiltonians."
-
-[[item]]
-category = "theory"
 title = "Non-standard interactions in propagation"
 reference = "Ohlsson, Rep. Prog. Phys. 76, 044201 (2013), arXiv:1209.2710"
 module = "osc (NSI)"
-note = "Probabilities with ε_αβ matter NSI against the review's figures."
+note = "Probabilities with ε_αβ matter NSI against the review's figures and NuOscProbExact, once NSI is merged."
 
 [[item]]
 category = "theory"

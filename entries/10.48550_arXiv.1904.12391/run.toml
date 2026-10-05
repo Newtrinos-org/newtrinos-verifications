@@ -1,0 +1,24 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig_prob_3nu_vs_energy.png" = "4395c5d700aa5e66f2f4f6da0af8f3eaa0b05cdebd1c9ff1820d738337458d3d"
+"ours/fig_sterile_earth.png" = "61055bcf2c9ffd10db7823e02c6d1d4740c90f96284b9d649f2dc784e8a2434b"
+"results/max_abs_differences.csv" = "d9766ac7aaea62604657926c1ef9062f8360de47f7c9503ab8309ab6fdba267e"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 2 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T08:14:41Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 2
+wall_time_s = 85.0
