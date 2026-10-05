@@ -1,0 +1,10 @@
+nucleus,model,R_input,R_from_F
+Cs133,helm,5.08,5.0799
+Cs133,klein_nystrand,5.08,5.0799
+Cs133,sym_fermi,5.08,4.9725
+I127,helm,5.0,4.9999
+I127,klein_nystrand,5.0,4.9999
+I127,sym_fermi,5.0,4.8907
+Ar40,helm,3.55,3.55
+Ar40,klein_nystrand,3.55,3.55
+Ar40,sym_fermi,3.55,3.3945

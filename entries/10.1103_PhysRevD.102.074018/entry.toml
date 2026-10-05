@@ -1,0 +1,44 @@
+title = "Coherent elastic neutrino-nucleus scattering: EFT analysis and nuclear responses"
+short = "CEvNS nuclear form factors"
+collaboration = "M. Hoferichter, J. Menéndez, A. Schwenk"
+doi = "10.1103/PhysRevD.102.074018"
+journal = "Phys. Rev. D 102, 074018"
+year = 2020
+arxiv = "2007.08529"
+inspire = 1807717
+experiments = ["COHERENT"]
+parameters = ["nuclear form factor"]
+status = "partial"
+category = "inputs"
+added = "2026-10-05"
+summary = """
+The nuclear form factors of Newtrinos.jl (module `cevns_xsec`: Helm, Klein–Nystrand and symmetrised Fermi, \
+parametrised by one rms radius) compared with the shell-model weak form factors of ¹³³Cs, ¹²⁷I and ⁴⁰Ar. The \
+parametrisations are evaluated at the paper's weak radii R_w (Table IV) and with the Newtrinos defaults of the \
+COHERENT modules (Helm; 5.0 fm for Cs and I, 3.6 fm for Ar). A second check extracts the rms radius implied by each \
+closed form from its small-q expansion, F = 1 − q²⟨r²⟩/6, which must return the input radius."""
+caveats = [
+  "Symmetrised Fermi (ff_model = :sym_fermi): the closed form used is the Lewin–Smith approximation F = 3j₁(qc)/(qc) · πqa/sinh(πqa), whose rms radius is ⟨r²⟩ = 3/5 c² + π²a², but c is obtained from the input radius with the exact symmetrised-Fermi relation ⟨r²⟩ = 3/5 c² + 7/5 π²a². The effective radius is therefore 0.11–0.16 fm smaller than requested (4.97 instead of 5.08 fm for Cs, 3.39 instead of 3.55 fm for Ar), which shows up as F² up to 5–10 % above the shell model at q = 0.08–0.1 GeV. Helm and Klein–Nystrand return their input radius to 10⁻⁴ fm.",
+  "With R = R_w, Helm and Klein–Nystrand agree with the shell model to 0.3 % (q = 0.05 GeV) and 2–3 % (q = 0.08 GeV) in F² for Cs and I, and to 0.1–0.6 % for Ar. Near and beyond the first diffraction zero (q ≳ 0.12 GeV for Cs/I) the one-parameter forms differ from the shell model (second maximum ≈ 0.055 vs. 0.034); this region is irrelevant for COHERENT (q ≲ 0.1 GeV, shaded).",
+  "The default radii of the COHERENT modules (5.0 fm for Cs, 3.6 fm for Ar) are close to the shell-model weak radii (5.08, 3.55 fm); for Cs the smaller radius partly compensates the Helm shape at q = 0.08–0.1 GeV.",
+  "The shell-model curves are extracted from the vector figures of the arXiv source (data/extract_fweak.py; axis calibration from the tick marks, ≲ 0.5 % in F). Newtrinos uses one form factor for the weak charge, without the separate proton and neutron distributions and the radiative and nucleon-structure corrections of the paper's F_w.",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["cevns_xsec (ffsq)"]
+
+[[figures]]
+id = "fig5"
+title = "Weak form factors of ¹²⁷I and ¹³³Cs"
+paper_ref = "Fig. 5"
+original = "original/fig5_fweak_csi.png"
+ours = "ours/fig5_fweak_csi.png"
+
+[[figures]]
+id = "fig6"
+title = "Weak form factor of ⁴⁰Ar"
+paper_ref = "Fig. 6"
+original = "original/fig6_fweak_ar.png"
+ours = "ours/fig6_fweak_ar.png"
