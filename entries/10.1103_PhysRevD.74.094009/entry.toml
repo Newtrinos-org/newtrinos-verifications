@@ -21,14 +21,14 @@ directional ratios do not."""
 caveats = [
   "Up/down: a +1σ shift changes the up/down ratio by about twice the paper's uncertainty (9.1 % vs 5.1 % at 0.3 GeV, 12 % vs 6.5 % at 0.1 GeV). The function updown(cz, r) multiplies down-going fluxes by r and up-going ones by 1/r, so the ratio moves by r²; with r = 1 + u it should move by 1 + u. The fitted u(E) = 7 % / (1 + (E/0.5 GeV)²) also falls more slowly above 1 GeV than the paper's curves, and νμ and νe share one curve.",
   "Up/horizontal: a +1σ shift changes the up/horizontal ratio by 1.2–1.3× the paper's value below ~3 GeV (e.g. νμ 3.9 % vs 3.0 % at 0.3 GeV) and by ~1.1–1.2× at 100 GeV; the energy dependence follows the paper.",
-  "BarrEnergyBands(): above ~200 GeV the zenith-shape function of the νe/ν̄e uncertainty (fun_nuenuebar) turns over and crosses zero near 700 GeV, so the all-direction νe/ν̄e shift collapses there instead of following the paper (~40 % at 700 GeV). Below 100 GeV both models agree with the paper.",
+  "BarrEnergyBands(): the zenith shape of the νe/ν̄e uncertainty (fun_nuenuebar) previously turned negative near the horizon above ~350 GeV, so the all-direction νe/ν̄e shift crossed zero near 700 GeV; fixed in Newtrinos.jl PR #263 by capping the depth of the horizontal dip at Barr's Fig. 8c value. The banded model is 10–20 % below Barr() for νe/ν̄e and νμ/νe above ~50 GeV: its zenith shapes are normalised to the mean over cos θ_z, while the flux-weighted all-direction average is dominated by near-horizontal directions, where the shapes are smallest.",
   "Flavour ratios: the smooth fits cannot follow the structure of the paper's curves below 1 GeV (νμ/ν̄μ dip to 0.14 % at 0.2 GeV; the noisy νμ/νe curve between 0.1 and 1 GeV).",
   "The paper's curves are the digitisations shipped with Newtrinos (src/physics/*.csv); the original figures are shown for comparison. The HKKM flux file is the Newtrinos default; ratio shifts depend only weakly on the site.",
 ]
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+commit = "970f59bde570940a1204bbb1982fc267613130f7"
 modules = ["atm_flux (Barr, BarrEnergyBands)"]
 
 [[figures]]
