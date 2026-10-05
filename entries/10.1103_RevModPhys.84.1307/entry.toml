@@ -1,0 +1,45 @@
+title = "From eV to EeV: Neutrino Cross Sections Across Energy Scales"
+short = "Neutrino–nucleon CC cross sections (QE to DIS)"
+collaboration = "J. A. Formaggio, G. P. Zeller"
+doi = "10.1103/RevModPhys.84.1307"
+journal = "Rev. Mod. Phys. 84, 1307"
+year = 2012
+arxiv = "1305.7513"
+inspire = 1236362
+experiments = ["accelerator experiments", "atmospheric neutrinos"]
+parameters = ["cross sections"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-05"
+summary = """
+Total charged-current νμ and ν̄μ cross sections per nucleon divided by energy, from 0.1 to 500 GeV, as provided by \
+Newtrinos.jl (module `xsec`, model `H2O_PCA`, `dσdE` at nominal parameters) for the four generator tunes it \
+carries (NEUT 5.4.0, GENIE G18_10a, G21_11a, G18_02a; per nucleon of water). They are compared with the world data \
+and the NUANCE prediction (total and DIS, isoscalar target) of the review's Fig. 15. Curves and data points are \
+extracted from the vector figures of the arXiv source (data/extract_fz.py)."""
+caveats = [
+  "Deep-inelastic region (30–300 GeV): Newtrinos gives σ/E = 0.640 (NEUT 5.4.0), 0.668 (G18_10a), 0.680 (G21_11a), 0.678 (G18_02a) × 10⁻³⁸ cm²/GeV for νμ, against 0.677 for the extracted isoscalar world data (inverse-variance mean) and 0.678 from NUANCE at 100 GeV. For ν̄μ it gives 0.320–0.332, against 0.323 for the data and 0.338 from NUANCE. The default NEUT 5.4.0 curve is 5 % low for νμ; above 26 GeV it is the G18_10a shape matched to NEUT at 26 GeV.",
+  "Target: Newtrinos curves are per nucleon of H₂O (10 protons, 8 neutrons); the data and NUANCE are for an isoscalar target. For DIS this makes water a few percent lower than isoscalar for neutrinos and a few percent higher for antineutrinos; this is not corrected.",
+  "Below ~0.7 GeV all four tunes are well below the NUANCE total (e.g. ≈ 0.4 vs ≈ 0.75 at 0.3 GeV for νμ). This is a generator and nuclear-model difference (bound nucleons in oxygen; NUANCE's QE is shown per isoscalar nucleon, divided by two), not a Newtrinos error. The low-energy data in the figure are mostly QE-only measurements on other targets. The NEUT 5.4.0 curves (digitised from T. Wester's thesis) show small digitisation wiggles for ν̄ below 1 GeV.",
+  "Channel definitions differ between generators: the Newtrinos CCDIS channel (NEUT 5.4.0) sets in near 0.5 GeV and stays 5–10 % below the total even at 500 GeV, the remainder being in CCother, whereas NUANCE's DIS curve approaches the total; only the totals are directly comparable.",
+  "Data extraction: points are recovered from the marker shapes of the vector figure, with symmetric errors from the vertical bars. 109 νμ and 45 ν̄μ points are recovered, which is incomplete where markers overlap (the dense QE points at 1–3 GeV and most ν̄ points above 60 GeV).",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "970f59bde570940a1204bbb1982fc267613130f7"
+modules = ["xsec (H2O_PCA)"]
+
+[[figures]]
+id = "fig15nu"
+title = "νμ CC cross section per nucleon / E: world data, NUANCE, and the Newtrinos tunes"
+paper_ref = "Fig. 15 (top)"
+original = "original/cc_inclusive_nu.png"
+ours = "ours/fig15_nu.png"
+
+[[figures]]
+id = "fig15nubar"
+title = "ν̄μ CC cross section per nucleon / E"
+paper_ref = "Fig. 15 (bottom)"
+original = "original/cc_inclusive_nubar.png"
+ours = "ours/fig15_nubar.png"
