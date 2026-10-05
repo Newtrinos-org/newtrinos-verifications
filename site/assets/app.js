@@ -24,6 +24,7 @@
   if (!list || !facetsEl) return;
 
   const FACETS = [
+    { key: "category", label: "Category", get: (e) => [e.category_title] },
     { key: "experiment", label: "Experiment", get: (e) => e.experiments },
     { key: "year", label: "Year", get: (e) => [String(e.year)] },
     { key: "parameter", label: "Parameter", get: (e) => e.parameters },
@@ -53,7 +54,7 @@
   }
 
   function card(e) {
-    const tags = e.experiments.map((x) => `<span class="tag exp">${esc(x)}</span>`).join(" ") +
+    const tags = `<span class="tag cat">${esc(e.category_title)}</span> ` + e.experiments.map((x) => `<span class="tag exp">${esc(x)}</span>`).join(" ") +
       ` <span class="tag">${e.year}</span> <span class="tag status-${e.status}">${esc(STATUS[e.status] || e.status)}</span>`;
     return `<article class="card">
       <a class="card-link" href="${root}entries/${esc(e.slug)}/${document.body.dataset.index || ""}"><h3>${esc(e.short)}</h3><p class="muted">${esc(e.title)}</p></a>

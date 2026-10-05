@@ -9,6 +9,7 @@ inspire = 2601288
 experiments = ["Daya Bay"]
 parameters = ["θ13", "Δm²ee"]
 status = "reproduced"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Reactor ν̄e disappearance with the complete Daya Bay data set (3158 days, three experimental halls), using the \

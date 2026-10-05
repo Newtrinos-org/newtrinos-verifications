@@ -9,6 +9,7 @@ inspire = 1787880
 experiments = ["COHERENT"]
 parameters = ["CEvNS cross section"]
 status = "reproduced"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Number of CEvNS events in the CENNS-10 liquid-argon detector (Analysis A, fit in energy, time and F90), with \

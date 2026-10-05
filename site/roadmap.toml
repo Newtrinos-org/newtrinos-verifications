@@ -1,0 +1,196 @@
+# Planned verifications, shown as "Planned" on the category pages. When an item becomes an entry, remove it here.
+# fields: category (experimental | sensitivity | inputs | theory | phenomenology), title, reference, module, note
+
+# ---- model inputs ------------------------------------------------------------------------------
+[[item]]
+category = "inputs"
+title = "HKKM atmospheric neutrino fluxes"
+reference = "Honda et al., Phys. Rev. D 92, 023004 (2015), arXiv:1502.03916"
+module = "atm_flux"
+note = "E²-weighted spectra and flavour / ν–ν̄ ratios at Kamioka, the South Pole and the ORCA site; zenith and azimuth dependence."
+
+[[item]]
+category = "inputs"
+title = "Atmospheric flux uncertainties (Barr scheme)"
+reference = "Barr et al., Phys. Rev. D 74, 094009 (2006), arXiv:astro-ph/0611266"
+module = "atm_flux"
+note = "Fractional uncertainties of the flux and its ratios vs. energy from the hadron-production parameters."
+
+[[item]]
+category = "inputs"
+title = "PREM Earth density model"
+reference = "Dziewonski & Anderson, Phys. Earth Planet. Inter. 25, 297 (1981)"
+module = "earth_layers"
+note = "Radial density profile, layer crossings and average densities along atmospheric neutrino paths vs. cos θ_z."
+
+[[item]]
+category = "inputs"
+title = "Neutrino–nucleon charged-current cross sections"
+reference = "Formaggio & Zeller, Rev. Mod. Phys. 84, 1307 (2012), arXiv:1305.7513"
+module = "xsec"
+note = "σ/E vs. E for ν and ν̄ (QE, resonant, DIS regimes) against the compiled measurements and generator predictions."
+
+[[item]]
+category = "inputs"
+title = "ντ charged-current cross-section suppression"
+reference = "Jeong & Reno, Phys. Rev. D 82, 033010 (2010), arXiv:1007.1966"
+module = "xsec"
+note = "Ratio σ(ντ)/σ(νμ) near the τ production threshold."
+
+[[item]]
+category = "inputs"
+title = "SNS neutrino flux"
+reference = "COHERENT, Phys. Rev. D 106, 032003 (2022), arXiv:2109.11049"
+module = "sns_flux"
+note = "Prompt νμ and delayed νe, ν̄μ energy spectra and timing from pion decay at rest."
+
+[[item]]
+category = "inputs"
+title = "CEvNS nuclear form factors"
+reference = "e.g. Hoferichter, Menéndez, Schwenk, Phys. Rev. D 102, 074018 (2020), arXiv:2007.08529"
+module = "cevns_xsec"
+note = "Helm, Klein–Nystrand and symmetrised-Fermi form factors for Cs, I and Ar vs. momentum transfer."
+
+[[item]]
+category = "inputs"
+title = "Inverse-beta-decay cross section"
+reference = "Vogel & Beacom, Phys. Rev. D 60, 053003 (1999); Strumia & Vissani, Phys. Lett. B 564, 42 (2003)"
+module = "reactor experiments"
+note = "Total and differential IBD cross section used for reactor ν̄e (if not already tabulated)."
+
+# ---- theory ------------------------------------------------------------------------------------
+[[item]]
+category = "theory"
+title = "Three-flavour probabilities in matter: perturbative expansions"
+reference = "Denton, Minakata, Parke, JHEP 06 (2016) 051, arXiv:1604.08167; Akhmedov et al., JHEP 04 (2004) 078, hep-ph/0402175"
+module = "osc"
+note = "Exact constant-density P(νμ→νe), P(νμ→νμ) against the published approximations, for T2K, NOvA and DUNE baselines."
+
+[[item]]
+category = "theory"
+title = "Exact oscillation probabilities (SU(3) expansion)"
+reference = "Bustamante, arXiv:1904.12391 (NuOscProbExact)"
+module = "osc"
+note = "Code benchmark of vacuum and matter probabilities, including non-standard Hamiltonians."
+
+[[item]]
+category = "theory"
+title = "Atmospheric oscillograms through the Earth"
+reference = "Akhmedov, Razzaque, Smirnov, JHEP 02 (2013) 082, arXiv:1205.7071"
+module = "osc, earth_layers"
+note = "P(νμ→νμ), P(νμ→νe) vs. (E, cos θ_z) for both orderings: MSW resonance in the mantle and parametric enhancement in the core."
+
+[[item]]
+category = "theory"
+title = "Non-standard interactions in propagation"
+reference = "Ohlsson, Rep. Prog. Phys. 76, 044201 (2013), arXiv:1209.2710"
+module = "osc (NSI)"
+note = "Probabilities with ε_αβ matter NSI against the review's figures."
+
+[[item]]
+category = "theory"
+title = "Decoherence and damping"
+reference = "Blennow, Ohlsson, Winter, JHEP 06 (2005) 049, hep-ph/0502147"
+module = "osc (Decoherent, Damping)"
+note = "Damping signatures in vacuum and matter probabilities."
+
+[[item]]
+category = "theory"
+title = "Large extra dimensions (ADD)"
+reference = "Machado, Nunokawa, Zukanovich Funchal, Phys. Rev. D 84, 013003 (2011), arXiv:1101.0003"
+module = "osc (ADD)"
+note = "Oscillation probabilities with Kaluza–Klein modes for reactor and accelerator baselines."
+
+[[item]]
+category = "theory"
+title = "3+1 sterile neutrinos in Earth matter"
+reference = "IceCube, Phys. Rev. Lett. 125, 141801 (2020), arXiv:2005.12942"
+module = "osc (Sterile)"
+note = "Resonant ν̄μ disappearance at TeV energies through the core."
+
+# ---- experimental results ------------------------------------------------------------------------
+[[item]]
+category = "experimental"
+title = "MINOS/MINOS+ sterile-neutrino search"
+reference = "MINOS+, Phys. Rev. Lett. 122, 091803 (2019), arXiv:1710.06488"
+module = "minos + osc (Sterile)"
+note = "Exclusion in (sin²θ₂₄, Δm²₄₁) from the data set already used by the minos module."
+
+[[item]]
+category = "experimental"
+title = "COHERENT CsI: non-standard interactions"
+reference = "COHERENT, Phys. Rev. Lett. 129, 081801 (2022), Fig. 3"
+module = "coherent_csi"
+note = "90% allowed region in (ε^u_ee, ε^d_ee); needs an NSI parametrisation of the CEvNS cross section."
+
+[[item]]
+category = "experimental"
+title = "JUNO first oscillation results"
+reference = "JUNO (2025)"
+module = "new"
+note = "First measurement of reactor oscillations with JUNO; needs a module for the published spectra."
+
+[[item]]
+category = "experimental"
+title = "IceCube DeepCore 3-year high-statistics sample"
+reference = "IceCube, Phys. Rev. Lett. 120, 071801 (2018), arXiv:1707.07081"
+module = "deepcore (3y sample)"
+note = "Module exists but is disabled; port it to the current interfaces."
+
+# ---- sensitivity studies -------------------------------------------------------------------------
+[[item]]
+category = "sensitivity"
+title = "IceCube Upgrade oscillation sensitivity"
+reference = "IceCube Upgrade MC data release (2020)"
+module = "ic_upgrade"
+note = "Projected sin²θ₂₃–Δm²₃₂ sensitivity from the public Upgrade simulation."
+
+[[item]]
+category = "sensitivity"
+title = "JUNO mass-ordering sensitivity"
+reference = "JUNO, Chin. Phys. C 49, 033104 (2025), arXiv:2405.18008"
+module = "juno"
+note = "Median Δχ²(IO − NO) vs. exposure, reactor-only and with external Δm²₃₁."
+
+# ---- phenomenology -------------------------------------------------------------------------------
+[[item]]
+category = "phenomenology"
+title = "Testing the number of neutrino species with a global fit"
+reference = "Phys. Rev. D 109, 095016 (2024), arXiv:2402.00490"
+module = "Newtrinos.jl paper"
+note = "Re-run of a published Newtrinos.jl analysis with the current code."
+
+[[item]]
+category = "phenomenology"
+title = "Non-unitary neutrino mixing from atmospheric and reactor data"
+reference = "JHEP 05 (2025) 130, arXiv:2407.20388"
+module = "Newtrinos.jl paper"
+note = "Re-run of a published Newtrinos.jl analysis with the current code."
+
+[[item]]
+category = "phenomenology"
+title = "Extra-dimensional theories with massive bulk fields"
+reference = "Phys. Rev. D 112, 055009 (2025), arXiv:2508.04274"
+module = "Newtrinos.jl paper"
+note = "Re-run of a published Newtrinos.jl analysis with the current code."
+
+[[item]]
+category = "phenomenology"
+title = "Atmospheric neutrino oscillations: the full picture"
+reference = "Phys. Rev. D 114, 053005 (2026), arXiv:2606.09714"
+module = "Newtrinos.jl paper"
+note = "Re-run of a published Newtrinos.jl analysis with the current code."
+
+[[item]]
+category = "phenomenology"
+title = "The N-naturalness tower of neutrinos"
+reference = "Accepted by Phys. Rev. D, arXiv:2607.14243"
+module = "Newtrinos.jl paper"
+note = "Re-run of a published Newtrinos.jl analysis with the current code."
+
+[[item]]
+category = "phenomenology"
+title = "Three-flavour global fit (NuFIT 6.0)"
+reference = "Esteban et al., JHEP 12 (2024) 216, arXiv:2410.05380"
+module = "combined experiments"
+note = "1D Δχ² profiles of the oscillation parameters from the Newtrinos experiment set, compared with NuFIT (partial overlap of data sets)."

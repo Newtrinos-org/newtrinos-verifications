@@ -9,6 +9,7 @@ inspire = 2966613
 experiments = ["NOvA"]
 parameters = ["δCP", "θ23", "Δm²32", "mass ordering"]
 status = "reproduced"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Three-flavour fit to the NOvA far-detector νμ disappearance (4 quartiles × FHC/RHC) and νe appearance \

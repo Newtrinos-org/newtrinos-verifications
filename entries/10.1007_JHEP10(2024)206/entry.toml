@@ -9,6 +9,7 @@ inspire = 2817709
 experiments = ["KM3NeT/ORCA"]
 parameters = ["θ23", "Δm²31", "mass ordering"]
 status = "partial"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Atmospheric neutrino oscillations with the first six detection units of KM3NeT/ORCA (433 kton-years), using the \

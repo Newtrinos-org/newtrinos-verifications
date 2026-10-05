@@ -37,6 +37,23 @@ function filesize_str(path)
     n < 1024 ? "$n B" : n < 1024^2 ? "$(round(n / 1024, digits = 1)) kB" : "$(round(n / 1024^2, digits = 1)) MB"
 end
 
+# browsing categories: key, navigation label, title, description
+const CATEGORIES = [
+    ("experimental", "Results", "Experimental results",
+     "Measurements reproduced from published data releases: oscillation parameters, cross sections and more, each next to the paper's figure."),
+    ("sensitivity", "Sensitivity", "Sensitivity studies",
+     "Projected precision of running and planned experiments, reproduced with Asimov data sets."),
+    ("inputs", "Inputs", "Model inputs",
+     "The ingredients of the analyses (neutrino fluxes, cross sections, the Earth model, detector responses) compared with the published models."),
+    ("theory", "Theory", "Theory",
+     "Oscillation probabilities in vacuum and matter, analytic approximations and new-physics scenarios, compared with published calculations."),
+    ("phenomenology", "Phenomenology", "Phenomenology",
+     "Global fits and new-physics studies, including re-runs of the papers produced with Newtrinos.jl."),
+]
+const CATEGORY_KEYS = first.(CATEGORIES)
+category_title(k) = CATEGORIES[findfirst(c -> c[1] == k, CATEGORIES)][3]
+const ROADMAP = let f = joinpath(@__DIR__, "roadmap.toml"); isfile(f) ? TOML.parsefile(f)["item"] : [] end
+
 const STATUS_LABEL = Dict("reproduced" => "Reproduced", "partial" => "Partially reproduced", "in-progress" => "In progress")
 
 tag(text; cls = "") = """<span class="tag $cls">$(esc(text))</span>"""
@@ -70,8 +87,8 @@ function full_page(title, body; depth = 0, description = SITE.tagline, active = 
   <div class="wrap header-inner">
     <a class="brand" href="$(d(r))"><picture><source srcset="$(r)assets/logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="brand-logo" src="$(r)assets/logo.svg" alt="Newtrinos.jl logo" width="32" height="32"></picture> $(SITE.name)</a>
     <nav class="main-nav">
-      $(nav("entries/", "Entries", "entries"))
-      $(nav("experiments/", "Experiments", "experiments"))
+      $(join([nav("categories/$(k)/", label, k) for (k, label) in first.(CATEGORIES, 2)], "\n      "))
+      $(nav("entries/", "All entries", "entries"))
       $(nav("about/", "About", "about"))
     </nav>
   </div>
@@ -110,6 +127,7 @@ function load_entries()
         e["dir"] = dir
         e["run"] = isfile(joinpath(dir, "run.toml")) ? TOML.parsefile(joinpath(dir, "run.toml")) : nothing
         e["run"] === nothing && (e["status"] = "in-progress")
+        get(e, "category", "") in CATEGORY_KEYS || error("entry $slug: category must be one of $(CATEGORY_KEYS)")
         @assert doi_slug(e["doi"]) == slug "entry folder $slug does not match its DOI $(e["doi"])"
         push!(entries, e)
     end
@@ -147,7 +165,9 @@ function load_entry_at(e, v, dst)
         write(target, read(`git -C $ROOT show $(v.commit):$f`))
     end
     old = TOML.parsefile(joinpath(dst, "entry.toml"))
-    merge(old, Dict("slug" => e["slug"], "dir" => dst, "run" => v.run))
+    # fields added later (e.g. category) fall back to the current entry
+    current = Dict(k => v for (k, v) in e if !(k in ("dir", "run")))
+    merge(current, old, Dict("slug" => e["slug"], "dir" => dst, "run" => v.run))
 end
 
 version_label(run, sha) = "$(run["run"]["date"][1:10]) · Newtrinos $(run["newtrinos"]["commit"][1:7]) · verifications $(sha[1:7])"
@@ -167,6 +187,7 @@ function index_record(e)
     Dict("slug" => e["slug"], "title" => e["title"], "short" => e["short"], "doi" => e["doi"], "journal" => e["journal"],
          "year" => e["year"], "arxiv" => get(e, "arxiv", ""), "inspire" => get(e, "inspire", ""),
          "experiments" => e["experiments"], "parameters" => get(e, "parameters", String[]), "status" => e["status"],
+         "category" => e["category"], "category_title" => category_title(e["category"]),
          "added" => e["added"], "figures" => length(get(e, "figures", [])),
          "thumb" => isempty(get(e, "figures", [])) ? "" : "entries/$(e["slug"])/" * e["figures"][1]["ours"])
 end
@@ -181,7 +202,7 @@ links_html(e; r = "") = join(filter(!isempty, [
 ]), " ")
 
 function entry_card(e; r = "")
-    tags = join(vcat([tag(x; cls = "exp") for x in e["experiments"]], [tag(e["year"])],
+    tags = join(vcat([tag(category_title(e["category"]); cls = "cat")], [tag(x; cls = "exp") for x in e["experiments"]], [tag(e["year"])],
                      [tag(STATUS_LABEL[e["status"]]; cls = "status-$(e["status"])")]), " ")
     """
 <article class="card">
@@ -194,18 +215,13 @@ function entry_card(e; r = "")
 </article>"""
 end
 
-function experiment_counts(entries)
-    c = Dict{String,Int}()
-    for e in entries, x in e["experiments"]
-        c[x] = get(c, x, 0) + 1
-    end
-    sort(collect(c), by = x -> (-x[2], x[1]))
-end
-
 function home_page(entries)
     nfig = sum(e -> length(get(e, "figures", [])), entries; init = 0)
-    exps = experiment_counts(entries)
-    grid = join(["""<a class="exp-tile" href="$(d("entries/"))?experiment=$(esc(x))"><span>$(esc(x))</span><b>$n</b></a>""" for (x, n) in exps], "\n")
+    ncat(k) = count(e -> e["category"] == k, entries)
+    nplan(k) = count(i -> i["category"] == k, ROADMAP)
+    grid = join(["""<a class="cat-tile" href="$(d("categories/$(k)/"))"><h3>$(esc(title))</h3><p>$(esc(desc))</p>
+<span class="muted small">$(ncat(k)) $(ncat(k) == 1 ? "entry" : "entries")$(nplan(k) > 0 ? " · $(nplan(k)) planned" : "")</span></a>"""
+                  for (k, _, title, desc) in CATEGORIES], "\n")
     recent = join(entry_card.(entries[1:min(end, 6)]), "\n")
     body = """
 <section class="hero">
@@ -214,7 +230,7 @@ function home_page(entries)
   that produced it, the exact Newtrinos.jl commit and the downloadable fit results.</p>
   <div class="stats">
     <div><b>$(length(entries))</b><span>papers</span></div>
-    <div><b>$(length(exps))</b><span>experiments</span></div>
+    <div><b>$(length(unique(x for e in entries for x in e["experiments"])))</b><span>experiments</span></div>
     <div><b>$nfig</b><span>figures</span></div>
   </div>
 </section>
@@ -233,8 +249,8 @@ function home_page(entries)
   Neutrino Data</i>, Journal of Open Source Software 11(125), 9644, <a href="https://doi.org/10.21105/joss.09644">doi:10.21105/joss.09644</a>.</p>
 </section>
 <section>
-  <h2>Browse by experiment</h2>
-  <div class="exp-grid">$grid</div>
+  <h2>Browse</h2>
+  <div class="cat-grid">$grid</div>
 </section>
 <section>
   <h2>Recently added</h2>
@@ -268,9 +284,17 @@ function entries_page(entries)
     page("Entries · $(SITE.name)", body; depth = 1, active = "entries")
 end
 
-function experiments_page(entries)
-    rows = join(["""<a class="exp-tile" href="../$(d("entries/"))?experiment=$(esc(x))"><span>$(esc(x))</span><b>$n</b></a>""" for (x, n) in experiment_counts(entries)], "\n")
-    page("Experiments · $(SITE.name)", """<h1>Experiments</h1><div class="exp-grid">$rows</div>"""; depth = 1, active = "experiments")
+function category_page(entries, k, label, title, desc)
+    es = filter(e -> e["category"] == k, entries)
+    plan = filter(i -> i["category"] == k, ROADMAP)
+    planned = isempty(plan) ? "" : "<h2>Planned</h2><ul class=\"planned\">" * join(["""<li><b>$(esc(i["title"]))</b>
+<span class="muted">· $(esc(get(i, "reference", "")))</span><br><span class="small">$(esc(get(i, "note", "")))$(haskey(i, "module") ? " <span class=\"tag\">$(esc(i["module"]))</span>" : "")</span></li>""" for i in plan]) * "</ul>"
+    body = """
+<h1>$(esc(title))</h1>
+<p class="summary">$(esc(desc))</p>
+<div class="cards">$(isempty(es) ? "<p class=\"muted\">No entries yet.</p>" : join(entry_card.(es; r = "../../"), "\n"))</div>
+$planned"""
+    page("$title · $(SITE.name)", body; depth = 2, active = k)
 end
 
 function about_page()
@@ -349,7 +373,7 @@ and the log-likelihood. JLD2 files contain the full <code>NewtrinosResult</code>
 <div class="table-scroll"><table class="files"><tr><th>File</th><th>Size</th><th>SHA-256</th></tr>$rows</table></div>"""
     end
 
-    tags = join(vcat([tag(x; cls = "exp") for x in e["experiments"]], [tag(e["year"])], [tag(p; cls = "param") for p in get(e, "parameters", [])],
+    tags = join(vcat([tag(category_title(e["category"]); cls = "cat")], [tag(x; cls = "exp") for x in e["experiments"]], [tag(e["year"])], [tag(p; cls = "param") for p in get(e, "parameters", [])],
                      [tag(STATUS_LABEL[e["status"]]; cls = "status-$(e["status"])")]), " ")
     body = """
 <nav class="crumbs"><a href="$(r)$(d("entries/"))">Entries</a> / <span>$(esc(e["doi"]))</span></nav>
@@ -397,8 +421,11 @@ function build()
     mkpath(OUT)
     cp(joinpath(@__DIR__, "assets"), joinpath(OUT, "assets"))
     write(joinpath(OUT, "index.html"), home_page(entries))
-    for (d, html) in (("entries", entries_page(entries)), ("experiments", experiments_page(entries)), ("about", about_page()))
+    for (d, html) in (("entries", entries_page(entries)), ("about", about_page()))
         mkpath(joinpath(OUT, d)); write(joinpath(OUT, d, "index.html"), html)
+    end
+    for (k, label, title, desc) in CATEGORIES
+        mkpath(joinpath(OUT, "categories", k)); write(joinpath(OUT, "categories", k, "index.html"), category_page(entries, k, label, title, desc))
     end
     write(joinpath(OUT, "index.json"), tojson(index_record.(entries)))
     for e in entries

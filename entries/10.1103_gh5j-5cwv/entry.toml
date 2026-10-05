@@ -9,6 +9,7 @@ inspire = 2931390
 experiments = ["T2K"]
 parameters = ["δCP", "θ23", "Δm²32", "mass ordering"]
 status = "partial"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Three-flavour fit to the six T2K far-detector samples (FHC/RHC 1Rμ, FHC νμCC1π⁺, FHC/RHC 1Re, FHC 1Re1de; \

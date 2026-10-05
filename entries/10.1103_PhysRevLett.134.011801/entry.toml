@@ -9,6 +9,7 @@ inspire = 2788741
 experiments = ["Super-Kamiokande", "T2K"]
 parameters = ["δCP", "θ23", "mass ordering"]
 status = "partial"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Joint fit of the Newtrinos Super-K atmospheric and T2K modules as they are (no correlated systematics), with the \

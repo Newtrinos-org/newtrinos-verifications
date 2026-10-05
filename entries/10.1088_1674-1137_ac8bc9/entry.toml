@@ -9,6 +9,7 @@ inspire = 2075005
 experiments = ["JUNO"]
 parameters = ["θ12", "θ13", "Δm²21", "Δm²31"]
 status = "reproduced"
+category = "sensitivity"
 added = "2026-10-02"
 summary = """
 Expected (Asimov) sensitivity of JUNO to Δm²₃₁, Δm²₂₁, sin²θ₁₂ and sin²θ₁₃ in the normal ordering, without an \

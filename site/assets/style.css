@@ -164,3 +164,12 @@ th, td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); text-al
 .versions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1rem 0 0; font-size: 0.92rem; }
 .versions select { font: inherit; padding: 0.35rem 0.5rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); max-width: 100%; }
 .notice { margin: 0.8rem 0 0; padding: 0.6rem 0.8rem; border-left: 3px solid var(--warn); background: var(--warn-soft); border-radius: 0 8px 8px 0; }
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.8rem; }
+.cat-tile { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); }
+.cat-tile:hover { border-color: var(--accent); text-decoration: none; }
+.cat-tile h3 { margin: 0; font-family: var(--font-display); font-size: 1.15rem; }
+.cat-tile p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.tag.cat { background: var(--text); color: var(--bg); border-color: transparent; }
+.planned { display: grid; gap: 0.7rem; padding-left: 1.1rem; }
+.planned li { line-height: 1.45; }
+.main-nav { flex-wrap: wrap; row-gap: 0.3rem; }

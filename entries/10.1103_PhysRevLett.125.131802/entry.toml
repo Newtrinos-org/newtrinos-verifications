@@ -9,6 +9,7 @@ inspire = 1803577
 experiments = ["MINOS/MINOS+"]
 parameters = ["θ23", "Δm²32"]
 status = "partial"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 νμ disappearance with the MINOS and MINOS+ beam data, compared with the beam-only contours of the full \

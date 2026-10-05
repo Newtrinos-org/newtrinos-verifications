@@ -9,6 +9,7 @@ inspire = 2720510
 experiments = ["Super-Kamiokande"]
 parameters = ["δCP", "θ13", "θ23", "Δm²32", "mass ordering"]
 status = "reproduced"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 SK-only atmospheric neutrino fit with sin²θ₁₃ free, using the Super-K I–V data release (binned data and MC with \
@@ -16,6 +17,7 @@ systematic response), for both mass orderings, compared with the official Δχ²
 caveats = [
   "The detector response is modelled from the released MC (smoothed response matrices); the official tables come from the full SK analysis.",
   "The official tables are relative to each ordering; the IO curves are shifted by the quoted Δχ²(IO − NO) = 5.23.",
+  "Good agreement in sin²θ₁₃, |Δm²| and the mass-ordering preference (ours ≈ 5.3); our sin²θ₂₃ minimum is at ≈ 0.475 (official 0.45) and our δCP modulation is stronger (maximum Δχ² ≈ 6.0 vs 4.7 in NO).",
   "Computationally expensive (≈80 free parameters per fit): run on a large machine with many threads.",
 ]
 links = [

@@ -9,6 +9,7 @@ inspire = 870962
 experiments = ["KamLAND"]
 parameters = ["θ12", "Δm²21"]
 status = "reproduced"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Reactor ν̄e disappearance at KamLAND in the (tan²θ₁₂, Δm²₂₁) plane with θ₁₃ = 0, compared with the KamLAND-only \

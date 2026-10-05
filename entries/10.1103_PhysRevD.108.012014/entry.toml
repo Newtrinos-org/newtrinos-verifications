@@ -9,6 +9,7 @@ inspire = 2653713
 experiments = ["IceCube DeepCore"]
 parameters = ["θ23", "Δm²32"]
 status = "reproduced"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Atmospheric νμ disappearance with 7.5 years of IceCube DeepCore data (2012–2019), using the public verification \

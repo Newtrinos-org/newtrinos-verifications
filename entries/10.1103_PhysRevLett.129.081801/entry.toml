@@ -9,6 +9,7 @@ inspire = 1945677
 experiments = ["COHERENT"]
 parameters = ["CEvNS cross section"]
 status = "partial"
+category = "experimental"
 added = "2026-10-02"
 summary = """
 Flux-averaged CEvNS cross section on CsI[Na] from the full COHERENT CsI data set, fitted in recoil (PE) and \
