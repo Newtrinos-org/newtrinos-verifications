@@ -31,14 +31,6 @@ module = "new"
 note = "First measurement of reactor oscillations with JUNO; needs a module for the published spectra."
 
 [[item]]
-category = "experimental"
-title = "IceCube DeepCore 3-year high-statistics sample"
-reference = "IceCube, Phys. Rev. Lett. 120, 071801 (2018), arXiv:1707.07081"
-module = "deepcore (3y sample)"
-note = "Module exists but is disabled; port it to the current interfaces."
-
-# ---- sensitivity studies -------------------------------------------------------------------------
-[[item]]
 category = "sensitivity"
 title = "JUNO mass-ordering sensitivity"
 reference = "JUNO, Chin. Phys. C 49, 033104 (2025), arXiv:2405.18008"

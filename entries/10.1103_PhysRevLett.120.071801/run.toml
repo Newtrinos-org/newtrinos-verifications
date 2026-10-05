@@ -1,0 +1,26 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/datamc_bestfit.png" = "585f32d6afd2f4d986eaa2e339225670db9e66b888f022c247ba65d8beed5bcc"
+"ours/fig1_reco_energy.png" = "36d7b779f62293d8f6eebb96aeb689f0a082219f0cfdac8e89585d250a722b2b"
+"ours/fig3_contours.png" = "09238772d2b1a34179c6fca2d2c8d77b405baaa8cd46bc21c8b09928ce22f52f"
+"results/dchi2_vs_official.csv" = "582855e5fd46f2400647ca1b8794c717513ce2896836f874789900e853df04f0"
+"results/deepcore_3y_profile.jld2" = "c582199bdd9897fe4b89555989765b36d50f5c7da0b45c18199b4ceb0bb7f3a4"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 578
+total_points = 578
+
+[newtrinos]
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 4 --project=<Newtrinos.jl @ 58f30fb8dc> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T15:19:29Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 4
+wall_time_s = 164.6

@@ -1,0 +1,56 @@
+title = "Measurement of Atmospheric Neutrino Oscillations at 6–56 GeV with IceCube DeepCore"
+short = "IceCube DeepCore 3 years: atmospheric neutrino oscillations"
+collaboration = "IceCube Collaboration"
+doi = "10.1103/PhysRevLett.120.071801"
+journal = "Phys. Rev. Lett. 120, 071801"
+year = 2018
+arxiv = "1707.07081"
+inspire = 1611292
+experiments = ["IceCube DeepCore"]
+parameters = ["sin²θ₂₃", "Δm²₃₂"]
+status = "partial"
+category = "experimental"
+added = "2026-10-05"
+summary = """
+Atmospheric νμ disappearance with three years of IceCube DeepCore data (2012–2015, 6–56 GeV), reproduced with the \
+Newtrinos module `deepcore_3y`, built on the public three-year high-statistics sample ("sample B"), which the \
+release describes as a very close variant of the sample of this paper. Oscillation inputs as in the paper \
+(Δm²₂₁ = 7.53·10⁻⁵ eV², sin²θ₁₂ = 0.304, sin²θ₁₃ = 0.0217, δCP = 0, standard ντ); profile likelihood on a 17 × 17 \
+grid in (sin²θ₂₃, Δm²₃₂) for each ordering, compared point by point with the official Δχ² maps and the \
+Feldman–Cousins contour of the paper's data release, plus data/MC comparisons at the best fit."""
+caveats = [
+  "Best fit (NO): Δm²₃₂ = 2.312·10⁻³ eV² (paper 2.31), sin²θ₂₃ = 0.526 (paper 0.51; flat profile around maximal mixing). The profiled Δχ² differs from the official maps by a median of 0.8 (NO) and 1.0 (IO), at most 4.5, in the region with Δχ² < 12. Our Δχ² = 4.61 contour is somewhat smaller than the one from the official Δχ² map, mainly in the lower octant and at low Δm²₃₂, and lies close to the official Feldman–Cousins contour.",
+  "Sample and systematics: the public sample is a close variant of the paper's. The module's nuisances differ from the paper's Table I: five Barr flux parameters instead of the paper's two hadronic-flux parameters, the Barr νe/νμ ratio instead of a 20 % νe normalisation, no M_A(RES) parameter, and ice absorption and scattering hyperplanes as prescribed by the release for sample B.",
+  "Data/MC: the observed counts are identical to the paper's; the data/best-fit ratios in reconstructed energy follow the paper's pattern within about 1–2 %.",
+  "The ντ-appearance result of the same sample (Phys. Rev. D 99, 032007) is not covered here; the module scales only ντ CC events (nutau_cc_norm), so only that paper's CC-only result is reproducible.",
+]
+links = [
+  { label = "3-year high-statistics sample (doi:10.21234/ac23-ra43)", url = "https://doi.org/10.21234/ac23-ra43" },
+  { label = "Δχ² maps of this paper (doi:10.21234/B4105H)", url = "https://doi.org/10.21234/B4105H" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+modules = ["deepcore_3y", "osc (SI)", "atm_flux (Barr)", "earth_layers", "xsec"]
+
+[[figures]]
+id = "fig3"
+title = "90% C.L. region in (sin²θ₂₃, Δm²₃₂) and 1D profiles, normal ordering"
+paper_ref = "Fig. 3"
+original = "original/fig3_contours.png"
+ours = "ours/fig3_contours.png"
+
+[[figures]]
+id = "fig1"
+title = "Data and best-fit expectation projected onto reconstructed energy"
+paper_ref = "Fig. 1"
+original = "original/fig1_reco_energy.png"
+ours = "ours/fig1_reco_energy.png"
+
+[[figures]]
+id = "bins"
+title = "Data and best-fit expectation in all analysis bins"
+paper_ref = "Supplemental Material, best-fit per-bin figure"
+original = "original/supp_bins_bestfit.png"
+ours = "ours/datamc_bestfit.png"
