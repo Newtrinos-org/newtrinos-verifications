@@ -1,0 +1,35 @@
+title = "From ray to spray: augmenting amplitudes and taming fast oscillations in fully numerical neutrino codes"
+short = "Ray-to-spray averaging of fast oscillations"
+collaboration = "M. Maltoni"
+doi = "10.1007/JHEP11(2023)033"
+journal = "JHEP 11 (2023) 033"
+year = 2023
+arxiv = "2308.00037"
+inspire = 2684160
+experiments = ["long-baseline accelerators", "atmospheric neutrinos"]
+parameters = ["oscillation averaging"]
+status = "partial"
+category = "theory"
+added = "2026-10-05"
+summary = """
+The ray-to-spray averaging of Newtrinos.jl (module `osc`, propagation model `Spray`, uniform kernel over one cell \
+of the NOvA true-energy grid) compared with brute-force numerical averaging of the exact probabilities over the same \
+cell, for the NOvA baseline (810 km in matter) and Δm²₃₁ from the physical value up to 10 eV², the range in which the \
+paper's figure 'Impact of averaging' shows the unaveraged Δχ² developing spurious wiggles."""
+caveats = [
+  "Spray agrees with the brute-force cell average to ≤ 2.8·10⁻³ in P(νμ → νμ) and ≤ 2·10⁻⁴ in P(νμ → νe) for all Δm²₃₁ (≤ 4·10⁻⁵ at the physical value), while the unaveraged probability differs from the average by up to 0.6 for Δm²₃₁ ≥ 0.2 eV². The residual sits in the partially averaged beat patterns and is consistent with the first-order (linear-phase) expansion of the method.",
+  "The paper's Δχ² curves for NOvA and T2K could not be computed with the Newtrinos experiment modules: Spray propagation fails for paths without an atmosphere segment (osc.jl, _spray_dldh reads layers.radius[2] and treats the first path segment as atmosphere), which includes the single-layer accelerator paths of the nova and t2k modules. Here a vanishing 1 μm atmosphere segment is prepended by hand. MINOS uses the vacuum interface, for which Spray is not implemented.",
+  "The atmospheric (zenith-angle and production-height) part of the method and the paper's first-order probability figures are not yet compared.",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["osc (Spray, SI)"]
+
+[[figures]]
+id = "fig_average"
+title = "Spray vs. brute-force averaging of the exact probabilities (NOvA baseline)"
+paper_ref = "figure 'Impact of averaging' (concept); the Δχ² panels are not reproduced"
+original = "original/fig_average.png"
+ours = "ours/spray_vs_bruteforce.png"

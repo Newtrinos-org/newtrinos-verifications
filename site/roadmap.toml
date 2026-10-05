@@ -73,10 +73,3 @@ title = "Three-flavour global fit (NuFIT 6.0)"
 reference = "Esteban et al., JHEP 12 (2024) 216, arXiv:2410.05380"
 module = "combined experiments"
 note = "1D Δχ² profiles of the oscillation parameters from the Newtrinos experiment set, compared with NuFIT (partial overlap of data sets)."
-
-[[item]]
-category = "theory"
-title = "Ray-to-spray averaging of fast oscillations"
-reference = "M. Maltoni, JHEP 11 (2023) 033, arXiv:2308.00037"
-module = "osc (Spray)"
-note = "Analytic averaging of oscillation probabilities over energy and production-height sprays, against brute-force numerical averaging and the paper's figures."
