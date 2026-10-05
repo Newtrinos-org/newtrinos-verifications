@@ -9,25 +9,12 @@ const RELEASE = joinpath(pkgdir(Newtrinos), "src/experiments/minos/minos_sterile
 
 osc = Newtrinos.osc.configure(Newtrinos.osc.OscillationConfig(flavour = Newtrinos.osc.Sterile()))
 physics = (osc = osc, xsec = Newtrinos.xsec.configure())
-experiments = (minos = Newtrinos.minos.configure(physics),)
-A = experiments.minos.assets
-
-# (a) the Newtrinos module likelihood: FD spectra conditioned on the ND (Gaussian), CC and NC
-lik_module = Newtrinos.generate_likelihood(experiments)
-
-# (b) the paper's χ² (dataRelease_chi2Calc_compile.C of the release): one Gaussian χ² over the joint [FD; ND]
-#     spectrum with covariance V = μμᵀ ∘ V_rel + diag(μ), built from the same Newtrinos predictions μ
-function chi2_paper(p)
-    sum(("CC", "NC")) do ch
-        μ = vcat(Newtrinos.minos.get_expected_per_channel(p, physics, A.ch_data["FD"*ch]),
-                 Newtrinos.minos.get_expected_per_channel(p, physics, A.ch_data["ND"*ch]))
-        d = vcat(A.ch_data["FD"*ch].observed, A.ch_data["ND"*ch].observed)
-        V = (μ * μ') .* (ch == "CC" ? A.TotalCCCovar : A.TotalNCCovar) + Diagonal(μ)
-        r = d - μ
-        dot(r, V \ r)
-    end
-end
-lik_paper = logfuncdensity(p -> -chi2_paper(p) / 2)
+# two likelihood constructions of the minos module (Newtrinos.minos.configure(...; detectors)):
+#   :FD_ND — joint [FD; ND] spectrum with the release covariance V = μμᵀ ∘ V_rel + diag(μ), as in the paper's χ²
+#            (dataRelease_chi2Calc_compile.C), with a fixed log-determinant normalisation
+#   :FD    — FD spectra conditioned on the ND (the default, for three-flavour fits)
+lik = Dict(String(d) => Newtrinos.generate_likelihood((minos = Newtrinos.minos.configure(physics; detectors = d),))
+           for d in (:FD_ND, :FD))
 
 # official χ² surface of the release: bins in θ₂₄ (rad, 50 log bins) × Δm²₄₁ (eV², 100 log bins)
 h5 = h5open(RELEASE)
@@ -50,8 +37,8 @@ priors = (θ₁₂ = p.θ₁₂, θ₁₃ = p.θ₁₃, θ₂₃ = Uniform(0, π
 # grid: every second bin centre of the official surface (25 × 50 points); LogUniform quantiles land on them
 grid = OrderedDict(:θ₂₄ => 25, :Δm²₄₁ => 50)
 
-# the profile has several local minima (θ₂₃ octant, θ₃₄, degeneracies with Δm²₃₁ at small Δm²₄₁): the paper χ²
-# is profiled from four starting points and the best fit is kept at each grid point
+# the profile has several local minima (θ₂₃ octant, θ₃₄, degeneracies with Δm²₃₁ at small Δm²₄₁): the :FD_ND
+# likelihood is profiled from four starting points and the best fit is kept at each grid point
 starts = [(θ₂₃ = a, θ₃₄ = b) for a in (0.93, 0.64) for b in (0.05, 0.7)]
 function best_of(rs)
     k = argmax(cat((r.values.log_posterior for r in rs)..., dims = 3), dims = 3)
@@ -60,25 +47,25 @@ function best_of(rs)
     Newtrinos.NewtrinosResult(axes = rs[1].axes, values = vals, meta = rs[1].meta)
 end
 res = Dict(
-    "paper_chi2" => best_of([Newtrinos.profile(lik_paper, priors, grid, merge(p, s), cache_dir = "cache/paper_chi2_$i")
-                             for (i, s) in enumerate(starts)]),
-    "module" => Newtrinos.profile(lik_module, priors, grid, p, cache_dir = "cache/module"))
+    "FD_ND" => best_of([Newtrinos.profile(lik["FD_ND"], priors, grid, merge(p, s), cache_dir = "cache/FD_ND_$i")
+                        for (i, s) in enumerate(starts)]),
+    "FD" => Newtrinos.profile(lik["FD"], priors, grid, p, cache_dir = "cache/FD"))
 FileIO.save("results/minos_sterile.jld2", Dict(k => v for (k, v) in res))
 
-ss24 = sin.(res["paper_chi2"].axes.θ₂₄) .^ 2
-dm41 = collect(res["paper_chi2"].axes.Δm²₄₁)
+ss24 = sin.(res["FD_ND"].axes.θ₂₄) .^ 2
+dm41 = collect(res["FD_ND"].axes.Δm²₄₁)
 Δχ²(r) = 2 .* (maximum(r.values.log_posterior) .- r.values.log_posterior)
 ours = Dict(k => Δχ²(v) for (k, v) in res)
-iθ = [argmin(abs.(log.(θc) .- log(t))) for t in res["paper_chi2"].axes.θ₂₄]
+iθ = [argmin(abs.(log.(θc) .- log(t))) for t in res["FD_ND"].axes.θ₂₄]
 im = [argmin(abs.(log.(mc) .- log(m))) for m in dm41]
 off = χ²official[iθ, im] .- minimum(χ²official)                   # official Δχ² at our grid points
 fcv = [fc_up[argmin(abs.(log.(logc(fcθ)) .- log(θc[i]))), argmin(abs.(log.(logc(fcm)) .- log(mc[j])))] for i in iθ, j in im]
 
 CSV.write("results/minos_sterile_dchi2.csv",
           DataFrame([(sin2_theta24 = ss24[i], dm2_41 = dm41[j], dchi2_official = off[i, j],
-                      dchi2_newtrinos_paper_chi2 = ours["paper_chi2"][i, j], dchi2_newtrinos_module = ours["module"][i, j],
-                      fc90_critical = fcv[i, j], theta23 = res["paper_chi2"].values.θ₂₃[i, j],
-                      theta34 = res["paper_chi2"].values.θ₃₄[i, j], dm2_31 = res["paper_chi2"].values.Δm²₃₁[i, j])
+                      dchi2_newtrinos_FD_ND = ours["FD_ND"][i, j], dchi2_newtrinos_FD = ours["FD"][i, j],
+                      fc90_critical = fcv[i, j], theta23 = res["FD_ND"].values.θ₂₃[i, j],
+                      theta34 = res["FD_ND"].values.θ₃₄[i, j], dm2_31 = res["FD_ND"].values.Δm²₃₁[i, j])
                      for j in eachindex(dm41) for i in eachindex(ss24)]))
 
 function limit_axis(fig, title)
@@ -92,16 +79,16 @@ end
 limit_legend!(ax, first_label) = axislegend(ax,
     [LineElement(color = :black, linewidth = 2.5), LineElement(color = :dodgerblue, linewidth = 2),
      LineElement(color = :orangered, linewidth = 2, linestyle = :dash)],
-    [first_label, "Newtrinos, paper χ²", "Newtrinos, minos module likelihood"], position = :lb, framevisible = false, labelsize = 12)
+    [first_label, "Newtrinos, detectors = :FD_ND", "Newtrinos, detectors = :FD"], position = :lb, framevisible = false, labelsize = 12)
 
 # Fig. 3: 90% C.L. exclusion with the Feldman-Cousins critical values published in the release
 fig = Figure(size = (660, 660))
 ax = limit_axis(fig, "MINOS/MINOS+ 3+1: 90% C.L. (FC critical values)")
 official_line!(ax)
-contour!(ax, ss24, dm41, ours["paper_chi2"] .- fcv, levels = [0], color = :dodgerblue, linewidth = 2,
-         label = "Newtrinos, paper χ²")
-contour!(ax, ss24, dm41, ours["module"] .- fcv, levels = [0], color = :orangered, linewidth = 2, linestyle = :dash,
-         label = "Newtrinos, minos module likelihood")
+contour!(ax, ss24, dm41, ours["FD_ND"] .- fcv, levels = [0], color = :dodgerblue, linewidth = 2,
+         label = "Newtrinos, detectors = :FD_ND")
+contour!(ax, ss24, dm41, ours["FD"] .- fcv, levels = [0], color = :orangered, linewidth = 2, linestyle = :dash,
+         label = "Newtrinos, detectors = :FD")
 limit_legend!(ax, "MINOS/MINOS+ 90% C.L. (FC, release)")
 save("ours/fig3_limit.png", fig)
 
@@ -109,9 +96,9 @@ save("ours/fig3_limit.png", fig)
 fig = Figure(size = (660, 660))
 ax = limit_axis(fig, "Δχ² = 4.61 (Wilks, 2 dof): official surface vs Newtrinos")
 contour!(ax, ss24, dm41, off, levels = [4.61], color = :black, linewidth = 2.5, label = "official χ² surface (release)")
-contour!(ax, ss24, dm41, ours["paper_chi2"], levels = [4.61], color = :dodgerblue, linewidth = 2, label = "Newtrinos, paper χ²")
-contour!(ax, ss24, dm41, ours["module"], levels = [4.61], color = :orangered, linewidth = 2, linestyle = :dash,
-         label = "Newtrinos, minos module likelihood")
+contour!(ax, ss24, dm41, ours["FD_ND"], levels = [4.61], color = :dodgerblue, linewidth = 2, label = "Newtrinos, detectors = :FD_ND")
+contour!(ax, ss24, dm41, ours["FD"], levels = [4.61], color = :orangered, linewidth = 2, linestyle = :dash,
+         label = "Newtrinos, detectors = :FD")
 limit_legend!(ax, "official χ² surface (release)")
 save("ours/wilks_comparison.png", fig)
 
@@ -122,8 +109,8 @@ for (k, m) in enumerate((2e-3, 2e-2, 0.5, 5.0, 50.0, 500.0))
     local ax = Axis(fig[(k - 1) ÷ 3 + 1, (k - 1) % 3 + 1], xscale = log10, title = @sprintf("Δm²₄₁ = %.3g eV²", dm41[j]),
               xlabel = "sin²θ₂₄", ylabel = "Δχ²", limits = (1e-4, 1, 0, 25))
     lines!(ax, ss24, off[:, j], color = :black, linewidth = 2.5, label = "official (release)")
-    lines!(ax, ss24, ours["paper_chi2"][:, j], color = :dodgerblue, linewidth = 2, label = "Newtrinos, paper χ²")
-    lines!(ax, ss24, ours["module"][:, j], color = :orangered, linewidth = 2, linestyle = :dash, label = "Newtrinos, module")
+    lines!(ax, ss24, ours["FD_ND"][:, j], color = :dodgerblue, linewidth = 2, label = "Newtrinos, detectors = :FD_ND")
+    lines!(ax, ss24, ours["FD"][:, j], color = :orangered, linewidth = 2, linestyle = :dash, label = "Newtrinos, detectors = :FD")
     lines!(ax, ss24, fcv[:, j], color = :gray, linestyle = :dot, label = "FC 90% critical value")
     k == 1 && axislegend(ax, position = :lt, framevisible = false, labelsize = 11)
 end
@@ -135,9 +122,9 @@ function crossing(x, y, level)
     exp(log(x[i-1]) + (level - y[i-1]) / (y[i] - y[i-1]) * (log(x[i]) - log(x[i-1])))
 end
 j = argmin(abs.(log.(dm41) .- log(0.5)))
-println(@sprintf("Δm²₄₁ = %.3g eV², 90%% C.L. (FC) upper limit on sin²θ₂₄: official surface %.4f, Newtrinos paper χ² %.4f, module %.4f (paper: 0.006)",
-                 dm41[j], crossing(ss24, off[:, j] .- fcv[:, j], 0), crossing(ss24, ours["paper_chi2"][:, j] .- fcv[:, j], 0),
-                 crossing(ss24, ours["module"][:, j] .- fcv[:, j], 0)))
+println(@sprintf("Δm²₄₁ = %.3g eV², 90%% C.L. (FC) upper limit on sin²θ₂₄: official surface %.4f, Newtrinos :FD_ND %.4f, :FD %.4f (paper: 0.006)",
+                 dm41[j], crossing(ss24, off[:, j] .- fcv[:, j], 0), crossing(ss24, ours["FD_ND"][:, j] .- fcv[:, j], 0),
+                 crossing(ss24, ours["FD"][:, j] .- fcv[:, j], 0)))
 for (k, v) in ours
     println(@sprintf("%s: max |Δχ² − official| = %.2f, median %.3f (Δχ²_official < 25)", k,
                      maximum(abs.(v .- off)[off .< 25]), median(abs.(v .- off)[off .< 25])))

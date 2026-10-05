@@ -1,26 +1,26 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/dchi2_slices.png" = "01fe0e7a47136e58bbcbd8c6cfce263a4269fef15b2f795e0cf343dd5d5ca918"
-"ours/fig3_limit.png" = "5690779b6a1a48e7ddd61c85fb98cc2d03ac1c9a261e09618f102f92ee34f6af"
-"ours/wilks_comparison.png" = "218d292be6f577c0bcc67f8fae664d0bbafbd018acdd9bbbc3b7236465e0ba9d"
-"results/minos_sterile.jld2" = "0cf0ebe008a8b88517248102cb673ad09e517da0953923a0c256bca2cc64b5c8"
-"results/minos_sterile_dchi2.csv" = "9b26d08e535ba44ae8b276d6075a1d4ad11198ef6c140cd7fde44a183cd9a2c9"
+"ours/dchi2_slices.png" = "15d2d6db0fbdb1ee14f2815b50a1c2f2a1370d9a75a2bfeb73d9223bf7b3ab62"
+"ours/fig3_limit.png" = "05a05eaa80ef33cc82b20238877dab75f6cdb5680f140744bd4dff0970f584a9"
+"ours/wilks_comparison.png" = "199fa2c135730bb8905558faba7bb13867456110d7b31ce31a939378dcfb96a1"
+"results/minos_sterile.jld2" = "848a9fde560afccebd465756226b9f0c7a5e7c5271343fe137b644d02bd2ca57"
+"results/minos_sterile_dchi2.csv" = "7a67e29a259182028747ff494a59b93cf4cde8d328daf1aa059122d6445db990"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 6250
+reused_points = 0
 total_points = 6250
 
 [newtrinos]
-commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+commit = "970f59bde570940a1204bbb1982fc267613130f7"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+command = "julia -t 16 --project=<Newtrinos.jl @ 970f59bde5> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-05T08:54:54Z"
+date = "2026-10-05T09:20:17Z"
 julia = "1.13.0"
 os = "Linux"
 threads = 16
-wall_time_s = 138.3
+wall_time_s = 3440.4
