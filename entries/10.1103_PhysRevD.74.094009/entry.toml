@@ -1,0 +1,46 @@
+title = "Uncertainties in atmospheric neutrino fluxes"
+short = "Barr atmospheric flux uncertainties"
+collaboration = "G. D. Barr, S. Robbins, T. K. Gaisser, T. Stanev"
+doi = "10.1103/PhysRevD.74.094009"
+journal = "Phys. Rev. D 74, 094009"
+year = 2006
+arxiv = "astro-ph/0611266"
+inspire = 731177
+experiments = ["atmospheric neutrinos"]
+parameters = ["atmospheric flux"]
+status = "partial"
+category = "inputs"
+added = "2026-10-05"
+summary = """
+The atmospheric-flux systematics of Newtrinos.jl (module `atm_flux`, models `Barr()` and `BarrEnergyBands()`) are \
+parametrisations of the uncertainty curves of this paper. Here each parameter is set to +1σ, and the resulting change of \
+the flux ratio — computed end to end from the modified HKKM fluxes, with the paper's definitions (ν + ν̄ summed; up \
+cos θ_z < −0.6, horizontal |cos θ_z| < 0.3, down cos θ_z > 0.6; flavour ratios averaged over all directions) — is \
+compared with the paper's uncertainty on that ratio. Flavour ratios agree within the precision of the fits; the \
+directional ratios do not."""
+caveats = [
+  "Up/down: a +1σ shift changes the up/down ratio by about twice the paper's uncertainty (9.1 % vs 5.1 % at 0.3 GeV, 12 % vs 6.5 % at 0.1 GeV). The function updown(cz, r) multiplies down-going fluxes by r and up-going ones by 1/r, so the ratio moves by r²; with r = 1 + u it should move by 1 + u. The fitted u(E) = 7 % / (1 + (E/0.5 GeV)²) also falls more slowly above 1 GeV than the paper's curves, and νμ and νe share one curve.",
+  "Up/horizontal: a +1σ shift changes the up/horizontal ratio by 1.2–1.3× the paper's value below ~3 GeV (e.g. νμ 3.9 % vs 3.0 % at 0.3 GeV) and by ~1.1–1.2× at 100 GeV; the energy dependence follows the paper.",
+  "BarrEnergyBands(): above ~200 GeV the zenith-shape function of the νe/ν̄e uncertainty (fun_nuenuebar) turns over and crosses zero near 700 GeV, so the all-direction νe/ν̄e shift collapses there instead of following the paper (~40 % at 700 GeV). Below 100 GeV both models agree with the paper.",
+  "Flavour ratios: the smooth fits cannot follow the structure of the paper's curves below 1 GeV (νμ/ν̄μ dip to 0.14 % at 0.2 GeV; the noisy νμ/νe curve between 0.1 and 1 GeV).",
+  "The paper's curves are the digitisations shipped with Newtrinos (src/physics/*.csv); the original figures are shown for comparison. The HKKM flux file is the Newtrinos default; ratio shifts depend only weakly on the site.",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["atm_flux (Barr, BarrEnergyBands)"]
+
+[[figures]]
+id = "fig7"
+title = "Uncertainties of the flavour ratios vs. energy"
+paper_ref = "Fig. 7"
+original = "original/fig7_flavour_ratios.png"
+ours = "ours/fig7_flavour_ratios.png"
+
+[[figures]]
+id = "fig9"
+title = "Uncertainties of the up/down and up/horizontal ratios vs. energy"
+paper_ref = "Fig. 9"
+original = "original/fig9_directional_ratios.png"
+ours = "ours/fig9_directional_ratios.png"

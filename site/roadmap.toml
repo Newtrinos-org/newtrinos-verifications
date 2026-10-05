@@ -4,13 +4,6 @@
 # ---- model inputs ------------------------------------------------------------------------------
 [[item]]
 category = "inputs"
-title = "Atmospheric flux uncertainties (Barr scheme)"
-reference = "Barr et al., Phys. Rev. D 74, 094009 (2006), arXiv:astro-ph/0611266"
-module = "atm_flux"
-note = "Fractional uncertainties of the flux and its ratios vs. energy from the hadron-production parameters."
-
-[[item]]
-category = "inputs"
 title = "Neutrino–nucleon charged-current cross sections"
 reference = "Formaggio & Zeller, Rev. Mod. Phys. 84, 1307 (2012), arXiv:1305.7513"
 module = "xsec"
