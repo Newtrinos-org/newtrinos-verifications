@@ -1,0 +1,12 @@
+quantity,newtrinos,reference,note
+ν̄μ / νμ (table totals),0.9986381714842028,1.0,paper Table III: 0.0875 / 0.0875 ν per POT
+νe / νμ (table totals),0.9961942436991039,0.9965714285714287,paper Table III: 0.0872 / 0.0875
+ν̄e / νμ (table totals),0.0007773538995043711,NaN,small ν̄e component (μ⁻ decay)
+νμ fraction in the prompt-line bin,0.9916355570068799,0.9894,paper Table III: 98.94 % of νμ from π⁺ DAR
+prompt-line energy as used by Newtrinos [MeV],30.5,29.792130228185922,"(m²π − m²μ)/2mπ; table bin [30, 31] MeV"
+ν̄μ endpoint as used by Newtrinos [MeV],53.321432347755525,52.8292,mμ/2
+analytic-mode prompt line [MeV],29.836013828186573,29.792130228185922,sns_flux uses mμ = 105.6 MeV
+"mean E(νe) [MeV], table",32.389385805954824,31.67808383573044,reference: analytic Michel spectrum (DAR only)
+"mean E(ν̄μ) [MeV], table",37.6422159951911,37.110232669418366,reference: analytic Michel spectrum (DAR only)
+delayed-tail lifetime [ns],2200.40437413322,2196.98,muon lifetime (PDG)
+analytic default ν per POT per flavour,0.09,0.0875,"paper: 0.0875 (QGSP_BERT, 1 GeV); prior 0.09 ± 0.009"

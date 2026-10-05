@@ -1,0 +1,26 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/energy_offset.png" = "7a07ec725d5dad76dd7f586bbb89f384ae925578a0c4252278a997b3fbfdb7ec"
+"ours/fig13a_energy.png" = "6d5c61a2b54784d2f2274154c8cc4b1d5e116f7b48a6f0e4af616b56857c0d11"
+"ours/fig13b_time.png" = "18ddf6fc5dca020e351ecdb2fad2c291a15bf2957e6c66776c1ea398f21eb55e"
+"results/sns_flux_checks.csv" = "95f03f898593d98e5d34c2297cce3e4a5ea6dbb7693730ad1b6a73d0f53dd0e4"
+"results/sns_flux_energy_spectra.csv" = "c64cbae8e718e751ab7aef86af0637de160120db1f8b3c16490d0398f6e1168b"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 2 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T07:43:21Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 2
+wall_time_s = 90.6

@@ -1,0 +1,49 @@
+title = "Simulating the neutrino flux from the Spallation Neutron Source for the COHERENT experiment"
+short = "SNS neutrino flux"
+collaboration = "COHERENT Collaboration"
+doi = "10.1103/PhysRevD.106.032003"
+journal = "Phys. Rev. D 106, 032003"
+year = 2022
+arxiv = "2109.11049"
+inspire = 1926366
+experiments = ["COHERENT"]
+parameters = ["neutrino flux"]
+status = "partial"
+category = "inputs"
+added = "2026-10-05"
+summary = """
+The SNS pion-decay-at-rest flux of Newtrinos.jl (module `sns_flux`): the energy–time tables of the COHERENT \
+Geant4 simulation (shipped with the CsI data release and used by the COHERENT modules) and the analytic \
+decay-at-rest spectra, compared with the paper's energy and timing distributions, its flavour yields, and the \
+decay kinematics (29.79 MeV prompt line, mμ/2 endpoint, muon lifetime)."""
+caveats = [
+  "Energy offset: COHERENT's flux histogram (snsFlux2D.root, and the CSV tables derived from it) has the 29.79 MeV prompt νμ line in its [30, 31] MeV bin and the Michel spectra extending one third of a bin past mμ/2 = 52.83 MeV, i.e. the histogram was filled with energies rounded to the nearest MeV. Newtrinos reads the bin centres (n + 0.5 MeV), so all SNS flux energies used in the COHERENT modules are about 0.5 MeV too high (ν̄μ endpoint 53.32 MeV, prompt line 30.5 MeV). For a cross section rising like E², this raises the predicted CEvNS rate by an estimated few percent; not yet propagated to the COHERENT entries.",
+  "Flavour yields, the prompt-line fraction (99.2 % vs. the paper's 98.9 % from π⁺ DAR), the shapes of the decay-in-flight tails and the timing agree with the paper; the delayed component decays with τ = 2200 ns (τμ = 2197 ns).",
+  "The analytic mode uses mμ = 105.6 MeV (prompt line 29.84 MeV instead of 29.79 MeV) and a default 0.09 ν per POT per flavour (paper: 0.0875 at 1 GeV, within the 10 % prior).",
+  "The tables are the ones of the CsI 2020 release; the paper's Fig. 13 shows the same simulation in finer energy bins.",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["sns_flux"]
+
+[[figures]]
+id = "fig13a"
+title = "Neutrino energy spectra"
+paper_ref = "Fig. 13 (top)"
+original = "original/fig13a_energy.png"
+ours = "ours/fig13a_energy.png"
+
+[[figures]]
+id = "fig13b"
+title = "Neutrino creation-time distributions"
+paper_ref = "Fig. 13 (bottom)"
+original = "original/fig13b_time.png"
+ours = "ours/fig13b_time.png"
+
+[[figures]]
+id = "offset"
+title = "Prompt line and Michel endpoint in the flux tables, at the energies Newtrinos assigns"
+paper_ref = "not in the paper"
+ours = "ours/energy_offset.png"

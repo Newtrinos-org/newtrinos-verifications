@@ -18,13 +18,6 @@ note = "Ratio σ(ντ)/σ(νμ) near the τ production threshold."
 
 [[item]]
 category = "inputs"
-title = "SNS neutrino flux"
-reference = "COHERENT, Phys. Rev. D 106, 032003 (2022), arXiv:2109.11049"
-module = "sns_flux"
-note = "Prompt νμ and delayed νe, ν̄μ energy spectra and timing from pion decay at rest."
-
-[[item]]
-category = "inputs"
 title = "CEvNS nuclear form factors"
 reference = "e.g. Hoferichter, Menéndez, Schwenk, Phys. Rev. D 102, 074018 (2020), arXiv:2007.08529"
 module = "cevns_xsec"
