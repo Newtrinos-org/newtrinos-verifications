@@ -1,0 +1,23 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig1_oscillogram.png" = "88e10c51ce25fc29b0bddd3d2af32b86e4a8d2f473515bfdf288dc4936d61853"
+"results/resonance.csv" = "2cb7aef2cafc03b87ee78207b407350c34416f81559332472b7dc0ce4ec29e3a"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 2 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T08:22:09Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 2
+wall_time_s = 96.0

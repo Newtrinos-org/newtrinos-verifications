@@ -10,21 +10,6 @@ module = "xsec"
 note = "σ/E vs. E for ν and ν̄ (QE, resonant, DIS regimes) against the compiled measurements and generator predictions."
 
 [[item]]
-category = "inputs"
-title = "ντ charged-current cross-section suppression"
-reference = "Jeong & Reno, Phys. Rev. D 82, 033010 (2010), arXiv:1007.1966"
-module = "xsec"
-note = "Ratio σ(ντ)/σ(νμ) near the τ production threshold."
-
-[[item]]
-category = "inputs"
-title = "Inverse-beta-decay cross section"
-reference = "Vogel & Beacom, Phys. Rev. D 60, 053003 (1999); Strumia & Vissani, Phys. Lett. B 564, 42 (2003)"
-module = "reactor experiments"
-note = "Total and differential IBD cross section used for reactor ν̄e (if not already tabulated)."
-
-# ---- theory ------------------------------------------------------------------------------------
-[[item]]
 category = "theory"
 title = "Non-standard interactions in propagation"
 reference = "Ohlsson, Rep. Prog. Phys. 76, 044201 (2013), arXiv:1209.2710"
@@ -45,14 +30,6 @@ reference = "Machado, Nunokawa, Zukanovich Funchal, Phys. Rev. D 84, 013003 (201
 module = "osc (ADD)"
 note = "Oscillation probabilities with Kaluza–Klein modes for reactor and accelerator baselines."
 
-[[item]]
-category = "theory"
-title = "3+1 sterile neutrinos in Earth matter"
-reference = "IceCube, Phys. Rev. Lett. 125, 141801 (2020), arXiv:2005.12942"
-module = "osc (Sterile)"
-note = "Resonant ν̄μ disappearance at TeV energies through the core."
-
-# ---- experimental results ------------------------------------------------------------------------
 [[item]]
 category = "experimental"
 title = "MINOS/MINOS+ sterile-neutrino search"
