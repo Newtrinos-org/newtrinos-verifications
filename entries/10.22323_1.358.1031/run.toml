@@ -1,0 +1,25 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/numu_disappearance_sensitivity.png" = "f44457b5ec0ec958fbc508e55999048e76ce12c17e9831d274f6ec61dbd3d3a8"
+"ours/nutau_sensitivity.png" = "082c31c4959b97c8e5c67b09c768baaa7ed903240a2ed6f497f39856852ed273"
+"results/ic_upgrade_sensitivity.jld2" = "a3f3aede828593c145a081f722dcbf1abbe2df7ddd17750287dc0f5a99f74051"
+"results/nutau_1sigma.csv" = "a76b4a46a9030236b3491c6d952b1545027ed5be6fa63ad3eac9159b6f2f31ec"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 543
+total_points = 543
+
+[newtrinos]
+commit = "970f59bde570940a1204bbb1982fc267613130f7"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 16 --project=<Newtrinos.jl @ 970f59bde5> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T11:26:26Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 16
+wall_time_s = 72.9

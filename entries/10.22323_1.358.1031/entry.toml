@@ -1,0 +1,50 @@
+title = "The IceCube Upgrade – Design and Science Goals"
+short = "IceCube Upgrade oscillation sensitivity (public MC release)"
+collaboration = "IceCube Collaboration (A. Ishihara et al.)"
+doi = "10.22323/1.358.1031"
+journal = "PoS ICRC2019, 1031"
+year = 2019
+arxiv = "1908.09441"
+inspire = 1751107
+experiments = ["IceCube Upgrade"]
+parameters = ["sin²θ₂₃", "Δm²₃₂", "ντ appearance"]
+status = "partial"
+category = "sensitivity"
+added = "2026-10-05"
+summary = """
+Sensitivity of the IceCube Upgrade to the atmospheric oscillation parameters and to ντ appearance, computed with \
+the Newtrinos `ic_upgrade` module, which is built on the public IceCube Upgrade neutrino MC release \
+(doi:10.21234/qfz1-yh02). The release cites these proceedings; their Fig. 3 shows the 3-year 90% C.L. contour in \
+(sin²θ₂₃, Δm²₃₂) and the 1-year 1σ sensitivity to the ντ normalisation. The fits use Asimov data with the DeepCore \
+3-year best fit as truth (sin²θ₂₃ = 0.51, Δm²₃₂ = 2.31·10⁻³ eV², NO), Wilks thresholds (Δχ² = 4.61 and 1), the \
+module's flux (Barr), NC, ντ and normalisation nuisances, and θ₁₃ with a reactor prior. Results are shown with the \
+detector energy scale fixed and with an optional 2% energy-scale uncertainty. The official curves are extracted from \
+the vector figures (data/extract_ishihara.py)."""
+caveats = [
+  "With the energy scale fixed, the 90% contour reproduces the official one: Δm²₃₂ 2.273–2.366 vs. 2.262–2.366 ×10⁻³ eV², sin²θ₂₃ 0.41–0.60 vs. 0.411–0.603 (the numerical extents are limited by the 15 × 15 grid). With the optional 2% energy-scale uncertainty, which is nearly degenerate with Δm²₃₂, the contour is about twice as wide in Δm²₃₂ (2.217–2.421 ×10⁻³ eV²). The proceedings do not list their systematics; their contour is consistent with no energy-scale freedom, which is probably optimistic.",
+  "Later IceCube Upgrade sensitivities (ICRC2023, arXiv:2307.15295; Phys. Rev. D 113 (2026), arXiv:2509.13066) reach a similar Δm² width of ≈ 1.0–1.1·10⁻⁴ eV² (full 90% range, read from their figures). They combine 3 years of the Upgrade with 12 years of DeepCore and use a newer (GNN) reconstruction than the public 2020 release, so they are not a like-for-like comparison. They cannot be reproduced from public inputs.",
+  "ντ normalisation: with the module's systematics, the 1σ interval is 0.871–1.156, wider than the official 0.896–1.107; the energy scale does not matter here. A statistics-only fit (flux, NC, normalisation and energy-scale nuisances fixed; oscillation parameters free) gives 0.892–1.092, close to the official interval. The widening comes mainly from the Barr flux nuisances (fixing the NC normalisation and the livetime changes the interval by < 0.01).",
+  "The release is preliminary simulation (cascade reconstruction only; no atmospheric-muon or noise background). The livetime is treated as a free normalisation (uniform within ±33 %).",
+]
+links = [
+  { label = "IceCube Upgrade MC data release", url = "https://doi.org/10.21234/qfz1-yh02" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "970f59bde570940a1204bbb1982fc267613130f7"
+modules = ["ic_upgrade", "osc (SI)", "atm_flux (Barr)", "earth_layers", "xsec"]
+
+[[figures]]
+id = "numu"
+title = "3-year 90% C.L. sensitivity in (sin²θ₂₃, Δm²₃₂)"
+paper_ref = "Fig. 3 (right)"
+original = "original/June26_Upgrade_NuMu_Disappearance_Sensitivity.png"
+ours = "ours/numu_disappearance_sensitivity.png"
+
+[[figures]]
+id = "nutau"
+title = "1-year ντ normalisation sensitivity (1σ)"
+paper_ref = "Fig. 3 (left)"
+original = "original/June26_Upgrade_NuTau_Appearance_Sensitivity.png"
+ours = "ours/nutau_sensitivity.png"

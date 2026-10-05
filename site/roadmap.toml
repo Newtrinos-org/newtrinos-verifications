@@ -40,13 +40,6 @@ note = "Module exists but is disabled; port it to the current interfaces."
 # ---- sensitivity studies -------------------------------------------------------------------------
 [[item]]
 category = "sensitivity"
-title = "IceCube Upgrade oscillation sensitivity"
-reference = "IceCube Upgrade MC data release (2020)"
-module = "ic_upgrade"
-note = "Projected sin²θ₂₃–Δm²₃₂ sensitivity from the public Upgrade simulation."
-
-[[item]]
-category = "sensitivity"
 title = "JUNO mass-ordering sensitivity"
 reference = "JUNO, Chin. Phys. C 49, 033104 (2025), arXiv:2405.18008"
 module = "juno"
