@@ -1,0 +1,24 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig1_probabilities.png" = "fad4a32aae82b4f0f263e47cd04aa6964d1f8c70f8c57f8cecb0607e46acf003"
+"ours/kk_truncation.png" = "e3c4ee6e5ad195008980186fef88e05f01b8fb31268ef632d5f36000e662b24c"
+"results/kk_truncation.csv" = "650b5489d096e3c0f6a4b38438c43e4191ae5122a30dc98793b4ac9f6fcd6e53"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 2 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T08:31:23Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 2
+wall_time_s = 84.6

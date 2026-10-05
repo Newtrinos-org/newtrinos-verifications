@@ -1,0 +1,42 @@
+title = "Testing for Large Extra Dimensions with Neutrino Oscillations"
+short = "Large extra dimensions (ADD): oscillation probabilities"
+collaboration = "P. A. N. Machado, H. Nunokawa, R. Zukanovich Funchal"
+doi = "10.1103/PhysRevD.84.013003"
+journal = "Phys. Rev. D 84, 013003"
+year = 2011
+arxiv = "1101.0003"
+inspire = 883005
+experiments = ["MINOS", "KamLAND", "reactor experiments"]
+parameters = ["large extra dimensions"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-05"
+summary = """
+Oscillation probabilities with large extra dimensions from Newtrinos.jl (module `osc`, flavour model `ADD`: the bulk \
+fermion Kaluza–Klein tower truncated at N_KK modes, a 3(N_KK+1)-dimensional mass matrix diagonalised numerically) \
+for the paper's Fig. 1: νμ survival at 735 km and ν̄e survival at 180 km and 1 km, for a = 0.5 μm, m₀ = 0, both \
+orderings. They are compared with the paper's figure and with the semi-analytic solution for the infinite KK tower \
+(eigenvalue equation λ = (πξ²/2) cot πλ and zero-mode weights of the paper's appendix), implemented in reproduce.jl."""
+caveats = [
+  "Truncation of the KK tower: Newtrinos converges to the infinite tower only like 1/N_KK. With the default N_KK = 5 the probabilities differ from the infinite tower by up to 0.19 (pointwise) or 0.067 after σ_E/E = 3 % energy smearing for the inverted ordering at 180 km (KamLAND), and by ≈ 0.01 at 735 km and 1 km; with N_KK = 20 by 0.018 (smeared) at 180 km. For the normal ordering the effects are a few 10⁻³ or smaller after smearing. Fits of ADD to reactor data with the inverted ordering need N_KK ≳ 50, or the analytic tower.",
+  "Pointwise differences at long L/E are dominated by the KK modes themselves, whose oscillation phases (≈ 10⁴ rad at 180 km) are extremely sensitive to the slightly shifted eigenvalues of the truncated tower; any detector energy resolution averages them out, hence the second (smeared) metric.",
+  "The main figure uses N_KK = 20; it reproduces the paper's curves (the shifted IH spectrum at 180 km, the fast IH oscillations between 0.76 and 0.96 at 1 km, the small NH effects).",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["osc (ADD)"]
+
+[[figures]]
+id = "fig1"
+title = "Survival probabilities at 735, 180 and 1 km with a = 0.5 μm, m₀ = 0"
+paper_ref = "Fig. 1"
+original = "original/fig1_probabilities.png"
+ours = "ours/fig1_probabilities.png"
+
+[[figures]]
+id = "truncation"
+title = "Convergence of the truncated KK tower to the infinite tower"
+paper_ref = "not in the paper"
+ours = "ours/kk_truncation.png"
