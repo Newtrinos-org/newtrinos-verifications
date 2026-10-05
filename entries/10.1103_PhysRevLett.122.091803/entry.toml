@@ -13,18 +13,17 @@ category = "experimental"
 added = "2026-10-05"
 summary = """
 The MINOS/MINOS+ 3+1 search in (sin²θ₂₄, Δm²₄₁) with the Newtrinos `minos` module, which is built on this paper's \
-data release, and the `Sterile` flavour model. The fit follows the paper: θ₂₃, θ₃₄ and Δm²₃₁ are profiled at each \
-grid point (Δm²₃₂ penalty 2.5 ± 0.5·10⁻³ eV²; θ₁₄ and all phases zero). Both likelihood options of the module are \
-shown. `detectors = :FD_ND` (added in Newtrinos.jl PR #262 after this verification) is the joint far+near χ² of the \
-release's χ² macro. `detectors = :FD` (the default, for three-flavour fits) conditions the far detector on the near \
-detector. Both are compared point by point with the official χ² surface and the release's Feldman–Cousins critical \
-values; no FC pseudo-experiments are run."""
+data release (two-detector likelihood, `detectors = :FD_ND`), and the `Sterile` flavour model. The fit follows the \
+paper: θ₂₃, θ₃₄ and Δm²₃₁ are profiled at each grid point (Δm²₃₂ penalty 2.5 ± 0.5·10⁻³ eV²; θ₁₄ and all phases \
+zero). The result is compared point by point with the official χ² surface and the Feldman–Cousins critical values of \
+the data release; no FC pseudo-experiments are run."""
 caveats = [
-  "detectors = :FD_ND reproduces the official best-fit χ² exactly (99.309 vs. the paper's 99.308). The profiled Δχ² agrees with the official surface to a median of 0.002, and the 90% C.L. limit (with the release's FC critical values) matches the official contour everywhere, including the region below 10⁻³ eV² and the island near 5·10⁻³ eV². At Δm²₄₁ = 0.47 eV², sin²θ₂₄ < 0.0061 (paper: 0.006).",
-  "detectors = :FD is not suitable for sterile fits: it prefers a spurious 3+1 point at Δm²₄₁ ≈ 43 eV², sin²θ₂₄ ≈ 0.07, 12.7 units of χ² better than no sterile mixing. Decomposed at that point (relative to no sterile mixing): the FD-given-ND quadratic form changes by −2.1, the log-determinant of the prediction-dependent covariance by −10.6, and the ND-only term (dropped by the conditioning) by +42.7. :FD_ND keeps both quadratic forms and fixes the log-determinant at the nominal prediction.",
-  "The profile has several local minima (θ₂₃ octant, θ₃₄, degeneracies with Δm²₃₁ at small Δm²₄₁). :FD_ND is profiled from four starting points, with the best fit kept at each grid point. 14 of 842 grid points with Δχ²_official < 25 (Δm²₄₁ = 1.4–4·10⁻³ eV², sin²θ₂₄ ≥ 0.3, all outside the 90% region) still miss the global minimum by 4–19 units.",
+  "The Newtrinos prediction reproduces the official best-fit χ² exactly (99.309 vs. the paper's 99.308). The profiled Δχ² agrees with the official surface to a median of 0.002, and the 90% C.L. limit (with the release's FC critical values) matches the official contour everywhere, including the region below 10⁻³ eV² and the island near 5·10⁻³ eV². At Δm²₄₁ = 0.47 eV², sin²θ₂₄ < 0.0061 (paper: 0.006).",
+  "Sterile fits need the two-detector likelihood (detectors = :FD_ND): the near detector oscillates for large Δm²₄₁. The module's default (:FD, far detector conditioned on the near detector) is meant for three-flavour fits.",
+  "The profile has several local minima (θ₂₃ octant, θ₃₄, degeneracies with Δm²₃₁ at small Δm²₄₁). It is profiled from four starting points, with the best fit kept at each grid point. 14 of 842 grid points with Δχ²_official < 25 (Δm²₄₁ = 1.4–4·10⁻³ eV², sin²θ₂₄ ≥ 0.3, all outside the 90% region) still miss the global minimum by 4–19 units.",
   "The grid uses every second bin centre of the official surface (25 × 50 points).",
 ]
+
 
 
 [[figures]]
