@@ -19,6 +19,9 @@ const SITE = (name = "Newtrinos verifications",
 # helpers
 # ------------------------------------------------------------------------------------------------
 esc(s) = replace(string(s), "&" => "&amp;", "<" => "&lt;", ">" => "&gt;", "\"" => "&quot;")
+rich(s) = replace(esc(s), r"`([^`]+)`" => s"<code>\1</code>")   # escaped text with inline `code`
+# journal reference with the year, unless the journal string already contains it (JHEP style)
+jref(e) = occursin("($(e["year"]))", e["journal"]) ? esc(e["journal"]) : "$(esc(e["journal"])) ($(e["year"]))"
 slugify(s) = lowercase(replace(string(s), r"[^A-Za-z0-9]+" => "-"))
 doi_slug(doi) = replace(doi, "/" => "_")
 
@@ -211,7 +214,7 @@ function entry_card(e; r = "")
     <p class="muted">$(esc(e["title"]))</p>
   </a>
   <div class="tags">$tags</div>
-  <div class="meta muted">$(esc(e["journal"])) ($(e["year"])) · $(length(get(e, "figures", []))) figure(s) · added $(e["added"])</div>
+  <div class="meta muted">$(jref(e)) · $(length(get(e, "figures", []))) figure(s) · added $(e["added"])</div>
 </article>"""
 end
 
@@ -325,7 +328,7 @@ function entry_page(e; depth = 2, nav = "", notice = "")
     figs = join(map(get(e, "figures", [])) do f
         orig = haskey(f, "original") ?
             """<figure><figcaption>Paper · $(esc(get(f, "paper_ref", "")))</figcaption><a href="$(esc(f["original"]))"><img src="$(esc(f["original"]))" alt="Original: $(esc(f["title"]))" loading="lazy"></a>
-<p class="credit">Original figure: $(esc(e["collaboration"])), $(esc(e["journal"])) ($(e["year"])), $(esc(get(f, "paper_ref", ""))),
+<p class="credit">Original figure: $(esc(e["collaboration"])), $(jref(e)), $(esc(get(f, "paper_ref", ""))),
 <a href="https://doi.org/$(esc(e["doi"]))">doi:$(esc(e["doi"]))</a>. Not our work; shown for comparison, all rights with the authors and publisher.</p></figure>""" :
             """<figure class="missing"><figcaption>Paper</figcaption><p class="muted">$(esc(get(f, "paper_ref", "no figure")))</p></figure>"""
         ours = isfile(joinpath(e["dir"], f["ours"])) ?
@@ -339,7 +342,7 @@ function entry_page(e; depth = 2, nav = "", notice = "")
     end, "\n")
 
     caveats = isempty(get(e, "caveats", [])) ? "" :
-        "<h2>Known limitations</h2><ul>" * join(["<li>$(esc(c))</li>" for c in e["caveats"]]) * "</ul>"
+        "<h2>Known limitations</h2><ul>" * join(["<li>$(rich(c))</li>" for c in e["caveats"]]) * "</ul>"
     extlinks = join(["""<a class="btn" href="$(esc(l["url"]))">$(esc(l["label"]))</a>""" for l in get(e, "links", [])], " ")
 
     code = read(joinpath(e["dir"], "reproduce.jl"), String)
@@ -378,14 +381,14 @@ and the log-likelihood. JLD2 files contain the full <code>NewtrinosResult</code>
     body = """
 <nav class="crumbs"><a href="$(r)$(d("entries/"))">Entries</a> / <span>$(esc(e["doi"]))</span></nav>
 <header class="entry-head">
-  <p class="muted">$(esc(e["collaboration"])) · $(esc(e["journal"])) ($(e["year"]))</p>
+  <p class="muted">$(esc(e["collaboration"])) · $(jref(e))</p>
   <h1>$(esc(e["title"]))</h1>
   <div class="tags">$tags</div>
   <div class="links">$(links_html(e)) $extlinks</div>
 </header>
 $nav
 $notice
-<p class="summary">$(esc(e["summary"]))</p>
+<p class="summary">$(rich(e["summary"]))</p>
 
 <h2>Figures</h2>
 $figs
