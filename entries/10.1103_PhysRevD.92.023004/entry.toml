@@ -1,0 +1,58 @@
+title = "Atmospheric neutrino flux calculation using the NRLMSISE-00 atmospheric model"
+short = "HKKM atmospheric neutrino fluxes"
+collaboration = "M. Honda, M. Sajjad Athar, T. Kajita, K. Kasahara, S. Midorikawa"
+doi = "10.1103/PhysRevD.92.023004"
+journal = "Phys. Rev. D 92, 023004"
+year = 2015
+arxiv = "1502.03916"
+inspire = 1344751
+experiments = ["atmospheric neutrinos"]
+parameters = ["atmospheric flux"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-05"
+summary = """
+The nominal atmospheric neutrino flux of Newtrinos.jl (module `atm_flux`, HKKM model): fluxes evaluated from \
+the Newtrinos splines are compared with the published HKKM tables at the Super-Kamiokande site (KAM) and the \
+South Pole (SPL), as all-direction averages, flavour ratios and zenith-angle dependence."""
+caveats = [
+  "Uses the azimuth-averaged HKKM tables for solar minimum without mountain overburden (kam-ally-20-01-solmin.d, spl-nu-20-01-000.d); the paper's Fig. 3 is a one-year average and does not state the solar-activity choice, which matters only below ~1 GeV.",
+  "The tables are read independently in reproduce.jl; Newtrinos (cubic splines in log₁₀E and cos θ_z) reproduces the all-direction averages to better than 0.1 % for all flavours at both sites.",
+  "Azimuthal dependence (paper Figs. 8–11) is not modelled: Newtrinos uses azimuth-averaged tables.",
+]
+links = [
+  { label = "HKKM flux tables (Honda)", url = "http://www.icrr.u-tokyo.ac.jp/~mhonda/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["atm_flux (HKKM)"]
+
+[[figures]]
+id = "fig3_kam"
+title = "All-direction averaged flux × E³, Super-Kamiokande site"
+paper_ref = "Fig. 3 (KAM)"
+original = "original/fig3_alldir_kam.png"
+ours = "ours/fig3_alldir_kam.png"
+
+[[figures]]
+id = "fig3_spl"
+title = "All-direction averaged flux × E³, South Pole"
+paper_ref = "Fig. 3 (SPL)"
+original = "original/fig3_alldir_spl.png"
+ours = "ours/fig3_alldir_spl.png"
+
+[[figures]]
+id = "fig5"
+title = "Flavour ratios of the all-direction averaged flux"
+paper_ref = "Fig. 5 (KAM, SPL)"
+original = "original/fig5_ratios.png"
+ours = "ours/fig5_ratios.png"
+
+[[figures]]
+id = "fig7"
+title = "Zenith-angle dependence at 3.2 GeV"
+paper_ref = "Fig. 7 (KAM, SPL)"
+original = "original/fig7_zenith_3GeV.png"
+ours = "ours/fig7_zenith_3GeV.png"

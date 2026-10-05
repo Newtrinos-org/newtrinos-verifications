@@ -4,13 +4,6 @@
 # ---- model inputs ------------------------------------------------------------------------------
 [[item]]
 category = "inputs"
-title = "HKKM atmospheric neutrino fluxes"
-reference = "Honda et al., Phys. Rev. D 92, 023004 (2015), arXiv:1502.03916"
-module = "atm_flux"
-note = "E²-weighted spectra and flavour / ν–ν̄ ratios at Kamioka, the South Pole and the ORCA site; zenith and azimuth dependence."
-
-[[item]]
-category = "inputs"
 title = "Atmospheric flux uncertainties (Barr scheme)"
 reference = "Barr et al., Phys. Rev. D 74, 094009 (2006), arXiv:astro-ph/0611266"
 module = "atm_flux"

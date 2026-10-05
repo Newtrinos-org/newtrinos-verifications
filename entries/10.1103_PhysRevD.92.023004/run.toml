@@ -1,0 +1,27 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig3_alldir_kam.png" = "a67b31de1b0ad239811ea8bfba7bd273bc5c3b84ceb453db275d18e16241ccc2"
+"ours/fig3_alldir_spl.png" = "bcd9da3c464e6cde7e6860303034a518494d33e2cb12ed728e20c608a99e7449"
+"ours/fig5_ratios.png" = "f981b617ab7c09420e5d659ac424d5ad82b27985deb78cb35f4c67a6680dab0d"
+"ours/fig7_zenith_3GeV.png" = "944484e525de80cd8797a90c1051c7b69216ad2181d0d27521bb739400b866e3"
+"results/hkkm_KAM_alldir.csv" = "dce19d5c71af4313b79997bc0c0df6d0f4128c561688bf42f36eaf211b0146b6"
+"results/hkkm_SPL_alldir.csv" = "2bc2010dc75ae3070d240f9d39a8a0e418e7bc9f34e108b5688c9394fd1eaebf"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 4 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T07:03:45Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 4
+wall_time_s = 32.0
