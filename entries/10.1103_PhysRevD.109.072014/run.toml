@@ -1,19 +1,19 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig14_1d_profiles.png" = "d9fff0e25b66dd471097edded48d90f4c57a7b0b9f73f51c2f89fda88707f1e9"
-"results/superk.jld2" = "aaaab04023a285f4c65533db86cb17117c7d43149518afb592bb75d7a04399ca"
-"results/superk_IO_dcp.csv" = "99fd3ad35e89c6e822f9a83d2197eb0bc7f5e7022363c49c042394dff6ba7e23"
-"results/superk_IO_dm2.csv" = "d1af19f65a93d44c21df5421602e1dc09ad5b44dd6dca308fe409ceab68837b0"
-"results/superk_IO_th13.csv" = "0aa157271c758d301c3a90286cc2f10f2585808604b2fb792c53c886a8344137"
-"results/superk_IO_th23.csv" = "d2620a1d4a761ddb64a3b68a2be67d2e8ff35c9177fc8e6bcb85ce5cbb34a840"
-"results/superk_NO_dcp.csv" = "ae2e8a71c619a36ef72955fd809c7cbc787b6fafeafd626c6a94d5949adf0e8d"
-"results/superk_NO_dm2.csv" = "81401bd64a8cfeb80fa0c16a72c5e82ad832fbd47a9cb473d10b5339f08e9952"
-"results/superk_NO_th13.csv" = "e89e5ffbfcadd2fe66d790245ee621552c07d13d8006e990f8e556810198d989"
-"results/superk_NO_th23.csv" = "f4096b229d1667af7a3ec07423469935108c4366c0159fedbeaa3a8c3e02f612"
+"ours/fig14_1d_profiles.png" = "dd7f2e95251d669702a101a48f43f0c579ab80819032c68009489f958e08c301"
+"results/superk.jld2" = "3410b8377e4fd064e91baa704d1b88fd6e1d5ab9bf975909e462a478048b401f"
+"results/superk_IO_dcp.csv" = "bb35a836515a04272ad7022efe03878aec16fbc70a29ef29bfe52fe8bc215361"
+"results/superk_IO_dm2.csv" = "b07e9a7ab1bce119d41d733a2b565ce5937d41f58104e480882e30850c0b6ec5"
+"results/superk_IO_th13.csv" = "4d23f0ea3a302625929c5919e85b100f6a077a59b6f94091300dde9a24a809d8"
+"results/superk_IO_th23.csv" = "aaf4f646c9e04def69c90f63567f57d4ad4988bebe8c7ce41bb6e346e3a1c1a9"
+"results/superk_NO_dcp.csv" = "d91a8f4a717c673c9e361f331906132cf527d28b7bebe70b4603c9ac8272354e"
+"results/superk_NO_dm2.csv" = "10e3b1bee8155f2a3d3e602bb99e8f021042d574c185a26985a4aa2a249ee10b"
+"results/superk_NO_th13.csv" = "b23e769f73c5c4710db0d7754191b5b93473b881253985e4506c2f1c04531606"
+"results/superk_NO_th23.csv" = "581d8fb7ccef5dac699ee5424ca0bdc3de57f85189f29d5d334627799e7d18ba"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 13
+reused_points = 288
 total_points = 288
 
 [newtrinos]
@@ -24,8 +24,8 @@ repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 command = "julia -t 128 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-02T11:39:18Z"
+date = "2026-10-05T06:33:36Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 128
-wall_time_s = 36219.4
+wall_time_s = 162.0
