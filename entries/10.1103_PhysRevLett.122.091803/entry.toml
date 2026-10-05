@@ -1,0 +1,50 @@
+title = "Search for Sterile Neutrinos in MINOS and MINOS+ Using a Two-Detector Fit"
+short = "MINOS/MINOS+ 3+1 sterile-neutrino search"
+collaboration = "MINOS+ Collaboration"
+doi = "10.1103/PhysRevLett.122.091803"
+journal = "Phys. Rev. Lett. 122, 091803"
+year = 2019
+arxiv = "1710.06488"
+inspire = 1631327
+experiments = ["MINOS"]
+parameters = ["sterile neutrinos"]
+status = "partial"
+category = "experimental"
+added = "2026-10-05"
+summary = """
+The MINOS/MINOS+ 3+1 search in (sin²θ₂₄, Δm²₄₁), computed with the Newtrinos `minos` module, which is built on \
+this paper's data release, and the `Sterile` flavour model. The fit follows the paper: θ₂₃, θ₃₄ and Δm²₃₁ are profiled \
+at each grid point (Δm²₃₂ penalty 2.5 ± 0.5·10⁻³ eV²; θ₁₄ and all phases zero). Two likelihoods are compared: the \
+module's own, and the paper's χ² from the release's dataRelease_chi2Calc macro, rebuilt from the same Newtrinos \
+predictions. Both are compared point by point with the official χ² surface and the Feldman–Cousins critical values \
+of the data release; no FC pseudo-experiments are run."""
+caveats = [
+  "Paper χ²: the Newtrinos predictions reproduce the official best-fit χ² exactly (99.309 vs. the paper's 99.308). The profiled Δχ² agrees with the official surface to a median of 0.002, and the 90% C.L. limit (with the release's FC critical values) matches the official contour everywhere, including the region below 10⁻³ eV² and the island near 5·10⁻³ eV². At Δm²₄₁ = 0.47 eV², sin²θ₂₄ < 0.0061 (paper: 0.006).",
+  "minos module likelihood: the module prefers a spurious 3+1 point at Δm²₄₁ ≈ 43 eV², sin²θ₂₄ ≈ 0.07, 12.7 units of χ² better than no sterile mixing, so its limit (red) is wrong. Decomposed at that point (relative to no sterile mixing, same nuisance values): the FD-given-ND quadratic form changes by −2.1, the log-determinant of the prediction-dependent covariance (MvNormal with V = μμᵀ∘V_rel + diag(μ)) by −10.6, and the ND-only term that the conditioning drops by +42.7. The paper's χ² is exactly the sum of the two quadratic forms (+40.6) and has no log-determinant. A fix that keeps the conditioning: −2 ln L = conditioned FD quadratic form + ND quadratic form, without log det V.",
+  "The profile has several local minima: θ₂₃ octant, θ₃₄, and degeneracies with Δm²₃₁ at small Δm²₄₁. The paper χ² is profiled from four starting points, with the best fit kept at each grid point. 14 of 842 grid points with Δχ²_official < 25 (Δm²₄₁ = 1.4–4·10⁻³ eV², sin²θ₂₄ ≥ 0.3, all outside the 90% region) still miss the global minimum by 4–19 units.",
+  "The grid uses every second bin centre of the official surface (25 × 50 points).",
+]
+
+[[figures]]
+id = "fig3"
+title = "90% C.L. exclusion in (sin²θ₂₄, Δm²₄₁) with the release's Feldman–Cousins critical values"
+paper_ref = "Fig. 3"
+original = "original/fig3_limit.png"
+ours = "ours/fig3_limit.png"
+
+[[figures]]
+id = "wilks"
+title = "Profile check: official χ² surface vs. Newtrinos at the same grid points, Δχ² = 4.61"
+paper_ref = "not in the paper (release χ² surface)"
+ours = "ours/wilks_comparison.png"
+
+[[figures]]
+id = "slices"
+title = "Δχ² vs. sin²θ₂₄ at fixed Δm²₄₁"
+paper_ref = "not in the paper (release χ² surface)"
+ours = "ours/dchi2_slices.png"
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+modules = ["minos", "osc (Sterile)", "xsec"]

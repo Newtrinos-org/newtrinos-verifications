@@ -25,13 +25,6 @@ note = "Damping signatures in vacuum and matter probabilities."
 
 [[item]]
 category = "experimental"
-title = "MINOS/MINOS+ sterile-neutrino search"
-reference = "MINOS+, Phys. Rev. Lett. 122, 091803 (2019), arXiv:1710.06488"
-module = "minos + osc (Sterile)"
-note = "Exclusion in (sin²θ₂₄, Δm²₄₁) from the data set already used by the minos module."
-
-[[item]]
-category = "experimental"
 title = "COHERENT CsI: non-standard interactions"
 reference = "COHERENT, Phys. Rev. Lett. 129, 081801 (2022), Fig. 3"
 module = "coherent_csi"
