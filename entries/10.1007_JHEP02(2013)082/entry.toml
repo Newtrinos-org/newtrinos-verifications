@@ -30,47 +30,47 @@ modules = ["osc (ThreeFlavour, SI)", "earth_layers"]
 
 [[figures]]
 id = "fig1a"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "νμ → νe, νμ, ντ vs. energy, normal ordering"
 paper_ref = "Fig. 1 (left)"
 original = "original/fig1a_numu.png"
 ours = "ours/fig1a_numu.png"
 
 [[figures]]
 id = "fig1b"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "νe → νe, νμ, ντ vs. energy, normal ordering"
 paper_ref = "Fig. 1 (right)"
 original = "original/fig1b_nue.png"
 ours = "ours/fig1b_nue.png"
 
 [[figures]]
 id = "fig2a"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "νμ → νμ (blue) and νe → νμ (red), NO solid, IO dashed"
 paper_ref = "Fig. 2 (left)"
 original = "original/fig2a_nu.png"
 ours = "ours/fig2a_nu.png"
 
 [[figures]]
 id = "fig2b"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "Antineutrinos: ν̄μ → ν̄μ and ν̄e → ν̄μ, NO solid, IO dashed"
 paper_ref = "Fig. 2 (right)"
 original = "original/fig2b_nubar.png"
 ours = "ours/fig2b_nubar.png"
 
 [[figures]]
 id = "fig3"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "Oscillograms of the Earth, normal ordering"
 paper_ref = "Fig. 3"
 original = "original/fig3_oscillograms.png"
 ours = "ours/fig3_oscillograms.png"
 
 [[figures]]
 id = "fig3_4zone"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "The same oscillograms with the default four-zone Newtrinos Earth"
 paper_ref = "not in the paper"
 ours = "ours/fig3_oscillograms_4zone.png"
 
 [[figures]]
 id = "layering"
-title = "Mass hierarchy, 2-3 mixing and CP-phase with Huge Atmospheric Neutrino Detectors"
+title = "Probability difference: four zones − 100 shells (same Yₑ)"
 paper_ref = "not in the paper"
 ours = "ours/layering_difference.png"
