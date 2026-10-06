@@ -1,0 +1,43 @@
+title = "Measurement of Atmospheric Tau Neutrino Appearance with IceCube DeepCore"
+short = "IceCube DeepCore: ντ appearance (CC-only, Analysis B)"
+collaboration = "IceCube Collaboration"
+doi = "10.1103/PhysRevD.99.032007"
+journal = "Phys. Rev. D 99, 032007"
+year = 2019
+arxiv = "1901.05366"
+inspire = 1714067
+experiments = ["IceCube DeepCore"]
+parameters = ["ντ appearance"]
+status = "partial"
+category = "experimental"
+added = "2026-10-05"
+summary = """
+The ντ CC normalisation of IceCube's Analysis B ("DRAGON") is fitted on the public three-year high-statistics sample B,
+which the paper's Analysis B is built on, with the Newtrinos module `deepcore_3y`. θ₂₃ and Δm²₃₂ are free (NO), θ₁₃ has the
+paper's 8.5° ± 0.21° prior, and all module nuisances are profiled. The profile gives a best fit of 0.67 with Wilks
+intervals of 0.32–1.06 (68 %) and 0.10–1.33 (90 %). The paper's Feldman–Cousins result is 0.43, with 0.12–0.79 and
+0.00–1.07. The interval widths agree (0.74 vs 0.67 at 68 %), but our result is shifted up by about 0.24, roughly 0.7σ.
+The nuisance best fits agree closely with the paper's table.
+"""
+caveats = [
+  "Best fit 0.67 against the paper's 0.43: same interval width, offset by about 0.7σ. No appearance (normalisation 0) is disfavoured at 1.9σ (Wilks) against the paper's 1.4σ. We have not identified the cause of the shift. Candidates: differences between the public sample and the paper's MC, the ντ cross-section model, and the paper's M_A nuisances, which the module lacks.",
+  "Our intervals use Wilks' theorem; the paper's are Feldman–Cousins. This changes the interval edges, mainly near the physical boundary at 0, but not the best fit.",
+  "Nuisance best fits (paper in brackets): θ₂₃ 46.3° (45.9°), Δm²₃₂ 2.33 (2.34)·10⁻³ eV², NC normalisation 1.28 (1.26), livetime 2.28 (2.46) yr, optical efficiency 1.048 (1.04), lateral −0.24 (−0.27), head-on −1.44 (−1.22), ice scattering 0.971 (0.973), absorption 1.014 (1.019).",
+  "Only the CC-only result is reproduced: the module's nutau_cc_norm scales ντ CC events, while ντ NC events are merged with the other flavours in the release, so the paper's CC+NC normalisation (0.59) cannot be fitted. Analysis A (GRECO) has no public sample.",
+]
+links = [
+  { label = "3-year high-statistics sample (doi:10.21234/ac23-ra43)", url = "https://doi.org/10.21234/ac23-ra43" },
+  { label = "Companion entry: oscillation parameters from the same sample", url = "../10.1103_PhysRevLett.120.071801/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+modules = ["deepcore_3y", "osc (SI)", "atm_flux (Barr)", "earth_layers", "xsec"]
+
+[[figures]]
+id = "intervals"
+title = "ντ normalisation: measured values and intervals"
+paper_ref = "Fig. 10"
+original = "original/fig10_intervals.png"
+ours = "ours/nutau_cc_profile.png"

@@ -1,0 +1,12 @@
+parameter,newtrinos,paper
+θ₂₃ (°),46.332,45.9
+Δm²₃₂ (1e-3 eV²),2.33,2.34
+θ₁₃ (°),8.505,8.5
+NC normalisation,1.284,1.26
+Δγ (spectral index),-0.016,-0.04
+effective livetime (yr),2.278,2.46
+"optical eff., overall",1.048,1.04
+"optical eff., lateral (σ)",-0.244,-0.27
+"optical eff., head-on",-1.441,-1.22
+bulk ice scattering,0.971,0.973
+bulk ice absorption,1.014,1.019

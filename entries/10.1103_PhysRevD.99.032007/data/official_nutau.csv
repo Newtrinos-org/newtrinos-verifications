@@ -1,0 +1,5 @@
+analysis,measurement,best_fit,low68,high68,low90,high90,source
+B (DRAGON),CC,0.43,0.12,0.79,0.00,1.07,"text (0.43 +0.36 -0.31); 90% from Fig. 10 (vector, x = (pt - 28.8)/147.6)"
+B (DRAGON),CC+NC,0.59,0.34,0.90,0.18,1.12,"text (0.59 +0.31 -0.25); 90% from Fig. 10"
+A (GRECO),CC,0.57,0.30,0.98,0.11,1.25,text
+A (GRECO),CC+NC,0.73,0.49,1.07,0.34,1.30,text

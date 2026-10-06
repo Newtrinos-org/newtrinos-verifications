@@ -1,0 +1,19 @@
+parameter,best_fit_dragon_cc,prior
+nue_numu_ratio,1.03,1.0 ± 0.05
+nue_up_hor_ratio_sigma,-0.24,0 ± 1
+nu_nubar_ratio_sigma,0.04,0 ± 1
+delta_gamma_nu,-0.04,0 ± 0.1
+effective_livetime_years,2.46,flat
+MA_CCQE_GeV,0.88,0.99 +0.248 -0.149
+MA_res_GeV,0.85,1.12 ± 0.22
+nc_normalization,1.26,1.0 ± 0.2
+theta13_deg,8.5,8.5 ± 0.21
+theta23_deg,45.9,flat
+dm2_32_1e-3eV2,2.34,flat
+opt_eff_overall,1.04,1.00 ± 0.10
+opt_eff_lateral_sigma,-0.27,0 ± 1
+opt_eff_headon,-1.22,flat
+local_ice_model,0.07,flat
+bulk_ice_scattering,0.973,1.00 ± 0.10
+bulk_ice_absorption,1.019,1.00 ± 0.10
+atm_mu_fraction_percent,4.6,flat

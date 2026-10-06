@@ -1,0 +1,25 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/nutau_cc_profile.png" = "fb4e63118de98e8b7da16a3135aba220ba0fafcc03607ba8694cd1288b60216b"
+"results/bestfit_nuisances_vs_paper.csv" = "6197de7b27adc29b512eef485aa73da1c5f008ef1d31a5f8c1c58c430f793158"
+"results/nutau_cc_intervals.csv" = "a858357f1fa9ce24e129269abf2590ec989ff2981af5cc71d925f43c228a0509"
+"results/nutau_cc_profile.jld2" = "cbdf4f2db577f7e96b64de8795b9f2514da7c7bf9afee781e993e4f73b6f78dc"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 41
+
+[newtrinos]
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 4 --project=<Newtrinos.jl @ 58f30fb8dc> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T15:31:48Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 4
+wall_time_s = 55117.0
