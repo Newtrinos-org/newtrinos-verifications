@@ -1,0 +1,42 @@
+title = "Combined sensitivity to the neutrino mass ordering with JUNO, the IceCube Upgrade, and PINGU"
+short = "JUNO + IceCube Upgrade mass-ordering sensitivity"
+collaboration = "IceCube-Gen2 Collaboration and JUNO collaboration members"
+doi = "10.1103/PhysRevD.101.032006"
+journal = "Phys. Rev. D 101, 032006"
+year = 2020
+arxiv = "1911.06745"
+inspire = 1765534
+experiments = ["JUNO", "IceCube Upgrade"]
+parameters = ["mass ordering"]
+status = "partial"
+category = "sensitivity"
+added = "2026-10-05"
+summary = """
+The combined mass-ordering sensitivity of JUNO (8 reactor cores) and the IceCube Upgrade is computed from Asimov data
+for 1–6 years of livetime with the Newtrinos modules `juno` and `ic_upgrade`. The wrong-ordering hypothesis is profiled
+over the oscillation and nuisance parameters, with the paper's NuFIT 4.0 ranges. The combination comes out close to
+the paper: 6.6σ (NO) and 5.6σ (IO) after 6 years, against 6.5σ and 5.1σ. However, the Upgrade on its own is far more
+sensitive out of the box than in the paper (5.5σ / 4.4σ against 3.8σ / 1.8σ), while the boost from the combination
+is much smaller. JUNO alone comes out slightly stronger: 2.7σ / 2.9σ against 2.4σ / 2.5σ. As an optional variant,
+the Upgrade with Spray oscillation probabilities (15 % energy smearing) reproduces the paper's Upgrade-only NO
+sensitivity (3.81σ) but not its IO value (2.5σ), and then gives a weaker combination than the paper: 5.4σ / 4.3σ.
+"""
+caveats = [
+  "Out of the box, the Upgrade module (point-like oscillation probabilities at the true energies of the public MC) resolves the fast atmospheric oscillations far better than the paper's simulation did. That gives an optimistic Upgrade-only sensitivity. Restricting the fit ranges to those of the paper lowers it only to 4.5σ / 3.5σ. Smearing the oscillation probabilities with Spray at 15 % in energy brings NO to the paper's value, but 3 % smearing changes nothing, so this is not a sampling artefact of the probabilities.",
+  "With the optimistic Upgrade the combination happens to match the paper, but for the wrong reason: the gain over the simple sum of Δχ² is about 0.5σ here against about 2σ in the paper. The paper's boost comes from the tension between the |Δm²₃₁| preferred by each experiment in the wrong ordering. Our Upgrade already pins the ordering on its own, which leaves little room for that boost. With Spray, the combination falls 1σ short of the paper.",
+  "The public Upgrade sample (the ICRC2019 release) is not stated to be the simulation the paper used, and its systematics differ: Newtrinos has an energy scale N(1, 0.10), a livetime N(T, 0.1T) and a 0.05 spectral index; the up/down, up/horizontal, NC and ντ normalisations are fixed.",
+  "JUNO: the module models the current JUNO configuration, rescaled to 300 days per year as in the paper. The remaining 10–15 % difference in significance is not investigated.",
+  "The paper's PINGU panels are not reproduced (no public PINGU sample).",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+modules = ["juno", "ic_upgrade", "osc (SI, Vacuum, Spray)", "atm_flux", "earth_layers", "xsec"]
+
+[[figures]]
+id = "livetime"
+title = "Mass-ordering sensitivity vs. livetime (JUNO 8 cores + IceCube Upgrade)"
+paper_ref = "Fig. 6 (panels with JUNO (8 cores) and the IceCube Upgrade) and Table V"
+original = "original/fig_livetime.png"
+ours = "ours/fig_livetime.png"

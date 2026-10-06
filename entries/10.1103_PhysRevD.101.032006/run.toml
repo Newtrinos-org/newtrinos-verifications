@@ -1,0 +1,23 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig_livetime.png" = "2748e2650cb72d259a795c0e5157e548f1a152a8aa9418d3be35f9737f11b14d"
+"results/nmo_sensitivity_vs_livetime.csv" = "80cebbd03cd7627263284f8dbd3937e41e94443e781128456c4f182e426dc3f6"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 40
+
+[newtrinos]
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 16 --project=<Newtrinos.jl @ 58f30fb8dc> reproduce.jl"
+cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
+cpu_threads = 20
+date = "2026-10-05T15:14:25Z"
+julia = "1.13.0"
+os = "Linux"
+threads = 16
+wall_time_s = 61618.1
