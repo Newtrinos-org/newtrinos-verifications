@@ -9,7 +9,8 @@ using Newtrinos, Distributions, DataStructures, Accessors, FileIO, CairoMakie, C
 cd(@__DIR__); mkpath("ours"); mkpath("results"); mkpath("cache")
 GRID = get(ENV, "NEWTRINOS_GRID", "15") |> x -> parse(Int, x)
 
-experiments = (ic_upgrade = Newtrinos.ic_upgrade.configure(),)
+experiments = (ic_upgrade = Newtrinos.ic_upgrade.configure(),)                       # default: energy scale fixed
+experiments_es = (ic_upgrade = Newtrinos.ic_upgrade.configure(; energy_scale_uncertainty = 0.02),)   # optional 2 %
 p0 = Newtrinos.get_params(experiments)
 # truth: the DeepCore 3-year best fit used in the proceedings (sin²θ₂₃ = 0.51, Δm²₃₂ = 2.31e-3 eV², NO)
 p0 = merge(p0, (θ₂₃ = asin(sqrt(0.51)), Δm²₃₁ = 2.31e-3 + p0.Δm²₂₁))
@@ -21,8 +22,8 @@ function base_priors(p)
     merge(pr, (Δm²₂₁ = p.Δm²₂₁, θ₁₂ = p.θ₁₂, δCP = p.δCP, θ₁₃ = Truncated(Normal(0.149, 0.0025), 0.13, 0.17)))
 end
 CONFIGS = OrderedDict(
-    "module" => pr -> pr,                                                  # as implemented
-    "no_energy_scale" => pr -> merge(pr, (ic_upgrade_energy_scale = 1.0,)), # energy scale fixed
+    "default" => pr -> pr,                                                                  # module default (fixed)
+    "energy_scale_2pct" => pr -> merge(pr, (ic_upgrade_energy_scale = Newtrinos.get_priors(experiments_es).ic_upgrade_energy_scale,)),
 )
 
 # ---- 3-year (sin²θ₂₃, Δm²₃₂) profile on Asimov data
@@ -59,7 +60,7 @@ for (c, col, w) in (("deepcore_3yr_2018", :orange, 3), ("upgrade_3yr", :red, 5))
     lines!(ax, s.sin2_theta23, s.dm2_32 .* 1e3, color = (col, 0.6), linewidth = w,
            label = c == "upgrade_3yr" ? "Upgrade 3 yr sensitivity (ICRC2019)" : "DeepCore 3 yr 2018 (ICRC2019 figure)")
 end
-for (name, col, ls) in (("module", :blue, :solid), ("no_energy_scale", :purple, :dash))
+for (name, col, ls) in (("default", :blue, :solid), ("energy_scale_2pct", :purple, :dash))
     r = res[name]
     contour!(ax, sin.(r.axes.θ₂₃) .^ 2, (r.axes.Δm²₃₁ .- p0.Δm²₂₁) .* 1e3, Δχ²(r), levels = [4.61], color = col,
              linewidth = 2, linestyle = ls)
@@ -67,7 +68,7 @@ end
 axislegend(ax, [LineElement(color = (:red, 0.6), linewidth = 5), LineElement(color = (:orange, 0.6), linewidth = 3),
                 LineElement(color = :blue, linewidth = 2), LineElement(color = :purple, linewidth = 2, linestyle = :dash)],
            ["Upgrade 3 yr sensitivity (ICRC2019)", "DeepCore 3 yr 2018 (ICRC2019 figure)",
-            "Newtrinos, optional 2% energy-scale uncertainty", "Newtrinos, energy scale fixed"], position = :lt, framevisible = false, labelsize = 11)
+            "Newtrinos (default: energy scale fixed)", "Newtrinos, optional 2% energy-scale uncertainty"], position = :lt, framevisible = false, labelsize = 11)
 save("ours/numu_disappearance_sensitivity.png", fig)
 
 # ---- figure: ντ normalisation 1σ interval (Δχ² = 1)
@@ -80,11 +81,11 @@ end
 ot = CSV.read("data/ishihara_nutau_1sigma.csv", DataFrame)
 up = ot[ot.measurement .== "upgrade_1yr", :]
 fig = Figure(size = (760, 340))
-ax = Axis(fig[1, 1], xlabel = "N_ντ", yticks = ([1, 2, 3, 4], ["Newtrinos, statistics only", "Newtrinos, energy scale fixed",
-          "Newtrinos, optional 2% energy scale", "ICRC2019 Upgrade 1 yr"]), limits = (0.7, 1.3, 0.5, 4.5), title = "IceCube Upgrade 1 yr: ντ normalisation sensitivity (1σ)")
+ax = Axis(fig[1, 1], xlabel = "N_ντ", yticks = ([1, 2, 3, 4], ["Newtrinos, statistics only", "Newtrinos, optional 2% energy scale",
+          "Newtrinos (default)", "ICRC2019 Upgrade 1 yr"]), limits = (0.7, 1.3, 0.5, 4.5), title = "IceCube Upgrade 1 yr: ντ normalisation sensitivity (1σ)")
 rangebars!(ax, [4], up.low, up.high, direction = :x, color = :red, linewidth = 6)
 rows = [(case = "ICRC2019 Upgrade 1 yr", low = up.low[1], high = up.high[1])]
-for (yy, name, col) in ((3, "module", :blue), (2, "no_energy_scale", :purple), (1, "statistics_only", :gray40))
+for (yy, name, col) in ((3, "default", :blue), (2, "energy_scale_2pct", :purple), (1, "statistics_only", :gray40))
     r = restau[name]
     lo, hi = interval(r, collect(r.axes.nutau_cc_norm))
     rangebars!(ax, [yy], [lo], [hi], direction = :x, color = col, linewidth = 6)

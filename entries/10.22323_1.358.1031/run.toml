@@ -1,25 +1,25 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/numu_disappearance_sensitivity.png" = "f44457b5ec0ec958fbc508e55999048e76ce12c17e9831d274f6ec61dbd3d3a8"
-"ours/nutau_sensitivity.png" = "082c31c4959b97c8e5c67b09c768baaa7ed903240a2ed6f497f39856852ed273"
-"results/ic_upgrade_sensitivity.jld2" = "a3f3aede828593c145a081f722dcbf1abbe2df7ddd17750287dc0f5a99f74051"
-"results/nutau_1sigma.csv" = "a76b4a46a9030236b3491c6d952b1545027ed5be6fa63ad3eac9159b6f2f31ec"
+"ours/numu_disappearance_sensitivity.png" = "490d47c8b0c0a73d80032be03ca43674c5498dd44160171823b51e7d1e44240d"
+"ours/nutau_sensitivity.png" = "a07b0489e487fba66fad8d9654ea863d882a11d38036db5194b94a500439df7a"
+"results/ic_upgrade_sensitivity.jld2" = "6cf3c420f3c25b746283ed7a51e1d4ed9c5512bebb4d460179426fb4c2b3c3e3"
+"results/nutau_1sigma.csv" = "f07a09d1d2c3010aa83860915f232fa1979fa2f7ffb4605d908f8c95ecd64d8a"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 543
+reused_points = 0
 total_points = 543
 
 [newtrinos]
-commit = "970f59bde570940a1204bbb1982fc267613130f7"
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 970f59bde5> reproduce.jl"
+command = "julia -t 4 --project=<Newtrinos.jl @ 58f30fb8dc> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-05T11:26:26Z"
+date = "2026-10-06T06:58:00Z"
 julia = "1.13.0"
 os = "Linux"
-threads = 16
-wall_time_s = 72.9
+threads = 4
+wall_time_s = 6734.5
