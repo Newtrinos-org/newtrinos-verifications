@@ -3,7 +3,7 @@
 "ours/contour_90.png" = "071d9dfe50d394a702847852d90f1f94284b571b56317529b5dcc65e6a9a3aa4"
 "ours/mass_splitting_profile.png" = "114968807a5fb32e4c8eb068065ebf2b03c2c9a9a33c3ae802e7af107079fa26"
 "ours/mixing_profile.png" = "468d411d68824684dc299d26ef7321ffc32277be255e04dfa5e228b34a6c29b4"
-"results/deepcore.jld2" = "0e29fb604fea2c0b1612fa538bc607cf6d08651d95dc40e090687aed669ebe95"
+"results/deepcore.jld2" = "a7b919831cc9969d678ec00e9818b4ec57da6ada5657a76dcef3c9cbcfd5f37c"
 "results/deepcore_dm32.csv" = "8a9401cf1ace8a92b318d3d96a71427ab810f9a2f7b59c42e19f36ea9ca0f60d"
 "results/deepcore_ssth23.csv" = "6faee8339a64e243bd43a185886c316b02cb5a1eafc8eb6575ec42d7aa1f2357"
 "results/deepcore_ssth23_dm32.csv" = "a0b6a285ed8c1884083701aebc3c681875637fa96fd0ade09182a0dc1ef3b542"
@@ -14,15 +14,15 @@ reused_points = 0
 total_points = 211
 
 [newtrinos]
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
+command = "julia -t 4 --project=<Newtrinos.jl @ 58f30fb8dc> reproduce.jl"
 cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
 cpu_threads = 20
-date = "2026-10-02T10:30:49Z"
+date = "2026-10-06T08:50:37Z"
 julia = "1.13.0"
 os = "Linux"
-threads = 16
-wall_time_s = 1724.8
+threads = 4
+wall_time_s = 2460.3

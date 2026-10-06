@@ -43,7 +43,7 @@ FileIO.save("results/deepcore.jld2", Dict("th23dm31" => contour, "th23" => th23,
 save_csv("results/deepcore_ssth23_dm32.csv", contour); save_csv("results/deepcore_ssth23.csv", th23); save_csv("results/deepcore_dm32.csv", dm31)
 
 # Fig. 27: 90% C.L. contour, with the official contour of the data release
-official = CSV.read(joinpath(pkgdir(Newtrinos), "src/experiments/icecube/deepcore_9y_verification_sample",
+official = CSV.read(joinpath(pkgdir(Newtrinos), "src/experiments/icecube/deepcore_8y_verification_sample",
                              "DeepCore_oscNext_verification_sample__sin2_theta23_dm2_32__90pc_result_bugfix.csv"), DataFrame; header = false)
 fig = Figure(size = (700, 520))
 ax = Axis(fig[1, 1], title = "IceCube DeepCore, NO: 90% C.L.", xlabel = "sin²θ₂₃", ylabel = "Δm²₃₂ (10⁻³ eV²)")

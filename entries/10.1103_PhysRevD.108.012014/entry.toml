@@ -17,7 +17,7 @@ sample (binned Monte Carlo and data, with hypersurface detector systematics), no
 caveats = [
   "Uses the public verification sample with its simplified systematics; the official contour is the one shipped with the data release.",
   "The paper's 1D curves show a modified Δχ² compared to pseudo-experiment bands; ours are the plain profile likelihood.",
-  "In Newtrinos.jl the module currently lives under `deepcore_9y_verification_sample`; the analysis is the 7.5-year one.",
+  "In Newtrinos.jl the module is `deepcore_8y` (alias `deepcore`), under `deepcore_8y_verification_sample`: data from 2012–2019, i.e. 8 calendar years and 7.5 years of livetime.",
 ]
 links = [
   { label = "Data release (Harvard Dataverse)", url = "https://doi.org/10.7910/DVN/B4RITM" },
@@ -25,7 +25,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
 modules = ["deepcore"]
 
 [[figures]]
