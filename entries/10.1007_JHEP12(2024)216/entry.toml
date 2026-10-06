@@ -1,0 +1,42 @@
+title = "NuFit-6.0: updated global analysis of three-flavor neutrino oscillations"
+short = "NuFIT 6.0: solar vs KamLAND (θ12, Δm²21)"
+collaboration = "NuFIT (Esteban, Gonzalez-Garcia, Maltoni, Martinez-Soler, Pinheiro, Schwetz)"
+doi = "10.1007/JHEP12(2024)216"
+journal = "JHEP 12 (2024) 216"
+year = 2024
+arxiv = "2410.05380"
+inspire = 2838825
+experiments = ["Homestake", "GALLEX/GNO", "SAGE", "Super-Kamiokande", "SNO", "Borexino", "KamLAND"]
+parameters = ["θ12", "Δm²21"]
+status = "partial"
+category = "phenomenology"
+added = "2026-10-06"
+summary = """
+Solar neutrino determination of θ₁₂ and Δm²₂₁ (sin²θ₁₃ = 0.0222) compared with KamLAND, as in Fig. 11 of NuFIT 6.0. \
+The Newtrinos solar likelihood combines the Homestake, GALLEX/GNO and SAGE rates, the Super-Kamiokande I–IV \
+day/night (SK-I: zenith-binned) spectra, the SNO three-phase combination and the Borexino Phase I–III interaction \
+rates with the B23 MB22-met standard solar model, \
+adiabatic MSW conversion in the Sun and Earth regeneration along PREM chords; solar fluxes, cross sections and \
+detector systematics are profiled. Newtrinos finds a solar best fit sin²θ₁₂ = 0.303, Δm²₂₁ = 6.3×10⁻⁵ eV² and \
+Δχ² = 1.3 for the solar data at the KamLAND best fit (NuFIT: Δm²₂₁ ≈ 5.9×10⁻⁵ eV², Δχ² = 2.5).
+"""
+caveats = [
+  "Borexino enters through its published interaction rates (Phase-II correlations as emulated by Super-Kamiokande, arXiv:2312.12907), not through the 192 + 120 spectral points used by NuFIT.",
+  "The NuFIT solar analysis details (spectral likelihoods, systematics correlations) are not public; each experiment follows its collaboration's published prescription.",
+  "Solar flux priors are uncorrelated Gaussians with the B23 MB22-met uncertainties (the solar-model correlations are not applied).",
+  "The KamLAND curve uses the Newtrinos KamLAND module (digitised spectra); NuFIT uses KamLAND and SNO+ reactor data with their own reactor flux model.",
+  "The AAG21 solar model, the SNO+ and the 'without SK day/night' curves of the original figure are not reproduced.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "9b8f5de64ad091637752d46be82baa6dcfc29849"
+modules = ["solar_flux", "solar_xsec", "solar_common", "chlorine", "gallex_gno", "sage", "sno", "sk_solar_common", "sk1_solar", "sk2_solar", "sk3_solar", "sk4_solar", "borexino_ph1", "borexino_ph2", "borexino_ph3", "kamland"]
+
+[[figures]]
+id = "fig11"
+title = "Solar vs KamLAND: (sin²θ₁₂, Δm²₂₁) regions and Δχ²(Δm²₂₁), sin²θ₁₃ = 0.0222"
+paper_ref = "Fig. 11"
+original = "original/fig11_solar_kamland.png"
+ours = "ours/fig11_solar_kamland.png"
