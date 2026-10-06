@@ -1,0 +1,5 @@
+[constrained] best fit: CNO = 6.68 (+1.84/−1.57, −2ΔlnL = 1) cpd/100 t, ⁷Be = 46.02, pep = 2.744 cpd/100 t
+    nuisances: bi210=8.89 c11=1.46 kr85=13.7 po210=39.7 ext_bi214=1.32 ext_k40=0.321 ext_tl208=2.35 energy_scale=0.49 energy_offset=-0.128 energy_smear=-0.131 solar_norm_pep=1
+[free] best fit: CNO = 6.84 (+3.02/−2.16, −2ΔlnL = 1) cpd/100 t, ⁷Be = 46.11, pep = 2.744 cpd/100 t
+    nuisances: bi210=8.43 c11=1.32 kr85=13.8 po210=39.7 ext_bi214=1.37 ext_k40=0.542 ext_tl208=2.35 energy_scale=0.543 energy_offset=-0.151 energy_smear=-0.137 solar_norm_pep=1
+Borexino (PRL 129, 252701): CNO = 6.7 +2.0/−0.8 cpd/100 t (6.6 +2.0/−0.7 statistical only)

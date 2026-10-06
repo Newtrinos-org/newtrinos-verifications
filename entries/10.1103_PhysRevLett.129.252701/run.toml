@@ -1,0 +1,26 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig2a_spectrum.png" = "2a83c5648e2f57f66901b1b5146cd0bcaf2cbe9d712ad9dd737cf9014dbf7d08"
+"ours/fig2b_cno_profile.png" = "5fc0e6f8ac9299e3aaffb7b791b897d09370ddedda06349fb6dc984acc62de5e"
+"results/cno_profile_constrained.csv" = "198e11898d2dab67c34002845b84ff7022d4356714d4fdd00b69820dd369b9b3"
+"results/cno_profile_free.csv" = "99b4fb3003291693e8402fae6ad5aeed9c258937355f491ba4efc127fa1202ec"
+"results/summary.txt" = "105d49e489e185398bfa9733dd7843d547bfb55f873e424f772eaf50d2ce4777"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "8e74a8359dbe41764d2a360afec223f5b2ed2776"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 36 --project=<Newtrinos.jl @ 8e74a8359d> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-06T17:07:56Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 36
+wall_time_s = 1382.5

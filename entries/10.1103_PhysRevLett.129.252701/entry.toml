@@ -1,0 +1,52 @@
+title = "Improved Measurement of Solar Neutrinos from the Carbon-Nitrogen-Oxygen Cycle by Borexino and Its Implications for the Standard Solar Model"
+short = "Borexino Phase III: CNO-ν rate from the TFC-subtracted spectrum"
+collaboration = "Borexino"
+doi = "10.1103/PhysRevLett.129.252701"
+journal = "Phys. Rev. Lett. 129, 252701 (2022)"
+year = 2022
+arxiv = "2205.15975"
+inspire = 2089810
+experiments = ["Borexino"]
+parameters = ["CNO-ν rate"]
+status = "partial"
+category = "experimental"
+added = "2026-10-06"
+summary = """
+CNO-ν interaction rate from the Borexino Phase-III TFC-subtracted energy spectrum (Jan 2017 – Oct 2021, \
+1431.6 d × 71.3 t, 817 bins from the Borexino open data). Newtrinos fits the spectrum with the Borexino Monte Carlo \
+spectral shapes, the solar rates predicted by its solar-flux, oscillation and ν–e scattering modules, free \
+background rates, an energy response calibrated on Borexino's best-fit spectrum and the ²¹⁰Bi upper limit \
+(10.8 ± 1.0 cpd/100 t). Borexino finds 6.7 (+2.0/−0.8) cpd/100 t (6.6 +2.0/−0.7 statistical only); Newtrinos \
+finds 6.68 (+1.84/−1.57) with the priors that stand in for the TFC-tagged spectrum and radial distribution (module \
+default) and 6.84 (+3.02/−2.16) with these backgrounds left free (intervals from −2Δln L = 1). The profile with \
+priors follows the published one between 0.5 and 12 cpd/100 t.
+"""
+caveats = [
+  "Borexino fits the TFC-subtracted and TFC-tagged spectra and the radial distribution simultaneously; only the TFC-subtracted spectrum is public. Gaussian priors (3 %) on ¹¹C and the external γ rates around their values in Borexino's best fit stand in for the missing information; without them (dashed curve) the CNO constraint is weaker.",
+  "The energy response of the public Monte Carlo shapes (from the sensitivity study arXiv:2005.12829) is mapped to the data with a scale, offset and extra smearing calibrated on Borexino's best-fit spectrum, with nuisance parameters; Borexino's systematic uncertainties (non-linearity, non-uniformity, ²¹⁰Bi shape) are not modelled otherwise.",
+  "The fit is binned in keV as published; Borexino fits in the N_h energy estimator.",
+  "The ⁸B spectrum is not among the public shapes and is computed from the ν–e response with Gaussian resolution; cosmogenic ⁶He and ¹⁰C are not included.",
+  "pep is constrained by the B23 solar-model prior (≈1 %) instead of Borexino's 2.74 ± 0.04 cpd/100 t; the oscillation parameters are at the Newtrinos defaults.",
+  "The published profile includes systematic uncertainties; the statistical-only profile of the original figure is not available as data.",
+  "Above ≈13 cpd/100 t the Newtrinos profile rises faster than the published one (−2Δln L > 10, beyond the region relevant for fits).",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "8e74a8359dbe41764d2a360afec223f5b2ed2776"
+modules = ["solar_flux", "solar_xsec", "solar_common", "borexino_ph3"]
+
+[[figures]]
+id = "fig2b"
+title = "CNO-ν rate likelihood profile"
+paper_ref = "Fig. 2(b)"
+original = "original/fig2b_cno_profile.png"
+ours = "ours/fig2b_cno_profile.png"
+
+[[figures]]
+id = "fig2a"
+title = "TFC-subtracted energy spectrum and best fit"
+paper_ref = "Fig. 2(a)"
+original = "original/fig2a_spectrum.png"
+ours = "ours/fig2a_spectrum.png"
