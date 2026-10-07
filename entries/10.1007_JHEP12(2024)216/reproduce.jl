@@ -3,7 +3,7 @@
 # `borexino_ph1`–`borexino_ph3`; `kamland`). Borexino enters through its published interaction rates.
 # Run from this directory with the Newtrinos.jl environment at the pinned commit:
 #   julia -t 64 --project=<path to Newtrinos.jl> reproduce.jl
-using Newtrinos, Distributions, DataStructures, FileIO, CairoMakie, CSV, DataFrames, LinearAlgebra
+using Newtrinos, Distributions, DataStructures, FileIO, CairoMakie, CSV, DataFrames, LinearAlgebra, Interpolations
 
 cd(@__DIR__); mkpath("ours"); mkpath("results"); mkpath("cache")
 BLAS.set_num_threads(1)
@@ -43,9 +43,10 @@ solar = NamedTuple(name => getproperty(Newtrinos, name).configure(physics)
 kamland = (kamland = Newtrinos.kamland.configure(),)
 
 llh, priors, p = setup(solar)
-solar_2d = Newtrinos.profile(llh, priors, OrderedDict(:θ₁₂ => 25, :Δm²₂₁ => 32), p, cache_dir = "cache/solar_2d")
+# coarse grids: this entry validates the setup, it does not aim at smooth publication-quality contours
+solar_2d = Newtrinos.profile(llh, priors, OrderedDict(:θ₁₂ => 10, :Δm²₂₁ => 10), p, cache_dir = "cache/solar_2d")
 priors_dm = merge(priors, (Δm²₂₁ = Uniform(2e-5, 1e-4),))
-solar_dm = Newtrinos.profile(llh, priors_dm, OrderedDict(:Δm²₂₁ => 33), p, cache_dir = "cache/solar_dm")
+solar_dm = Newtrinos.profile(llh, priors_dm, OrderedDict(:Δm²₂₁ => 17), p, cache_dir = "cache/solar_dm")
 llh, priors, p = setup(kamland)
 kamland_dm = Newtrinos.profile(llh, merge(priors, (Δm²₂₁ = Uniform(2e-5, 1e-4),)), OrderedDict(:Δm²₂₁ => 161), merge(p, (Δm²₂₁ = 7.5e-5,)),
                                cache_dir = "cache/kamland_dm")
@@ -81,8 +82,13 @@ axislegend(ax2, position = :rt, labelsize = 11)
 save("ours/fig11_solar_kamland.png", fig)
 
 # key numbers for the summary
-best = solar_dm.axes.Δm²₂₁[argmax(solar_dm.values.log_posterior)]
-at_kl = Δχ²(solar_dm)[argmin(abs.(solar_dm.axes.Δm²₂₁ .- kl_best))]
+# cubic spline through the coarse 1D solar profile
+dm_ax = range(first(solar_dm.axes.Δm²₂₁), last(solar_dm.axes.Δm²₂₁), length = length(solar_dm.axes.Δm²₂₁))
+@assert collect(dm_ax) ≈ solar_dm.axes.Δm²₂₁
+χ²_solar = cubic_spline_interpolation(dm_ax, Δχ²(solar_dm))
+dm_fine = range(first(dm_ax), last(dm_ax), length = 2001)
+best = dm_fine[argmin(χ²_solar.(dm_fine))]
+at_kl = χ²_solar(kl_best) - minimum(χ²_solar.(dm_fine))
 open("results/summary.txt", "w") do io
     println(io, "solar best-fit sin2_theta12 = ", round(x[i[1]], digits = 3), ", dm2_21 = ", round(y[i[2]], digits = 2), "e-5 eV^2 (2D grid)")
     println(io, "solar best-fit dm2_21 (1D profile) = ", round(best * 1e5, digits = 2), "e-5 eV^2")
