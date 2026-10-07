@@ -14,16 +14,18 @@ added = "2026-10-06"
 summary = """
 Solar neutrino determination of θ₁₂ and Δm²₂₁ (sin²θ₁₃ = 0.0222) compared with KamLAND, as in Fig. 11 of NuFIT 6.0. \
 The Newtrinos solar likelihood combines the Homestake, GALLEX/GNO and SAGE rates, the Super-Kamiokande I–IV \
-day/night (SK-I: zenith-binned) spectra, the SNO three-phase combination, the Borexino Phase I–II interaction rates and Phase-III spectrum \
+spectra with the SK-I–IV day/night amplitude fit, the SNO three-phase combination, the Borexino Phase I–II interaction rates and Phase-III spectrum \
 with the B23 MB22-met standard solar model, \
 adiabatic MSW conversion in the Sun and Earth regeneration along PREM chords; solar fluxes, cross sections and \
 detector systematics are profiled. On a coarse validation grid (10×10 in θ₁₂, Δm²₂₁; 17-point Δm²₂₁ profile), \
-Newtrinos finds a solar best fit sin²θ₁₂ = 0.306, Δm²₂₁ = 6.2×10⁻⁵ eV² and Δχ² = 1.2 for the solar data at the KamLAND \
-best fit (NuFIT: Δm²₂₁ ≈ 5.7×10⁻⁵ eV², Δχ² ≈ 2.5); the Newtrinos solar region is wider than NuFIT's at 4–5σ.
+Newtrinos finds a solar best fit sin²θ₁₂ = 0.306, Δm²₂₁ = 6.0×10⁻⁵ eV² and Δχ² = 1.4 for the solar data at the KamLAND \
+best fit (NuFIT: Δm²₂₁ ≈ 5.7×10⁻⁵ eV², Δχ² ≈ 2.5); with SK's day/night spectra instead of the amplitude fit, 6.2×10⁻⁵ eV² \
+and 1.2. The Newtrinos solar region is wider than NuFIT's at 4–5σ.
 """
 caveats = [
   "Borexino Phase I and II enter through their published interaction rates (Phase-II correlations as emulated by Super-Kamiokande, arXiv:2312.12907) instead of the 192 Phase-II spectral points used by NuFIT; Phase III enters through a spectral fit of the TFC-subtracted spectrum, with priors on the backgrounds standing in for the non-public tagged spectrum and radial distribution.",
   "The NuFIT solar analysis details (spectral likelihoods, systematics correlations) are not public; each experiment follows its collaboration's published prescription.",
+  "SK day/night: SK's amplitude fit of the zenith-angle variation (SK-I–IV combined, A_DN vs Δm²₂₁ extracted from PRD 109, 092001, Fig. 52) with the SK spectra merged per energy bin; NuFIT's exact SK day/night treatment is not public.",
   "Solar flux priors: B23 MB22-met uncertainties and correlations as one multivariate Gaussian.",
   "The KamLAND curve uses the Newtrinos KamLAND module (digitised spectra); NuFIT uses KamLAND and SNO+ reactor data with their own reactor flux model.",
   "The AAG21 solar model, the SNO+ and the 'without SK day/night' curves of the original figure are not reproduced.",
@@ -32,7 +34,7 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "9112d55a1050db99515332819450f83542f9cf9f"
+commit = "911cd45d566fd456bd86e099a3cceaf443859f66"
 modules = ["solar_flux", "solar_xsec", "solar_common", "chlorine", "gallex_gno", "sage", "sno", "sk_solar_common", "sk1_solar", "sk2_solar", "sk3_solar", "sk4_solar", "borexino_ph1", "borexino_ph2", "borexino_ph3", "kamland"]
 
 [[figures]]

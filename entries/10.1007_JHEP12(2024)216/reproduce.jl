@@ -37,9 +37,14 @@ function setup(experiments)
 end
 
 physics = Newtrinos.solar_common.default_physics()
-solar = NamedTuple(name => getproperty(Newtrinos, name).configure(physics)
-                   for name in (:chlorine, :gallex_gno, :sage, :sno, :sk1_solar, :sk2_solar, :sk3_solar, :sk4_solar,
-                                :borexino_ph1, :borexino_ph2, :borexino_ph3))
+# SK day/night information from SK's amplitude fit of the zenith-angle variation (SK-I–IV, sk_solar_dn), with the SK
+# day/night spectra merged per energy bin
+solar = merge(NamedTuple(name => (name in (:sk1_solar, :sk2_solar, :sk3_solar, :sk4_solar) ?
+                                  getproperty(Newtrinos, name).configure(physics; daynight = :combined) :
+                                  getproperty(Newtrinos, name).configure(physics))
+                         for name in (:chlorine, :gallex_gno, :sage, :sno, :sk1_solar, :sk2_solar, :sk3_solar, :sk4_solar,
+                                      :borexino_ph1, :borexino_ph2, :borexino_ph3)),
+              (sk_solar_dn = Newtrinos.sk_solar_dn.configure(physics; dataset = :sk1to4),))
 kamland = (kamland = Newtrinos.kamland.configure(),)
 
 llh, priors, p = setup(solar)
