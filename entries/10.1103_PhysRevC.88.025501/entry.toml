@@ -8,7 +8,7 @@ arxiv = "1109.0763"
 inspire = 926320
 experiments = ["SNO"]
 parameters = ["θ12", "Δm²21"]
-status = "partial"
+status = "reproduced"
 category = "experimental"
 added = "2026-10-07"
 summary = """
@@ -16,12 +16,12 @@ SNO summarises all three phases by the total ⁸B flux, a quadratic day-time νe
 day/night asymmetry in E_ν (Tables X–XI). The Newtrinos `sno` module compares a model with these numbers following \
 SNO's prescription (projecting the model's day and night probabilities onto the polynomials with the detector \
 sensitivity S(E_ν) tabulated in the paper). With two flavours and a free ⁸B flux, the SNO-only LMA region of \
-Fig. 14 is reproduced: tan²θ₁₂ = 0.422 [0.398, 0.447], Δm²₂₁ = 5.8 [4.5, 7.4]×10⁻⁵ eV², χ²/ndf = 1.49/3 (SNO: \
-0.427 [0.398, 0.460], 5.62 [4.26, 7.54]×10⁻⁵ eV², 1.39/3). The LOW island is found but does not close below \
-Δm²₂₁ ≈ 10⁻⁷ eV², because Newtrinos treats the conversion in the Sun as adiabatic.
+Fig. 14 is reproduced: tan²θ₁₂ = 0.422 [0.398, 0.447], Δm²₂₁ = 5.8 [4.5, 7.4]×10⁻⁵ eV², χ²/ndf = 1.51/3 (SNO: \
+0.427 [0.398, 0.460], 5.62 [4.26, 7.54]×10⁻⁵ eV², 1.39/3), and so is the LOW island, which closes thanks to the \
+non-adiabatic conversion in the Sun: Δm²₂₁ = 1.35×10⁻⁷ eV², χ²/ndf = 1.53/3 (SNO: 1.35 +0.35/−0.14 ×10⁻⁷ eV², 1.41/3).
 """
 caveats = [
-  "Newtrinos computes the solar MSW conversion in the adiabatic approximation (no level-crossing probability). Below Δm²₂₁ ≈ 10⁻⁷ eV² the conversion of ⁸B neutrinos becomes non-adiabatic and the true day-time P_ee rises towards the vacuum value (≈ 0.58), which SNO excludes; Newtrinos keeps P_ee ≈ sin²θ₁₂, so its LOW island extends down to the edge of the plot (10⁻⁸ eV²) and has a lower minimum (χ² = 0.40 at 7×10⁻⁸ eV²) than SNO's (1.41 at 1.35×10⁻⁷ eV²). The LMA region is unaffected.",
+  "Below Δm²₂₁ ≈ 10⁻⁷ eV² the conversion of ⁸B neutrinos in the Sun is non-adiabatic; Newtrinos computes it numerically through the solar density profile where Parke's level-crossing estimate is not negligible (an earlier, purely adiabatic version did not close the LOW island). This makes the scan of the low-Δm² region slow (the run takes hours instead of minutes).",
   "Only the SNO-only two-flavour analysis is reproduced; the panels combining SNO with the other solar experiments and KamLAND (Figs. 15–16) are covered by the global solar entries (Super-Kamiokande IV, NuFIT 6.0).",
   "The statistical and systematic uncertainties of Table X of the maximum-likelihood fit are symmetrised and added in quadrature; the B23 ⁸B spectrum shape is used at its central value.",
   "The night-averaged asymmetry of the model (lower panel of Fig. 10, solid black) shows wiggles above 12 MeV from the 20 cos(zenith) night bins of the module's default site; the polynomial projection used in the likelihood (dashed) is smooth.",
@@ -31,7 +31,7 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+commit = "c647e340e21b67d28b7249d16eaf98cc9a28eb05"
 modules = ["sno", "solar_flux", "solar_common", "osc", "earth_layers"]
 
 [[figures]]

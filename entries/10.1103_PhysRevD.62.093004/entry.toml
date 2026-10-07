@@ -1,5 +1,5 @@
 title = "SNO: Predictions for ten measurable quantities"
-short = "Bahcall, Krastev & Smirnov 2000: LMA solar ν survival probability, day and night"
+short = "Bahcall, Krastev & Smirnov 2000: MSW solar ν survival probabilities (LMA, SMA, LOW), day and night"
 collaboration = "J. N. Bahcall, P. I. Krastev, A. Yu. Smirnov"
 doi = "10.1103/PhysRevD.62.093004"
 journal = "Phys. Rev. D 62, 093004"
@@ -12,17 +12,22 @@ status = "reproduced"
 category = "inputs"
 added = "2026-10-07"
 summary = """
-The solar νe survival probability for the two-flavour LMA solution of 2000 (Δm² = 2.71×10⁻⁵ eV², sin²2θ = 0.794), \
-averaged over the ⁸B production region and over one year at Sudbury, for day, night and day + night (Fig. 1, LMA \
-panel; numbers from Bahcall's tabulation). It tests the Newtrinos adiabatic MSW conversion in the Sun (`osc`, \
-`solar_flux` production regions) and Earth regeneration along PREM chords with the yearly exposure. The day \
-probability agrees within 0.005 and the night probability within 0.005 over 0.1–20 MeV.
+The solar νe survival probability for the two-flavour MSW solutions of 2000, LMA (Δm² = 2.71×10⁻⁵ eV², \
+sin²2θ = 0.794), SMA (5.0×10⁻⁶ eV², 7.2×10⁻³) and LOW (1.0×10⁻⁷ eV², 0.912), averaged over the ⁸B production region \
+and over one year at Sudbury, for day, night and day + night (Fig. 1, numbers from Bahcall's tabulation). It tests the \
+Newtrinos MSW conversion in the Sun, adiabatic (LMA) and non-adiabatic (SMA, LOW: level crossing computed numerically \
+through the solar density profile), and Earth regeneration along PREM chords with the yearly exposure. LMA agrees \
+within 0.005 (day and night) and SMA within 0.01 above 1 MeV; for LOW, Newtrinos is up to 0.04 higher above \
+10 MeV because Bahcall et al. used the exponential approximation of the solar electron density (with that \
+profile Newtrinos reproduces their LOW values).
 """
 caveats = [
   "Bahcall et al. average over the ⁸B production region of the BP98 solar model; Newtrinos uses B23 (MB22-met). The largest day differences (≤0.005) are in the MSW transition region around 1–3 MeV.",
   "Earth regeneration: Newtrinos uses PREM with densities averaged along each chord within each of four zones; Bahcall et al. use a detailed Earth model.",
   "The night average uses 160 bins in cos(zenith). With 40 bins the night probability shows binning wiggles of up to 0.011 at individual energies (3–8 MeV); the Newtrinos solar experiment modules use 20 bins by default, where these wiggles are averaged over the energy spectrum.",
-  "The SMA, LOW, vacuum and sterile solutions of the figure are not reproduced: the Newtrinos solar propagation assumes adiabatic conversion, which does not hold for the SMA and LOW solutions.",
+  "LOW: Bahcall et al. used the exponential approximation n_e = 245 exp(−10.54 r/R☉) N_A/cm³ of the solar electron density, which is less steep than the standard-solar-model profile in the outer Sun where the LOW resonance lies (0.85–0.93 R☉). Newtrinos uses the B23 profile, continued beyond 0.5 R☉ by BS05(OP); run with the exponential profile, its numerical evolution reproduces Bahcall's LOW values (e.g. 0.3761 vs 0.3763 at 14.3 MeV).",
+  "SMA: below 1 MeV the position of the steep MSW threshold depends on the electron density in the ⁸B production region (BP98 vs B23), shifting it by ~3 % in energy (differences up to 0.09 at 0.3–0.4 MeV).",
+  "The vacuum and sterile solutions of the figure are not reproduced; Newtrinos averages the Sun–Earth propagation (no coherent vacuum oscillations, i.e. not valid for Δm² ≲ 10⁻⁹ eV²).",
 ]
 links = [
   { label = "Bahcall: survival probabilities (6 solutions)", url = "https://www.sns.ias.edu/~jnb/SNdata/survivalprob.html" },
@@ -30,12 +35,12 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+commit = "c647e340e21b67d28b7249d16eaf98cc9a28eb05"
 modules = ["osc", "solar_flux", "earth_layers", "solar_common"]
 
 [[figures]]
-id = "fig1_lma"
-title = "LMA survival probability vs. neutrino energy (day, night, yearly average)"
-paper_ref = "Fig. 1 (LMA)"
-original = "original/fig_survival_lma.png"
-ours = "ours/fig_survival_lma.png"
+id = "fig1_msw"
+title = "LMA, SMA and LOW survival probabilities vs. neutrino energy (day, night, yearly average)"
+paper_ref = "Fig. 1 (top row)"
+original = "original/fig_survival_msw.png"
+ours = "ours/fig_survival_msw.png"
