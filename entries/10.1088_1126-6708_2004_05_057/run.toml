@@ -1,0 +1,32 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/adn_b8_kamioka.png" = "b1992eed0e5f313f43cf8206613c56d507e3cc4b04ea34f017f5325a469ff0a4"
+"ours/exact_constant_density.png" = "7e20f132f64f1e6747f8933144ab1958c46c74cd227322e15ccc5804aa939291"
+"ours/fig1_freg_analytic.png" = "b5a7547d3fdfec0dde39056b44f5272886ec28cd657098033f7675ee58c0868c"
+"ours/fig3_freg_adiabatic.png" = "eeb821ab751c7b1e53798de03affbd38a5bd052a81140d65a95cbb027e10813e"
+"ours/fig4_yearly_SK.png" = "fe5a553c137007fa3e7779318a19e423ec4bdffa04897aa4aeea82807b986ea4"
+"results/adn_b8_kamioka.csv" = "525f9e34abc736344105e33a4d46b55e06609c0029a4b194f9d0a7b75e49f0fe"
+"results/constant_density_tests.csv" = "907c666c29fc73451ec0b7761956a26130513916136e4fb3a5015f3f1436a666"
+"results/freg_vs_zenith_10MeV.csv" = "dc949dfb01c8ecb93284f190f7e5d943bc4983e909beca004158378e20487597"
+"results/yearly_SK_10MeV_vs_dm21_over_E.csv" = "c4c5669f41a57846ddf203cf0569ff122b2612d0892bd7e952a8e7bba6d1aadd"
+"results/yearly_SK_10MeV_vs_sin2theta12.csv" = "5f46916438936f73f1d4b871c4c9a076755cc44ea4cedf07a1058e9c0d054bb9"
+"results/yearly_SK_10MeV_vs_sin2theta13.csv" = "cce56fce21132970c33deca7929593f98fb626fc18392126a7b241e97f7f239e"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 16 --project=<Newtrinos.jl @ aabb199b97> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-07T12:52:37Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 16
+wall_time_s = 75.9

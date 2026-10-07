@@ -1,0 +1,70 @@
+title = "A simple analytic three-flavour description of the day-night effect in the solar neutrino flux"
+short = "Akhmedov, Tórtola & Valle 2004: analytic three-flavour day–night effect (Earth regeneration)"
+collaboration = "E. Kh. Akhmedov, M. A. Tórtola, J. W. F. Valle"
+doi = "10.1088/1126-6708/2004/05/057"
+journal = "JHEP 05 (2004) 057"
+year = 2004
+arxiv = "hep-ph/0404083"
+inspire = 647860
+experiments = ["Super-Kamiokande"]
+parameters = ["θ12", "θ13", "Δm²21"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-07"
+summary = """
+Earth regeneration of solar neutrinos in Newtrinos (mass eigenstates from the Sun propagated through layered Earth \
+paths, `osc.solar_prob`) compared with the analytic three-flavour description of the paper: the regeneration factor \
+f = P₂ₑ⊕ − P₂ₑ⁽⁰⁾ in the perturbative form of Eq. (3.12) and with the adiabatic phase, Eq. (3.13), the closed forms for one \
+and three layers of constant density, Eqs. (3.15) and (3.19), and P_N − P_D = −c₁₃² cos2θ̂₁₂ f, Eq. (2.9). All formulas \
+are evaluated on the density profile Newtrinos uses along each chord. Newtrinos agrees with an independent exact \
+three-flavour propagation to 10⁻⁹ (one and three layers, any θ₁₃); along PREM chords at 10 MeV, Eq. (3.13) agrees to \
+4×10⁻⁴ rms, while Eq. (3.12) accumulates the phase error discussed in the paper (Figs. 1, 3). Averaged over one year at \
+Super-Kamiokande (Fig. 4) the analytic and numerical f and P_N − P_D agree within 5×10⁻⁴–2×10⁻³, and the ⁸B day–night \
+asymmetry agrees within 1–5 % of its value.
+"""
+caveats = [
+  "The paper's numerical curves come from an exact integration on PREM; here the analytic formulas are compared with Newtrinos on the Newtrinos Earth model (PREM zones with chord-averaged densities), so the original and reproduced figures differ in detail (e.g. the regeneration amplitude for shallow paths, which in PREM cross the 3 km global ocean layer of 1.02 g/cm³).",
+  "For θ₁₃ ≠ 0 the paper's two-flavour reduction (decoupled third state, potential c₁₃²V) differs from the exact three-flavour result by up to 5×10⁻⁵ (one layer) and 1.4×10⁻⁴ (three layers) at sin²θ₁₃ = 0.0222; Newtrinos follows the exact result.",
+  "Fig. 4 is reproduced for the central parameters only (θ₁₂ = 33.2°, Δm²₂₁ = 6.9×10⁻⁵ eV², θ₁₃ = 0 unless scanned); the outer curves (3σ ranges of 2004) are not shown. The yearly averages use 160 night bins in cos θ_z at Kamioka (36.4° N, 1 km depth) and the ⁸B production region of B23.",
+  "The ⁸B day–night asymmetry is weighted with the ⁸B spectrum × E between 5 and 16 MeV as a rough stand-in for the Super-K response. With 20 night bins (the default of the Newtrinos solar modules) it differs from 160 bins by up to 0.17 % absolute (1–5 % relative).",
+  "Fig. 2 (energy-averaged regeneration factor at Super-K) is not reproduced, since the paper does not specify the averaging.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+modules = ["osc", "earth_layers", "solar_flux", "solar_common"]
+
+[[figures]]
+id = "fig1"
+title = "Regeneration factor vs. zenith angle at 10 MeV, Eq. (3.12)"
+paper_ref = "Fig. 1"
+original = "original/fig1_freg_analytic.png"
+ours = "ours/fig1_freg_analytic.png"
+
+[[figures]]
+id = "fig3"
+title = "Regeneration factor vs. zenith angle at 10 MeV, adiabatic phase, Eq. (3.13)"
+paper_ref = "Fig. 3"
+original = "original/fig3_freg_adiabatic.png"
+ours = "ours/fig3_freg_adiabatic.png"
+
+[[figures]]
+id = "fig4"
+title = "Yearly averaged regeneration factor and P_N − P_D at Super-Kamiokande, 10 MeV"
+paper_ref = "Fig. 4"
+original = "original/fig4_yearly_SK.png"
+ours = "ours/fig4_yearly_SK.png"
+
+[[figures]]
+id = "exact"
+title = "Exact tests: one and three layers of constant density, Eqs. (3.15) and (3.19)"
+paper_ref = "Eqs. (3.15), (3.19)"
+ours = "ours/exact_constant_density.png"
+
+[[figures]]
+id = "adn"
+title = "⁸B day–night asymmetry at Kamioka vs. Δm²₂₁"
+paper_ref = "Eqs. (2.9), (3.12)"
+ours = "ours/adn_b8_kamioka.png"
