@@ -1,0 +1,49 @@
+title = "Combined Analysis of all Three Phases of Solar Neutrino Data from the Sudbury Neutrino Observatory"
+short = "SNO three-phase combination: ⁸B flux, P_ee and day/night, SNO-only (θ12, Δm²21)"
+collaboration = "SNO"
+doi = "10.1103/PhysRevC.88.025501"
+journal = "Phys. Rev. C 88, 025501"
+year = 2013
+arxiv = "1109.0763"
+inspire = 926320
+experiments = ["SNO"]
+parameters = ["θ12", "Δm²21"]
+status = "partial"
+category = "experimental"
+added = "2026-10-07"
+summary = """
+SNO summarises all three phases by the total ⁸B flux, a quadratic day-time νe survival probability and a linear \
+day/night asymmetry in E_ν (Tables X–XI). The Newtrinos `sno` module compares a model with these numbers following \
+SNO's prescription (projecting the model's day and night probabilities onto the polynomials with the detector \
+sensitivity S(E_ν) tabulated in the paper). With two flavours and a free ⁸B flux, the SNO-only LMA region of \
+Fig. 14 is reproduced: tan²θ₁₂ = 0.422 [0.398, 0.447], Δm²₂₁ = 5.8 [4.5, 7.4]×10⁻⁵ eV², χ²/ndf = 1.49/3 (SNO: \
+0.427 [0.398, 0.460], 5.62 [4.26, 7.54]×10⁻⁵ eV², 1.39/3). The LOW island is found but does not close below \
+Δm²₂₁ ≈ 10⁻⁷ eV², because Newtrinos treats the conversion in the Sun as adiabatic.
+"""
+caveats = [
+  "Newtrinos computes the solar MSW conversion in the adiabatic approximation (no level-crossing probability). Below Δm²₂₁ ≈ 10⁻⁷ eV² the conversion of ⁸B neutrinos becomes non-adiabatic and the true day-time P_ee rises towards the vacuum value (≈ 0.58), which SNO excludes; Newtrinos keeps P_ee ≈ sin²θ₁₂, so its LOW island extends down to the edge of the plot (10⁻⁸ eV²) and has a lower minimum (χ² = 0.40 at 7×10⁻⁸ eV²) than SNO's (1.41 at 1.35×10⁻⁷ eV²). The LMA region is unaffected.",
+  "Only the SNO-only two-flavour analysis is reproduced; the panels combining SNO with the other solar experiments and KamLAND (Figs. 15–16) are covered by the global solar entries (Super-Kamiokande IV, NuFIT 6.0).",
+  "The statistical and systematic uncertainties of Table X of the maximum-likelihood fit are symmetrised and added in quadrature; the B23 ⁸B spectrum shape is used at its central value.",
+  "The night-averaged asymmetry of the model (lower panel of Fig. 10, solid black) shows wiggles above 12 MeV from the 20 cos(zenith) night bins of the module's default site; the polynomial projection used in the likelihood (dashed) is smooth.",
+  "Fig. 10 shows SNO's fitted polynomial bands; Newtrinos shows its model prediction at SNO's LMA best fit, together with its own projection onto the polynomials, against SNO's maximum-likelihood band (±1σ from the fitted coefficients and their correlation matrix).",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+modules = ["sno", "solar_flux", "solar_common", "osc", "earth_layers"]
+
+[[figures]]
+id = "fig14"
+title = "SNO-only two-flavour (tan²θ₁₂, Δm²₂₁) regions"
+paper_ref = "Fig. 14"
+original = "original/fig_sno_only_2nu.png"
+ours = "ours/fig_sno_only_2nu.png"
+
+[[figures]]
+id = "fig10"
+title = "Day-time survival probability and day/night asymmetry vs. E_ν"
+paper_ref = "Fig. 10"
+original = "original/fig_pee_day_asym.png"
+ours = "ours/fig_pee_day_asym.png"
