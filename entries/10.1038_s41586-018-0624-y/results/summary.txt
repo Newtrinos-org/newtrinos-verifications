@@ -1,0 +1,15 @@
+Interaction rates [cpd/100 t]: measured | Newtrinos (B23 MB22-met, NuFIT 3.2) | B16-HZ | B16-LZ (PRD 100, 082004, Table V)
+  pp          134.000 |  131.471 |  131.10 |  132.20
+  ⁷Be          48.300 |   47.896 |   47.90 |   43.70
+  pep           2.430 |    2.737 |    2.74 |    2.78
+  ⁸B HER-I      0.136 |    0.115 |     NaN |     NaN
+  ⁸B HER        0.223 |    0.204 |     NaN |     NaN
+  ⁸B HER-II     0.087 |    0.089 |     NaN |     NaN
+P_ee: Borexino | Newtrinos from the rates with B16-HZ fluxes | with B23 MB22-met fluxes
+  pp         0.566 ± 0.092 | 0.557 ± 0.092 | 0.562
+  ⁷Be        0.532 ± 0.054 | 0.529 ± 0.053 | 0.534
+  pep        0.428 ± 0.114 | 0.420 ± 0.114 | 0.429
+  ⁸B HER-I   0.390 ± 0.090 | 0.416 ± 0.096 | 0.457
+  ⁸B HER     0.370 ± 0.080 | 0.360 ± 0.079 | 0.396
+  ⁸B HER-II  0.350 ± 0.090 | 0.291 ± 0.084 | 0.322
+LMA P_ee (NuFIT 3.2 best fit, ⁸B production, LNGS) vs centre of Borexino's band: max |Δ| = 0.011

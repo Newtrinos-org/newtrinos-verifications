@@ -1,0 +1,46 @@
+title = "Comprehensive measurement of pp-chain solar neutrinos"
+short = "Borexino Phase II: pp-chain rates and the survival probability P_ee(E)"
+collaboration = "Borexino"
+doi = "10.1038/s41586-018-0624-y"
+journal = "Nature 562, 505–510"
+year = 2018
+inspire = 1700565
+experiments = ["Borexino"]
+parameters = ["θ12", "Δm²21", "solar ν fluxes"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-07"
+summary = """
+The electron-neutrino survival probability from the Borexino pp, ⁷Be, pep (Phase II, PRD 100, 082004) and ⁸B \
+(PRD 101, 062001) interaction rates, compared with the MSW-LMA prediction (Fig. 3). Newtrinos inverts the published \
+rates, R = N_e Φ [P ⟨σ_e⟩ + (1 − P) ⟨σ_x⟩], with its ν–e cross sections (`solar_xsec`) and the B16 high-metallicity \
+fluxes used by Borexino, and finds P_ee = 0.557 ± 0.092 (pp), 0.529 ± 0.053 (⁷Be), 0.420 ± 0.114 (pep) and \
+0.360 ± 0.079 (⁸B, T > 3.2 MeV), against Borexino's 0.566 ± 0.092, 0.532 ± 0.054, 0.428 ± 0.114 and 0.37 ± 0.08. \
+The Newtrinos MSW-LMA prediction (adiabatic conversion averaged over the ⁸B production region, Earth regeneration at \
+LNGS, yearly average) agrees with the centre of Borexino's band within 0.011. With the NuFIT 3.2 best fit and the \
+B23 MB22-met fluxes, the `borexino_ph2` module predicts 131.5 (pp), 47.9 (⁷Be) and 2.74 (pep) cpd/100 t, against \
+the B16-HZ predictions 131.1, 47.9 and 2.74 quoted by Borexino.
+"""
+caveats = [
+  "The `borexino_ph2` module uses the published Phase-II interaction rates (with the correlations as emulated by Super-Kamiokande), not the energy spectrum; a spectral Phase-II fit is in development.",
+  "The Nature article text is not openly available; Borexino's points and bands are taken from the Borexino open data (Nature2018_Fig3_DATApoints/bands), the rates and the B16 predictions from the companion paper PRD 100, 082004 (arXiv:1707.09279), the ⁸B rates from PRD 101, 062001 (arXiv:1709.00756).",
+  "The Newtrinos band is the envelope of the 1σ corners of sin²θ₁₂ and Δm²₂₁ of NuFIT 3.2 (sin²θ₁₃ = 0.02206), computed for the ⁸B production region at all energies; Borexino's prescription may differ (its band is narrower above 10 MeV). The small wiggles above 10 MeV come from the 20 night bins in cos(zenith) of the module's site.",
+  "⁸B sub-ranges: the inversion uses sharp recoil-energy thresholds (3.2 and 5.7 MeV), no energy resolution or efficiency, and a P_ee constant over the window. For the full HER range this reproduces Borexino (0.360 vs 0.37), for HER-I and HER-II it gives 0.416 and 0.291 against 0.39 and 0.35 (well within the errors).",
+  "Errors: rate errors symmetrised (stat ⊕ syst) plus the B16-HZ flux uncertainty; with the B23 MB22-met fluxes of Newtrinos instead, P_ee(pp, ⁷Be, pep) changes by less than 0.01 and P_ee(⁸B) increases by about 0.03–0.04 (B23 ⁸B flux 6 % lower).",
+]
+links = [
+  { label = "Borexino open data: Comprehensive measurement of pp-chain solar neutrinos", url = "https://borex.lngs.infn.it/papers/articles/comprehensive-measurement-of-pp-chain-solar-neutrinos/" },
+  { label = "Companion paper: PRD 100, 082004 (arXiv:1707.09279)", url = "https://arxiv.org/abs/1707.09279" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+modules = ["borexino_ph2", "solar_common", "solar_flux", "solar_xsec", "osc", "earth_layers"]
+
+[[figures]]
+id = "fig3"
+title = "Electron-neutrino survival probability vs. neutrino energy"
+paper_ref = "Fig. 3"
+original = "original/fig3_pee.png"
+ours = "ours/fig3_pee.png"

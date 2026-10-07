@@ -1,0 +1,24 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig3_pee.png" = "4c64dbec263c93d400c06e79a5532a0315571c98ba693de7209ae7eca2b182b0"
+"results/pee_rates.csv" = "03e3811100e8dbd273dfa2fd8de695fc85774de929128d9934e3e0c951bd9542"
+"results/summary.txt" = "2e04fd0a0ec47c175a8e02fb8fe21d37f69b7ac0d6982fc10999dfc3e1bde66d"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ aabb199b97> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-07T12:48:54Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 84.7
