@@ -1,0 +1,160 @@
+
+ Solar Neutrino Fluxes, Rates, and Uncertainties
+
+ Case number:  1
+                            SNU Contributions
+
+ Source    Fluxes         Cl        Ga        Li
+
+     pp   0.594E+01      0.00      69.6       0.0
+     pep  0.140E-01      0.22       2.9       9.2
+     7Be  0.486E+00      1.17      34.8       9.2
+     8B   0.582E-03      6.64      14.0      22.7
+     13N  0.571E-01      0.10       3.5       2.4
+     15O  0.503E-01      0.34       5.7      12.4
+     17F  0.591E-03      0.00       0.1       0.1
+     hep  0.788E-06      0.03       0.1       0.1
+
+
+ The Capture Rates and Uncertainties for Solar Neutrino  Experiments: 
+
+ Cl rate =    8.50 +/- 1.82
+ Ga rate =  130.54 +  11.78 -10.22
+ Li rate =   56.12 +/-11.73
+
+
+ Fractional 1-Sigma Uncertainties from different input data
+
+ Source    11    33    34    17    Z/X   Opac  114    hep
+
+ Uncert   0.004 0.060 0.094 0.038 0.150       0.190  0.151
+
+ Fractional uncertainties in nu fluxes;  Delta SNU for detectors
+
+     pp   0.001 0.002 0.005 0.000 0.010 0.003 0.003
+     pep  0.001 0.003 0.007 0.000 0.020 0.005 0.003
+     7Be  0.004 0.023 0.080 0.000 0.080 0.028 0.000
+     8B   0.010 0.021 0.075 0.038 0.200 0.052 0.002
+     13N  0.010 0.001 0.004 0.000 0.332 0.033 0.156
+     15O  0.011 0.001 0.004 0.000 0.375 0.041 0.190
+     17F  0.011 0.001 0.004 0.000 0.391 0.043 0.002
+     hep  0.000 0.024 0.007 0.000 0.026 0.011 0.002  0.151
+     Cl   0.077 0.169 0.584 0.250 1.578 0.396 0.090
+     Ga   0.339 0.968 3.412 0.527 8.166 1.839 1.431
+     Li   0.439 0.659 2.298 0.85710.599 1.994 2.740
+
+
+ Fractional 1-Sigma Uncertainties from different input data
+
+ Source   Lumin  Age   Diff  Be7e NuCrs Total
+
+ Uncert   0.004 0.004 0.150 0.020
+
+ Fractional uncertainties in nu fluxes;  Delta SNU for detectors
+
+     pp   0.003 0.000 0.003             0.012
+     pep  0.003 0.000 0.004             0.023
+     7Be  0.014 0.003 0.018             0.121
+     8B   0.028 0.006 0.040 0.020       0.230
+     13N  0.021 0.004 0.051             0.373
+     15O  0.024 0.006 0.055             0.427
+     17F  0.026 0.006 0.057             0.438
+     hep  0.000 0.000 0.007             0.156
+     Cl   0.213 0.043 0.310 0.133 0.217 1.817
+     Ga   1.299 0.209 1.495 0.279 7.04211.778
+     Li   1.153 0.235 1.851 0.454 1.43811.729
+
+ Solar Neutrino Fluxes, Rates, and Uncertainties
+
+ Case number:  2
+
+
+ The Capture Rates and Uncertainties for Solar Neutrino  Experiments: 
+
+ Cl rate =    8.50 +/- 1.81
+ Ga rate =  130.54 +  11.71 -10.14
+ Li rate =   56.12 +/-11.49
+
+
+ Fractional 1-Sigma Uncertainties from different input data
+
+ Source    11    33    34    17    Z/X   Opac  114    hep
+
+ Uncert   0.004 0.060 0.094 0.038 0.150       0.095  0.151
+
+ Fractional uncertainties in nu fluxes;  Delta SNU for detectors
+
+     pp   0.001 0.002 0.005 0.000 0.010 0.003 0.002
+     pep  0.001 0.003 0.007 0.000 0.020 0.005 0.002
+     7Be  0.004 0.023 0.080 0.000 0.080 0.028 0.000
+     8B   0.010 0.021 0.075 0.038 0.200 0.052 0.001
+     13N  0.010 0.001 0.004 0.000 0.332 0.033 0.079
+     15O  0.011 0.001 0.004 0.000 0.375 0.041 0.095
+     17F  0.011 0.001 0.004 0.000 0.391 0.043 0.001
+     hep  0.000 0.024 0.007 0.000 0.026 0.011 0.001  0.151
+     Cl   0.077 0.169 0.584 0.250 1.578 0.396 0.046
+     Ga   0.339 0.968 3.412 0.527 8.166 1.839 0.710
+     Li   0.439 0.659 2.298 0.85710.599 1.994 1.376
+
+
+ Fractional 1-Sigma Uncertainties from different input data
+
+ Source   Lumin  Age   Diff  Be7e NuCrs Total
+
+ Uncert   0.004 0.004 0.150 0.020
+
+ Fractional uncertainties in nu fluxes;  Delta SNU for detectors
+
+     pp   0.003 0.000 0.003             0.012
+     pep  0.003 0.000 0.004             0.023
+     7Be  0.014 0.003 0.018             0.121
+     8B   0.028 0.006 0.040 0.020       0.230
+     13N  0.021 0.004 0.051             0.348
+     15O  0.024 0.006 0.055             0.394
+     17F  0.026 0.006 0.057             0.438
+     hep  0.000 0.000 0.007             0.156
+     Cl   0.213 0.043 0.310 0.133 0.217 1.815
+     Ga   1.299 0.209 1.495 0.279 7.04211.713
+     Li   1.153 0.235 1.851 0.454 1.43811.487
+
+ **********************
+ Average over  2 cases.
+ **********************
+
+
+ Averages: Fractional 1-Sigma Uncertainties from different input data
+
+ Source    11    33    34    17    Z/X   Opac  114   hep
+
+ Fractional uncertainties in nu fluxes;  Delta SNU for detectors
+
+     pp   0.001 0.002 0.005 0.000 0.010 0.003 0.002 0.000
+     pep  0.001 0.003 0.007 0.000 0.020 0.005 0.002 0.000
+     7Be  0.004 0.023 0.080 0.000 0.080 0.028 0.000 0.000
+     8B   0.010 0.021 0.075 0.038 0.200 0.052 0.001 0.000
+     13N  0.010 0.001 0.004 0.000 0.332 0.033 0.118 0.000
+     15O  0.011 0.001 0.004 0.000 0.375 0.041 0.143 0.000
+     17F  0.011 0.001 0.004 0.000 0.391 0.043 0.001 0.000
+     hep  0.000 0.024 0.007 0.000 0.026 0.011 0.001 0.151
+     Cl   0.077 0.169 0.584 0.250 1.578 0.396 0.068 0.005
+     Ga   0.339 0.968 3.412 0.527 8.166 1.839 1.070 0.009
+     Li   0.439 0.659 2.298 0.85710.599 1.994 2.058 0.010
+
+
+ Averages: Fractional 1-Sigma Uncertainties from different input data
+
+ Source   Lumin  Age   Diff  Be7e NuCrs Total
+
+ Fractional uncertainties in nu fluxes;  Delta SNU for detectors
+
+     pp   0.003 0.000 0.003             0.012
+     pep  0.003 0.000 0.004             0.023
+     7Be  0.014 0.003 0.018             0.121
+     8B   0.028 0.006 0.040 0.020       0.230
+     13N  0.021 0.004 0.051             0.360
+     15O  0.024 0.006 0.055             0.411
+     17F  0.026 0.006 0.057             0.438
+     hep  0.000 0.000 0.007             0.156
+     Cl   0.213 0.043 0.310 0.133 0.217 1.816
+     Ga   1.299 0.209 1.495 0.279 7.04211.745
+     Li   1.153 0.235 1.851 0.454 1.43811.608

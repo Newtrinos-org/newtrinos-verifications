@@ -1,0 +1,41 @@
+title = "SNO: Predictions for ten measurable quantities"
+short = "Bahcall, Krastev & Smirnov 2000: LMA solar ν survival probability, day and night"
+collaboration = "J. N. Bahcall, P. I. Krastev, A. Yu. Smirnov"
+doi = "10.1103/PhysRevD.62.093004"
+journal = "Phys. Rev. D 62, 093004"
+year = 2000
+arxiv = "hep-ph/0002293"
+inspire = 524451
+experiments = ["SNO"]
+parameters = ["θ12", "Δm²21"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-07"
+summary = """
+The solar νe survival probability for the two-flavour LMA solution of 2000 (Δm² = 2.71×10⁻⁵ eV², sin²2θ = 0.794), \
+averaged over the ⁸B production region and over one year at Sudbury, for day, night and day + night (Fig. 1, LMA \
+panel; numbers from Bahcall's tabulation). It tests the Newtrinos adiabatic MSW conversion in the Sun (`osc`, \
+`solar_flux` production regions) and Earth regeneration along PREM chords with the yearly exposure. The day \
+probability agrees within 0.005 and the night probability within 0.005 over 0.1–20 MeV.
+"""
+caveats = [
+  "Bahcall et al. average over the ⁸B production region of the BP98 solar model; Newtrinos uses B23 (MB22-met). The largest day differences (≤0.005) are in the MSW transition region around 1–3 MeV.",
+  "Earth regeneration: Newtrinos uses PREM with densities averaged along each chord within each of four zones; Bahcall et al. use a detailed Earth model.",
+  "The night average uses 160 bins in cos(zenith). With 40 bins the night probability shows binning wiggles of up to 0.011 at individual energies (3–8 MeV); the Newtrinos solar experiment modules use 20 bins by default, where these wiggles are averaged over the energy spectrum.",
+  "The SMA, LOW, vacuum and sterile solutions of the figure are not reproduced: the Newtrinos solar propagation assumes adiabatic conversion, which does not hold for the SMA and LOW solutions.",
+]
+links = [
+  { label = "Bahcall: survival probabilities (6 solutions)", url = "https://www.sns.ias.edu/~jnb/SNdata/survivalprob.html" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+modules = ["osc", "solar_flux", "earth_layers", "solar_common"]
+
+[[figures]]
+id = "fig1_lma"
+title = "LMA survival probability vs. neutrino energy (day, night, yearly average)"
+paper_ref = "Fig. 1 (LMA)"
+original = "original/fig_survival_lma.png"
+ours = "ours/fig_survival_lma.png"

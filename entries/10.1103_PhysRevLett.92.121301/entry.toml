@@ -1,0 +1,39 @@
+title = "What do we (not) know theoretically about solar neutrino fluxes?"
+short = "Bahcall & Pinsonneault 2004: solar ν capture rates in Cl and Ga (BP04)"
+collaboration = "J. N. Bahcall, M. H. Pinsonneault"
+doi = "10.1103/PhysRevLett.92.121301"
+journal = "Phys. Rev. Lett. 92, 121301"
+year = 2004
+arxiv = "astro-ph/0402114"
+inspire = 643951
+experiments = ["Homestake", "GALLEX/GNO", "SAGE"]
+parameters = ["solar ν fluxes", "capture cross sections"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-07"
+summary = """
+Chlorine and gallium capture rates without oscillations for the BP04 standard solar model (Table 1, last two rows), \
+per solar-neutrino source, from Newtrinos' solar spectra (`solar_flux`) and absorption cross sections \
+(`solar_xsec`), with the solar-model fluxes set to the BP04 values. The per-source reference is the output of \
+Bahcall's own rate code (exportrates.f with the BP04 input of the paper). Newtrinos finds Cl = 8.51 SNU and \
+Ga = 131.7 SNU (Bahcall: 8.50 and 130.5; Table 1: 8.5 ± 1.8 and 131 +12/−10).
+"""
+caveats = [
+  "The per-source reference is Bahcall's published code output (exportrates.output), which uses the ⁸B flux 5.82×10⁶ cm⁻²s⁻¹ of the code input instead of the 5.79×10⁶ of Table 1; the totals of Table 1 are rounded.",
+  "Gallium pp: Newtrinos integrates Bahcall's tabulated σ(E) (Phys. Rev. C 56, 3391) over the pp spectrum and obtains a spectrum-averaged cross section of 11.90×10⁻⁴⁶ cm², 1.5 % above the 11.72×10⁻⁴⁶ cm² used in the code (within the 2.3 % 1σ uncertainty).",
+  "This comparison found a bug in Newtrinos (fixed in the pinned commit): the chlorine cross section at the 0.862 MeV ⁷Be line was set to the value per ⁷Be neutrino of both lines (2.38×10⁻⁴⁶ cm²) instead of 2.38/0.8956 = 2.66×10⁻⁴⁶ cm², which made the ⁷Be chlorine rate 11 % low.",
+]
+links = [
+  { label = "Bahcall: solar neutrino rates code (exportrates.f)", url = "https://www.sns.ias.edu/~jnb/SNdata/snrates.html" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+modules = ["solar_flux", "solar_xsec"]
+
+[[figures]]
+id = "rates"
+title = "Cl and Ga capture rates per source, no oscillations (BP04)"
+paper_ref = "Table 1"
+ours = "ours/capture_rates.png"

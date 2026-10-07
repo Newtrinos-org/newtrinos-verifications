@@ -1,0 +1,13 @@
+This file contains neutrino fluxes and uncertainties.
+Order of the neutrino fluxes(unit: 10^10): pp,pep,7Be,8B,13N,15O,17F,hep
+Order of the 3isgma uncertainties: Uncert11,33,34,17,114,ZX,lum,age,diffuse,Be7e,hep
+There is a line describing the model which produced the neutrino
+fluxes. Then the fluxes are given. Then N rows of uncertainties, which are 
+defined in the code as = 1 + fractional uncertainty (3 sigma). The
+input is terminated by a row of uncertainties that begins with a
+negative number.
+BP04 12/03/03 Same as BP00 plus new EOS plus new nuclear physics; composition unchanged from BP00
+5.938 0.01401 0.4857 0.0005822 0.05712 0.05031 0.0005912 0.000000788
+1.012 1.181 1.283 1.1132 1.571 1.450 1.012 1.0131 0.45 0.06 1.4535
+1.012 1.181 1.283 1.1132 1.286 1.450 1.012 1.0131 0.45 0.06 1.4535
+-0.07 0.0   0.0   0.0   0.0   0.0   0.0   0.0 0.0 0.0 0.0

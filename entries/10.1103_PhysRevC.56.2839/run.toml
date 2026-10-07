@@ -1,0 +1,24 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig5_exposure_sk_sno.png" = "48a0bd5c87866f815637d4bc16e90d2a1a153b065a82555400a20928e7cc88a1"
+"ours/fig6_exposure_gran_sasso.png" = "4145e055d504681b7a27bb8deeed206016d23de5c22326cfeea05410d043a033"
+"results/exposure_functions.csv" = "54a5950431a6c598eb9e72e27f315e3d0ddf86beacf84be2ca3bb53cf91d6023"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ aabb199b97> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-07T12:27:44Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 67.8

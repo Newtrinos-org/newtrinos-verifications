@@ -1,0 +1,46 @@
+title = "Does the Sun appear brighter at night in neutrinos?"
+short = "Bahcall & Krastev 1997: solar zenith-angle exposure functions"
+collaboration = "J. N. Bahcall, P. I. Krastev"
+doi = "10.1103/PhysRevC.56.2839"
+journal = "Phys. Rev. C 56, 2839"
+year = 1997
+arxiv = "hep-ph/9706239"
+inspire = 443922
+experiments = ["Super-Kamiokande", "SNO", "Borexino"]
+parameters = ["solar zenith-angle exposure"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-07"
+summary = """
+The yearly distribution of the solar zenith angle at a detector, weighted with the Earth–Sun distance (the \
+"zenith-angle exposure function"), which Newtrinos uses for day/night averaging and Earth regeneration of solar \
+neutrinos (`solar_flux.nadir_exposure`). Compared with Bahcall's tabulation (0.5° bins) for Kamioka (36.4° N), \
+Sudbury (46.3° N) and Gran Sasso (42.4° N), the no-oscillation panels of Figs. 5 and 6: the largest bin-wise \
+difference is 5×10⁻⁵ (0.7 % of the peak bin), the night fraction and the fraction of time behind the Earth's core \
+agree to 10⁻⁴.
+"""
+caveats = [
+  "Only the exposure functions (left panels of Fig. 5, upper-left panel of Fig. 6) are compared; the oscillated zenith-angle distributions refer to the SMA, LMA and LOW solutions of 1997.",
+]
+links = [
+  { label = "Bahcall: zenith-angle exposure functions", url = "https://www.sns.ias.edu/~jnb/SNdata/zenithexposure.html" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+modules = ["solar_flux"]
+
+[[figures]]
+id = "fig5"
+title = "Exposure functions at Kamioka (Super-Kamiokande) and Sudbury (SNO)"
+paper_ref = "Fig. 5 (left)"
+original = "original/fig5_exposure_sk_sno.png"
+ours = "ours/fig5_exposure_sk_sno.png"
+
+[[figures]]
+id = "fig6"
+title = "Exposure function at Gran Sasso"
+paper_ref = "Fig. 6 (upper left)"
+original = "original/fig6_exposure_gran_sasso.png"
+ours = "ours/fig6_exposure_gran_sasso.png"

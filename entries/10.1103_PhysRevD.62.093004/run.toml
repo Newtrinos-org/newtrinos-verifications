@@ -1,0 +1,23 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig_survival_lma.png" = "1211d5cc885bcbf349669a73d352805acf4a859f40c7a53924ab33e6c3ae39c2"
+"results/survival_lma.csv" = "25c6f8c0e8b4cb2bbd14fd3c5ee502d54ceeb722acd1be67543aeba6e5dedd85"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ aabb199b97> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-07T12:34:41Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 84.8
