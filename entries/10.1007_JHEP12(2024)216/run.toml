@@ -1,27 +1,31 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig11_solar_kamland.png" = "c0f038e8a29f11c2c5b3f5fc255dde43fdeecd528606e3e69243574c175f2f1c"
+"ours/fig11_solar_kamland.png" = "efd8a061a48ee8df7223eb9b1f1e0d88c0213c53a6561e1b7ee77d1edacb4229"
+"ours/fig1_global_profiles.png" = "7b38f2a19a92151140f17f3edd7075f4acdc8e039d5453a1bf3a836e9e7159c1"
+"results/global_profiles.csv" = "404fa6352b87e419fa5b620052eaeb47a50b60ae8c2e8cda75c6187b3c61dc72"
 "results/kamland_dm21.csv" = "363c8d9bd7f17bdf890194270bd970a18cc1b3a09cebd560ea7f2638d937331b"
-"results/nufit6_fig11.jld2" = "a79cc0cdd50c370275dd5d24f8cc17ab20bff97c7840c133fb8f9cb91846eb6e"
-"results/solar_dm21.csv" = "91a1a76301682d2b68c6816b0e891e70962e28062b2fd534f86952f0a9f7fe45"
-"results/solar_th12_dm21.csv" = "70aacaf8b2c3618ee11032c1dbf0ae2db75f26a2d1c4892227df519417ef23b5"
-"results/summary.txt" = "71089d907cb152695d0192b284870bdefba70f06787180bce110ded63eda30ed"
+"results/nufit6_fig11.jld2" = "5868eadf7e3d8bec30ec16cb7ec6d6c99a1f6dd8d53045469da7956d241bea69"
+"results/solar_dm21.csv" = "ceb7cb2faf8f94432767219f9c5e0775836bffc41dc21c2a3abcdec5bd51dcc3"
+"results/solar_table.csv" = "2a08592d72244c30d5be35bdc3b5c964b38a7274034f7ec6f97841731b862e49"
+"results/solar_th12_dm21.csv" = "84d957453bd0d8b10f2697c9d0334ca82a683775e6ed1281c4777a7e9e71f46d"
+"results/summary.txt" = "93aed986845827373a3cd0e4114419863fccc5099c6f7000515b675f0a4c7244"
+"results/summary_global.txt" = "5674aa236fb6e043656afeffca8fc49402b1aa1531cacff7972b9e223d418eb8"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 0
-total_points = 278
+reused_points = 1381
+total_points = 2604
 
 [newtrinos]
-commit = "c647e340e21b67d28b7249d16eaf98cc9a28eb05"
+commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 60 --project=<Newtrinos.jl @ c647e340e2> reproduce.jl"
+command = "julia -t 60 --project=<Newtrinos.jl @ 8d9bb7a053> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-08T00:00:50Z"
+date = "2026-10-08T14:04:51Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 60
-wall_time_s = 2549.4
+wall_time_s = 11370.1

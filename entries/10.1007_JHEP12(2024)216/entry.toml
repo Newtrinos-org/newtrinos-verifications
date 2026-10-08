@@ -1,18 +1,27 @@
 title = "NuFit-6.0: updated global analysis of three-flavor neutrino oscillations"
-short = "NuFIT 6.0: solar vs KamLAND (θ12, Δm²21)"
+short = "NuFIT 6.0: global 3ν fit (IC19 w/o SK-atm) and solar vs KamLAND"
 collaboration = "NuFIT (Esteban, Gonzalez-Garcia, Maltoni, Martinez-Soler, Pinheiro, Schwetz)"
 doi = "10.1007/JHEP12(2024)216"
 journal = "JHEP 12 (2024) 216"
 year = 2024
 arxiv = "2410.05380"
 inspire = 2838825
-experiments = ["Homestake", "GALLEX/GNO", "SAGE", "Super-Kamiokande", "SNO", "Borexino", "KamLAND"]
-parameters = ["θ12", "Δm²21"]
+experiments = ["Homestake", "GALLEX/GNO", "SAGE", "Super-Kamiokande", "SNO", "Borexino", "KamLAND", "Daya Bay", "T2K", "NOvA", "MINOS", "IceCube DeepCore"]
+parameters = ["θ12", "θ13", "θ23", "δCP", "Δm²21", "Δm²31", "mass ordering"]
 status = "partial"
 category = "phenomenology"
 added = "2026-10-06"
 summary = """
-Solar neutrino determination of θ₁₂ and Δm²₂₁ (sin²θ₁₃ = 0.0222) compared with KamLAND, as in Fig. 11 of NuFIT 6.0. \
+Fig. 1 (global fit, «IC19 w/o SK-atm»): Newtrinos combines KamLAND, Daya Bay, T2K, NOvA, MINOS and IceCube \
+DeepCore (3 years) in full with all solar data, entered as a profiled Δχ² table in (θ₁₂, Δm²₂₁, sin²θ₁₃) (Cl, \
+GALLEX/GNO, SAGE, SNO, SK-I–IV day/night spectra, Borexino Phase I rates, Phase II and III spectral fits). On coarse \
+validation grids the 1D profiles follow NuFIT's: NO best fit sin²θ₁₂ = 0.303, sin²θ₁₃ = 0.0219, sin²θ₂₃ = 0.56, \
+δCP = 180°, Δm²₂₁ = 7.6×10⁻⁵ eV², Δm²₃₁ = 2.52×10⁻³ eV² (NuFIT: 0.310, 0.0219, 0.56, 175°, 7.50, 2.535). The mass \
+ordering preference is reversed: Newtrinos prefers NO by Δχ² ≈ 2.9, NuFIT IO by 0.6. Daya Bay alone has no ordering \
+sensitivity (identical χ² in both orderings); in the global fit it favours NO by 1.75 because ν_μ disappearance fixes \
+|Δm²₃₁| and the implied reactor Δm²ee lies further from Daya Bay's in IO. NOvA adds 1.5 towards NO, T2K 1.0 towards IO.
+
+Fig. 11 (solar vs KamLAND): Solar neutrino determination of θ₁₂ and Δm²₂₁ (sin²θ₁₃ = 0.0222) compared with KamLAND, as in Fig. 11 of NuFIT 6.0. \
 The Newtrinos solar likelihood combines the Homestake, GALLEX/GNO and SAGE rates, the Super-Kamiokande I–IV \
 spectra with the SK-I–IV day/night amplitude fit, the SNO three-phase combination, the Borexino Phase I–II interaction rates and Phase-III spectrum \
 with the B23 MB22-met standard solar model, \
@@ -23,6 +32,8 @@ best fit (NuFIT: Δm²₂₁ ≈ 5.7×10⁻⁵ eV², Δχ² ≈ 2.5); with SK's 
 and 1.2. The Newtrinos solar region is wider than NuFIT's at 4–5σ.
 """
 caveats = [
+  "Fig. 1: the Newtrinos data set differs from NuFIT's: no RENO, Double Chooz, SNO+ reactor, Super-K atmospheric (not in this variant anyway) or IceCube 2024 data; NOvA, T2K, MINOS and DeepCore as implemented in Newtrinos (data releases and likelihoods may differ from the ones NuFIT uses); Δχ² of both orderings w.r.t. the common best fit, as in NuFIT.",
+  "Fig. 1: coarse validation grids (15–24 points per profile, two starting points each); the solar table is a 15×21×3 grid in (θ₁₂, Δm²₂₁, sin²θ₁₃), interpolated.",
   "Borexino Phase I and II enter through their published interaction rates (Phase-II correlations as emulated by Super-Kamiokande, arXiv:2312.12907) instead of the 192 Phase-II spectral points used by NuFIT; Phase III enters through a spectral fit of the TFC-subtracted spectrum, with priors on the backgrounds standing in for the non-public tagged spectrum and radial distribution.",
   "The NuFIT solar analysis details (spectral likelihoods, systematics correlations) are not public; each experiment follows its collaboration's published prescription.",
   "SK day/night: SK's amplitude fit of the zenith-angle variation (SK-I–IV combined, A_DN vs Δm²₂₁ extracted from PRD 109, 092001, Fig. 52) with the SK spectra merged per energy bin; NuFIT's exact SK day/night treatment is not public.",
@@ -34,8 +45,15 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "c647e340e21b67d28b7249d16eaf98cc9a28eb05"
-modules = ["solar_flux", "solar_xsec", "solar_common", "chlorine", "gallex_gno", "sage", "sno", "sk_solar_common", "sk1_solar", "sk2_solar", "sk3_solar", "sk4_solar", "borexino_ph1", "borexino_ph2", "borexino_ph3", "kamland"]
+commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
+modules = ["solar_flux", "solar_xsec", "solar_common", "chlorine", "gallex_gno", "sage", "sno", "sk_solar_common", "sk1_solar", "sk2_solar", "sk3_solar", "sk4_solar", "sk_solar", "borexino_ph1", "borexino_ph2", "borexino_ph2_spectrum", "borexino_ph3", "kamland", "dayabay", "t2k", "nova", "minos", "deepcore_3y", "chi2map"]
+
+[[figures]]
+id = "fig1"
+title = "Global 3ν fit, «IC19 w/o SK-atm»: 1D Δχ² profiles, NO (red) and IO (blue); NuFIT (thick, from the NuFIT 6.0 tables) vs Newtrinos (thin)"
+paper_ref = "Fig. 1"
+original = "original/fig1_global_profiles.png"
+ours = "ours/fig1_global_profiles.png"
 
 [[figures]]
 id = "fig11"
