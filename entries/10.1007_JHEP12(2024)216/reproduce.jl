@@ -274,3 +274,45 @@ open("results/summary_global.txt", "w") do io
     end
 end
 print(read("results/summary_global.txt", String))
+
+# ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+# Fig. 8: (δCP, sin²θ₂₃) regions for IO and NO w.r.t. the global best fit, all other parameters profiled (same global
+# fit as Fig. 1); coarse 12 × 12 grid per ordering
+dcp_2d = deg2rad.(0:30:330); s23_2d = range(0.40, 0.62, length = 12)
+jobs2d = [(o, (δCP = d, θ₂₃ = s2θ(s)), nothing) for o in (:NO, :IO) for s in s23_2d for d in dcp_2d]
+fit2d_init = quote
+    $global_init
+    "Profile log likelihood with θ₂₃ and δCP fixed."
+    function fit_point(ordering, fixed, _)
+        s = SETUPS[ordering]
+        r = Newtrinos.find_mle_cached(s.llh, distprod(; merge(s.pr, fixed)...), merge(s.p, fixed), joinpath($ENTRY, "cache", "global_2d");
+                                      adsel = Newtrinos.ADTypes.AutoForwardDiff())
+        r[2] - sum(logpdf(s.pr[k], r[3][k]) for k in (:θ₁₂, :θ₁₃, :Δm²₂₁, :Δm²₃₁))
+    end
+end
+mkpath("cache/global_2d")
+lp2d = distributed_fits(fit2d_init, jobs2d)
+gbest = max(maximum(prof.log_likelihood), maximum(lp2d))
+CSV.write("results/global_dcp_th23.csv", DataFrame(ordering = [string(j[1]) for j in jobs2d], sin2_theta23 = [sin(j[2].θ₂₃)^2 for j in jobs2d],
+                                                   dcp_deg = [rad2deg(j[2].δCP) for j in jobs2d], dchi2 = 2 .* (gbest .- lp2d)))
+
+levels2 = [2.30, 4.61, 6.18, 9.21, 11.83]        # 1σ, 90 %, 2σ, 99 %, 3σ (2 dof)
+fig = Figure(size = (1000, 480))
+for (k, o) in enumerate(("IO", "NO"))
+    ax = Axis(fig[1, k], xlabel = "δCP [°]", ylabel = k == 1 ? "sin²θ₂₃" : "", title = o, xticks = 0:90:360)
+    # NuFIT: filled regions from the 2D table (δCP −180…180 → 0…360)
+    t = CSV.read("data/nufit6_TBoff/TBoff_$(o)_T23_DCP.csv", DataFrame)
+    sx = sort(unique(t.c0)); dx = sort(unique(mod.(t.c1, 360)))
+    z = fill(NaN, length(dx), length(sx))
+    for r in eachrow(t); z[searchsortedfirst(dx, mod(r.c1, 360)), searchsortedfirst(sx, r.c0)] = r.c2; end
+    contourf!(ax, dx, sx, z, levels = vcat(0, levels2), colormap = [:red, :pink, :blue, :magenta, :cyan])
+    # Newtrinos: contours of the coarse grid, bicubic in (δCP periodic, sin²θ₂₃)
+    zn = [2 * (gbest - lp2d[findfirst(j -> j[1] == Symbol(o) && j[2].δCP == d && j[2].θ₂₃ == s2θ(s), jobs2d)]) for d in dcp_2d, s in s23_2d]
+    itp = cubic_spline_interpolation((range(0, 2π, length = 13), s23_2d), vcat(zn, zn[1:1, :]))
+    df = range(0, 2π, length = 181); sf = range(first(s23_2d), last(s23_2d), length = 111)
+    contour!(ax, rad2deg.(df), sf, [itp(a, b) for a in df, b in sf], levels = levels2, color = :black, linewidth = 1.2)
+    i = argmin(zn); scatter!(ax, [rad2deg(dcp_2d[i[1]])], [s23_2d[i[2]]], color = :black, marker = :xcross)
+    xlims!(ax, 0, 360); ylims!(ax, 0.35, 0.65)
+end
+Label(fig[0, :], "«IC19 w/o SK-atm», regions w.r.t. the global best fit (1σ, 90%, 2σ, 99%, 3σ, 2 dof): NuFIT 6.0 filled, Newtrinos black lines", fontsize = 13)
+save("ours/fig8_dcp_th23.png", fig)

@@ -2,9 +2,11 @@
 [files]
 "ours/fig11_solar_kamland.png" = "efd8a061a48ee8df7223eb9b1f1e0d88c0213c53a6561e1b7ee77d1edacb4229"
 "ours/fig1_global_profiles.png" = "7b38f2a19a92151140f17f3edd7075f4acdc8e039d5453a1bf3a836e9e7159c1"
+"ours/fig8_dcp_th23.png" = "123029020856b9e23024bba45859c1331e0d6c168d091feb636444d69bf4d294"
+"results/global_dcp_th23.csv" = "5ac39417d887d936a9850fa6f9cca9b5e5362ae995d66dffe14fc7c32c53f602"
 "results/global_profiles.csv" = "404fa6352b87e419fa5b620052eaeb47a50b60ae8c2e8cda75c6187b3c61dc72"
 "results/kamland_dm21.csv" = "363c8d9bd7f17bdf890194270bd970a18cc1b3a09cebd560ea7f2638d937331b"
-"results/nufit6_fig11.jld2" = "5868eadf7e3d8bec30ec16cb7ec6d6c99a1f6dd8d53045469da7956d241bea69"
+"results/nufit6_fig11.jld2" = "d9c52ebea63f1625e71dd4138f0265a881625c4e25dba80a744227aaca4a3239"
 "results/solar_dm21.csv" = "ceb7cb2faf8f94432767219f9c5e0775836bffc41dc21c2a3abcdec5bd51dcc3"
 "results/solar_table.csv" = "2a08592d72244c30d5be35bdc3b5c964b38a7274034f7ec6f97841731b862e49"
 "results/solar_th12_dm21.csv" = "84d957453bd0d8b10f2697c9d0334ca82a683775e6ed1281c4777a7e9e71f46d"
@@ -13,8 +15,8 @@
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 1381
-total_points = 2604
+reused_points = 2604
+total_points = 3949
 
 [newtrinos]
 commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
@@ -24,8 +26,8 @@ repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 command = "julia -t 60 --project=<Newtrinos.jl @ 8d9bb7a053> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-08T14:04:51Z"
+date = "2026-10-08T18:54:43Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 60
-wall_time_s = 11370.1
+wall_time_s = 14016.2

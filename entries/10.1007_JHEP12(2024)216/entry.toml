@@ -56,6 +56,13 @@ original = "original/fig1_global_profiles.png"
 ours = "ours/fig1_global_profiles.png"
 
 [[figures]]
+id = "fig8"
+title = "Global 3ν fit, «IC19 w/o SK-atm»: (δCP, sin²θ₂₃) regions for IO and NO w.r.t. the global best fit; NuFIT filled (from the NuFIT 6.0 table), Newtrinos black lines (12×12 grid)"
+paper_ref = "Fig. 8"
+original = "original/fig8_dcp_th23.png"
+ours = "ours/fig8_dcp_th23.png"
+
+[[figures]]
 id = "fig11"
 title = "Solar vs KamLAND: (sin²θ₁₂, Δm²₂₁) regions and Δχ²(Δm²₂₁), sin²θ₁₃ = 0.0222"
 paper_ref = "Fig. 11"
