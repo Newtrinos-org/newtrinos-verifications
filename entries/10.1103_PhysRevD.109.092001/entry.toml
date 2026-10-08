@@ -1,0 +1,65 @@
+title = "Solar neutrino measurements using the full data period of Super-Kamiokande-IV"
+short = "Super-Kamiokande IV: solar ⁸B neutrinos and solar global fit"
+collaboration = "Super-Kamiokande"
+doi = "10.1103/PhysRevD.109.092001"
+journal = "Phys. Rev. D 109, 092001"
+year = 2024
+arxiv = "2312.12907"
+inspire = 2739285
+experiments = ["Super-Kamiokande", "SNO", "Borexino", "Homestake", "GALLEX/GNO", "SAGE", "KamLAND"]
+parameters = ["θ12", "Δm²21"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-06"
+summary = """
+Solar oscillation parameters from Super-Kamiokande IV alone (spectrum plus the day/night amplitude fit, ⁸B flux \
+constrained by SNO's NC measurement), and from the global solar analysis (SK I–IV, SNO, Borexino, radiochemical \
+experiments) compared with and combined with KamLAND, with sin²θ₁₃ = 0.0218; plus the day/night asymmetry from \
+SK's amplitude fit as a function of Δm²₂₁, with the expected asymmetry computed by Newtrinos. On coarse validation \
+grids, Newtrinos finds sin²θ₁₂ = 0.305 [0.269, 0.339], Δm²₂₁ = 6.65 [5.01, 8.61]×10⁻⁵ eV² for SK-IV (SK: 0.308 \
++0.030/−0.029, 6.90 +1.62/−1.21) and sin²θ₁₂ = 0.305 [0.291, 0.318], Δm²₂₁ = 6.25 [5.49, 7.22]×10⁻⁵ eV² for the \
+solar global fit (SK: 0.306 ± 0.013, 6.10 +0.95/−0.81); the expected SK-I–IV day/night asymmetry agrees with SK's \
+within 1–2 %.
+"""
+caveats = [
+  "sin²θ₁₃ is fixed at 0.0218 (SK: Gaussian, ± 0.0007), so that the solar and KamLAND profiles add exactly; the solar + KamLAND region is their sum, with the solar profile spline-interpolated onto KamLAND's finer Δm²₂₁ grid. Coarse validation grids (SK-IV 20×40, global 10×10); intervals from spline-interpolated 1D profiles.",
+  "Day/night: as in SK's analysis, the day/night information enters through SK's amplitude fit of the zenith-angle variation (A_DN vs Δm²₂₁, Figs. 49 and 52, extracted from the vector graphics; module sk_solar_dn), and the published day/night (SK-I: zenith-binned) spectra are merged per energy bin. SK's unbinned time-variation likelihood itself is not public.",
+  "The energy-correlated systematics are modelled with energy-scale and resolution shifts of a Gaussian response and the ⁸B shape uncertainty, not SK's tabulated distortion factors.",
+  "The global solar fit uses the B23 MB22-met solar model with uncorrelated flux priors; SK uses the BP2004/B16 model with its flux covariance and the SK+SNO ⁸B and hep fluxes.",
+  "Borexino enters through its Phase I–II interaction rates and a spectral fit of the Phase-III TFC-subtracted spectrum (backgrounds with Gaussian priors standing in for the non-public tagged spectrum and radial distribution); SK uses only the Phase-II pp, pep and ⁷Be rates.",
+  "The KamLAND curve uses the Newtrinos KamLAND module (digitised spectra of the 2011 analysis); SK uses the 2013 KamLAND result. KamLAND alone therefore keeps a second island at Δm²₂₁ ≈ 1.6×10⁻⁴ eV² at the 2–3σ level that is absent in SK's figure.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "c647e340e21b67d28b7249d16eaf98cc9a28eb05"
+modules = ["solar_flux", "solar_xsec", "solar_common", "sk_solar_common", "sk_solar_dn", "sk1_solar", "sk2_solar", "sk3_solar", "sk4_solar", "sno", "borexino_ph1", "borexino_ph2", "borexino_ph3", "chlorine", "gallex_gno", "sage", "kamland"]
+
+[[figures]]
+id = "fig39"
+title = "SK-IV: sin²θ₁₂ – Δm²₂₁, 1–5σ"
+paper_ref = "Fig. 39"
+original = "original/fig_sk4_th12_dm21.png"
+ours = "ours/fig_sk4_th12_dm21.png"
+
+[[figures]]
+id = "fig47"
+title = "Solar global, KamLAND and combined: sin²θ₁₂ – Δm²₂₁"
+paper_ref = "Fig. 47"
+original = "original/fig_global_th12_dm21.png"
+ours = "ours/fig_global_th12_dm21.png"
+
+[[figures]]
+id = "fig49"
+title = "SK-IV day/night amplitude fit vs Δm²₂₁: measured and expected asymmetry"
+paper_ref = "Fig. 49"
+original = "original/fig_sk4_adn_vs_dm2.png"
+ours = "ours/fig_sk4_adn_vs_dm2.png"
+
+[[figures]]
+id = "fig52"
+title = "SK-I–IV combined day/night amplitude fit vs Δm²₂₁"
+paper_ref = "Fig. 52"
+original = "original/fig_sk1to4_adn_vs_dm2.png"
+ours = "ours/fig_sk1to4_adn_vs_dm2.png"

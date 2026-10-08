@@ -1,4 +1,4 @@
 solar best-fit sin2_theta12 = 0.306, dm2_21 = 5.67e-5 eV^2 (2D grid)
-solar best-fit dm2_21 (1D profile) = 6.02e-5 eV^2
+solar best-fit dm2_21 (1D profile) = 5.97e-5 eV^2
 KamLAND best-fit dm2_21 = 7.7e-5 eV^2
-solar dchi2 at the KamLAND best fit = 1.39
+solar dchi2 at the KamLAND best fit = 1.42
