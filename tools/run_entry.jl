@@ -10,7 +10,7 @@
 #
 # --newtrinos is a local clone of Newtrinos.jl that contains the pinned commit; a detached git worktree
 # of that commit is created under .worktrees/ (so local modifications of the clone are never used).
-using TOML, SHA, Dates
+using TOML, SHA, Dates, FileWatching.Pidfile
 
 function parse_args(args)
     entry = nothing; opts = Dict("threads" => "8")
@@ -34,9 +34,13 @@ root = dirname(dirname(entry))
 
 commit = strip(read(`git -C $clone rev-parse $rev^\{commit\}`, String))
 worktree = joinpath(root, ".worktrees", "newtrinos-$(commit[1:10])")
-if !isdir(worktree)
-    mkpath(dirname(worktree))
-    run(`git -C $clone worktree add --detach $worktree $commit`)
+# several entries may be started at the same time: create the worktree and its environment under a lock
+mkpath(dirname(worktree))
+lock = mkpidlock(joinpath(dirname(worktree), ".lock"); stale_age = 3600)
+try
+    isdir(worktree) || run(`git -C $clone worktree add --detach $worktree $commit`)
+finally
+    close(lock)
 end
 @assert strip(read(`git -C $worktree rev-parse HEAD`, String)) == commit
 for req in get(meta["newtrinos"], "requires", String[])
@@ -46,7 +50,13 @@ end
 @assert isempty(strip(read(`git -C $worktree status --porcelain --untracked-files=no`, String))) "worktree is not clean"
 
 julia = Base.julia_cmd()
-run(`$julia --project=$worktree -e "using Pkg; Pkg.instantiate(); Pkg.precompile()"`)
+let lock = mkpidlock(joinpath(dirname(worktree), ".lock"); stale_age = 3600)
+    try
+        run(`$julia --project=$worktree -e "using Pkg; Pkg.instantiate(); Pkg.precompile()"`)
+    finally
+        close(lock)
+    end
+end
 
 # fresh outputs; fit caches are reused only if they were produced with the same Newtrinos commit
 for d in ("ours", "results")
