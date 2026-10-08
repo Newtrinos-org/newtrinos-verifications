@@ -1,0 +1,52 @@
+title = "First Simultaneous Precision Spectroscopy of pp, ⁷Be, and pep Solar Neutrinos with Borexino Phase-II"
+short = "Borexino Phase II: pp, ⁷Be and pep rates from the spectral fit"
+collaboration = "Borexino"
+doi = "10.1103/PhysRevD.100.082004"
+journal = "Phys. Rev. D 100, 082004"
+year = 2019
+arxiv = "1707.09279"
+inspire = 1613496
+experiments = ["Borexino"]
+parameters = ["pp, ⁷Be, pep interaction rates"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-08"
+summary = """
+Interaction rates of pp, ⁷Be and pep solar neutrinos from the Borexino Phase-II TFC-subtracted energy spectrum (N_h \
+estimator, open data of Nature 562, 505 (2018) Fig. 2a), fitted from 231 keV with the Newtrinos module \
+borexino_ph2_spectrum: solar components from the Borexino MC shapes with an energy response calibrated on Borexino's \
+best-fit spectrum and rates predicted by Newtrinos (here freed individually), backgrounds from Borexino's own fitted \
+components (extracted from the vector graphics of Fig. 6a) with free normalisations, CNO constrained to the HZ-SSM \
+value 4.92 ± 0.56 cpd/100 t, ¹⁴C (±5 %) and pile-up (±2 %) constrained as in Borexino's MC fit. Newtrinos finds \
+pp = 136 [118, 155], ⁷Be = 50.0 [48.5, 51.5], pep = 2.58 [2.15, 3.02] cpd/100 t (Borexino: 134 ± 10 +6/−10, \
+48.3 ± 1.1 +0.4/−0.7, 2.43 ± 0.36 +0.15/−0.22), with 884 for 851 bins (Poisson deviance).
+"""
+caveats = [
+  "Borexino's fit is multivariate (energy, radial and pulse-shape distributions, TFC-subtracted and TFC-tagged spectra); only the TFC-subtracted energy spectrum is public and used here. Newtrinos' intervals (−2Δln L = 1, statistical plus the module's nuisances) are therefore wider for pp than Borexino's statistical error.",
+  "Closure test: fitting Borexino's own best-fit model of the spectrum, Newtrinos returns pp = 122.6, ⁷Be = 48.4 and pep = 2.30 cpd/100 t instead of 134, 48.3 and 2.43. The −9 % for pp comes from the solar MC shapes of the open data (Phase-III, in keV) mapped linearly onto the Phase-II N_h scale, which is least accurate at the 230–270 keV threshold where the pp signal lies.",
+  "The background shapes are Borexino's fitted components at Borexino's best-fit detector response (with free normalisations); the bin-to-bin structure of the discrete N_h estimator under the ²¹⁰Po peak, present in the data and in Borexino's total fit but not in the drawn smooth curves, is recovered as (total − Σ components) and added to the ²¹⁰Po shape.",
+  "Each solar component has the shape of its MC spectrum; only its rate follows the oscillation parameters (the energy dependence of P_ee within the pp and CNO spectra is not applied).",
+  "The rates are interaction rates without the Borexino detection efficiency corrections being refitted; the first 8 bins (N_h 92–99, 212–229 keV), where Borexino's own fit deviates strongly from the data, are excluded.",
+]
+links = [
+  { label = "Borexino open data: Comprehensive measurement of pp-chain solar neutrinos", url = "https://borex.lngs.infn.it/papers/articles/comprehensive-measurement-of-pp-chain-solar-neutrinos/" },
+  { label = "Nature 562, 505 (2018): P_ee entry", url = "https://doi.org/10.1038/s41586-018-0624-y" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "db3063fe4a0a713b95b9c24e0dafcb5781a5f17f"
+modules = ["solar_flux", "solar_xsec", "solar_common", "borexino_ph2_spectrum"]
+
+[[figures]]
+id = "fig6a"
+title = "TFC-subtracted spectrum with the fit components"
+paper_ref = "Fig. 6a"
+original = "original/fig6a_spectrum.png"
+ours = "ours/fig6a_spectrum.png"
+
+[[figures]]
+id = "rates"
+title = "Profiles of the pp, ⁷Be and pep interaction rates vs. Borexino's results"
+paper_ref = "Table (results)"
+ours = "ours/rate_profiles.png"

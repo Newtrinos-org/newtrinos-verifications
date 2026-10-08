@@ -1,0 +1,4 @@
+best fit (deviance 884.3 for 851 bins): pp = 136.38 [118.29, 155.38], be7 = 49.98 [48.47, 51.51], pep = 2.58 [2.15, 3.02], CNO = 4.93 cpd/100 t
+closure (fit to Borexino's best-fit model): pp = 122.62, be7 = 48.38, pep = 2.30
+Borexino (PRD 100, 082004, HZ): pp = 134.00 ± 10.00 (stat) +6.00/−10.00 (sys), be7 = 48.30 ± 1.10 (stat) +0.40/−0.70 (sys), pep = 2.43 ± 0.36 (stat) +0.15/−0.22 (sys)
+nuisances: c14=1.04 pileup=1 ext=1.03 po210=1 kr85=0.941 bi210=0.919 c11=0.978 energy_scale=1.23 energy_offset=-0.687 energy_smear=0.236
