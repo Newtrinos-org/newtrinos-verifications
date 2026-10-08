@@ -1,0 +1,3 @@
+⁷Be (862 keV) = 47.60 [45.76, 49.49] cpd/100 t (−2ΔlnL = 1); low-energy deviance 147.1 for 133 bins
+Borexino (PRL 107, 141302): ⁷Be (862 keV) = 46.0 ± 1.5 (stat) +1.5/−1.6 (sys) cpd/100 t; Fig. 1 MC-based fit 45.5 ± 1.5
+nuisances: kr85=0.852 bi210=1.11 c11=1 po210=0.999 ext=1.01 energy_scale=0.0487 energy_reso=0.519 b8_scale=0.173

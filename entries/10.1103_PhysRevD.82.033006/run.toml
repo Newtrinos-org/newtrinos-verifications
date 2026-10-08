@@ -1,0 +1,24 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig7_b8_spectrum.png" = "33b4dedfcd5d786057ce35a03d4ba00751ffb07d61a8389a77a2eebe6dde8137"
+"results/b8_profile.csv" = "b3edc0e6ab336ef349d9de2aac34a2c20ef551a97a8abd76fc205db9909e1d66"
+"results/summary.txt" = "4968a0f9950c5550364330696fb80900680921a7c90b6f85a1212a18c81de94b"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ 8d9bb7a053> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-08T09:17:12Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 136.9

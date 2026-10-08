@@ -1,0 +1,36 @@
+title = "Measurement of the solar ⁸B neutrino rate with a liquid scintillator target and 3 MeV energy threshold in the Borexino detector"
+short = "Borexino Phase I: ⁸B spectrum above 3 MeV"
+collaboration = "Borexino"
+doi = "10.1103/PhysRevD.82.033006"
+journal = "Phys. Rev. D 82, 033006"
+year = 2010
+arxiv = "0808.2868"
+inspire = 793547
+experiments = ["Borexino"]
+parameters = ["⁸B interaction rate"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-08"
+summary = """
+The ⁸B ν–e interaction rate above 3 MeV from the background-subtracted Borexino spectrum (345.3 live days, 100 t; \
+Fig. 7, extracted from the vector graphics), with the high-energy part of the Newtrinos module borexino_ph1_spectrum: \
+⁸B and hep ν–e scattering with the energy-dependent survival probability, a Gaussian resolution (5 %/√E) and an \
+energy-scale nuisance.
+"""
+caveats = [
+  "Gaussian likelihood with the symmetric published errors of the background-subtracted spectrum; the last bin (13–15 MeV) of the figure has no data point.",
+  "The detector response is a Gaussian resolution and a ±2 % energy scale, not Borexino's simulation; the original figure compares with the BPS09 solar models, Newtrinos with B23 MB22-met.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
+modules = ["solar_flux", "solar_xsec", "solar_common", "borexino_ph1_spectrum"]
+
+[[figures]]
+id = "fig7"
+title = "Background-subtracted ⁸B spectrum"
+paper_ref = "Fig. 7"
+original = "original/fig7_b8_spectrum.png"
+ours = "ours/fig7_b8_spectrum.png"

@@ -1,0 +1,45 @@
+title = "Precision measurement of the ⁷Be solar neutrino interaction rate in Borexino"
+short = "Borexino Phase I: ⁷Be rate from the spectral fit"
+collaboration = "Borexino"
+doi = "10.1103/PhysRevLett.107.141302"
+journal = "Phys. Rev. Lett. 107, 141302"
+year = 2011
+arxiv = "1104.1816"
+inspire = 895714
+experiments = ["Borexino"]
+parameters = ["⁷Be interaction rate"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-08"
+summary = """
+The interaction rate of the 862 keV ⁷Be solar neutrinos from the Borexino Phase-I spectrum (740.7 live days), using the \
+spectrum of the MC-based fit of Fig. 1 (270–1600 keV) with the Newtrinos module borexino_ph1_spectrum: the solar \
+components from Newtrinos physics (ν–e scattering, fluxes, energy-dependent survival probability) folded with a detector \
+response calibrated on Borexino's fitted ⁷Be component, Borexino's background components with free normalisations, and \
+pp, pep, CNO at the SSM + LMA prediction as in Borexino's fit.
+"""
+caveats = [
+  "Borexino's fit uses the pulse-shape and radial information of the events and the TFC-tagged spectrum; only the spectrum of Fig. 1 (top) is used here.",
+  "The ⁷Be (and pp, pep, CNO) spectra are computed by Newtrinos with a Gaussian resolution σ = 48.6 keV √(T/MeV) and the linear energy scale E = 1.044 T − 22 keV, both fitted to Borexino's ⁷Be component (deviance 5.8 for 49 bins); Borexino uses its full detector simulation.",
+  "In the ²¹⁰Po peak the ²¹⁰Po shape is Borexino's total fit minus the other components, because the drawn ²¹⁰Po curve has too few vertices to resolve the peak.",
+  "pp, pep and CNO are fixed to the B23 MB22-met SSM with the Newtrinos default oscillation parameters; Borexino fixed them to the 2011 SSM + LMA values.",
+]
+links = []
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
+modules = ["solar_flux", "solar_xsec", "solar_common", "borexino_ph1_spectrum"]
+
+[[figures]]
+id = "fig1"
+title = "Phase-I spectrum (MC-based fit) with the fit components"
+paper_ref = "Fig. 1 (top)"
+original = "original/fig1_be7_spectrum.png"
+ours = "ours/fig1_be7_spectrum.png"
+
+[[figures]]
+id = "be7_rate"
+title = "Profile of the ⁷Be (862 keV) interaction rate"
+paper_ref = "text (rate)"
+ours = "ours/be7_rate_profile.png"

@@ -1,0 +1,2 @@
+⁸B rate above 3 MeV: 0.225 [0.195, 0.255] cpd/100 t (Δχ² = 1), χ²_min = 0.97 for 5 bins; B23 MB22-met SSM + LMA (defaults): 0.216
+Borexino (PRD 82, 033006): 0.217 ± 0.038 (stat) ± 0.008 (syst) cpd/100 t
