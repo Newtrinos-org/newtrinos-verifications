@@ -1,26 +1,26 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig2a_tan2th12_dm21.png" = "26e9f957c792ab8a2f533e3bc149d9f3f0ced7ad033f6f99bbd7b189bcbbfd5b"
-"results/dm21_profile.csv" = "31a0bbb2ace73377f11ec8d36732b937b8acbed5a4a62e5756913720ea463571"
-"results/kamland2011.jld2" = "2d5b8c52d8e27703a14b8af05073458af8dbb7942b327ea0d8b6bce9a0ce8cf1"
-"results/summary.txt" = "f6d9c8bbf98f9e40eb700a4e868d275a0f53092f9e05bee15d067c08872efcab"
-"results/tan2_theta12_profile.csv" = "4af296692bda30bc2fe9cc71c55ff8eb3a1f1012392918be86f51a52987c938f"
+"ours/fig2a_tan2th12_dm21.png" = "31bd0ad38e46db08a408ecacb3d01bf0f07028fc9fc60c68a035b537351536b7"
+"results/dm21_profile.csv" = "c7c69afd47f0f17e96285472f65599e93ad27435b222f8098e8d440439ddaa65"
+"results/kamland2011.jld2" = "c7fb9996c5e11e008d6ed09ef8386f342c13b62cce0e7bb706906f4e5b15e079"
+"results/summary.txt" = "e50516bf1bef3163e6c310aa8792c7f07147ad2bd40ea452a133f47df1c63fc0"
+"results/tan2_theta12_profile.csv" = "a50c88ed0199140dec294f603e4d89f940a9ff460181d17976abeb72c93410d9"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 321
+reused_points = 0
 total_points = 321
 
 [newtrinos]
-commit = "7e7cbcbbfc009156465bd5cb74ba317d811e4edf"
+commit = "b3ff4ca8708aeccef1229a15d4422c362e44109c"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 7e7cbcbbfc> reproduce.jl"
+command = "julia -t 16 --project=<Newtrinos.jl @ b3ff4ca870> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-09T11:37:03Z"
+date = "2026-10-09T11:43:21Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 16
-wall_time_s = 120.2
+wall_time_s = 203.5

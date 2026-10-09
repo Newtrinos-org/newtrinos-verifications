@@ -23,13 +23,14 @@ caveats = [
   "The prompt-energy spectrum, best-fit background components and the selection efficiency are extracted from the vector graphics of the paper's Fig. 1 (17 bins of 0.425 MeV); KamLAND fits the unbinned, time-dependent data.",
   "Reactor operation is known from PRIS only as annual load factors per unit; KamLAND's live time is spread uniformly over 2002-03-09 – 2009-11-04.",
   "The official Δχ² table covers Δm²₂₁ = 6.8–8.4 ×10⁻⁵ eV² only; the figure is zoomed on this range (coarse validation grid).",
+  "This paper publishes the 2002–2009 data only as one time-integrated spectrum, whereas KamLAND's fit is time-dependent (five periods, before and after the scintillator purification). Without the time information, ¹³C(α,n), geo-ν̄e and the low-energy reactor spectrum are more degenerate: the Newtrinos Δm²₂₁ range is wider and its best fit higher (≈ +0.2 ×10⁻⁵ eV², 0.6σ) than KamLAND's. With the per-period 2013 data the same module reproduces KamLAND's Δm²₂₁ (KamLAND PRD 88, 033001 entry).",
   "The paper figure also shows solar and combined regions; only the KamLAND-only contours are reproduced.",
 ]
 links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "7e7cbcbbfc009156465bd5cb74ba317d811e4edf"
+commit = "b3ff4ca8708aeccef1229a15d4422c362e44109c"
 modules = ["kamland", "reactor_flux", "osc"]
 
 [[figures]]
