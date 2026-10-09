@@ -12,23 +12,29 @@ status = "reproduced"
 category = "experimental"
 added = "2026-10-02"
 summary = """
-Reactor ν̄e disappearance at KamLAND in the (tan²θ₁₂, Δm²₂₁) plane with θ₁₃ = 0, compared with the KamLAND-only \
-regions of the paper.
+Reactor ν̄e disappearance at KamLAND in the (tan²θ₁₂, Δm²₂₁) plane with θ₁₃ = 0 (KamLAND only), with the Newtrinos \
+`kamland` module on the 2002–2009 data of this paper (`dataset = :kamland2011`): the spectrum of the paper's Fig. 1 and a \
+reactor prediction computed from first principles (IAEA PRIS power histories of all Japanese and Korean reactors, \
+site baselines, Huber–Mueller spectra anchored to Bugey-4, 3ν with matter effects; 2851 no-oscillation events, KamLAND: \
+2879 ± 118). Compared with KamLAND's official Δχ² table of the data release. The same module, with the three \
+data-taking periods of the 2013 data, is validated in the KamLAND PRD 88, 033001 entry.
 """
 caveats = [
-  "The prompt-energy spectra are digitised from the paper's figures.",
+  "The prompt-energy spectrum, best-fit background components and the selection efficiency are extracted from the vector graphics of the paper's Fig. 1 (17 bins of 0.425 MeV); KamLAND fits the unbinned, time-dependent data.",
+  "Reactor operation is known from PRIS only as annual load factors per unit; KamLAND's live time is spread uniformly over 2002-03-09 – 2009-11-04.",
+  "The official Δχ² table covers Δm²₂₁ = 6.8–8.4 ×10⁻⁵ eV² only; the figure is zoomed on this range (coarse validation grid).",
   "The paper figure also shows solar and combined regions; only the KamLAND-only contours are reproduced.",
 ]
 links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
-modules = ["kamland"]
+commit = "7e7cbcbbfc009156465bd5cb74ba317d811e4edf"
+modules = ["kamland", "reactor_flux", "osc"]
 
 [[figures]]
 id = "fig2a"
-title = "tan²θ₁₂ – Δm²₂₁, θ₁₃ = 0, 95%, 99%, 99.73% C.L."
+title = "tan²θ₁₂ – Δm²₂₁, θ₁₃ = 0, 95%, 99%, 99.73% C.L., with Δχ² profiles: Newtrinos (blue) vs KamLAND's official Δχ² table (black)"
 paper_ref = "Fig. 2(a)"
 original = "original/fig2a_tan2th12_dm21.png"
 ours = "ours/fig2a_tan2th12_dm21.png"
