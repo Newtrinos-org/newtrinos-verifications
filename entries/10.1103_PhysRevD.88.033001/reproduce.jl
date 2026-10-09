@@ -48,23 +48,36 @@ open("results/summary.txt", "w") do io
 end
 print(read("results/summary.txt", String))
 
-# Fig. 4(a): KamLAND-only regions (95 %, 99 %, 99.73 % C.L., 2 dof) and Δχ² profiles
+# Fig. 4(a): KamLAND-only regions (95 %, 99 %, 99.73 % C.L., 2 dof) and Δχ² profiles, Newtrinos (blue) overlaid on
+# KamLAND's official KamLAND-only curves (black; data/fig4a_*.csv, from the vector graphics of the paper's figure)
+offc = CSV.read("data/fig4a_kamland_only_contours.csv", DataFrame; comment = "#")
+offp = CSV.read("data/fig4a_kamland_only_profiles.csv", DataFrame; comment = "#")
+styles = Dict(95.0 => :dot, 99.0 => :dash, 99.73 => :solid)
 fig = Figure(size = (800, 650))
 ax = Axis(fig[2, 1], xlabel = "tan²θ₁₂", ylabel = "Δm²₂₁ (10⁻⁴ eV²)")
 x = tan.(th12_dm21.axes.θ₁₂) .^ 2; y = th12_dm21.axes.Δm²₂₁ .* 1e4
-for (lv, ls) in zip((0.95, 0.99, 0.9973), (:dot, :dash, :solid))
-    contour!(ax, x, y, Δχ²(th12_dm21), levels = [quantile(Chisq(2), lv)], color = :black, linestyle = ls, linewidth = 2)
+for g in groupby(offc, :segment)
+    lines!(ax, g.tan2_theta12, g.dm2_21 .* 1e4, color = :black, linestyle = styles[Float64(g.cl[1])], linewidth = 1.5)
 end
-scatter!(ax, [tan(bf.θ₁₂)^2], [bf.Δm²₂₁ * 1e4], color = :black, label = "Newtrinos best fit")
+for (lv, ls) in zip((0.95, 0.99, 0.9973), (:dot, :dash, :solid))
+    contour!(ax, x, y, Δχ²(th12_dm21), levels = [quantile(Chisq(2), lv)], color = :dodgerblue, linestyle = ls, linewidth = 2.5)
+end
+lines!(ax, [NaN], [NaN], color = :black, label = "KamLAND (official)")
+lines!(ax, [NaN], [NaN], color = :dodgerblue, linewidth = 2.5, label = "Newtrinos")
+scatter!(ax, [tan(bf.θ₁₂)^2], [bf.Δm²₂₁ * 1e4], color = :dodgerblue, label = "Newtrinos best fit")
 scatter!(ax, [0.481], [0.754], color = :red, marker = :star5, label = "KamLAND best fit")
 axislegend(ax, position = :rt)
 xlims!(ax, 0.2, 1.0); ylims!(ax, 0.66, 0.86)
-axt = Axis(fig[1, 1], ylabel = "Δχ²"); lines!(axt, tan.(th12.axes.θ₁₂) .^ 2, Δχ²(th12), color = :black)
+axt = Axis(fig[1, 1], ylabel = "Δχ²")
+o = offp[offp.variable .== "tan2_theta12", :]; lines!(axt, o.x, o.dchi2, color = :black, linestyle = :dash, linewidth = 1.5)
+lines!(axt, tan.(th12.axes.θ₁₂) .^ 2, Δχ²(th12), color = :dodgerblue, linewidth = 2.5)
 hlines!(axt, [1, 4, 9], color = :gray, linewidth = 0.5); xlims!(axt, 0.2, 1.0); ylims!(axt, 0, 12); hidexdecorations!(axt, grid = false)
-axr = Axis(fig[2, 2], xlabel = "Δχ²"); lines!(axr, Δχ²(dm21), dm21.axes.Δm²₂₁ .* 1e4, color = :black)
+axr = Axis(fig[2, 2], xlabel = "Δχ²")
+o = offp[offp.variable .== "dm2_21", :]; lines!(axr, o.dchi2, o.x .* 1e4, color = :black, linestyle = :dash, linewidth = 1.5)
+lines!(axr, Δχ²(dm21), dm21.axes.Δm²₂₁ .* 1e4, color = :dodgerblue, linewidth = 2.5)
 vlines!(axr, [1, 4, 9], color = :gray, linewidth = 0.5); ylims!(axr, 0.66, 0.86); xlims!(axr, 0, 20); hideydecorations!(axr, grid = false)
 colsize!(fig.layout, 2, Relative(0.25)); rowsize!(fig.layout, 1, Relative(0.25))
-Label(fig[0, :], "KamLAND only, θ₁₃ free (Newtrinos; zoomed on the allowed region)", fontsize = 14)
+Label(fig[0, :], "KamLAND only, θ₁₃ free: Newtrinos (blue) vs KamLAND (black); 95 % dotted, 99 % dashed, 99.73 % C.L. solid", fontsize = 13)
 save("ours/fig4a_th12_dm21.png", fig)
 
 # Fig. 3: prompt spectra per period with the best-fit contributions (events / 0.425 MeV / day)

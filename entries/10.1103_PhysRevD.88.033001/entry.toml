@@ -26,7 +26,7 @@ caveats = [
   "Spectra, backgrounds, efficiencies and geo-ν̄e shapes are extracted from the vector graphics of the paper's Figs. 3 and 6 (17 bins of 0.425 MeV per period); KamLAND fits the unbinned, time-dependent data.",
   "Reactor operation is known from PRIS only as annual load factors per unit; within a year, operation is placed by the shutdown, suspension and restart dates, and KamLAND's live time is spread uniformly over each period.",
   "Fission fractions are KamLAND's averages for all reactors; Korean reactors come out at 4.0 % of the no-oscillation events (KamLAND: 4.9 %), other reactors worldwide are fixed at the paper's 1.1 %.",
-  "The contours use a coarse validation grid and are shown zoomed on the allowed region; the solar and combined regions of the original figure are not reproduced.",
+  "The contours use a coarse validation grid and are shown zoomed on the allowed region; the solar and combined regions of the original figure are not reproduced. The official KamLAND-only contours and profiles (data/fig4a_*.csv) are extracted from the vector graphics of the paper's figure (data/extract_fig4a.py).",
 ]
 links = [
   { label = "IAEA Power Reactor Information System (PRIS)", url = "https://pris.iaea.org" },
@@ -46,7 +46,7 @@ ours = "ours/fig3_spectra.png"
 
 [[figures]]
 id = "fig4a"
-title = "KamLAND-only allowed regions in (tan²θ₁₂, Δm²₂₁), θ₁₃ free, 95 %, 99 %, 99.73 % C.L., with Δχ² profiles"
+title = "KamLAND-only allowed regions in (tan²θ₁₂, Δm²₂₁), θ₁₃ free, 95 %, 99 %, 99.73 % C.L., with Δχ² profiles; Newtrinos (blue) overlaid on KamLAND (black, from the vector graphics of the paper figure)"
 paper_ref = "Fig. 4(a)"
 original = "original/fig4a_th12_dm21.png"
 ours = "ours/fig4a_th12_dm21.png"
