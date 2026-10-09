@@ -1,0 +1,10 @@
+KamLAND-only, θ13 free (Newtrinos | KamLAND PRD 88, 033001)
+dm2_21 [1e-5 eV^2]   7.550 +0.167 -0.198 | 7.54 +0.19 -0.18
+tan2_theta12         0.451 +0.114 -0.079 | 0.481 +0.092 -0.080
+sin2_theta13 (best)  0.029 | 0.010 +0.033 -0.034
+geo nu (best fit, x reference model 109 U / 27 Th): U 1.31, Th 0.12 | 116 U, 8 Th events
+pull kamland_energy_scale     +0.66 sigma
+pull kamland_flux_scale       -0.00 sigma
+pull kamland_flux_scale_late  +0.38 sigma
+pull kamland_alpha_n          +0.72 sigma
+pull kamland_li9              +0.02 sigma

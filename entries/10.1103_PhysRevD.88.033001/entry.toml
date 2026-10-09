@@ -1,0 +1,52 @@
+title = "Reactor On-Off Antineutrino Measurement with KamLAND"
+short = "KamLAND 2013: reactor ν̄e oscillation per data-taking period (KamLAND only)"
+collaboration = "KamLAND"
+doi = "10.1103/PhysRevD.88.033001"
+journal = "Phys. Rev. D 88, 033001"
+year = 2013
+arxiv = "1303.4667"
+inspire = 1224275
+experiments = ["KamLAND"]
+parameters = ["θ12", "θ13", "Δm²21"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-09"
+summary = """
+KamLAND's 2002–2012 data in the three data-taking periods of the paper (before and after the scintillator purification, \
+and the post-Fukushima reactor-off period), with the reactor ν̄e prediction computed from first principles: the thermal \
+power histories of all Japanese and Korean power reactors (IAEA PRIS), the site baselines, Huber–Mueller spectra anchored \
+to Bugey-4, the IBD cross section, 3ν oscillations with matter effects, energy resolution and the selection efficiency \
+of each period; KamLAND's systematics (reactor rate, energy scale, ¹³C(α,n), ⁹Li) and free geo-ν̄e U and Th. Nothing \
+is tuned to KamLAND's fit: the no-oscillation expectation, 3631 events, agrees with KamLAND's 3564 ± 145, and the \
+spectral shape with KamLAND's published expectation for the 2002–2009 data (χ² 1.9 for 17 bins). The KamLAND-only fit \
+with θ₁₃ free gives Δm²₂₁ = 7.53 +0.19 −0.17 ×10⁻⁵ eV² and tan²θ₁₂ = 0.45 +0.12 −0.08 (KamLAND: 7.54 +0.19 −0.18, \
+0.481 +0.092 −0.080).
+"""
+caveats = [
+  "Spectra, backgrounds, efficiencies and geo-ν̄e shapes are extracted from the vector graphics of the paper's Figs. 3 and 6 (17 bins of 0.425 MeV per period); KamLAND fits the unbinned, time-dependent data.",
+  "Reactor operation is known from PRIS only as annual load factors per unit; within a year, operation is placed by the shutdown, suspension and restart dates, and KamLAND's live time is spread uniformly over each period.",
+  "Fission fractions are KamLAND's averages for all reactors; Korean reactors come out at 4.0 % of the no-oscillation events (KamLAND: 4.9 %), other reactors worldwide are fixed at the paper's 1.1 %.",
+  "The contours use a coarse validation grid and are shown zoomed on the allowed region; the solar and combined regions of the original figure are not reproduced.",
+]
+links = [
+  { label = "IAEA Power Reactor Information System (PRIS)", url = "https://pris.iaea.org" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "3bbf92e0f8af59359f2f79648dacff279ddf4e86"
+modules = ["kamland", "reactor_flux", "osc"]
+
+[[figures]]
+id = "fig3"
+title = "Prompt energy spectra per data-taking period with the best-fit contributions (KamLAND only)"
+paper_ref = "Fig. 3"
+original = "original/fig3_spectra.png"
+ours = "ours/fig3_spectra.png"
+
+[[figures]]
+id = "fig4a"
+title = "KamLAND-only allowed regions in (tan²θ₁₂, Δm²₂₁), θ₁₃ free, 95 %, 99 %, 99.73 % C.L., with Δχ² profiles"
+paper_ref = "Fig. 4(a)"
+original = "original/fig4a_th12_dm21.png"
+ours = "ours/fig4a_th12_dm21.png"
