@@ -2,3 +2,4 @@
 public/
 public_artifact/
 entries/*/cache/
+__pycache__/

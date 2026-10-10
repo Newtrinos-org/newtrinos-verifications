@@ -16,10 +16,11 @@ Fig. 1 (global fit, «IC19 w/o SK-atm»): Newtrinos combines KamLAND, Daya Bay, 
 DeepCore (3 years) in full with all solar data, entered as a profiled Δχ² table in (θ₁₂, Δm²₂₁, sin²θ₁₃) (Cl, \
 GALLEX/GNO, SAGE, SNO, SK-I–IV day/night spectra, Borexino Phase I rates, Phase II and III spectral fits). On coarse \
 validation grids the 1D profiles follow NuFIT's: NO best fit sin²θ₁₂ = 0.303, sin²θ₁₃ = 0.0219, sin²θ₂₃ = 0.56, \
-δCP = 180°, Δm²₂₁ = 7.6×10⁻⁵ eV², Δm²₃₁ = 2.52×10⁻³ eV² (NuFIT: 0.310, 0.0219, 0.56, 175°, 7.50, 2.535). The mass \
-ordering preference is reversed: Newtrinos prefers NO by Δχ² ≈ 2.9, NuFIT IO by 0.6. Daya Bay alone has no ordering \
+δCP = 180°, Δm²₂₁ = 7.50×10⁻⁵ eV², Δm²₃₁ = 2.52×10⁻³ eV² (NuFIT: 0.310, 0.0219, 0.56, 175°, 7.50, 2.535). The mass \
+ordering preference is reversed: Newtrinos prefers NO by Δχ² ≈ 3.0, NuFIT IO by 0.6. In NO the lower-octant minimum \
+(sin²θ₂₃ ≈ 0.47) is at Δχ² = 1.7 (NuFIT 1.5 w.r.t. its NO minimum). Daya Bay alone has no ordering \
 sensitivity (identical χ² in both orderings); in the global fit it favours NO by 1.75 because ν_μ disappearance fixes \
-|Δm²₃₁| and the implied reactor Δm²ee lies further from Daya Bay's in IO. NOvA adds 1.5 towards NO, T2K 1.0 towards IO.
+|Δm²₃₁| and the implied reactor Δm²ee lies further from Daya Bay's in IO. NOvA adds 1.5 towards NO, T2K 1.0 towards IO (this decomposition is from the run with the previous KamLAND module).
 
 Fig. 11 (solar vs KamLAND): Solar neutrino determination of θ₁₂ and Δm²₂₁ (sin²θ₁₃ = 0.0222) compared with KamLAND, as in Fig. 11 of NuFIT 6.0. \
 The Newtrinos solar likelihood combines the Homestake, GALLEX/GNO and SAGE rates, the Super-Kamiokande I–IV \
@@ -27,8 +28,8 @@ spectra with the SK-I–IV day/night amplitude fit, the SNO three-phase combinat
 with the B23 MB22-met standard solar model, \
 adiabatic MSW conversion in the Sun and Earth regeneration along PREM chords; solar fluxes, cross sections and \
 detector systematics are profiled. On a coarse validation grid (10×10 in θ₁₂, Δm²₂₁; 17-point Δm²₂₁ profile), \
-Newtrinos finds a solar best fit sin²θ₁₂ = 0.306, Δm²₂₁ = 6.0×10⁻⁵ eV² and Δχ² = 1.3 for the solar data at the KamLAND \
-best fit (NuFIT: Δm²₂₁ ≈ 5.7×10⁻⁵ eV², Δχ² ≈ 2.5); with SK's day/night spectra instead of the amplitude fit, 6.2×10⁻⁵ eV² \
+Newtrinos finds a solar best fit sin²θ₁₂ = 0.306, Δm²₂₁ = 6.1×10⁻⁵ eV² and Δχ² = 1.1 for the solar data at the KamLAND \
+best fit Δm²₂₁ = 7.55×10⁻⁵ eV² (NuFIT: Δm²₂₁ ≈ 5.7×10⁻⁵ eV², Δχ² ≈ 2.5); with SK's day/night spectra instead of the amplitude fit, 6.2×10⁻⁵ eV² \
 and 1.2. The Newtrinos solar region is wider than NuFIT's at 4–5σ.
 """
 caveats = [
