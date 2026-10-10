@@ -68,9 +68,9 @@ version = "0.1.45"
 
 [[deps.Adapt]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "0d64e8eff17936a5e10e61a9d054e1f716792da9"
+git-tree-sha1 = "dee8388a9bec89c8713ad176f96960ae2f98598a"
 uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
-version = "4.7.3"
+version = "4.7.4"
 weakdeps = ["SparseArrays", "StaticArrays"]
 
     [deps.Adapt.extensions]
@@ -1248,9 +1248,9 @@ version = "0.2.1"
 
 [[deps.GPUCompiler]]
 deps = ["CompilerCaching", "ExprTools", "InteractiveUtils", "LLVM", "Libdl", "Logging", "PrecompileTools", "Preferences", "REPL", "ScopedValues", "TOML", "Tracy", "UUIDs", "tree_sitter_gcn_jll", "tree_sitter_llvm_jll", "tree_sitter_ptx_jll", "tree_sitter_spirv_jll"]
-git-tree-sha1 = "6531e430aff22600dee7716ed8d1b763639e467e"
+git-tree-sha1 = "ece35080634255a05b511c8ab2153ce0dc6b0c05"
 uuid = "61eb1bfa-7361-4325-ad38-22787b887f55"
-version = "2.13.1"
+version = "2.13.2"
 
     [deps.GPUCompiler.extensions]
     CthulhuExt = "Cthulhu"
@@ -2799,9 +2799,9 @@ weakdeps = ["FixedPointNumbers"]
 
 [[deps.ReactantCore]]
 deps = ["ExpressionExplorer", "MacroTools"]
-git-tree-sha1 = "bb0e94207c5201e058964db762ba1089527bfeaa"
+git-tree-sha1 = "d1ba6f1d7c96d60897e41715a5515d9deea7b471"
 uuid = "a3311ec8-5e00-46d5-b541-4f83e724a433"
-version = "0.1.24"
+version = "0.1.25"
 
 [[deps.RealDot]]
 deps = ["LinearAlgebra"]
@@ -3227,9 +3227,9 @@ weakdeps = ["OffsetArrays", "StaticArrays"]
 
 [[deps.StaticArrays]]
 deps = ["LinearAlgebra", "PrecompileTools", "Random", "StaticArraysCore"]
-git-tree-sha1 = "39e70e0ab5d7f89833a62ab7c79df15d4fc417c1"
+git-tree-sha1 = "de349d5585559b692f518b6d3fc7c179d64b2364"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "1.9.22"
+version = "1.9.23"
 weakdeps = ["ChainRulesCore", "Statistics"]
 
     [deps.StaticArrays.extensions]
