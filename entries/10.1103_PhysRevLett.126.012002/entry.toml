@@ -25,7 +25,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "62de371619236b5ed553b1b938f91c96e505deac"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["coherent_lAr", "cevns_xsec (xsec_model = :sm_scale)", "sns_flux"]
 
 [[figures]]

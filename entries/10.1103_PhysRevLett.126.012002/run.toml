@@ -1,7 +1,7 @@
 # written by tools/run_entry.jl — do not edit
 [files]
 "ours/fig8_likelihood_nevents.png" = "d81e4850f6269fd8dd85f11f7454a2099723e08ea334155cb01bc7d188b6b285"
-"results/coherent_lAr.jld2" = "e0e6b14d119f2d9c242aa3c99d7ef3671272dded4d18e66a88130fbc6b26b8e1"
+"results/coherent_lAr.jld2" = "bed5648f1d24bc3813080bcb161ea5ff11ffcdd3a1aec65cf3784952505f2604"
 "results/coherent_lAr_scale.csv" = "9a5f8ba66d4e8fbd19aa53350c8fa15fdf9bdedc65436601c25a59f2364eb5ff"
 "results/sm_prediction.txt" = "6a8b9469d12f2de1bd5a63bac7c2c1ecb8cc30763696a7ecece4066e5654370b"
 
@@ -11,15 +11,15 @@ reused_points = 0
 total_points = 41
 
 [newtrinos]
-commit = "62de371619236b5ed553b1b938f91c96e505deac"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 62de371619> reproduce.jl"
-cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
-cpu_threads = 20
-date = "2026-10-02T13:48:16Z"
-julia = "1.13.0"
+command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-11T15:20:22Z"
+julia = "1.12.5"
 os = "Linux"
-threads = 16
-wall_time_s = 56.6
+threads = 8
+wall_time_s = 86.1
