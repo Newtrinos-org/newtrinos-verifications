@@ -17,7 +17,7 @@ sin²2θ = 0.794), SMA (5.0×10⁻⁶ eV², 7.2×10⁻³) and LOW (1.0×10⁻⁷
 and over one year at Sudbury, for day, night and day + night (Fig. 1, numbers from Bahcall's tabulation). It tests the \
 Newtrinos MSW conversion in the Sun, adiabatic (LMA) and non-adiabatic (SMA, LOW: level crossing computed numerically \
 through the solar density profile), and Earth regeneration along PREM chords with the yearly exposure. LMA agrees \
-within 0.005 (day and night) and SMA within 0.01 above 1 MeV; for LOW, Newtrinos is up to 0.04 higher above \
+within 0.005 (day and night) and SMA within 0.013 above 1 MeV; for LOW, Newtrinos is up to 0.04 higher above \
 10 MeV because Bahcall et al. used the exponential approximation of the solar electron density (with that \
 profile Newtrinos reproduces their LOW values).
 """
