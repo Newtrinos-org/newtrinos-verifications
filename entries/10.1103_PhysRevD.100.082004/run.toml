@@ -1,10 +1,10 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig6a_spectrum.png" = "43eab668697c9000f93839183248e99ca230ce86ddbcbcf147cd26eaf103225e"
+"ours/fig6a_spectrum.png" = "73a502be5e30d3bc20d8734ae5a6584cd2b1ed6de16d9f37b6d4184e6474580a"
 "ours/rate_profiles.png" = "d3002a411f247851c389b8d6efe93343c8e9a773b575b94e4f915db9b5e95db5"
-"results/profile_be7.csv" = "f873939ab769129c8a3c01f18e5b7cde1ec5099db9c9c24516c5cfb27cf70dce"
-"results/profile_pep.csv" = "42c0fb44d7d9f3ef419291c8f03c19a5654c21317eb1f46d5abd825fb61295cd"
-"results/profile_pp.csv" = "5b28d214baaacec9d583bada975ca4b8a20b730d9b192f12450e55a3660f3450"
+"results/profile_be7.csv" = "aa65c058120d44443d37302917c475d539b5de822a373b2a71aedfea057f7539"
+"results/profile_pep.csv" = "6adfbc35344343b5ca4d28bfd30b98c35323c442efc7a12ff912e49893e3d709"
+"results/profile_pp.csv" = "2db7170ca1f917f58dab1a965e867591dcbf1d640b0e5be303890cdd61d32dff"
 "results/summary.txt" = "aaf435f429b57e6ec25edfe205828a09c88d14e84333ab1765a8845ca36bbb57"
 
 [fit_cache]
@@ -13,15 +13,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "db3063fe4a0a713b95b9c24e0dafcb5781a5f17f"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ db3063fe4a> reproduce.jl"
+command = "julia -t 16 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-08T07:07:40Z"
+date = "2026-10-11T11:57:00Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 16
-wall_time_s = 896.0
+wall_time_s = 500.6
