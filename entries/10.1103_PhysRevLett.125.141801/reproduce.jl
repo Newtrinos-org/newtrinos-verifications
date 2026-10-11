@@ -11,38 +11,31 @@ osc = Newtrinos.osc.configure(Newtrinos.osc.OscillationConfig(flavour = Newtrino
 earth = Newtrinos.earth_layers.configure()
 p = merge(osc.params, (Δm²₄₁ = 1.3, θ₂₄ = asin(sqrt(0.07)) / 2, θ₁₄ = 0.0, θ₃₄ = 0.0, δCP = 0.0))
 
-# PREM in 100 shells (Yₑ 0.466 core / 0.494 elsewhere) as a finely layered alternative to the default four zones
-function fine_layers(n = 100)
-    tab = CSV.read(joinpath(pkgdir(Newtrinos), "src/physics/PREM_1s.csv"), DataFrame, header = false)
-    r, ρ = reverse(tab[:, 1]), reverse(tab[:, 3])
-    ρ_at(x) = (k = clamp(searchsortedlast(r, x), 1, length(r) - 1);
-               r[k] == r[k+1] ? ρ[k+1] : ρ[k] + (ρ[k+1] - ρ[k]) * (x - r[k]) / (r[k+1] - r[k]))
-    edges = range(0, 6371, length = n + 1)
-    radii, pp, nn = [6391.0], [0.0], [0.0]
-    for i in n:-1:1
-        ρ̄ = sum(ρ_at, range(edges[i], edges[i+1], length = 50)) / 50
-        ye = edges[i+1] <= 3480 ? 0.466 : 0.494
-        push!(radii, edges[i+1]); push!(pp, ρ̄ * ye); push!(nn, ρ̄ * (1 - ye))
-    end
-    StructArray{Newtrinos.Layer}((radii, pp, nn))
-end
+# the full PREM profile: PREM zoned at its density discontinuities with chord-averaged densities (pieces ≤ 100 km),
+# Yₑ 0.466 in the core and 0.494 elsewhere (as the default zones)
+z = Newtrinos.earth_layers.PREM_discontinuities().zones
+earth_d = Newtrinos.earth_layers.configure(Newtrinos.earth_layers.PREM(zones = z, p_fractions = [z[i] >= 5.6 ? 0.466 : 0.494 for i in 1:length(z)-1]))
 
 E = 10 .^ range(2, 5, length = 300)                     # GeV
 CZ = collect(range(-0.999, -0.001, length = 300))
 D = Dict()
-for (name, layers) in (("default", earth.compute_layers()), ("fine", fine_layers()))
-    P = osc.osc_prob(E, earth.compute_paths(CZ, layers), layers, p; anti = true)
-    D[name] = 100 .* (1 .- permutedims(P[:, :, 2, 2]))  # disappearance [%], [cz, E]
+lay4 = earth.compute_layers()
+earths = (default = (earth.compute_paths(CZ, lay4), lay4),
+          chord = earth.compute_chord_paths(CZ, lay4),
+          fine = earth_d.compute_chord_paths(CZ, earth_d.compute_layers(); max_length = 100.0))
+for (name, (paths, layers)) in pairs(earths)
+    P = osc.osc_prob(E, paths, layers, p; anti = true)
+    D[string(name)] = 100 .* (1 .- permutedims(P[:, :, 2, 2]))  # disappearance [%], [cz, E]
 end
 
 cmap = cgrad(:Blues, rev = true)
-fig = Figure(size = (1180, 500))
-for (k, (name, ttl)) in enumerate((("fine", "PREM, 100 shells"), ("default", "default Newtrinos Earth (4 zones)")))
+fig = Figure(size = (1700, 500))
+for (k, (name, ttl)) in enumerate((("fine", "full PREM (chord-averaged)"), ("default", "4 zones (default)"), ("chord", "4 zones, chord-averaged")))
     ax = Axis(fig[1, k], yscale = log10, xlabel = "cos θ_z", ylabel = k == 1 ? "E_ν (GeV)" : "",
               title = "ν̄μ disappearance — $ttl", limits = (-1, 0, 1e2, 1e5))
     contourf!(ax, CZ, E, D[name], levels = 0:4:100, colormap = cmap)
     vlines!(ax, [-0.98, -0.83], color = :white, linestyle = :dash, linewidth = 1.5)
-    k == 2 && Colorbar(fig[1, 3], colormap = cmap, limits = (0, 100), label = "disappearance (%)")
+    k == 3 && Colorbar(fig[1, 4], colormap = cmap, limits = (0, 100), label = "disappearance (%)")
 end
 save("ours/fig1_oscillogram.png", fig)
 
@@ -52,7 +45,7 @@ function resonance(d, czsel)
     i = argmax(sub); (ci, ei) = Tuple(CartesianIndices(sub)[i])
     (cz = CZ[czsel][ci], E_TeV = E[ei] / 1e3, disappearance_pct = sub[ci, ei])
 end
-rows = [(earth = k, region = reg, resonance(D[k], sel)...) for k in ("fine", "default")
+rows = [(earth = k, region = reg, resonance(D[k], sel)...) for k in ("fine", "default", "chord")
         for (reg, sel) in (("mantle", (CZ .> -0.83) .& (CZ .< -0.3)), ("core", CZ .< -0.84))]
 tab = DataFrame(rows)
 CSV.write("results/resonance.csv", tab)
