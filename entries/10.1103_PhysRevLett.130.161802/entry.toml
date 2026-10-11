@@ -13,9 +13,13 @@ category = "experimental"
 added = "2026-10-02"
 summary = """
 Reactor ν̄e disappearance with the complete Daya Bay data set (3158 days, three experimental halls), using the \
-prompt spectra, backgrounds and covariance from the supplemental material.
+prompt spectra, backgrounds and covariance from the supplemental material. The `dayabay` module fits the far-hall (EH3) \
+spectrum with the near-hall-based prediction of the data release. Newtrinos finds sin²2θ₁₃ = 0.0851 +0.0036 −0.0027 and \
+Δm²ee = 2.527 +0.065 −0.071 ×10⁻³ eV² (Daya Bay: 0.0851 ± 0.0024 and 2.519 ± 0.060; official Δχ² table 0.0850 +0.0025 −0.0023, \
+2.520 +0.058 −0.062). The far-hall spectrum and its ratio to no oscillation are shown as in Fig. 2.
 """
 caveats = [
+  "The module fits only the far hall (EH3) with the near-hall-constrained prediction of the data release and a covariance from the 2016 correlation matrix; Daya Bay's fit uses all eight detectors. The Newtrinos sin²2θ₁₃ interval is therefore wider (+0.0036 −0.0027 vs ±0.0024). Fig. 2 is shown for EH3 only; the 'no oscillation' spectrum is the data-release prediction divided by Daya Bay's best-fit survival probability.",
   "Both our result and the official Δχ² table (given in Δm²₃₂) are converted to Δm²ee = Δm²₃₁ − sin²θ₁₂ Δm²₂₁ for the comparison.",
 ]
 links = [
@@ -24,7 +28,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["dayabay"]
 
 [[figures]]
@@ -33,3 +37,10 @@ title = "sin²2θ₁₃ – Δm²ee, 1σ, 2σ, 3σ"
 paper_ref = "Fig. 1"
 original = "original/contour_dmee_ss2th13.png"
 ours = "ours/contour_dmee_ss2th13.png"
+
+[[figures]]
+id = "fig2"
+title = "Far-hall (EH3) prompt spectrum, backgrounds subtracted, with best fit and no oscillation; ratio to no oscillation"
+paper_ref = "Fig. 2 (EH3 panel)"
+original = "original/fig2_eh3.png"
+ours = "ours/fig2_eh3_spectrum.png"

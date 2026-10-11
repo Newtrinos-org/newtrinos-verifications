@@ -2,7 +2,7 @@
 # Data: supplemental material of the paper (3158 days, prompt spectra, backgrounds, Δχ² table).
 # Run from this directory with the Newtrinos.jl environment at the pinned commit:
 #   julia -t 8 --project=<path to Newtrinos.jl> reproduce.jl
-using Newtrinos, Distributions, DataStructures, Accessors, FileIO, CairoMakie, CSV, DataFrames, DelimitedFiles
+using Newtrinos, Distributions, DataStructures, Accessors, FileIO, CairoMakie, CSV, DataFrames, DelimitedFiles, Printf
 
 cd(@__DIR__); mkpath("ours"); mkpath("results"); mkpath("cache")
 const DATA = joinpath(pkgdir(Newtrinos), "src", "experiments")
@@ -65,3 +65,48 @@ lines!(ax, [NaN], [NaN], color = :blue, label = "Newtrinos (profile)")
 xlims!(ax, 0.072, 0.1); ylims!(ax, 2.2, 2.82)
 axislegend(ax, position = :rt)
 save("ours/contour_dmee_ss2th13.png", fig)
+
+# 1D results: sin²2θ₁₃ and Δm²ee from the 2D profile (minimum over the other parameter), Δχ² = 1 crossings
+Δχ²2d = 2 .* (maximum(result.values.log_posterior) .- result.values.log_posterior)
+function onesigma(x, y)
+    y = y .- minimum(y); i = argmin(y)
+    j = findlast(>(1), y[1:i]); lo = j === nothing ? x[1] : x[j] + (1 - y[j]) * (x[j+1] - x[j]) / (y[j+1] - y[j])
+    j = findfirst(>(1), y[i:end]); hi = j === nothing ? x[end] : (j += i - 1; x[j-1] + (1 - y[j-1]) * (x[j] - x[j-1]) / (y[j] - y[j-1]))
+    x[i], hi - x[i], x[i] - lo
+end
+s2 = onesigma(sin.(2 .* result.axes.θ₁₃) .^ 2, vec(minimum(Δχ²2d, dims = 2)))
+me = onesigma(dmee_from31.(result.axes.Δm²₃₁) .* 1e3, vec(minimum(Δχ²2d, dims = 1)))
+o_s2 = onesigma(o_s, vec(minimum(o_χ², dims = 2))); o_me = onesigma(dmee_from32.(o_m) .* 1e3, vec(minimum(o_χ², dims = 1)))
+open("results/summary.txt", "w") do io
+    println(io, "Newtrinos | official Δχ² table | paper (NO)")
+    @printf(io, "sin2_2theta13       %.4f +%.4f -%.4f | %.4f +%.4f -%.4f | 0.0851 ± 0.0024\n", s2..., o_s2...)
+    @printf(io, "dm2_ee [1e-3 eV^2]  %.3f +%.3f -%.3f | %.3f +%.3f -%.3f | 2.519 ± 0.060\n", me..., o_me...)
+end
+print(read("results/summary.txt", String))
+
+# Fig. 2 (EH3 panel): far-hall prompt spectrum (backgrounds subtracted), best fit, no oscillation, and ratio
+a = experiments.dayabay.assets; phys = experiments.dayabay.physics
+ib = argmax(result.values.log_posterior)
+bf = merge(p, (θ₁₃ = result.axes.θ₁₃[ib[1]], Δm²₃₁ = result.axes.Δm²₃₁[ib[2]]))
+μ = Newtrinos.dayabay.get_expected(bf, phys, a)
+μ0 = Newtrinos.dayabay.get_expected(merge(bf, (θ₁₃ = 0.0,)), phys, a)
+eh3 = CSV.read(joinpath(DATA, "daya_bay/daya_bay_3158days/DayaBay_IBDPromptSpectrum_EH3_3158days.txt"), DataFrame,
+               comment = "#", delim = " ", ignorerepeated = true, header = [:Emin, :Emax, :Ec, :o6, :o8, :o7, :p6, :p8, :p7])
+μ_db = eh3.p6 .+ eh3.p8 .+ eh3.p7
+w = diff(a.energy_bins); N = a.observed
+CSV.write("results/eh3_spectrum.csv", DataFrame(E_lo = a.energy_bins[1:end-1], E_hi = a.energy_bins[2:end], observed_minus_bkg = N,
+                                                newtrinos_best_fit = μ, newtrinos_no_osc = μ0, dayabay_best_fit = μ_db))
+fig = Figure(size = (750, 650))
+ax = Axis(fig[1, 1], ylabel = "Events / MeV", title = "Daya Bay EH3 (far hall), backgrounds subtracted")
+stairs!(ax, a.energy_bins, vcat(μ0 ./ w, 0), step = :post, color = :gray50, linewidth = 2, label = "Newtrinos: no oscillation")
+stairs!(ax, a.energy_bins, vcat(μ_db ./ w, 0), step = :post, color = :red, linestyle = :dash, linewidth = 2, label = "Daya Bay: best fit")
+stairs!(ax, a.energy_bins, vcat(μ ./ w, 0), step = :post, color = :blue, linewidth = 1.5, label = "Newtrinos: best fit")
+scatter!(ax, a.energy, N ./ w, color = :black, markersize = 6, label = "data")
+xlims!(ax, 0.7, 12); axislegend(ax, position = :rt); hidexdecorations!(ax, grid = false)
+ax2 = Axis(fig[2, 1], xlabel = "Prompt energy (MeV)", ylabel = "Ratio to no oscillation")
+errorbars!(ax2, a.energy, N ./ μ0, sqrt.(N) ./ μ0, color = :black); scatter!(ax2, a.energy, N ./ μ0, color = :black, markersize = 6)
+stairs!(ax2, a.energy_bins, vcat(μ ./ μ0, 1), step = :post, color = :blue, linewidth = 1.5)
+stairs!(ax2, a.energy_bins, vcat(μ_db ./ μ0, 1), step = :post, color = :red, linestyle = :dash, linewidth = 1.5)
+hlines!(ax2, [1.0], color = :gray50); xlims!(ax2, 0.7, 12); ylims!(ax2, 0.85, 1.05)
+rowsize!(fig.layout, 2, Relative(0.35)); linkxaxes!(ax, ax2)
+save("ours/fig2_eh3_spectrum.png", fig)
