@@ -25,7 +25,7 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "8d9bb7a053d84b355b20d0a5ec891542b7494e45"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["solar_flux", "solar_xsec", "solar_common", "borexino_ph1_spectrum"]
 
 [[figures]]
