@@ -28,7 +28,7 @@ caveats = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "970f59bde570940a1204bbb1982fc267613130f7"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["atm_flux (Barr, BarrEnergyBands)"]
 
 [[figures]]
