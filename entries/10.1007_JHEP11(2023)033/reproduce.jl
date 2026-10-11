@@ -14,9 +14,9 @@ fixed = (θ₁₂ = asin(sqrt(0.303)), θ₁₃ = asin(sqrt(0.022)), θ₂₃ = 
 # averaging cell: one step of the NOvA module's logarithmic true-energy grid (400 points over 0.1-10 GeV)
 const W = log(10.0 / 0.1) / 399
 L, ρYe = 810.0, 2.84 * 0.5
-# the Spray code expects an atmosphere segment first: a vanishing one (1 μm, zero density) is prepended
-layers = StructArray{Newtrinos.Layer}(([6391.0, 6371.0], [0.0, ρYe], [0.0, ρYe]))
-paths = VectorOfVectors{Newtrinos.Path}([StructArray{Newtrinos.Path}(([1e-9, L], [1, 2]))])
+# one constant-density layer, as in the accelerator modules
+layers = StructArray{Newtrinos.Layer}(([6371.0], [ρYe], [ρYe]))
+paths = VectorOfVectors{Newtrinos.Path}([[Newtrinos.Path(L, 1)]])
 ray = O.configure(O.OscillationConfig(interaction = O.SI()))
 spray = O.configure(O.OscillationConfig(interaction = O.SI(), propagation = O.Spray(averaging = :uniform, σ_E = W, σ_h = 0.0)))
 
@@ -51,3 +51,36 @@ save("ours/spray_vs_bruteforce.png", fig)
 tab = DataFrame(rows)
 CSV.write("results/spray_vs_bruteforce.csv", tab)
 show(stdout, tab, allrows = true); println()
+
+# ---------------- the paper's figure 'Impact of averaging', NOvA and T2K panels: Δχ²(Δm²₃₁) with the Newtrinos modules ----------------
+# −2 ln L vs Δm²₃₁ from 10⁻⁵ to 10 eV² with the other oscillation parameters at the paper's values and the nuisance parameters at
+# their nominal values, without averaging (ray) and with Spray over one cell of each module's logarithmic true-energy grid
+using DensityInterface
+cells = (nova = log(10.0 / 0.1) / 399, t2k = log(10.0 / 0.05) / 499)
+DMs = 10 .^ range(-5, 1, length = 481)
+chi2 = Dict{Tuple{Symbol, Symbol}, Vector{Float64}}()
+for name in (:nova, :t2k), (tag, prop) in ((:ray, O.Basic()), (:spray, O.Spray(averaging = :uniform, σ_E = cells[name], σ_h = 0.0)))
+    mod = getproperty(Newtrinos, name)
+    physics = (osc = O.configure(O.OscillationConfig(interaction = O.SI(), eigen_method = Newtrinos.BargerEigen(), propagation = prop)),)
+    exps = NamedTuple{(name,)}((mod.configure(physics),))
+    llh = Newtrinos.generate_likelihood(exps); p0 = merge(Newtrinos.get_params(exps), fixed)
+    chi2[(name, tag)] = [-2 * logdensityof(llh, merge(p0, (Δm²₃₁ = dm,))) for dm in DMs]
+end
+CSV.write("results/dchi2_dm31.csv", DataFrame(dm2_31 = DMs, nova_ray = chi2[(:nova, :ray)], nova_spray = chi2[(:nova, :spray)],
+                                              t2k_ray = chi2[(:t2k, :ray)], t2k_spray = chi2[(:t2k, :spray)]))
+fig = Figure(size = (800, 650))
+for (r, (name, c, lab)) in enumerate(((:nova, :magenta, "NOvA"), (:t2k, :red, "T2K")))
+    ax = Axis(fig[r, 1], xscale = log10, ylabel = "Δχ²", xlabel = r == 2 ? "Δm²₃₁ (eV²)" : "", title = lab,
+              xticks = LogTicks(-5:1))
+    m = min(minimum(chi2[(name, :ray)]), minimum(chi2[(name, :spray)]))
+    lines!(ax, DMs, chi2[(name, :ray)] .- m, color = :black, linewidth = 0.8, label = "ray (no averaging)")
+    lines!(ax, DMs, chi2[(name, :spray)] .- m, color = c, linewidth = 2.5, label = "Spray")
+    xlims!(ax, 1e-5, 10); ylims!(ax, 0, nothing); r == 1 && axislegend(ax, position = :rt, framevisible = false)
+end
+save("ours/dchi2_dm31.png", fig)
+for name in (:nova, :t2k)
+    hi = DMs .>= 0.2
+    @printf("%s: Δm²₃₁ ≥ 0.2 eV²: ray Δχ² spread %.0f, Spray spread %.1f; |Spray − ray| at Δm²₃₁ < 0.02 eV²: %.3f\n", name,
+            maximum(chi2[(name, :ray)][hi]) - minimum(chi2[(name, :ray)][hi]), maximum(chi2[(name, :spray)][hi]) - minimum(chi2[(name, :spray)][hi]),
+            maximum(abs.(chi2[(name, :spray)][.!hi .& (DMs .< 0.02)] .- chi2[(name, :ray)][.!hi .& (DMs .< 0.02)])))
+end

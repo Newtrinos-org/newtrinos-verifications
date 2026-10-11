@@ -1,7 +1,9 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/spray_vs_bruteforce.png" = "904eba82b211b632b8893c32d871193658ee14982db60174e457d3e8d4b47d81"
-"results/spray_vs_bruteforce.csv" = "2181589b7e5937cf84f55dcac6111ecd4bb6d7a232c80f386b7ab8eb142a07f1"
+"ours/dchi2_dm31.png" = "dd46743c45fc7654085d7a944de1511aef5ae5b7a93f2bf996b1e6092fdd7e84"
+"ours/spray_vs_bruteforce.png" = "15dc458d832089c688501607819bb6d3b028b550538aadc702b5651a93a15859"
+"results/dchi2_dm31.csv" = "24e682d24884ec3d424ca30e0a51801fd26f64efde788217d58692b4c75c2893"
+"results/spray_vs_bruteforce.csv" = "45d066d7e6f2aa10f04e44fb1b30bf4ccebe4c18749ac79fa1a4d53a51933037"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -9,15 +11,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+commit = "958af41445096ffc736fbbe123d5c2b28c26ac98"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 4 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
-cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
-cpu_threads = 20
-date = "2026-10-05T08:40:42Z"
-julia = "1.13.0"
+command = "julia -t 8 --project=<Newtrinos.jl @ 958af41445> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-11T11:17:05Z"
+julia = "1.12.5"
 os = "Linux"
-threads = 4
-wall_time_s = 138.9
+threads = 8
+wall_time_s = 143.9
