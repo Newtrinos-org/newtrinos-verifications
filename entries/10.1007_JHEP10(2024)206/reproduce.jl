@@ -2,7 +2,7 @@
 # Data: KM3NeT open data, ORCA6 433 kton-years.
 # Run from this directory with the Newtrinos.jl environment at the pinned commit:
 #   julia -t 8 --project=<path to Newtrinos.jl> reproduce.jl
-using Newtrinos, Distributions, DataStructures, Accessors, FileIO, CairoMakie, CSV, DataFrames, DelimitedFiles
+using Newtrinos, Distributions, DataStructures, Accessors, FileIO, CairoMakie, CSV, DataFrames, DelimitedFiles, Printf
 
 cd(@__DIR__); mkpath("ours"); mkpath("results"); mkpath("cache")
 const DATA = joinpath(pkgdir(Newtrinos), "src", "experiments")
@@ -81,3 +81,64 @@ end
 xlims!(ax, 0.35, 0.7); ylims!(ax, 1.45, 3.0)
 axislegend(ax, position = :rt)
 save("ours/contour_NOIO.png", fig)
+
+# ---------------- Fig. 7: 1D profiles of sin²θ₂₃ and |Δm²₃₁| (minimum over the other parameter of the 2D scans) ----------------
+"best fit and 1σ range from the Δχ² = 1 crossings (linear interpolation between grid points)"
+function onesigma(x, y)
+    o = sortperm(x); x = x[o]; y = y[o] .- minimum(y); i = argmin(y)
+    j = findlast(>(1), y[1:i]); lo = j === nothing ? x[1] : x[j] + (1 - y[j]) * (x[j+1] - x[j]) / (y[j+1] - y[j])
+    j = findfirst(>(1), y[i:end]); hi = j === nothing ? x[end] : (j += i - 1; x[j-1] + (1 - y[j-1]) * (x[j] - x[j-1]) / (y[j] - y[j-1]))
+    x[i], hi - x[i], x[i] - lo
+end
+prof(r, dim) = vec(minimum(2 .* (global_max .- r.values.log_posterior), dims = dim))
+oprof(o, dim) = vec(minimum(replace(o.χ², NaN => Inf) .- off_min, dims = dim))
+fig = Figure(size = (1100, 420))
+ax1 = Axis(fig[1, 1], xlabel = "sin²θ₂₃", ylabel = "−2Δln L", title = "sin²θ₂₃")
+ax2 = Axis(fig[1, 2], xlabel = "|Δm²₃₁| (10⁻³ eV²)", title = "|Δm²₃₁|")
+open("results/summary.txt", "w") do io
+    println(io, "1σ ranges from the 2D scans (Newtrinos | data-release χ² landscape); paper: sin²θ23 = 0.51 +0.04 -0.05, Δm²31 = 2.18 +0.25 -0.35 (NO), [-2.25, -1.76] (IO) ×1e-3 eV², 2 ln(L_NO/L_IO) = 0.31")
+    for (mo, ls) in ((:NO, :solid), (:IO, :dash))
+        r = results[mo]; o = off[mo]
+        s = sin.(r.axes.θ₂₃) .^ 2; m = abs.(r.axes.Δm²₃₁) .* 1e3
+        lines!(ax1, s, prof(r, 2), color = :blue, linestyle = ls, linewidth = 2, label = "Newtrinos $mo")
+        lines!(ax1, o.ss23, oprof(o, 2), color = :red, linestyle = ls, linewidth = 2, label = "KM3NeT $mo (data release)")
+        lines!(ax2, m, prof(r, 1), color = :blue, linestyle = ls, linewidth = 2)
+        lines!(ax2, o.dm2, oprof(o, 1), color = :red, linestyle = ls, linewidth = 2)
+        @printf(io, "%s: sin2_theta23 %.3f +%.3f -%.3f | %.3f +%.3f -%.3f;  |dm2_31| %.3f +%.3f -%.3f | %.3f +%.3f -%.3f;  min -2ΔlnL %.2f | %.2f\n",
+                mo, onesigma(s, prof(r, 2))..., onesigma(o.ss23, oprof(o, 2))..., onesigma(m, prof(r, 1))..., onesigma(o.dm2, oprof(o, 1))...,
+                minimum(prof(r, 2)), minimum(oprof(o, 2)))
+    end
+end
+print(read("results/summary.txt", String))
+for ax in (ax1, ax2); hlines!(ax, [1.0, quantile(Chisq(1), 0.9)], color = :gray, linestyle = :dot); ylims!(ax, 0, 6); end
+xlims!(ax1, 0.3, 0.75); xlims!(ax2, 1.2, 3.2); axislegend(ax1, position = :ct, labelsize = 11)
+save("ours/fig7_profiles.png", fig)
+
+# ---------------- Fig. 10: event counts vs reconstructed energy and cos θ, per class, at the global best fit ----------------
+mo_bf = argmax(mo -> maximum(results[mo].values.log_posterior), keys(results)); r = results[mo_bf]
+ib = argmax(r.values.log_posterior)
+bf = merge(p, NamedTuple(k => r.values[k][ib] for k in keys(r.values) if !(k in (:llh, :log_posterior))),
+           (θ₂₃ = r.axes.θ₂₃[ib[1]], Δm²₃₁ = r.axes.Δm²₃₁[ib[2]]))
+a = experiments.orca.assets; phys = experiments.orca.physics
+ex = Newtrinos.orca.get_expected(bf, phys, a)
+nufit = merge(bf, (θ₂₃ = asin(sqrt(0.570)), Δm²₃₁ = 2.517e-3, θ₁₃ = asin(sqrt(0.02221))))       # NuFIT 5.0 NO (with SK)
+ex_nf = Newtrinos.orca.get_expected(nufit, phys, a)
+ex0 = Newtrinos.orca.get_expected(merge(bf, (θ₁₂ = 0.0, θ₁₃ = 0.0, θ₂₃ = 0.0)), phys, a)
+bins = a.binning
+fig = Figure(size = (1000, 1050))
+for (j, (k, name)) in enumerate(((:hpt, "High Purity Tracks"), (:lpt, "Low Purity Tracks"), (:showers, "Showers")))
+    d = a.observed[k]; nE = size(d, 1)
+    Ee = bins.e_reco_edges[1:nE+1]; ce = bins.cz_reco_edges[1:11]
+    for (col, (dim, edges, xl, xs)) in enumerate(((2, Ee, "reconstructed energy (GeV)", log10), (1, ce, "reconstructed cos θ", identity)))
+        ax = Axis(fig[j, col], xlabel = xl, ylabel = "events", title = name, xscale = xs)
+        proj(h) = vec(sum(h, dims = dim))
+        stairs!(ax, edges, vcat(proj(ex0[k]), proj(ex0[k])[end]), step = :post, color = :black, linestyle = :dash, label = "no oscillation")
+        stairs!(ax, edges, vcat(proj(ex_nf[k]), proj(ex_nf[k])[end]), step = :post, color = :blue, label = "NuFIT 5.0")
+        stairs!(ax, edges, vcat(proj(ex[k]), proj(ex[k])[end]), step = :post, color = :red, linewidth = 2, label = "Newtrinos best fit")
+        c = 0.5 .* (edges[1:end-1] .+ edges[2:end]); xs === log10 && (c = sqrt.(edges[1:end-1] .* edges[2:end]))
+        errorbars!(ax, c, proj(d), sqrt.(proj(d)), color = :black); scatter!(ax, c, proj(d), color = :black, markersize = 6, label = "data")
+        ylims!(ax, 0, nothing)
+        j == 1 && col == 1 && axislegend(ax, position = :rt, labelsize = 10)
+    end
+end
+save("ours/fig10_distributions.png", fig)

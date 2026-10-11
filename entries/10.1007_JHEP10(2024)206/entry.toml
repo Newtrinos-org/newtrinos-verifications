@@ -13,11 +13,16 @@ category = "experimental"
 added = "2026-10-02"
 summary = """
 Atmospheric neutrino oscillations with the first six detection units of KM3NeT/ORCA (433 kton-years), using the \
-KM3NeT open-data release of the binned event sample and response, for both mass orderings.
+KM3NeT open-data release of the binned event sample and response, for both mass orderings. Also shown: the 1D profiles of \
+sin²θ₂₃ and |Δm²₃₁| (Fig. 7) against the data-release χ² landscapes, and the event distributions in reconstructed energy and \
+cos θ per event class at the best fit, for NuFIT 5.0 and without oscillation (Fig. 10). In NO, Newtrinos finds \
+sin²θ₂₃ = 0.525 +0.058 −0.070 and |Δm²₃₁| = 2.33 +0.19 −0.25 ×10⁻³ eV² (data release: 0.509 +0.062 −0.063 and 2.18 +0.22 −0.34; paper: \
+0.51 +0.04 −0.05 and 2.18 +0.25 −0.35), and prefers NO by −2Δln L = 0.96 (KM3NeT: 0.31).
 """
 caveats = [
   "The official contours are computed from the χ² landscapes shipped with the data release; both are shown relative to the minimum over both orderings.",
   "The up/down flux ratio systematic is fixed, as in the Newtrinos validation.",
+  "1D profiles are the minima over the other parameter of the 21×21 scans and of the data-release landscapes (coarse grids); the paper's Fig. 7 bands from pseudo-experiments are not reproduced. Fig. 10 projects the binned 2D distributions; the no-oscillation and NuFIT 5.0 curves keep the best-fit nuisance parameters, as in the paper.",
   "Approximate agreement only: our NO region extends further to large sin²θ₂₃ at |Δm²₃₁| ≈ 2.3×10⁻³ eV², and our IO region is narrower in |Δm²₃₁| than the official one.",
 ]
 links = [
@@ -26,7 +31,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["orca"]
 
 [[figures]]
@@ -35,3 +40,17 @@ title = "sin²θ₂₃ – |Δm²₃₁|, 90% CL, NO and IO"
 paper_ref = "Fig. 6 (left)"
 original = "original/contour_NOIO.png"
 ours = "ours/contour_NOIO.png"
+
+[[figures]]
+id = "fig7"
+title = "1D profiles of sin²θ₂₃ and |Δm²₃₁|, NO and IO, w.r.t. the global minimum: Newtrinos vs data-release χ² landscapes"
+paper_ref = "Fig. 7"
+original = "original/Paper_Theta23_FC.png"
+ours = "ours/fig7_profiles.png"
+
+[[figures]]
+id = "fig10"
+title = "Events vs reconstructed energy and cos θ per class: data, Newtrinos best fit, NuFIT 5.0, no oscillation"
+paper_ref = "Fig. 10"
+original = "original/Paper_E_HPT.png"
+ours = "ours/fig10_distributions.png"

@@ -1,9 +1,12 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/contour_NOIO.png" = "b07fbeab20188f16a2147a6015e1159681ff775d68b210c43a21d6646cda1903"
-"results/orca6.jld2" = "6b2bd735acc525a629d3bfedc3f655fefa2ab1b8d604fd7fdf8fec86a9b65a5f"
-"results/orca6_IO_ssth23_dm31.csv" = "57439d08616f1a3759f09160a59c37235b3490887a4996ca7523b208b13cd95b"
-"results/orca6_NO_ssth23_dm31.csv" = "72ba432a3ff0c5e345c4b1ade8cab05902426f1fb1424f6fd55eb29fadda0378"
+"ours/contour_NOIO.png" = "4fdf4daf921055aaddf538bb03d3404fa4611cff6072ef5c559d6b937f2049ce"
+"ours/fig10_distributions.png" = "aec053b11ab534c702fcd68660b250b84676d146dcd05ca0c04b0b854710bb21"
+"ours/fig7_profiles.png" = "2f1ca0a4e77b579b7c12fcb42e4beea4dfd4171d2b83d79e82a08fafd2cdc5ba"
+"results/orca6.jld2" = "cae72bab08d60e815f21863a370e449446c261e6b624ce19c630cb54f12558f6"
+"results/orca6_IO_ssth23_dm31.csv" = "1343580c39cbda1d2403b57637873cc506d4c8b314bd1b5c5ed2eb1b0cf031be"
+"results/orca6_NO_ssth23_dm31.csv" = "39bdf197b0943b447ee5dd66f06582fc28b6bfd53623330a7e8bc6f6dddb70b7"
+"results/summary.txt" = "f62e7a19fd2db66f610df51be0659d4ac510fcae14392bd1543656b2e8ee5975"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -11,15 +14,15 @@ reused_points = 0
 total_points = 882
 
 [newtrinos]
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
-cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
-cpu_threads = 20
-date = "2026-10-02T10:59:50Z"
-julia = "1.13.0"
+command = "julia -t 16 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-11T11:20:08Z"
+julia = "1.12.5"
 os = "Linux"
 threads = 16
-wall_time_s = 676.2
+wall_time_s = 1065.1
