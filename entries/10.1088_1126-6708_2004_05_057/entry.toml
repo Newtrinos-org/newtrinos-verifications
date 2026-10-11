@@ -33,7 +33,7 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["osc", "earth_layers", "solar_flux", "solar_common"]
 
 [[figures]]
