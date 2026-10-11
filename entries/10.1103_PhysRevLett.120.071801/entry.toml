@@ -31,7 +31,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "58f30fb8dc9878a82f2af71168dfa41f8ade3a79"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["deepcore_3y", "osc (SI)", "atm_flux (Barr)", "earth_layers", "xsec"]
 
 [[figures]]
