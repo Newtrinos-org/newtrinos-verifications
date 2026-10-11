@@ -13,11 +13,15 @@ category = "experimental"
 added = "2026-10-02"
 summary = """
 νμ disappearance with the MINOS and MINOS+ beam data, compared with the beam-only contours of the full \
-three-flavour analysis.
+three-flavour analysis, and the 1D profiles of |Δm²₃₂| and sin²θ₂₃ for both orderings (Fig. 4, top) against the \
+intervals of the paper's Table II. Newtrinos (beam only) finds |Δm²₃₂| = 2.43 (NO) and 2.40 (IO) ×10⁻³ eV², with Δχ² ≤ 1 on the grid over \
+2.38–2.48 and 2.35–2.50 (MINOS+ 68 % C.L.: 2.31–2.48 and 2.37–2.52), and sin²θ₂₃ within 0.35–0.69 at Δχ² ≤ 2.71 (MINOS+ \
+90 % C.L.: 0.37–0.65); the two octants are nearly degenerate (Newtrinos best fit 0.63, MINOS+ 0.43).
 """
 caveats = [
   "Newtrinos uses the two-detector νμ CC data release of the sterile-neutrino search (arXiv:1710.06488, 16×10²⁰ POT), not the exact beam data set and systematics of this paper.",
   "The official beam contours are digitised from Fig. 3.",
+  "Fig. 4 and Table II of the paper combine the beam and atmospheric samples; Newtrinos has the beam data only, so its intervals are expected to be somewhat wider and its octant preference can differ.",
 ]
 links = [
   { label = "Data release: arXiv:1710.06488", url = "https://arxiv.org/abs/1710.06488" },
@@ -25,7 +29,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["minos"]
 
 [[figures]]
@@ -34,3 +38,10 @@ title = "sin²θ₂₃ – Δm²₃₂, beam data, 68% and 90% C.L."
 paper_ref = "Fig. 3"
 original = "original/beam_vs_atmos.png"
 ours = "ours/beam_contours.png"
+
+[[figures]]
+id = "fig4"
+title = "1D profiles of |Δm²₃₂| and sin²θ₂₃, NO and IO, with the Table II intervals (68 % for Δm², 90 % for sin²θ₂₃)"
+paper_ref = "Fig. 4 (top), Table II"
+original = "original/fig4_hierarchy.png"
+ours = "ours/fig4_1d_profiles.png"

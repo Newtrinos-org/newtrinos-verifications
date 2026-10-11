@@ -1,24 +1,26 @@
 # written by tools/run_entry.jl — do not edit
 [files]
 "ours/beam_contours.png" = "50a158d5b9d5e179ba8051af8418d0419a067c95a3fd1a9ea8d250c767ca3d33"
-"results/minos.jld2" = "9351d64f911412b9d5892862642e5e30e436812c2e563305213794d14ff0dfc9"
-"results/minos_ssth23_dm32.csv" = "49ffa6fcce202c28acd880d28303dcac9d9fcfd4efbe1672c7d93c797fc4df52"
+"ours/fig4_1d_profiles.png" = "72cc3e8901ef138ebafa933165489c3ce5d833e4893887441868e23a2ca6e028"
+"results/minos.jld2" = "5df5433c18fc6840041ea7a3e4d8d042dbf23da25c108574e3818f4bcebbd073"
+"results/minos_ssth23_dm32.csv" = "ae3c8bc29ca99d981ee335ce10534df7704ac15fb7562443ad6da36cacf83ce6"
+"results/summary.txt" = "ecc3ab29a26ef65c6da4ef075b1edccb824e3d116adf17080e362aa389f5d37c"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
 reused_points = 0
-total_points = 441
+total_points = 549
 
 [newtrinos]
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
-cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
-cpu_threads = 20
-date = "2026-10-02T10:22:49Z"
-julia = "1.13.0"
+command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-11T15:09:41Z"
+julia = "1.12.5"
 os = "Linux"
-threads = 16
-wall_time_s = 62.6
+threads = 8
+wall_time_s = 121.7

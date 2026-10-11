@@ -1,0 +1,2 @@
+NO: |dm2_32| best 2.425, grid points with Δχ² ≤ 1: (2.375, 2.475); sin2_theta23 best 0.629, grid points with Δχ² ≤ 2.71: (0.35, 0.691); min Δχ² 0.0
+IO: |dm2_32| best 2.4, grid points with Δχ² ≤ 1: (2.35, 2.5); sin2_theta23 best 0.629, grid points with Δχ² ≤ 2.71: (0.35, 0.691); min Δχ² 0.04

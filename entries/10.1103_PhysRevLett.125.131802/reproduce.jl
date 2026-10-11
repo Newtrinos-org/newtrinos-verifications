@@ -60,3 +60,36 @@ contours!(ax, Newtrinos.NewtrinosResult(axes = (ss23 = sin.(result.axes.θ₂₃
 xlims!(ax, 0.3, 0.7); ylims!(ax, 1.5, 3.1)
 axislegend(ax, position = :rt)
 save("ours/beam_contours.png", fig)
+
+# Fig. 4 (top): 1D profiles of |Δm²₃₂| and sin²θ₂₃ for both orderings, with the paper's Table II intervals
+# (the paper combines beam and atmospheric samples; Newtrinos has the beam data only)
+ord = (NO = (Δm²₃₁ = (1.8e-3, 3.2e-3), start = 2.45e-3), IO = (Δm²₃₁ = (-3.2e-3, -1.8e-3), start = -2.35e-3))
+prof1d = map(keys(ord), values(ord)) do mo, o
+    pr = merge(priors, (Δm²₃₁ = Uniform(o.Δm²₃₁...),)); p0 = merge(p, (Δm²₃₁ = o.start,))
+    mo => (dm2 = Newtrinos.profile(likelihood, pr, OrderedDict(:Δm²₃₁ => 29), p0, cache_dir = "cache/$(mo)_dm2"),
+           th23 = Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 25), p0, cache_dir = "cache/$(mo)_th23"))
+end |> NamedTuple
+top = map(k -> maximum(max(maximum(prof1d.NO[k].values.log_posterior), maximum(prof1d.IO[k].values.log_posterior))), (dm2 = :dm2, th23 = :th23))
+dm32(r) = abs.(r.axes.Δm²₃₁ .- (r.axes.Δm²₃₁[1] > 0 ? p.Δm²₂₁ : 0.0)) .* 1e3
+table2 = (NO = (dm2 = (2.31, 2.48), ss23 = (0.37, 0.65)), IO = (dm2 = (2.37, 2.52), ss23 = (0.37, 0.65)))   # 68 % / 90 % C.L.
+fig = Figure(size = (1100, 430))
+ax1 = Axis(fig[1, 1], xlabel = "|Δm²₃₂| (10⁻³ eV²)", ylabel = "−2Δln L"); ax2 = Axis(fig[1, 2], xlabel = "sin²θ₂₃")
+for (mo, c) in ((:NO, :blue), (:IO, :red))
+    r = prof1d[mo].dm2; lines!(ax1, dm32(r), 2 .* (top.dm2 .- r.values.log_posterior), color = c, linewidth = 2.5, label = "Newtrinos $mo (beam)")
+    r = prof1d[mo].th23; lines!(ax2, sin.(r.axes.θ₂₃) .^ 2, 2 .* (top.th23 .- r.values.log_posterior), color = c, linewidth = 2.5)
+    lines!(ax1, collect(table2[mo].dm2), [1.0, 1.0] .+ (mo == :IO ? 0.15 : 0.0), color = (c, 0.5), linewidth = 6, label = "MINOS+ $mo: 68 % C.L. (Table II)")
+    lines!(ax2, collect(table2[mo].ss23), fill(quantile(Chisq(1), 0.9), 2) .+ (mo == :IO ? 0.15 : 0.0), color = (c, 0.5), linewidth = 6)
+end
+for ax in (ax1, ax2); hlines!(ax, [1.0, quantile(Chisq(1), 0.9)], color = :gray, linestyle = :dot); ylims!(ax, 0, 6); end
+xlims!(ax1, 2.0, 2.9); xlims!(ax2, 0.3, 0.7); axislegend(ax1, position = :ct, labelsize = 10)
+save("ours/fig4_1d_profiles.png", fig)
+open("results/summary.txt", "w") do io
+    for mo in (:NO, :IO)
+        r = prof1d[mo].dm2; y = 2 .* (top.dm2 .- r.values.log_posterior); x = dm32(r)
+        r2 = prof1d[mo].th23; y2 = 2 .* (top.th23 .- r2.values.log_posterior); x2 = sin.(r2.axes.θ₂₃) .^ 2
+        inside(x, y, lv) = (s = x[y .<= lv]; (minimum(s), maximum(s)))
+        println(io, "$mo: |dm2_32| best $(round(x[argmin(y)], digits = 3)), grid points with Δχ² ≤ 1: $(round.(inside(x, y .- minimum(y), 1.0), digits = 3)); ",
+                "sin2_theta23 best $(round(x2[argmin(y2)], digits = 3)), grid points with Δχ² ≤ 2.71: $(round.(inside(x2, y2 .- minimum(y2), 2.71), digits = 3)); min Δχ² $(round(minimum(y), digits = 2))")
+    end
+end
+print(read("results/summary.txt", String))
