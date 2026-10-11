@@ -12,4 +12,8 @@ P_ee: Borexino | Newtrinos from the rates with B16-HZ fluxes | with B23 MB22-met
   ⁸B HER-I   0.390 ± 0.090 | 0.416 ± 0.096 | 0.457
   ⁸B HER     0.370 ± 0.080 | 0.360 ± 0.079 | 0.396
   ⁸B HER-II  0.350 ± 0.090 | 0.291 ± 0.084 | 0.322
-LMA P_ee (NuFIT 3.2 best fit, ⁸B production, LNGS) vs centre of Borexino's band: max |Δ| = 0.011
+P_ee from the Newtrinos fit of the Phase-II spectrum (borexino_ph2_spectrum, B16-HZ fluxes): rate [68 % CL] -> P_ee
+  pp          136.38 [118.29, 155.38] -> 0.574 −0.129 +0.136
+  ⁷Be          49.98 [48.47, 51.51] -> 0.557 −0.057 +0.057
+  pep           2.58 [2.15, 3.02] -> 0.462 −0.121 +0.123
+LMA P_ee (NuFIT 3.2 best fit, ⁸B production, LNGS) vs centre of Borexino's band: max |Δ| = 0.008

@@ -2,8 +2,9 @@
 # the electron-neutrino survival probability P_ee(E) from the pp, ⁷Be, pep and ⁸B interaction rates, compared with the
 # MSW-LMA prediction. Borexino's points and bands are from the Borexino open data (data/Nature2018_Fig3_*.txt).
 # Run from this directory with the Newtrinos.jl environment at the pinned commit:
-#   julia -t 8 --project=<path to Newtrinos.jl> reproduce.jl
+#   julia -t 16 --project=<path to Newtrinos.jl> reproduce.jl
 using Newtrinos, CairoMakie, CSV, DataFrames, DelimitedFiles, Printf
+using Distributions, DensityInterface, Optim, ADTypes, ForwardDiff
 
 cd(@__DIR__); mkpath("ours"); mkpath("results")
 const SC = Newtrinos.solar_common
@@ -80,6 +81,70 @@ df = DataFrame(rows)
 CSV.write("results/pee_rates.csv", df)
 show(stdout, df[:, 1:9]; allrows = true); println()
 
+# --- P_ee from Newtrinos' own fit of the Phase-II TFC-subtracted spectrum (borexino_ph2_spectrum, open data of Fig. 2a):
+#     pp, ⁷Be, pep free, CNO constrained to the HZ prediction 4.92 ± 0.56 cpd/100 t, as in PRD 100, 082004 ---
+const BS = Newtrinos.borexino_ph2_spectrum
+sphys = merge(BS.default_physics(), (solar_flux = Newtrinos.solar_flux.configure(
+    Newtrinos.solar_flux.SolarFluxConfig(systematics = Newtrinos.solar_flux.SSMPriors())),))
+bs = BS.configure(sphys)
+sllh = Newtrinos.generate_likelihood((borexino_ph2_spectrum = bs,))
+sp0 = Newtrinos.get_params((borexino_ph2_spectrum = bs,)); spri = Newtrinos.get_priors((borexino_ph2_spectrum = bs,))
+rate0 = BS.solar_rates(sp0, bs.physics, bs.assets)
+nuis = collect(keys(bs.params))
+toparams(x) = merge(sp0, (solar_norm_pp = x[1], solar_norm_be7 = x[2], solar_norm_pep = x[3],
+                          solar_norm_n13 = x[4], solar_norm_o15 = x[4], solar_norm_f17 = x[4]),
+                    NamedTuple{Tuple(nuis)}(Tuple(x[5:end])))
+cno_prior = Normal(4.92, 0.56)
+nlp(x) = -(logdensityof(sllh, toparams(x)) + logpdf(cno_prior, x[4] * rate0.cno) +
+           sum(logpdf(spri[k], x[4+i]) for (i, k) in enumerate(nuis)))
+lo = vcat(0.2, 0.5, 0.0, 0.0, [minimum(spri[k]) for k in nuis]); hi = vcat(2.0, 1.5, 3.0, 3.0, [maximum(spri[k]) for k in nuis])
+function minimise(f, x0, lo, hi)
+    r = optimize(f, lo, hi, clamp.(x0, lo .+ 1e-6, hi .- 1e-6), Fminbox(LBFGS()),
+                 Optim.Options(iterations = 1000, outer_iterations = 10, g_tol = 1e-6); autodiff = ADTypes.AutoForwardDiff())
+    Optim.minimizer(r), Optim.minimum(r)
+end
+xb, mb = minimise(nlp, vcat(1.0, 1.0, 1.0, 4.92 / rate0.cno, [sp0[k] for k in nuis]), lo, hi)
+sbest = BS.solar_rates(toparams(xb), bs.physics, bs.assets)
+# 68 % intervals of each rate from its profile (−2Δln L = 1), scanned outwards from the best fit
+grids = (pp = collect(90.0:5.0:180.0), be7 = collect(44.0:0.5:53.0), pep = collect(1.0:0.2:4.0))
+sint = Dict{Symbol, Tuple{Float64, Float64}}()
+lk = ReentrantLock()
+Threads.@threads for (i, k) in collect(enumerate((:pp, :be7, :pep)))
+    g = grids[k]; prof = zeros(length(g)); keep = setdiff(eachindex(xb), i)
+    ib = searchsortedfirst(g, sbest[k])
+    for order in (ib:length(g), reverse(1:ib-1))
+        ystart = xb[keep]
+        for j in order
+            fix(y) = (x = Vector{eltype(y)}(undef, length(xb)); x[keep] = y; x[i] = g[j] / rate0[k]; x)
+            r1 = minimise(y -> nlp(fix(y)), ystart, lo[keep], hi[keep])
+            r2 = minimise(y -> nlp(fix(y)), xb[keep], lo[keep], hi[keep])
+            y, m = r1[2] <= r2[2] ? r1 : r2
+            prof[j] = 2 * (m - mb); ystart = y
+        end
+    end
+    gg = vcat(g, sbest[k]); pp_ = vcat(prof, 0.0); o = sortperm(gg); gg, pp_ = gg[o], pp_[o]
+    jb = findfirst(==(0.0), pp_)
+    cross(i1, i2) = gg[i1] + (1 - pp_[i1]) * (gg[i2] - gg[i1]) / (pp_[i2] - pp_[i1])
+    il = findlast(>(1), pp_[1:jb]); iu = jb - 1 + findfirst(>(1), pp_[jb:end])
+    lock(lk) do
+        sint[k] = ((il === nothing ? NaN : cross(il, il + 1)), (iu === nothing ? NaN : cross(iu - 1, iu)))
+    end
+end
+srows = map(((:pp, "pp"), (:be7, "⁷Be"), (:pep, "pep"))) do (k, name)
+    m = meas[findfirst(x -> x.name == name, meas)]
+    σe, σx = σavg(m.comp)
+    Pfrom(R) = (R / (NE * DAY * Φ_HZ[m.comp]) - σx) / (σe - σx)
+    Pl, Pu = Pfrom(sint[k][1]), Pfrom(sint[k][2])
+    P = Pfrom(sbest[k])
+    # rate interval ⊕ B16-HZ flux uncertainty
+    flux = Φ_HZ_unc[m.comp] * (P + σx / (σe - σx))
+    (measurement = name, E_MeV = m.E, rate_cpd100t = sbest[k], rate_lo = sint[k][1], rate_hi = sint[k][2],
+     Pee = P, Pee_err_lo = hypot(P - Pl, flux), Pee_err_hi = hypot(Pu - P, flux))
+end
+sdf = DataFrame(collect(srows))
+CSV.write("results/pee_spectral_fit.csv", sdf)
+show(stdout, sdf; allrows = true); println()
+
 # predicted vs measured rates with the B16 SSM predictions of PRD 100, 082004 (Table V)
 open("results/summary.txt", "w") do io
     println(io, "Interaction rates [cpd/100 t]: measured | Newtrinos (B23 MB22-met, NuFIT 3.2) | B16-HZ | B16-LZ (PRD 100, 082004, Table V)")
@@ -93,6 +158,11 @@ open("results/summary.txt", "w") do io
         @printf(io, "  %-10s %.3f ± %.3f | %.3f ± %.3f | %.3f\n", r.measurement, r.Pee_borexino, r.Pee_borexino_err,
                 r.Pee_newtrinos_B16HZ, r.Pee_newtrinos_B16HZ_err, r.Pee_newtrinos_B23)
     end
+    println(io, "P_ee from the Newtrinos fit of the Phase-II spectrum (borexino_ph2_spectrum, B16-HZ fluxes): rate [68 % CL] -> P_ee")
+    for r in eachrow(sdf)
+        @printf(io, "  %-10s %7.2f [%.2f, %.2f] -> %.3f −%.3f +%.3f\n", r.measurement, r.rate_cpd100t, r.rate_lo, r.rate_hi,
+                r.Pee, r.Pee_err_lo, r.Pee_err_hi)
+    end
     @printf(io, "LMA P_ee (NuFIT 3.2 best fit, ⁸B production, LNGS) vs centre of Borexino's band: max |Δ| = %.3f\n", dev)
 end
 print(read("results/summary.txt", String))
@@ -100,7 +170,7 @@ print(read("results/summary.txt", String))
 # --- figure in the style of Fig. 3 ---
 fig = Figure(size = (820, 520))
 ax = Axis(fig[1, 1], xscale = log10, xlabel = "Neutrino energy (MeV)", ylabel = "P_ee",
-          title = "Borexino survival probability: published (filled) and from the rates with Newtrinos (open)", titlesize = 13,
+          title = "Borexino P_ee: published (filled), from the published rates (open), from the Newtrinos spectral fit (diamonds)", titlesize = 13,
           xticks = ([0.2, 0.5, 1, 2, 5, 10, 20], ["0.2", "0.5", "1", "2", "5", "10", "20"]))
 sel = 0.15 .<= Eb .<= 20
 band!(ax, Eb[sel], vmin[sel], vmax[sel], color = (:gray, 0.25), label = "Borexino: vacuum-LMA")
@@ -117,6 +187,12 @@ for (i, r) in enumerate(eachrow(df))
     scatter!(ax, [x], [r.Pee_newtrinos_B16HZ], color = :white, strokecolor = colors[i], strokewidth = 2, markersize = 10)
     text!(ax, r.E_MeV, r.Pee_borexino + r.Pee_borexino_err + 0.01, text = split(r.measurement)[1] * (occursin("HER", r.measurement) ? "" : ""),
           align = (:center, :bottom), fontsize = 12, color = colors[i], visible = !occursin("HER-", r.measurement))
+end
+for (i, r) in enumerate(eachrow(sdf))
+    x = r.E_MeV / 1.06
+    rangebars!(ax, [x], [r.Pee - r.Pee_err_lo], [r.Pee + r.Pee_err_hi], color = colors[i], whiskerwidth = 6)
+    scatter!(ax, [x], [r.Pee], color = colors[i], marker = :diamond, markersize = 12,
+             label = i == 1 ? "Newtrinos fit of the Phase-II spectrum" : nothing)
 end
 xlims!(ax, 0.15, 20); ylims!(ax, 0.2, 0.8)
 axislegend(ax, position = :lb, labelsize = 11)

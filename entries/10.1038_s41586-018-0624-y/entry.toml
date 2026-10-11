@@ -19,10 +19,14 @@ fluxes used by Borexino, and finds P_ee = 0.557 ± 0.092 (pp), 0.529 ± 0.053 (�
 The Newtrinos MSW-LMA prediction (adiabatic conversion averaged over the ⁸B production region, Earth regeneration at \
 LNGS, yearly average) agrees with the centre of Borexino's band within 0.011. With the NuFIT 3.2 best fit and the \
 B23 MB22-met fluxes, the `borexino_ph2` module predicts 131.5 (pp), 47.9 (⁷Be) and 2.74 (pep) cpd/100 t, against \
-the B16-HZ predictions 131.1, 47.9 and 2.74 quoted by Borexino.
+the B16-HZ predictions 131.1, 47.9 and 2.74 quoted by Borexino. \
+Newtrinos' own fit of the Phase-II TFC-subtracted spectrum (module `borexino_ph2_spectrum`, open data of Fig. 2a; pp, ⁷Be, \
+pep free, CNO at the HZ prediction, see the PRD 100, 082004 entry) gives pp = 136 [118, 155], ⁷Be = 50.0 [48.5, 51.5] and \
+pep = 2.58 [2.15, 3.02] cpd/100 t, i.e. P_ee = 0.574 −0.129/+0.136 (pp), 0.557 ± 0.057 (⁷Be) and 0.462 ± 0.122 (pep), \
+consistent with Borexino's values (diamonds in the figure).
 """
 caveats = [
-  "The `borexino_ph2` module uses the published Phase-II interaction rates (with the correlations as emulated by Super-Kamiokande), not the energy spectrum; a spectral Phase-II fit is in development.",
+  "Open points: inversion of the published Phase-II rates (the `borexino_ph2` module uses these rates with the correlations as emulated by Super-Kamiokande). Diamonds: rates from the Newtrinos spectral fit (`borexino_ph2_spectrum`), which uses only the public TFC-subtracted energy spectrum (no radial or pulse-shape information, no TFC-tagged spectrum), so its pp interval is wider; its closure test on Borexino's best-fit model returns a pp rate 9 % low (see the PRD 100, 082004 entry). The spectral-fit errors are the profile-likelihood 68 % intervals of the rates combined with the B16-HZ flux uncertainty.",
   "The Nature article text is not openly available; Borexino's points and bands are taken from the Borexino open data (Nature2018_Fig3_DATApoints/bands), the rates and the B16 predictions from the companion paper PRD 100, 082004 (arXiv:1707.09279), the ⁸B rates from PRD 101, 062001 (arXiv:1709.00756).",
   "The Newtrinos band is the envelope of the 1σ corners of sin²θ₁₂ and Δm²₂₁ of NuFIT 3.2 (sin²θ₁₃ = 0.02206), computed for the ⁸B production region at all energies; Borexino's prescription may differ (its band is narrower above 10 MeV). The small wiggles above 10 MeV come from the 20 night bins in cos(zenith) of the module's site.",
   "⁸B sub-ranges: the inversion uses sharp recoil-energy thresholds (3.2 and 5.7 MeV), no energy resolution or efficiency, and a P_ee constant over the window. For the full HER range this reproduces Borexino (0.360 vs 0.37), for HER-I and HER-II it gives 0.416 and 0.291 against 0.39 and 0.35 (well within the errors).",
@@ -35,12 +39,12 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "aabb199b9740207fd7cec0fe69db7bfe08eb51da"
-modules = ["borexino_ph2", "solar_common", "solar_flux", "solar_xsec", "osc", "earth_layers"]
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+modules = ["borexino_ph2_spectrum", "borexino_ph2", "solar_common", "solar_flux", "solar_xsec", "osc", "earth_layers"]
 
 [[figures]]
 id = "fig3"
-title = "Electron-neutrino survival probability vs. neutrino energy"
+title = "Electron-neutrino survival probability vs. neutrino energy: published, from the published rates, and from the Newtrinos spectral fit"
 paper_ref = "Fig. 3"
 original = "original/fig3_pee.png"
 ours = "ours/fig3_pee.png"
