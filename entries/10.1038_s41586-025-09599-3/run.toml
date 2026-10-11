@@ -2,28 +2,28 @@
 [files]
 "ours/fig3_dcp_ssth23.png" = "f35b2ac890d3f00d507b6706435a203ee317f0bad895fbcf35c291620cf5e85a"
 "results/bestfit_vs_official.toml" = "fe5f4d9c56f9ebedf38854b9923fedafe32ed715f8db0bdce60cc507c710e326"
-"results/nova_t2k_IO.jld2" = "3b86fdd1e14b30f187017d2c581c4b512df42c2a443a7c6f0cfb2560803b4785"
-"results/nova_t2k_IO_dcp.csv" = "649cec910a6a795b027baf2124230941ae3ad7378ed9e0e7a863380d417d53a8"
-"results/nova_t2k_IO_dcp_ssth23.csv" = "af22b0c60e6484cde6a32b54bc4c17e0be29822d94b5b7ea4532f1ca75fceff4"
-"results/nova_t2k_NO.jld2" = "0e27b3d06dc8672bf6f4995e3a8b44a1da3576126697dcf6e094aa9949eb1415"
-"results/nova_t2k_NO_dcp.csv" = "c24e4fdc19cdd0a6de30e7554b1288bfa75457dae43285f6483da625a2561b8f"
-"results/nova_t2k_NO_dcp_ssth23.csv" = "f00c1854b33598b579693189f9025b5387b3599fbe5f645ac9228ba7250ab15a"
+"results/nova_t2k_IO.jld2" = "a359515c1160f7e81670ae90f9abf28745cbfa54937b493cd9ecec43dbedb913"
+"results/nova_t2k_IO_dcp.csv" = "8ba8e0226fc4614bc180902c432dd5d623d595658adc81f16fbf12e61d5e20fd"
+"results/nova_t2k_IO_dcp_ssth23.csv" = "0ec29d8181216bb334a989f3c6b0ee71885edeb2efe2d569dd954e75a2398ecd"
+"results/nova_t2k_NO.jld2" = "5b9f4d5fe608f2e6a0ed4ed466d74ab19bb2ec10eb7fbf8b18d12541a7497fde"
+"results/nova_t2k_NO_dcp.csv" = "97b6a820265ddc2b2f9388383970994b4fd02d9e4823a2e8e0248ae166de4fc0"
+"results/nova_t2k_NO_dcp_ssth23.csv" = "7cdea0c598111ce7dfa8ae3d27f8dc80599156f24f16089a9f687c75821e6f4c"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 1214
+reused_points = 0
 total_points = 1214
 
 [newtrinos]
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ 1232cf01ac> reproduce.jl"
-cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
-cpu_threads = 20
-date = "2026-10-04T08:18:25Z"
-julia = "1.13.0"
+command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-11T15:05:02Z"
+julia = "1.12.5"
 os = "Linux"
-threads = 16
-wall_time_s = 71.9
+threads = 8
+wall_time_s = 244.9
