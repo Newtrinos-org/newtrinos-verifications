@@ -1,14 +1,14 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig1a_numu.png" = "8014ae01301b60872e69952d1d75db38f7cc38aba1a987503657a4cec2e9d9a0"
-"ours/fig1b_nue.png" = "3a6598c336536b7574c0d1c8e9a4cd733234292cfe1e8d95fe9af7d5713f198d"
-"ours/fig2a_nu.png" = "2139c0a307040ee1f6599f8a38552dac52fab83b063fbcff4518d6d62b18e479"
-"ours/fig2b_nubar.png" = "5137498ac7d8fcfdecaa0942a6c7be8965564aadf039d702cb1b8abeef1d014a"
-"ours/fig3_oscillograms.png" = "7b8de485f2095e8e53e8179569855a7c6e36567c8729d174ab10f980c40f8a57"
-"ours/fig3_oscillograms_4zone.png" = "2e909c76af4113457ac27c8f9938667fd3b5718f0e07d49bf71bfb2f75981821"
-"ours/layering_difference.png" = "de21d438e553ebc0c89f0d276a2e1776ae9b8e00bd4da88af1c1de0bcfe56d61"
+"ours/fig1a_numu.png" = "00e2d3b3591db546cd328ea7cb197836d6aba33419a95e4ce92683d9ba4b45d2"
+"ours/fig1b_nue.png" = "c9e9155833c075df57392e549e0f51a24883bfaa6b81135d0a9b2658b16e826b"
+"ours/fig2a_nu.png" = "faf25e39e526e30563a1566ebe86fa4af598109373e6b4b05a1da1273a9308f3"
+"ours/fig2b_nubar.png" = "18b7e952257a5bf1647da9233bde1529dd90686c9c5b247001751f2cdc15f8a7"
+"ours/fig3_oscillograms.png" = "fa1ea6d73a40de5da4f8f49ac4c6232be9f613a324ec66bb4d4773b1d4c5dda9"
+"ours/fig3_oscillograms_4zone.png" = "777f67d43a95fa327c0cecd12b5f2e4b578eee6bc869ab30728abbbe5e3ddd76"
+"ours/layering_difference.png" = "aa49ece8ddb20a7328956d8d32424f24025436957e74669fda82c01f1ad24d4d"
 "results/fig3_channel_maxima.csv" = "8650a7c1c69196e4710d6950ab07938c0b249d605af3fbb3037fbd87162ff73e"
-"results/layering_4zone_vs_fine.csv" = "ab533782477d1854e6a115df407d6e8031bc19e351f2faa430ab851d888a7455"
+"results/layering_4zone_vs_fine.csv" = "c79940915cfad8b1eb8cc24cd2129159861784a9789e0d6a389c6086e5a20fb7"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -16,15 +16,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 4 --project=<Newtrinos.jl @ de27463fde> reproduce.jl"
-cpu = "13th Gen Intel(R) Core(TM) i7-13700H"
-cpu_threads = 20
-date = "2026-10-05T07:14:47Z"
-julia = "1.13.0"
+command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-11T10:28:07Z"
+julia = "1.12.5"
 os = "Linux"
-threads = 4
-wall_time_s = 53.5
+threads = 8
+wall_time_s = 253.3

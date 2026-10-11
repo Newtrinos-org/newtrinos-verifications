@@ -19,28 +19,23 @@ earth = Newtrinos.earth_layers.configure()
 # (a) the default Newtrinos Earth: PREM averaged into four constant-density zones (as used in the analyses)
 layers_default = earth.compute_layers()
 
-# (b) close to the paper's full PREM profile: PREM (the tabulation shipped with Newtrinos) averaged in 100
-#     shells of 63.71 km, with electron fraction ye_core / ye_mantle
-function fine_layers(ye_core, ye_mantle; n = 100)
-    tab = CSV.read(joinpath(pkgdir(Newtrinos), "src/physics/PREM_1s.csv"), DataFrame, header = false)
-    r, ρ = reverse(tab[:, 1]), reverse(tab[:, 3])           # ascending radius
-    ρ_at(x) = (k = clamp(searchsortedlast(r, x), 1, length(r) - 1);
-               r[k] == r[k+1] ? ρ[k+1] : ρ[k] + (ρ[k+1] - ρ[k]) * (x - r[k]) / (r[k+1] - r[k]))
-    edges = range(0, 6371, length = n + 1)
-    radii, p, nn = [6391.0], [0.0], [0.0]                   # 20 km atmosphere, as in Newtrinos
-    for i in n:-1:1                                          # outermost first
-        xs = range(edges[i], edges[i+1], length = 50)
-        ρ̄ = sum(ρ_at, xs) / length(xs)
-        ye = edges[i+1] <= 3480 ? ye_core : ye_mantle
-        push!(radii, edges[i+1]); push!(p, ρ̄ * ye); push!(nn, ρ̄ * (1 - ye))
-    end
-    StructArray{Newtrinos.Layer}((radii, p, nn))
+# (b) close to the paper's full PREM profile: PREM zoned at its density discontinuities, with the density of
+#     every chord segment averaged along the chord (pieces ≤ 100 km), electron fraction ye_core / ye_mantle
+function chord_earth(ye_core, ye_mantle)
+    z = Newtrinos.earth_layers.PREM_discontinuities().zones
+    cfg = Newtrinos.earth_layers.PREM(zones = z, p_fractions = [z[i] >= 5.6 ? ye_core : ye_mantle for i in 1:length(z)-1])
+    e = Newtrinos.earth_layers.configure(cfg)
+    (earth = e, layers = e.compute_layers(), max_length = 100.0)
 end
-layers_paper = fine_layers(0.5, 0.5)        # the paper's amplitudes at cos θz = -1 require Yₑ = 0.5 in the core
-layers_fine = fine_layers(0.466, 0.494)     # same Yₑ as the default Newtrinos zones: isolates the layering
+layers_paper = chord_earth(0.5, 0.5)        # the paper's amplitudes at cos θz = -1 require Yₑ = 0.5 in the core
+layers_fine = chord_earth(0.466, 0.494)     # same Yₑ as the default Newtrinos zones: isolates the layering
+# (c) the default four zones, but with chord-averaged densities
+layers_chord = (earth = earth, layers = layers_default, max_length = Inf)
 
 const FL = ("e", "μ", "τ")
 prob(E, cz, layers, par; anti = false) = osc.osc_prob(E, earth.compute_paths(cz, layers), layers, par; anti)
+prob(E, cz, m::NamedTuple, par; anti = false) =
+    osc.osc_prob(E, m.earth.compute_chord_paths(cz, m.layers; max_length = m.max_length)..., par; anti)
 
 # ---------------- Figs. 1 and 2: P vs E at four zenith angles ----------------
 E1 = collect(range(1, 20, length = 1500))
@@ -76,6 +71,7 @@ CZ3 = collect(range(-1, 0, length = 400))
 P3paper = prob(E3, CZ3, layers_paper, params.NH)
 P3 = prob(E3, CZ3, layers_default, params.NH)
 P3fine = prob(E3, CZ3, layers_fine, params.NH)
+P3chord = prob(E3, CZ3, layers_chord, params.NH)
 channels = [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)]
 cmap = cgrad([:darkred, :red3, :orangered, :darkorange, :orange, :gold], 10, categorical = true)
 function oscillograms(fname, P3, label)
@@ -94,7 +90,7 @@ function oscillograms(fname, P3, label)
     Label(fig[0, 1:3], label, fontsize = 15)
     save(fname, fig, px_per_unit = 1.5)
 end
-oscillograms("ours/fig3_oscillograms.png", P3paper, "Earth: PREM in 100 shells, Yₑ = 0.5")
+oscillograms("ours/fig3_oscillograms.png", P3paper, "Earth: PREM at its discontinuities, chord-averaged densities, Yₑ = 0.5")
 oscillograms("ours/fig3_oscillograms_4zone.png", P3, "Earth: default Newtrinos PREM (4 zones, Yₑ = 0.466-0.496)")
 
 # maxima quoted in the paper's Fig. 3 titles: Peμ 0.42, Peτ 0.61, Pμe 0.42, Pμτ 0.97
@@ -107,19 +103,21 @@ end
 sort!(rows, by = r -> r.channel)
 CSV.write("results/fig3_channel_maxima.csv", DataFrame(rows))
 
-# impact of the Earth layering: |P(4 zones) - P(100 shells)| over the Fig. 3 plane
-lay = [(channel = "P$(FL[α])$(FL[β])",
-        max_abs_diff = round(maximum(abs.(P3[:, :, α, β] .- P3fine[:, :, α, β])), digits = 3),
-        mean_abs_diff = round(sum(abs.(P3[:, :, α, β] .- P3fine[:, :, α, β])) / length(P3[:, :, α, β]), digits = 4))
-       for (α, β) in channels]
+# impact of the Earth layering: |P(model) - P(reference PREM)| over the Fig. 3 plane, same Yₑ
+lay = [(channel = "P$(FL[α])$(FL[β])", model = m,
+        max_abs_diff = round(maximum(abs.(Pm[:, :, α, β] .- P3fine[:, :, α, β])), digits = 3),
+        mean_abs_diff = round(sum(abs.(Pm[:, :, α, β] .- P3fine[:, :, α, β])) / length(Pm[:, :, α, β]), digits = 4))
+       for (m, Pm) in (("4 zones", P3), ("4 zones chord-averaged", P3chord)) for (α, β) in channels]
 CSV.write("results/layering_4zone_vs_fine.csv", DataFrame(lay))
 
-fig = Figure(size = (1150, 420))
-for (k, (α, β)) in enumerate(((2, 2), (2, 1), (1, 1)))
-    ax = Axis(fig[1, k], title = "P$(FL[α])$(FL[β]): 4 zones − 100 shells", xlabel = "cos θz",
-              ylabel = k == 1 ? "E_ν [GeV]" : "")
-    hm = heatmap!(ax, CZ3, E3, (P3[:, :, α, β] .- P3fine[:, :, α, β])', colormap = :balance, colorrange = (-0.3, 0.3))
-    k == 3 && Colorbar(fig[1, 4], hm, label = "ΔP")
+fig = Figure(size = (1150, 780))
+for (r, (Pm, lab)) in enumerate(((P3, "4 zones"), (P3chord, "4 zones chord-av.")))
+    for (k, (α, β)) in enumerate(((2, 2), (2, 1), (1, 1)))
+        local ax = Axis(fig[r, k], title = "P$(FL[α])$(FL[β]): $lab − PREM", xlabel = r == 2 ? "cos θz" : "",
+                        ylabel = k == 1 ? "E_ν [GeV]" : "")
+        hm = heatmap!(ax, CZ3, E3, (Pm[:, :, α, β] .- P3fine[:, :, α, β])', colormap = :balance, colorrange = (-0.3, 0.3))
+        k == 3 && r == 1 && Colorbar(fig[1:2, 4], hm, label = "ΔP")
+    end
 end
 save("ours/layering_difference.png", fig, px_per_unit = 1.5)
 
@@ -127,7 +125,7 @@ println("Fig. 3 channel maxima (paper vs Newtrinos paper-like Earth / default Ea
 for r in rows
     @printf("  %s  %.2f  %.3f / %.3f\n", r.channel, r.paper_max, r.newtrinos_max, r.newtrinos_max_default_earth)
 end
-println("4-zone vs 100-shell Earth (same Yₑ), max |ΔP| over 1-17 GeV, cos θz ∈ [-1, 0]:")
+println("4-zone (and chord-averaged 4-zone) vs reference PREM Earth (same Yₑ), max |ΔP| over 1-17 GeV, cos θz ∈ [-1, 0]:")
 for r in lay
-    @printf("  %s  max %.3f  mean %.4f\n", r.channel, r.max_abs_diff, r.mean_abs_diff)
+    @printf("  %-24s %s  max %.3f  mean %.4f\n", r.model, r.channel, r.max_abs_diff, r.mean_abs_diff)
 end
