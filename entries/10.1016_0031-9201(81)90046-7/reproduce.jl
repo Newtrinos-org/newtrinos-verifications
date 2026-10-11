@@ -70,21 +70,87 @@ function path_mean(ρ, cz; n = 20000)
 end
 cz = collect(range(-1.0, -0.02, 99))
 mean_prem = path_mean.(ρ_prem, cz)
-# Newtrinos: length-weighted density from its own path segmentation (detector at the surface)
+# Newtrinos: length-weighted density along its own path segmentation
+mean_along(paths, lay) = [(ρl = lay.p_density .+ lay.n_density; Lt = sum(seg.length for seg in p if ρl[seg.layer_idx] > 0);
+                           sum(seg.length * ρl[seg.layer_idx] for seg in p) / Lt) for p in paths]
 paths = earth.compute_paths(cz, layers; r_detector = r_d)
-mean_newtrinos = [sum(seg.length * ρ_layers[seg.layer_idx] for seg in p) / sum(seg.length for seg in p) for p in paths]
-mean_newtrinos_earth = [(Lt = sum(seg.length for seg in p if ρ_layers[seg.layer_idx] > 0);
-                         sum(seg.length * ρ_layers[seg.layer_idx] for seg in p) / Lt) for p in paths]
-CSV.write("results/path_mean_density.csv", DataFrame(coszen = cz, prem = mean_prem, newtrinos = mean_newtrinos_earth))
-fig = Figure(size = (800, 600))
+mean_newtrinos_earth = mean_along(paths, layers)
+# chord-averaged zone densities: each chord segment gets the PREM density averaged along that chord
+cpaths, clayers = earth.compute_chord_paths(cz, layers; r_detector = r_d)
+mean_chord = mean_along(cpaths, clayers)
+# PREM zoned at its density discontinuities, chord-averaged
+earth_d = Newtrinos.earth_layers.configure(Newtrinos.earth_layers.PREM_discontinuities())
+layers_d = earth_d.compute_layers()
+dpaths, dlayers = earth_d.compute_chord_paths(cz, layers_d; r_detector = r_d)
+mean_disc = mean_along(dpaths, dlayers)
+CSV.write("results/path_mean_density.csv", DataFrame(coszen = cz, prem = mean_prem, newtrinos = mean_newtrinos_earth,
+                                                      newtrinos_chord = mean_chord, newtrinos_discontinuities_chord = mean_disc))
+fig = Figure(size = (800, 650))
 ax1 = Axis(fig[1, 1], ylabel = "⟨ρ⟩ along the path (g/cm³)", title = "Path-averaged density through the Earth")
 lines!(ax1, cz, mean_prem, color = :red, linewidth = 2, label = "PREM (Table 1)")
-lines!(ax1, cz, mean_newtrinos_earth, color = :blue, linewidth = 3, linestyle = :dash, label = "Newtrinos layers")
+lines!(ax1, cz, mean_newtrinos_earth, color = :blue, linewidth = 3, linestyle = :dash, label = "4 zones, zone-averaged (default)")
+lines!(ax1, cz, mean_chord, color = :green, linewidth = 2, linestyle = :dot, label = "4 zones, chord-averaged")
+lines!(ax1, cz, mean_disc, color = :black, linewidth = 1, label = "PREM_discontinuities, chord-averaged")
 vlines!(ax1, [-sqrt(1 - (3480 / R_E)^2), -sqrt(1 - (1221.5 / R_E)^2)], color = :gray, linestyle = :dot)
 axislegend(ax1, position = :rt)
 ax2 = Axis(fig[2, 1], xlabel = "cos θ_z", ylabel = "Newtrinos / PREM − 1 (%)")
 lines!(ax2, cz, 100 .* (mean_newtrinos_earth ./ mean_prem .- 1), color = :blue, linewidth = 2)
+lines!(ax2, cz, 100 .* (mean_chord ./ mean_prem .- 1), color = :green, linewidth = 2, linestyle = :dot)
+lines!(ax2, cz, 100 .* (mean_disc ./ mean_prem .- 1), color = :black, linewidth = 1)
 hlines!(ax2, [0.0], color = :gray)
 rowsize!(fig.layout, 2, Relative(0.3)); linkxaxes!(ax1, ax2); hidexdecorations!(ax1, grid = false)
 save("ours/path_mean_density.png", fig)
 @printf("path-averaged density: max deviation %.2f %%\n", 100 * maximum(abs.(mean_newtrinos_earth ./ mean_prem .- 1)))
+@printf("chord-averaged (4 zones): max deviation %.2f %%; PREM_discontinuities chord-averaged: %.2f %%\n",
+        100 * maximum(abs.(mean_chord ./ mean_prem .- 1)), 100 * maximum(abs.(mean_disc ./ mean_prem .- 1)))
+
+# --- Fig. 3: density along individual paths, from the entry point to the detector ---
+function profile_along(paths, lay, c)
+    ρl = lay.p_density .+ lay.n_density
+    xs, ys, t = Float64[], Float64[], 0.0
+    for seg in paths[1]
+        ρl[seg.layer_idx] > 0 || continue    # atmosphere: before the entry point
+        append!(xs, (t, t + seg.length)); append!(ys, (ρl[seg.layer_idx], ρl[seg.layer_idx])); t += seg.length
+    end
+    xs, ys
+end
+CZ3 = [-0.1, -0.5, -0.95]
+fig = Figure(size = (1200, 460))
+for (j, c) in enumerate(CZ3)
+    L = -r_d * c + sqrt(r_d^2 * c^2 + R_E^2 - r_d^2)
+    s = range(0, L, 3000)    # distance from the entry point
+    rs = sqrt.(max.(r_d^2 .+ (L .- s) .^ 2 .+ 2 .* (L .- s) .* r_d .* c, 0.0))
+    local ax = Axis(fig[1, j], xlabel = "distance from the entry point (km)", ylabel = j == 1 ? "density (g/cm³)" : "",
+              title = @sprintf("cos θ_z = %.2f", c))
+    lines!(ax, s, ρ_prem.(rs), color = :red, linewidth = 2, label = "PREM")
+    lines!(ax, profile_along(earth.compute_paths([c], layers; r_detector = r_d), layers, c)..., color = :blue, linewidth = 2,
+           label = "4 zones (default)")
+    lines!(ax, profile_along(earth.compute_chord_paths([c], layers; r_detector = r_d)..., c)..., color = :green, linewidth = 2,
+           label = "4 zones, chord-averaged")
+    lines!(ax, profile_along(earth_d.compute_chord_paths([c], layers_d; r_detector = r_d, max_length = 200.0)..., c)...,
+           color = :black, linewidth = 1, label = "PREM_discontinuities, chord, ≤ 200 km pieces")
+    j == 1 && Legend(fig[2, 1:3], ax, orientation = :horizontal, framevisible = false)
+end
+save("ours/density_along_path.png", fig)
+
+# --- Fig. 4: effect on oscillation probabilities: P(νμ → νe) oscillogram with the reference Earth
+#     (PREM_discontinuities, chord-averaged in ≤ 100 km pieces) and its difference to the coarser models ---
+osc = Newtrinos.osc.configure(Newtrinos.osc.OscillationConfig(interaction = Newtrinos.osc.SI()))
+par = (θ₁₂ = asin(sqrt(0.307)), θ₁₃ = asin(sqrt(0.022)), θ₂₃ = asin(sqrt(0.56)), δCP = 0.0, Δm²₂₁ = 7.5e-5, Δm²₃₁ = 2.52e-3)
+E4 = 10 .^ range(0, log10(30), 300)
+CZ4 = collect(range(-1.0, -0.01, 200))
+P_ref = osc.osc_prob(E4, earth_d.compute_chord_paths(CZ4, layers_d; r_detector = r_d, max_length = 100.0)..., par)[:, :, 2, 1]
+P_def = osc.osc_prob(E4, earth.compute_paths(CZ4, layers; r_detector = r_d), layers, par)[:, :, 2, 1]
+P_chord = osc.osc_prob(E4, earth.compute_chord_paths(CZ4, layers; r_detector = r_d)..., par)[:, :, 2, 1]
+fig = Figure(size = (1350, 430))
+kw = (xscale = log10, xlabel = "E_ν (GeV)", xticks = [1, 3, 10, 30])
+ax = Axis(fig[1, 1]; kw..., ylabel = "cos θ_z", title = "P(νμ → νe), reference Earth (NO)")
+hm = heatmap!(ax, E4, CZ4, P_ref, colormap = :viridis, colorrange = (0, 0.5)); Colorbar(fig[1, 2], hm)
+ax = Axis(fig[1, 3]; kw..., title = "default 4 zones − reference")
+hm = heatmap!(ax, E4, CZ4, P_def .- P_ref, colormap = :balance, colorrange = (-0.1, 0.1))
+ax = Axis(fig[1, 4]; kw..., title = "4 zones chord-averaged − reference")
+heatmap!(ax, E4, CZ4, P_chord .- P_ref, colormap = :balance, colorrange = (-0.1, 0.1)); Colorbar(fig[1, 5], hm)
+save("ours/oscillogram_density_models.png", fig)
+@printf("P(νμ→νe): max |default − reference| = %.3f, max |chord − reference| = %.3f; mean %.4f / %.4f\n",
+        maximum(abs.(P_def .- P_ref)), maximum(abs.(P_chord .- P_ref)),
+        sum(abs.(P_def .- P_ref)) / length(P_ref), sum(abs.(P_chord .- P_ref)) / length(P_ref))

@@ -12,11 +12,18 @@ added = "2026-10-05"
 summary = """
 The Earth density profile used for matter effects (module `earth_layers`): the PREM tabulation read by \
 Newtrinos.jl is checked against the published Table 1 polynomials, and the constant-density layers built from it \
-are compared with PREM radially and as path-averaged densities along atmospheric-neutrino trajectories."""
+are compared with PREM radially and as path-averaged densities along atmospheric-neutrino trajectories. \
+The chord-averaged option (`compute_chord_paths`: each chord segment gets the PREM density averaged along that chord, \
+optionally split into pieces of at most `max_length`) is compared with the zone-averaged default, for the four default \
+zones and for `PREM_discontinuities` (PREM zoned at its density discontinuities): density along individual paths, path \
+averages, and the resulting P(νμ → νe) oscillogram. With the default four zones the chord averaging reduces the mean \
+|ΔP(νμ → νe)| w.r.t. the reference (PREM_discontinuities, chord-averaged, ≤ 100 km pieces) from 0.0085 to 0.0038 over \
+1–30 GeV (maximum 0.127 → 0.091, for core-crossing paths)."""
 caveats = [
   "The paper is not openly available, so its figures are not shown; the reference is the PREM definition itself (Table 1 piecewise polynomials).",
   "The tabulation read by Newtrinos (PREM_1s.csv) agrees with Table 1 to better than 10⁻⁴ g/cm³.",
-  "By default Newtrinos groups PREM into four constant-density zones (crust + upper mantle, lower mantle, outer core, inner core). Path-averaged densities agree exactly through the core, within −1 to +6 % for mantle-only paths, and are increasingly too high towards the horizon (+18 % at cos θ_z = −0.1), where the true path stays in the ocean and crust.",
+  "By default Newtrinos groups PREM into four constant-density zones (crust + upper mantle, lower mantle, outer core, inner core). Path-averaged densities agree exactly through the core, within −1 to +6 % for mantle-only paths, and are increasingly too high towards the horizon (+18 % at cos θ_z = −0.1), where the true path stays in the ocean and crust (+126 % at cos θ_z = −0.02).",
+  "Chord-averaged densities follow PREM's path averages to within 5 % with the four default zones and 0.2 % with PREM_discontinuities. The remaining 4-zone differences in the probabilities come from the density gradient within the zones along the chord (mantle and core), which the PREM_discontinuities zoning with ≤ 100–200 km pieces resolves.",
 ]
 links = [
   { label = "IRIS EMC: PREM", url = "https://ds.iris.edu/ds/products/emc-prem/" },
@@ -24,7 +31,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "de27463fdefb4989186dfd871f20292877ddf2a2"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["earth_layers"]
 
 [[figures]]
@@ -38,3 +45,15 @@ id = "path_mean_density"
 title = "Path-averaged density vs. cos θ_z"
 paper_ref = "derived from Table 1"
 ours = "ours/path_mean_density.png"
+
+[[figures]]
+id = "density_along_path"
+title = "Density along individual paths: PREM, 4 zones (default), 4 zones chord-averaged, PREM_discontinuities chord-averaged"
+paper_ref = "derived from Table 1"
+ours = "ours/density_along_path.png"
+
+[[figures]]
+id = "oscillogram_density_models"
+title = "P(νμ → νe) with the reference Earth and the differences of the 4-zone models (NO)"
+paper_ref = "derived from Table 1"
+ours = "ours/oscillogram_density_models.png"
