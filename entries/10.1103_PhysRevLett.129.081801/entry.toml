@@ -13,11 +13,18 @@ category = "experimental"
 added = "2026-10-02"
 summary = """
 Flux-averaged CEvNS cross section on CsI[Na] from the full COHERENT CsI data set, fitted in recoil (PE) and \
-time, with the SM-scaled cross-section model (σ = scale × σ_SM) and all background and detector nuisances profiled."""
+time, with the SM-scaled cross-section model (σ = scale × σ_SM) and all background and detector nuisances profiled, \
+following the release's prescription (PE < 60, t_rec < 6 μs; flux normalised to 3.198×10²³ POT and 0.0848 ν per flavour per \
+proton; efficiency applied within the PE bins; steady-state background from the AC PE distribution with an exponential time \
+dependence). The best fit reproduces the paper's Table I: 314.5 CEvNS events (COHERENT 306 ± 20), 1275.5 steady-state \
+background (1273 ± 24), 17.5 BRN (17.3 ± 4.5) and 5.1 NIN (5.5 ± 2.0), with the threshold (efficiency) nuisance pulled by \
+0.48σ (paper: 0.4σ); the Newtrinos SM prediction is 323.5 events (paper 341 ± 11 ± 42) and the cross section \
+≈ 178 [150, 212] × 10⁻⁴⁰ cm² (paper 165 +30 −25)."""
 caveats = [
   "The x axis is scale × the paper's SM prediction ⟨σ⟩_Φ = 189 × 10⁻⁴⁰ cm²; the official curve is a raster image, so the paper's quoted result (165 +30 −25) × 10⁻⁴⁰ cm² is shown instead.",
   "sin²θ_W is fixed; the nuclear radii are constrained by their priors (form-factor uncertainty).",
-  "Our fit finds fewer CEvNS events than the paper: 260 (best-fit scale 0.71 × our SM prediction of 365 events) vs. 306 ± 20 observed by COHERENT (SM prediction 341 ± 11 ± 42); the cross section is correspondingly low, ≈ 134 × 10⁻⁴⁰ cm² vs. 165 +30 −25.",
+  "Until Newtrinos 8d6b207 the module evaluated the efficiency at the PE bin centres (no signal in 8–12 PE), scaled the flux tables as rates at 1.4 MW (1.33× too many neutrinos), fitted up to 196 PE and used the raw 2D AC histogram as steady-state background; this gave 260 CEvNS events and a cross section of ≈ 134 × 10⁻⁴⁰ cm².",
+  "The cross-section axis is scale × 189 × 10⁻⁴⁰ cm² (the paper's SM value); the Newtrinos SM rate is 5 % below the paper's (323.5 vs 341 events), partly from the 0.5 MeV energy offset of the flux tables (see the SNS flux entry) and the isotope fractions.",
 ]
 links = [
   { label = "Supplemental material and data", url = "https://arxiv.org/abs/2110.07730" },
@@ -25,7 +32,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "62de371619236b5ed553b1b938f91c96e505deac"
+commit = "8d6b207a1d2be5f6d98f97b029ae3af87480bfa4"
 modules = ["coherent_csi", "cevns_xsec (xsec_model = :sm_scale)", "sns_flux"]
 
 [[figures]]
@@ -34,3 +41,10 @@ title = "Δχ² vs flux-averaged CEvNS cross section"
 paper_ref = "Suppl. Fig. 4"
 original = "original/supp_fig4_dchi2_xsec.png"
 ours = "ours/supp_fig4_dchi2_xsec.png"
+
+[[figures]]
+id = "fig3"
+title = "Data residual over the steady-state background vs best-fit CEvNS, BRN and NIN, projected onto PE and t_rec"
+paper_ref = "Fig. 3"
+original = "original/fig3_residual_PE.png"
+ours = "ours/fig3_residuals.png"

@@ -54,3 +54,37 @@ hlines!(ax, [1.0], color = :black, linestyle = :dot)
 xlims!(ax, 0, 300); ylims!(ax, 0, 5)
 axislegend(ax, position = :lt)
 save("ours/supp_fig4_dchi2_xsec.png", fig)
+
+# Fig. 3: data residual over the steady-state background compared with the best-fit CEvNS, BRN and NIN predictions,
+# projected onto PE and t_rec
+using BAT: distprod
+const CSI = Newtrinos.coherent_csi
+e = experiments.coherent_csi; a = e.assets
+bf = Newtrinos.find_mle(likelihood, distprod(; merge(priors, (cevns_xsec_scale = Uniform(0.3, 1.8),))...), p)[3]
+sig = CSI.get_expected(bf, e.physics, a); brn, nin, ss = CSI.get_backgrounds(bf, a)
+sig_sm = CSI.get_expected(merge(bf, (cevns_xsec_scale = 1.0,)), e.physics, a)
+N = a.observed
+open("results/summary.txt", "w") do io
+    println(io, "events in PE < 60, t < 6 μs (Newtrinos best fit | COHERENT Table I best fit)")
+    println(io, "CEvNS   $(round(sum(sig), digits = 1)) | 306 ± 20   (Newtrinos SM prediction $(round(sum(sig_sm), digits = 1)); COHERENT 341 ± 11 ± 42)")
+    println(io, "SSBkg   $(round(sum(ss), digits = 1)) | 1273 ± 24")
+    println(io, "BRN     $(round(sum(brn), digits = 1)) | 17.3 ± 4.5")
+    println(io, "NIN     $(round(sum(nin), digits = 1)) | 5.5 ± 2.0")
+    println(io, "cross-section scale (σ / σ_SM,Newtrinos) $(round(bf.cevns_xsec_scale, digits = 3)); efficiency pull $(round(bf.coherent_csi_eff_sigma, digits = 2)) σ; flux onset $(round(bf.flux_onset, digits = 1)) ns")
+end
+print(read("results/summary.txt", String))
+fig = Figure(size = (1150, 450))
+for (col, (dim, edges, xl)) in enumerate(((2, a.out_edges, "PE"), (1, a.time_edges ./ 1e3, "t_rec (μs)")))
+    proj(h) = vec(sum(h, dims = dim))
+    w = diff(edges); c = 0.5 .* (edges[1:end-1] .+ edges[2:end])
+    local ax = Axis(fig[1, col], xlabel = xl, ylabel = col == 1 ? "events / PE" : "events / μs", title = "data − SSBkg (best fit)")
+    stk = (brn = proj(brn), nin = proj(nin), sig = proj(sig))
+    band!(ax, repeat(edges, inner = 2)[2:end-1], zeros(2 * length(w)), repeat(stk.brn ./ w, inner = 2), color = (:orange, 0.7), label = "BRN")
+    band!(ax, repeat(edges, inner = 2)[2:end-1], repeat(stk.brn ./ w, inner = 2), repeat((stk.brn .+ stk.nin) ./ w, inner = 2), color = (:purple, 0.6), label = "NIN")
+    band!(ax, repeat(edges, inner = 2)[2:end-1], repeat((stk.brn .+ stk.nin) ./ w, inner = 2), repeat((stk.brn .+ stk.nin .+ stk.sig) ./ w, inner = 2),
+          color = (:dodgerblue, 0.5), label = "CEvNS")
+    r = proj(N) .- proj(ss)
+    errorbars!(ax, c, r ./ w, sqrt.(proj(N)) ./ w, color = :black); scatter!(ax, c, r ./ w, color = :black, label = "data − SSBkg")
+    col == 1 && axislegend(ax, position = :rt)
+end
+save("ours/fig3_residuals.png", fig)

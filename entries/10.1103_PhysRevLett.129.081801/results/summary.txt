@@ -1,0 +1,6 @@
+events in PE < 60, t < 6 μs (Newtrinos best fit | COHERENT Table I best fit)
+CEvNS   314.5 | 306 ± 20   (Newtrinos SM prediction 334.1; COHERENT 341 ± 11 ± 42)
+SSBkg   1275.5 | 1273 ± 24
+BRN     17.5 | 17.3 ± 4.5
+NIN     5.1 | 5.5 ± 2.0
+cross-section scale (σ / σ_SM,Newtrinos) 0.941; efficiency pull 0.48 σ; flux onset 72.0 ns
