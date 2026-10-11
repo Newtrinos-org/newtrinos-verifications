@@ -1,26 +1,33 @@
 # written by tools/run_entry.jl — do not edit
 [files]
+"ours/fig1_prompt_spectrum.png" = "901a757e2936f3ad705a76ed240995928c86aea0c5e4d8705325fb40a7cdb74a"
 "ours/fig2a_tan2th12_dm21.png" = "31bd0ad38e46db08a408ecacb3d01bf0f07028fc9fc60c68a035b537351536b7"
+"ours/fig4_sin2th13_profile.png" = "42e8cfbc0404d64ef56051fa368a941dd92daf15ba9136a1c8a866c4d2a0f103"
+"ours/fig5_survival_LE.png" = "b2e3258b4ed77f5e3dfcee9e7d5ff45848ec9a5e73f80ae06c76ebd9e0797979"
+"ours/fig6_survival_x.png" = "98594b0fab71e1c54fc672a494df0759a4a7fd0d25a1f0ec3b07d9abeaa8a08f"
 "results/dm21_profile.csv" = "c7c69afd47f0f17e96285472f65599e93ad27435b222f8098e8d440439ddaa65"
-"results/kamland2011.jld2" = "c7fb9996c5e11e008d6ed09ef8386f342c13b62cce0e7bb706906f4e5b15e079"
-"results/summary.txt" = "e50516bf1bef3163e6c310aa8792c7f07147ad2bd40ea452a133f47df1c63fc0"
+"results/fig5_survival_LE.csv" = "8964e49b203bda743184d27fa32c96e775984266a46e65ad114f5d6ae145eca6"
+"results/fig6_survival_x.csv" = "429cec0d6b6847e055843c2904cf5eb887579f6915dbbcd0b18d0fcc0463bd24"
+"results/kamland2011.jld2" = "4e6dc10b71465b76e70b68b63d33a3da013048cab83bf565ea3844831e0e27e8"
+"results/sin2_theta13_profile.csv" = "a2fab3591d5449911a55a9762927cff5efcbed934cba32b87ddee4ce0468a5e1"
+"results/summary.txt" = "474745e77c753cc144d92c512ed475363037b9907a145de3545ea02f9a492831"
 "results/tan2_theta12_profile.csv" = "a50c88ed0199140dec294f603e4d89f940a9ff460181d17976abeb72c93410d9"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
 reused_points = 0
-total_points = 321
+total_points = 342
 
 [newtrinos]
-commit = "b3ff4ca8708aeccef1229a15d4422c362e44109c"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ b3ff4ca870> reproduce.jl"
+command = "julia -t 32 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-09T11:43:21Z"
+date = "2026-10-11T10:36:24Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 16
-wall_time_s = 203.5
+threads = 32
+wall_time_s = 252.0

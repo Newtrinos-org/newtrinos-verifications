@@ -17,20 +17,24 @@ Reactor ν̄e disappearance at KamLAND in the (tan²θ₁₂, Δm²₂₁) plane
 reactor prediction computed from first principles (IAEA PRIS power histories of all Japanese and Korean reactors, \
 site baselines, Huber–Mueller spectra anchored to Bugey-4, 3ν with matter effects; 2851 no-oscillation events, KamLAND: \
 2879 ± 118). Compared with KamLAND's official Δχ² table of the data release. The same module, with the three \
-data-taking periods of the 2013 data, is validated in the KamLAND PRD 88, 033001 entry.
+data-taking periods of the 2013 data, is validated in the KamLAND PRD 88, 033001 entry. \
+Also reproduced: the prompt spectrum with the best-fit components (Fig. 1), the KamLAND-only Δχ²(sin²θ₁₃) with θ₁₃ free \
+(Fig. 4; Newtrinos sin²θ₁₃ = 0.046 +0.034 −0.042, official table 0.032 +0.037 −0.032), the ratio to no oscillation vs \
+L₀/E (Fig. 5) and the survival probability vs the oscillation variable x of the paper (Fig. 6, Table III).
 """
 caveats = [
   "The prompt-energy spectrum, best-fit background components and the selection efficiency are extracted from the vector graphics of the paper's Fig. 1 (17 bins of 0.425 MeV); KamLAND fits the unbinned, time-dependent data.",
   "Reactor operation is known from PRIS only as annual load factors per unit; KamLAND's live time is spread uniformly over 2002-03-09 – 2009-11-04.",
   "The official Δχ² table covers Δm²₂₁ = 6.8–8.4 ×10⁻⁵ eV² only; the figure is zoomed on this range (coarse validation grid).",
   "This paper publishes the 2002–2009 data only as one time-integrated spectrum, whereas KamLAND's fit is time-dependent (five periods, before and after the scintillator purification). Without the time information, ¹³C(α,n), geo-ν̄e and the low-energy reactor spectrum are more degenerate: the Newtrinos Δm²₂₁ range is wider and its best fit higher (≈ +0.2 ×10⁻⁵ eV², 0.6σ) than KamLAND's. With the per-period 2013 data the same module reproduces KamLAND's Δm²₂₁ (KamLAND PRD 88, 033001 entry).",
-  "The paper figure also shows solar and combined regions; only the KamLAND-only contours are reproduced.",
+  "The paper's Figs. 2 and 4 also show solar and combined results; only the KamLAND-only curves are reproduced.",
+  "Figs. 5 and 6: the Newtrinos points are the 17 prompt-energy bins of the published spectrum (data minus the Newtrinos best-fit backgrounds and geo ν̄e, divided by the Newtrinos no-oscillation expectation; statistical errors), at L₀/E with E = E_p + 0.792 MeV, and for Fig. 6 grouped into the paper's x bins with x computed from the Newtrinos expectation at its two-flavour best fit (P = 1 − sin²2θ̂₁₂ x). KamLAND bins its unbinned events directly in L₀/E and x, so the points are not bin-by-bin comparable; KamLAND's points and histograms are extracted from the vector graphics (data/extract_fig5.py) and Table III.",
 ]
 links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "b3ff4ca8708aeccef1229a15d4422c362e44109c"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["kamland", "reactor_flux", "osc"]
 
 [[figures]]
@@ -39,3 +43,31 @@ title = "tan²θ₁₂ – Δm²₂₁, θ₁₃ = 0, 95%, 99%, 99.73% C.L., wit
 paper_ref = "Fig. 2(a)"
 original = "original/fig2a_tan2th12_dm21.png"
 ours = "ours/fig2a_tan2th12_dm21.png"
+
+[[figures]]
+id = "fig1"
+title = "Prompt energy spectrum with the best-fit background, geo-ν̄e and reactor contributions (two-flavour best fit)"
+paper_ref = "Fig. 1"
+original = "original/fig1.png"
+ours = "ours/fig1_prompt_spectrum.png"
+
+[[figures]]
+id = "fig4"
+title = "Δχ²(sin²θ₁₃), KamLAND only: Newtrinos vs KamLAND's official Δχ² table"
+paper_ref = "Fig. 4 (KamLAND curve)"
+original = "original/fig4.png"
+ours = "ours/fig4_sin2th13_profile.png"
+
+[[figures]]
+id = "fig5"
+title = "Ratio of the observed spectrum (minus backgrounds and geo ν̄e) to no oscillation vs L₀/E"
+paper_ref = "Fig. 5"
+original = "original/fig5.png"
+ours = "ours/fig5_survival_LE.png"
+
+[[figures]]
+id = "fig6"
+title = "Survival probability vs x = ⟨sin²2θ̂₁₂M sin²(1.27 Δm̂²₂₁M L/E)⟩ / sin²2θ̂₁₂"
+paper_ref = "Fig. 6, Table III"
+original = "original/fig6.png"
+ours = "ours/fig6_survival_x.png"

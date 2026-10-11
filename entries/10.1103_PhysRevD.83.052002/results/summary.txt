@@ -6,3 +6,4 @@ pull kamland_energy_scale   +0.08 sigma
 pull kamland_flux_scale     -0.52 sigma
 pull kamland_alpha_n        +0.14 sigma
 pull kamland_li9            -0.01 sigma
+KamLAND-only, θ13 free: sin2_theta13 0.046 +0.034 -0.042 | official table 0.032 +0.037 -0.032 | paper 0.032 +0.037 -0.037
