@@ -26,7 +26,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "1232cf01ac193dc02b37c57b9713b796d277e9fa"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["nova"]
 
 [[figures]]
