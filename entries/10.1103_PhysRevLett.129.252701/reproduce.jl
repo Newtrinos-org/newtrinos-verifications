@@ -6,7 +6,9 @@ using Newtrinos, Distributions, DensityInterface, Optim, ADTypes, ForwardDiff, C
 
 cd(@__DIR__); mkpath("ours"); mkpath("results")
 const B = Newtrinos.borexino_ph3
-physics = B.default_physics()
+# scalar flux normalisations (solar_norm_*), so that ⁷Be, CNO and pep can be treated individually
+physics = merge(B.default_physics(), (solar_flux = Newtrinos.solar_flux.configure(
+    Newtrinos.solar_flux.SolarFluxConfig(systematics = Newtrinos.solar_flux.SSMPriors())),))
 published = readdlm(joinpath(B.DATADIR, "Phase3Final_BiULLarge_Golden_Energy_Radial_May18_HybridMethod.txt"))
 
 # Borexino conditions: ⁷Be and CNO rates free, pep at the SSM (B23 prior, ~1 %; Borexino: 2.74 ± 0.04 cpd/100 t),
