@@ -8,3 +8,5 @@ pull kamland_flux_scale       -0.00 sigma
 pull kamland_flux_scale_late  +0.38 sigma
 pull kamland_alpha_n          +0.72 sigma
 pull kamland_li9              +0.02 sigma
+geo nu, oscillation parameters fixed at solar+KamLAND+θ13: N_U + N_Th (Th/U chondritic) = 136 +28 -36 | 116 +28 -27 (paper)
+geo nu, U and Th free: best fit N_U = 142, N_Th = 5

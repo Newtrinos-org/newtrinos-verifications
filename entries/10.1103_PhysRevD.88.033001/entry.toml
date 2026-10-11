@@ -19,13 +19,16 @@ to Bugey-4, the IBD cross section, 3ν oscillations with matter effects, energy 
 of each period; KamLAND's systematics (reactor rate, energy scale, ¹³C(α,n), ⁹Li) and free geo-ν̄e U and Th. Nothing \
 is tuned to KamLAND's fit: the no-oscillation expectation, 3631 events, agrees with KamLAND's 3564 ± 145, and the \
 spectral shape with KamLAND's published expectation for the 2002–2009 data (χ² 1.9 for 17 bins). The KamLAND-only fit \
-with θ₁₃ free gives Δm²₂₁ = 7.53 +0.19 −0.17 ×10⁻⁵ eV² and tan²θ₁₂ = 0.45 +0.12 −0.08 (KamLAND: 7.54 +0.19 −0.18, \
-0.481 +0.092 −0.080).
+with θ₁₃ free gives Δm²₂₁ = 7.55 +0.17 −0.20 ×10⁻⁵ eV² and tan²θ₁₂ = 0.451 +0.114 −0.079 (KamLAND: 7.54 +0.19 −0.18, \
+0.481 +0.092 −0.080). Also shown: the ratio to no oscillation vs L₀/E (Fig. 5) and the geo-ν̄e event numbers (Fig. 7): with \
+the oscillation parameters at the paper's solar + KamLAND + θ₁₃ values and the chondritic Th/U ratio, Newtrinos finds \
+N_U + N_Th = 136 +28 −36 (KamLAND: 116 +28 −27); the (N_U, N_Th) regions have KamLAND's shape, shifted up by about 15–20 events.
 """
 caveats = [
   "Spectra, backgrounds, efficiencies and geo-ν̄e shapes are extracted from the vector graphics of the paper's Figs. 3 and 6 (17 bins of 0.425 MeV per period); KamLAND fits the unbinned, time-dependent data.",
   "Reactor operation is known from PRIS only as annual load factors per unit; within a year, operation is placed by the shutdown, suspension and restart dates, and KamLAND's live time is spread uniformly over each period.",
   "Fission fractions are KamLAND's averages for all reactors; Korean reactors come out at 4.0 % of the no-oscillation events (KamLAND: 4.9 %), other reactors worldwide are fixed at the paper's 1.1 %.",
+  "Geo ν̄e (Fig. 7): the oscillation parameters are fixed at the paper's combined values (tan²θ₁₂ = 0.436, Δm²₂₁ = 7.53×10⁻⁵ eV², sin²θ₁₃ = 0.023) rather than constrained by the solar and accelerator data in the fit; the chondritic Th/U ratio is represented by the reference model's N_Th/N_U = 27/109. Newtrinos prefers about 20 more geo events than KamLAND (0.7σ): the binned, time-integrated spectra per period carry less information to separate geo ν̄e from the low-energy reactor spectrum and ¹³C(α,n) than KamLAND's unbinned, time-dependent fit. Fig. 5: Newtrinos points per prompt-energy bin (data minus Newtrinos backgrounds and geo ν̄e over the Newtrinos no-oscillation expectation, statistical errors); KamLAND's points and histogram (data/extract_fig5_fig7a.py) use their own L₀/E bins.",
   "The contours use a coarse validation grid and are shown zoomed on the allowed region; the solar and combined regions of the original figure are not reproduced. The official KamLAND-only contours and profiles (data/fig4a_*.csv) are extracted from the vector graphics of the paper's figure (data/extract_fig4a.py).",
 ]
 links = [
@@ -34,7 +37,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "3bbf92e0f8af59359f2f79648dacff279ddf4e86"
+commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
 modules = ["kamland", "reactor_flux", "osc"]
 
 [[figures]]
@@ -50,3 +53,17 @@ title = "KamLAND-only allowed regions in (tan²θ₁₂, Δm²₂₁), θ₁₃ 
 paper_ref = "Fig. 4(a)"
 original = "original/fig4a_th12_dm21.png"
 ours = "ours/fig4a_th12_dm21.png"
+
+[[figures]]
+id = "fig5"
+title = "Ratio of the observed spectrum (minus backgrounds and geo ν̄e) to no oscillation vs L₀/E, all periods"
+paper_ref = "Fig. 5"
+original = "original/fig5.png"
+ours = "ours/fig5_survival_LE.png"
+
+[[figures]]
+id = "fig7"
+title = "Geo-ν̄e event numbers: (a) regions in ((N_U − N_Th)/(N_U + N_Th), N_U + N_Th); (b) Δχ² of N_U + N_Th for chondritic Th/U"
+paper_ref = "Fig. 7"
+original = "original/fig7a.png"
+ours = "ours/fig7_geo.png"
