@@ -2,28 +2,28 @@
 [files]
 "ours/fig3_dcp.png" = "d2cd9c95f70f71e2bd4cb93bfc576848fba26bb4c5d5781b48bd53aace8792ec"
 "ours/fig4_ssth23_dm2.png" = "1439602f28c2701d619ce778c27da659c056089ba6dd5159113b40fd65c9b62b"
-"results/t2k_IO.jld2" = "25341c186e326d906adc625f8569856e4cc21791a25cd7a647645ede7ade5649"
+"results/t2k_IO.jld2" = "31caeaa40f1a544eab68e0941f6ceddb83e7e50f70a2aea649143b88c7651919"
 "results/t2k_IO_dcp.csv" = "62441d92aa4486261d4bcdf11c9bbd9f2245f25e75e06352160aaf2bdc7a6200"
-"results/t2k_IO_ssth23_dm2.csv" = "26811c014e0abd4ede62c9978f9f53c0d781ce959d4a8418eae8c5e61c1a6f8a"
-"results/t2k_NO.jld2" = "bb5d228235335a3b735ab49f258741326a5f6194b01e034d12739134f4c604cb"
+"results/t2k_IO_ssth23_dm2.csv" = "93622c13ff70592509a8266988350dfe90771c804e09c119cc09ddcc62ce970d"
+"results/t2k_NO.jld2" = "0b5d4ee3a6b77a5d545a8a5767dbdc79c5bf65c78e5ed0537ac2a9f98a513c21"
 "results/t2k_NO_dcp.csv" = "1179f7365c00511256ca15d2bc70802f14dca16431344fdacda1be1bb69f8f87"
-"results/t2k_NO_ssth23_dm2.csv" = "a1eef43cadbe5a44293b8eb155d146da209382d3972b3e322dc6dadec53b2efe"
+"results/t2k_NO_ssth23_dm2.csv" = "eda0180c317ebee207cd569a327d9872d3b2022d62c760188fbd2f9760315fd8"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
 reused_points = 0
-total_points = 1414
+total_points = 6414
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "b59e68df183887c82785d74248f928ea67acd548"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 32 --project=<Newtrinos.jl @ b59e68df18> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T15:14:13Z"
+date = "2026-10-12T14:29:09Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 8
-wall_time_s = 154.5
+threads = 32
+wall_time_s = 353.8

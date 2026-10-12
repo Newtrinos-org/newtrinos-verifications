@@ -50,9 +50,13 @@ orderings = (NO = (Δm²₃₁ = (2.2e-3, 2.8e-3) .+ p.Δm²₂₁, start = (Δm
                    dm2 = x -> -x, color = :darkorange))
 
 # the θ₂₃ octants are separate local minima: profile each octant, keep the better one per point
+# δCP has several local optima (and optima just across the 0/2π boundary of its prior): each point is fitted from the
+# default start and four δCP starts (starts that only set a scanned parameter are dropped)
+const STARTS = [(;), ((δCP = k * π / 4,) for k in (1, 3, 5, 7))...]
+
 function profile_octants(pr, p0, vars, cache_dir)
     oct = map((lower = (θ₂₃_range[1], π / 4), upper = (π / 4, θ₂₃_range[2]))) do r
-        Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir)
+        Newtrinos.profile(likelihood, @set(pr.θ₂₃ = Uniform(r...)), vars, @set(p0.θ₂₃ = sum(r) / 2), cache_dir = cache_dir, starts = STARTS)
     end
     # the two octant scans use θ₂₃ priors of different widths, which shifts each log_posterior by its own
     # constant −log(width): remove it before comparing the octants (nuisance-parameter priors are kept)
@@ -66,7 +70,7 @@ end
 results = map(keys(orderings), values(orderings)) do mo, o
     pr = @set priors.Δm²₃₁ = Uniform(o.Δm²₃₁...)
     p0 = merge(p, (Δm²₃₁ = o.start.Δm²₃₁, δCP = o.start.δCP, θ₂₃ = asin(sqrt(0.56))))
-    th23dm = Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 25, :Δm²₃₁ => 25), p0, cache_dir = "cache/$(mo)_th23dm31")
+    th23dm = Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 25, :Δm²₃₁ => 25), p0, cache_dir = "cache/$(mo)_th23dm31", starts = STARTS)
     dcp = profile_octants(pr, p0, OrderedDict(:δCP => 41), "cache/$(mo)_dcp")
     FileIO.save("results/t2k_$(mo).jld2", Dict("th23dm31" => th23dm, "dcp" => dcp))
     mo => (; th23dm, dcp)
