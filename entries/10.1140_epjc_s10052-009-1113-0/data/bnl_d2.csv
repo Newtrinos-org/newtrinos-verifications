@@ -1,0 +1,11 @@
+# BNL 7-ft deuterium bubble chamber, Baker et al., PRD 23, 2499 (1981). nu_mu CCQE sigma(E_nu); M_A = 1.07 +- 0.06 GeV (abstract)
+# Units: sigma in 1e-38 cm^2 PER NEUTRON (nu_mu n -> mu- p in deuterium; authors' deuteron/nuclear corrections applied). E_nu in GeV
+# NUISANCE convention: ANL/BNL Enu samples use x = E_nu^QE reconstructed from muon kinematics; MC scaled x2 (per-nucleon of D -> per-neutron)
+# sigma/err (binned): NUISANCE data/BNL/BNL_Data_PRD23_2499.root hist BNL_1DEnu_Data (used by NUISANCE BNL_CCQE_XSec_1DEnu_nu)
+# sigma_hepdata/err_hepdata at E_center_hepdata: HEPData ins170354 Table 1. Row-matched by order only: HEPData energies (0.7,1.2,2.0,2.2) do not sit at NUISANCE bin centres and
+# values differ (0.96 vs 0.885 in bin 1, 0.90 vs 0.982 in bin 4). NOMAD EPJC 63 figure shows BNL81 points at ~0.7,1.1,1.5,2.5 GeV -- UNRESOLVED, check paper Table
+E_lo,E_hi,sigma,err,E_center_hepdata,sigma_hepdata,err_hepdata
+0.3,0.9,0.885242,0.103668,0.7,0.96,0.08
+0.9,1.3,1.17785,0.114682,1.2,1.18,0.06
+1.3,1.8,1.11371,0.114609,2,1.1,0.1
+1.8,6,0.98159,0.119949,2.2,0.9,0.11

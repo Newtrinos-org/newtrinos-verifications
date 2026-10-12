@@ -1,0 +1,18 @@
+# NOMAD nu_mu n -> mu- p QEL sigma(E_nu); Lyubushkin et al., EPJC 63, 355 (2009), arXiv:0812.4543, Table table:nomad_qel_cc
+# Units: 1e-38 cm^2 PER NEUTRON. E in GeV (reconstructed E_nu, unfolded via smearing matrix eps_ij); E_mean = <E_nu> in bin
+# sigma_nucl: on NOMAD target (drift chambers, mainly carbon, <A>=12.9, n:p = 47.56%:52.43%), per target neutron, incl. nuclear effects
+# sigma_free = sigma_nucl / g : converted to free neutron with Smith-Moniz RFG factor g (Eb=25.6 MeV, pF=221 MeV/c) -- model-dependent
+# err_tot = stat (+) syst in quadrature (computed here). Absolute normalisation via DIS (total CC) cross section (no direct flux), syst incl. that
+# Signal def: 1-track (mu only) + 2-track (mu + p) samples for nu; mu+ only for nubar. Backgrounds (RES, DIS) subtracted with NOMAD MC (N_bg column)
+# Integrated 3-100 GeV: <E>=23.4 sigma_nucl=0.919+-0.017(stat)+-0.06(syst), sigma_free=0.976+-0.018+-0.063
+E_lo,E_hi,E_mean,sigma_nucl,stat_nucl,syst_nucl,err_tot_nucl,sigma_free,stat_free,syst_free,N_dat,N_bg,N_cor
+3,6,4.7,0.994,0.125,0.078,0.14734,1.057,0.133,0.083,396,211.6,660.6
+6,9,7.7,0.942,0.072,0.078,0.106151,1.001,0.077,0.083,1115,580.2,1663.4
+9,12,10.5,1.014,0.061,0.075,0.0966747,1.077,0.065,0.08,1683,835.3,2591.1
+12,15,13.5,0.859,0.057,0.07,0.0902718,0.913,0.06,0.075,1647,834.9,2310.7
+15,21,17.8,0.843,0.04,0.067,0.078032,0.896,0.043,0.071,2815,1451.6,3766.8
+21,27,23.8,0.991,0.052,0.07,0.0872009,1.053,0.055,0.075,2040,956.2,3084.7
+27,33,29.8,0.888,0.064,0.073,0.0970824,0.943,0.068,0.077,1279,610.5,1816.8
+33,39,35.8,0.97,0.086,0.078,0.116103,1.03,0.091,0.083,852,400.9,1246.2
+39,54,45.3,0.896,0.07,0.074,0.101863,0.951,0.074,0.078,1008,496.1,1397.8
+54,100,71.7,0.911,0.073,0.077,0.106104,0.967,0.078,0.082,848,416.9,1191.5

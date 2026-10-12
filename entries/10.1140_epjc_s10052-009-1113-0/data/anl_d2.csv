@@ -1,0 +1,18 @@
+# ANL 12-ft deuterium bubble chamber, Barish et al., PRD 16, 3103 (1977). nu_mu CCQE sigma(E_nu)
+# Units: sigma in 1e-38 cm^2 PER NEUTRON (nu_mu n -> mu- p in deuterium; authors' deuteron/nuclear corrections applied). E_nu in GeV
+# NUISANCE convention: ANL/BNL Enu samples use x = E_nu^QE reconstructed from muon kinematics; MC scaled x2 (per-nucleon of D -> per-neutron)
+# sigma_fluxtuned/err_fluxtuned: NUISANCE data/ANL/ANL_CCQE_Data_PRD16_3103.root hist ANL_1DEnu_fluxtuned_Data (the DEFAULT used by NUISANCE sample ANL_CCQE_XSec_1DEnu_nu; bin edges from it)
+# sigma_nuis_raw/err_nuis_raw: same file, hist ANL_1DEnu_Data (bin edges 0.15,0.299,0.493,0.692,0.899,1.2,1.5,1.99,6 -- essentially same bins)
+# sigma_hepdata/err_hepdata at E_center_hepdata: HEPData ins5566 Table 1 ('Measured Quasi-Elastic total cross section', PLAB = E_nu)
+# The fluxtuned values agree with the ANL77 points plotted in NOMAD EPJC 63 Fig. (original_nomad_nu_free_vs_D2.png); HEPData bin 5 (0.85) differs from both NUISANCE versions -- UNRESOLVED, check paper
+# Miller et al. PRD 26, 537 (1982) (ANL, larger D2 sample): NUISANCE file ANL_Data_PRD26_537.root has only event rate vs Enu and Q2 shape (no sigma(E)); not on HEPData -> not included
+# Extra: Mann et al. PRL 31, 844 (1973) (ANL 73) sigma(E) in anl_d2_mann1973.csv
+E_lo,E_hi,E_center_hepdata,sigma_fluxtuned,err_fluxtuned,sigma_nuis_raw,err_nuis_raw,sigma_hepdata,err_hepdata
+0.15,0.3,0.23,0.295,0.079,0.272,0.079,0.29,0.08
+0.3,0.5,0.4,0.56,0.089,0.493,0.093,0.57,0.1
+0.5,0.7,0.6,0.74,0.097,0.641,0.107,0.77,0.1
+0.7,0.9,0.8,0.699,0.099,0.612,0.107,0.72,0.14
+0.9,1.2,1.02,1.09,0.14,0.951,0.149,0.85,0.12
+1.2,1.5,1.38,1.11,0.17,0.968,0.182,1.15,0.28
+1.5,2,1.76,1.02,0.19,0.89,0.2,1.02,0.21
+2,6,2.75,1.18,0.26,1.03,0.28,1.18,0.33

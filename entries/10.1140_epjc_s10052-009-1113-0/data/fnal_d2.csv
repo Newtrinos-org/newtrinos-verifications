@@ -1,0 +1,10 @@
+# FNAL 15-ft deuterium bubble chamber, Kitagaki et al., PRD 28, 436 (1983). nu_mu CCQE sigma(E_nu); M_A = 1.05 +0.12 -0.16 GeV (abstract)
+# Units: sigma in 1e-38 cm^2 per neutron (expected for nu_mu n -> mu- p; value ~1.0e-38 at high E is the free-neutron plateau). E_nu in GeV (true E_nu in NUISANCE sample)
+# sigma_hepdata/err_hepdata at E_center_hepdata: HEPData ins195139 Table 1 (PLAB = E_nu) -- the published two-point sigma
+# sigma_nuis/err_nuis binned: NUISANCE data/FNAL/CCQE/FNAL_CCQE_1DEnu.txt (text format: low edge, sigma, err; last line 200 0 0 = upper edge)
+# NUISANCE README in that dir says 'Hand-scanned from Bell et al. PRL 41 1008 (1978)' but that paper (HEPData ins131344) is nu p -> mu- pi+ p / mu- K+ p; the central values match Kitagaki
+# NUISANCE errors (0.098, 0.164) differ from HEPData (0.22, 0.18). NUISANCE sample FNAL_CCQE_XSec_1DEnu_nu labels y-axis cm^2/nucleon and does NOT apply the x2 factor used for ANL/BNL -- likely inconsistency
+# NUISANCE FNAL_CCQE_Data_PRD29_436.root contains only Q2 event counts (file name says PRD29; paper is PRD 28, 436)
+E_lo,E_hi,sigma_nuis,err_nuis,E_center_hepdata,sigma_hepdata,err_hepdata
+5,20,0.952,0.0979,12,0.95,0.22
+20,200,0.997,0.164,50,1,0.18
