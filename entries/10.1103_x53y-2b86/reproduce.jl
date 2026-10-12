@@ -46,12 +46,14 @@ priors = merge(priors, (θ₁₂ = p.θ₁₂, Δm²₂₁ = p.Δm²₂₁, θ�
 orderings = (NO = (Δm²₃₂ = (2.25e-3, 2.65e-3), start = (Δm²₃₂ = 2.441e-3, δCP = 0.87π)),
              IO = (Δm²₃₂ = (-2.65e-3, -2.25e-3), start = (Δm²₃₂ = -2.481e-3, δCP = 1.53π)))
 
-# conditional fits per mass ordering (profile likelihood)
+# conditional fits per mass ordering (profile likelihood); δCP has several local optima (and optima just across the
+# 0/2π boundary of its prior), so each point is fitted from the default start and four δCP starts
+const STARTS = [(;), ((δCP = k * π / 4,) for k in (1, 3, 5, 7))...]
 results = map(keys(orderings), values(orderings)) do mo, o
     pr = @set priors.Δm²₃₁ = Uniform((o.Δm²₃₂ .+ p.Δm²₂₁)...)
     p0 = merge(p, (Δm²₃₁ = o.start.Δm²₃₂ + p.Δm²₂₁, δCP = o.start.δCP))
-    th23dm = Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 21, :Δm²₃₁ => 21), p0, cache_dir = "cache/$(mo)_th23dm31")
-    dcpth23 = Newtrinos.profile(likelihood, pr, OrderedDict(:δCP => 25, :θ₂₃ => 21), p0, cache_dir = "cache/$(mo)_dcpth23")
+    th23dm = Newtrinos.profile(likelihood, pr, OrderedDict(:θ₂₃ => 21, :Δm²₃₁ => 21), p0, cache_dir = "cache/$(mo)_th23dm31", starts = STARTS)
+    dcpth23 = Newtrinos.profile(likelihood, pr, OrderedDict(:δCP => 25, :θ₂₃ => 21), p0, cache_dir = "cache/$(mo)_dcpth23", starts = STARTS)
     FileIO.save("results/nova_$(mo).jld2", Dict("th23dm31" => th23dm, "dcpth23" => dcpth23))
     save_csv("results/nova_$(mo)_ssth23_dm32.csv", th23dm); save_csv("results/nova_$(mo)_dcp_ssth23.csv", dcpth23)
     mo => (; th23dm, dcpth23)
