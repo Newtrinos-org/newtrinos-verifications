@@ -41,13 +41,13 @@ band!(ax, E, lo, hi, color = (:dodgerblue, 0.25), label = "CorrelatedXsec prior 
 for (i, t) in enumerate(TUNES)
     lines!(ax, E, σ_tune(t), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
 end
-lines!(ax, E, sig(xs.params), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+lines!(ax, E, sig(xs.params), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
 errorbars!(ax, d.E, d.s, d.err, color = :black, whiskerwidth = 4)
 errorbars!(ax, d.E, d.s, d.E .- d.E_lo, d.E_hi .- d.E, direction = :x, color = :black)
 scatter!(ax, d.E, d.s, color = :black, label = "NOMAD (stat ⊕ syst)")
 hidexdecorations!(ax, grid = false)
 Legend(fig[1:2, 2], ax, framevisible = false, labelsize = 9)
-ax2 = Axis(fig[2, 1], xscale = log10, xlabel = "E_ν (GeV)", ylabel = "data / reference", limits = (2, 400, 0.88, 1.12),
+ax2 = Axis(fig[2, 1], xscale = log10, xlabel = "E_ν (GeV)", ylabel = "data / nominal", limits = (2, 400, 0.88, 1.12),
            xticks = ([2, 5, 10, 20, 50, 100, 200], ["2", "5", "10", "20", "50", "100", "200"]))
 band!(ax2, E, lo ./ sig(xs.params), hi ./ sig(xs.params), color = (:dodgerblue, 0.25))
 hlines!(ax2, [1.0], color = :dodgerblue)
