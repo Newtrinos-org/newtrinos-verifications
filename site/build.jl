@@ -120,8 +120,24 @@ end
 # ------------------------------------------------------------------------------------------------
 # load entries
 # ------------------------------------------------------------------------------------------------
+"Last commit time (ISO 8601) that touched each entry folder, from one pass over the git log"
+function last_changed()
+    out = Dict{String, String}()
+    date = ""
+    for line in eachline(IOBuffer(gitout(["log", "--format=@%cI", "--name-only", "--", "entries"])))
+        if startswith(line, "@")
+            date = line[2:end]
+        elseif startswith(line, "entries/")
+            slug = split(line, '/')[2]
+            haskey(out, slug) || (out[slug] = date)
+        end
+    end
+    out
+end
+
 function load_entries()
     entries = []
+    changed = last_changed()
     for slug in sort(readdir(joinpath(ROOT, "entries")))
         dir = joinpath(ROOT, "entries", slug)
         isfile(joinpath(dir, "entry.toml")) || continue
@@ -130,11 +146,13 @@ function load_entries()
         e["dir"] = dir
         e["run"] = isfile(joinpath(dir, "run.toml")) ? TOML.parsefile(joinpath(dir, "run.toml")) : nothing
         e["run"] === nothing && (e["status"] = "in-progress")
+        # most recent change of the entry (added, updated or rerun); entries not yet committed count as changed now
+        e["updated"] = get(changed, slug, Dates.format(Dates.now(), "yyyy-mm-ddTHH:MM:SS"))
         get(e, "category", "") in CATEGORY_KEYS || error("entry $slug: category must be one of $(CATEGORY_KEYS)")
         @assert doi_slug(e["doi"]) == slug "entry folder $slug does not match its DOI $(e["doi"])"
         push!(entries, e)
     end
-    sort!(entries, by = e -> (e["added"], e["year"]), rev = true)
+    sort!(entries, by = e -> (e["updated"], e["added"], e["year"]), rev = true)
 end
 
 # ------------------------------------------------------------------------------------------------
@@ -191,7 +209,7 @@ function index_record(e)
          "year" => e["year"], "arxiv" => get(e, "arxiv", ""), "inspire" => get(e, "inspire", ""),
          "experiments" => e["experiments"], "parameters" => get(e, "parameters", String[]), "status" => e["status"],
          "category" => e["category"], "category_title" => category_title(e["category"]),
-         "added" => e["added"], "figures" => length(get(e, "figures", [])),
+         "added" => e["added"], "updated" => e["updated"], "figures" => length(get(e, "figures", [])),
          "thumb" => isempty(get(e, "figures", [])) ? "" : "entries/$(e["slug"])/" * e["figures"][1]["ours"])
 end
 
@@ -214,7 +232,7 @@ function entry_card(e; r = "")
     <p class="muted">$(esc(e["title"]))</p>
   </a>
   <div class="tags">$tags</div>
-  <div class="meta muted">$(jref(e)) · $(length(get(e, "figures", []))) figure(s) · added $(e["added"])</div>
+  <div class="meta muted">$(jref(e)) · $(length(get(e, "figures", []))) figure(s) · added $(e["added"])$(e["updated"][1:10] > e["added"] ? " · updated $(e["updated"][1:10])" : "")</div>
 </article>"""
 end
 
@@ -256,7 +274,7 @@ function home_page(entries)
   <div class="cat-grid">$grid</div>
 </section>
 <section>
-  <h2>Recently added</h2>
+  <h2>Recently updated</h2>
   <div class="cards">$recent</div>
   <p><a href="$(d("entries/"))">All entries →</a></p>
 </section>"""
@@ -272,6 +290,7 @@ function entries_page(entries)
     <div class="toolbar">
       <input id="search" type="search" placeholder="Search title, DOI, arXiv…" aria-label="Search">
       <select id="sort" aria-label="Sort">
+        <option value="updated">Recently updated</option>
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>
         <option value="added">Recently added</option>

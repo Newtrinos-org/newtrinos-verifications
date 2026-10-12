@@ -39,7 +39,7 @@
   const search = document.getElementById("search");
   const sort = document.getElementById("sort");
   search.value = params.get("q") || "";
-  sort.value = params.get("sort") || "newest";
+  sort.value = params.get("sort") || "updated";
 
   let entries = [];
 
@@ -59,7 +59,7 @@
     return `<article class="card">
       <a class="card-link" href="${root}entries/${esc(e.slug)}/${document.body.dataset.index || ""}"><h3>${esc(e.short)}</h3><p class="muted">${esc(e.title)}</p></a>
       <div class="tags">${tags}</div>
-      <div class="meta muted">${esc(e.journal)} (${e.year}) · ${e.figures} figure(s) · added ${esc(e.added)}</div>
+      <div class="meta muted">${esc(e.journal)} (${e.year}) · ${e.figures} figure(s) · added ${esc(e.added)}${e.updated.slice(0, 10) > e.added ? ` · updated ${esc(e.updated.slice(0, 10))}` : ""}</div>
     </article>`;
   }
 
@@ -91,6 +91,7 @@
       newest: (a, b) => b.year - a.year || b.added.localeCompare(a.added),
       oldest: (a, b) => a.year - b.year,
       added: (a, b) => b.added.localeCompare(a.added),
+      updated: (a, b) => b.updated.localeCompare(a.updated),
       title: (a, b) => a.short.localeCompare(b.short),
     }[sort.value];
     shown.sort(by);
@@ -99,7 +100,7 @@
     const p = new URLSearchParams();
     FACETS.forEach((f) => state[f.key].forEach((v) => p.append(f.key, v)));
     if (search.value) p.set("q", search.value);
-    if (sort.value !== "newest") p.set("sort", sort.value);
+    if (sort.value !== "updated") p.set("sort", sort.value);
     try { history.replaceState(null, "", p.toString() ? `?${p}` : location.pathname); } catch (e) { /* sandboxed preview */ }
     renderFacets();
   }
