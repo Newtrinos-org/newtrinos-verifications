@@ -49,8 +49,8 @@ for (name, target, D, title) in (("cc1pip_p", :H, P, "νμ p → μ⁻ p π⁺ (
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, target, :RES), color = (Makie.wong_colors()[mod1(i, 7)], 0.7), linewidth = 1, label = "GENIE $(t) RES")
     end
-    lines!(ax, E, f(p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref) RES")
-    lines!(ax, E, f(p0) .+ σ_tune(ref, target, :DIS), color = :dodgerblue, linestyle = :dot, linewidth = 1.5, label = "reference RES + DIS (upper bound)")
+    lines!(ax, E, f(p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref)) RES")
+    lines!(ax, E, f(p0) .+ σ_tune(ref, target, :DIS), color = :dodgerblue, linestyle = :dot, linewidth = 1.5, label = "nominal RES + DIS (upper bound)")
     for (lab, d, mk) in (("ANL", D.ANL, :rect), ("BNL", D.BNL, :circle))
         x = (d.E_lo .+ d.E_hi) ./ 2
         errorbars!(ax, x, d.s, d.e, color = :black, whiskerwidth = 4)
