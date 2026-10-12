@@ -1,0 +1,43 @@
+title = "A precise measurement of the muon neutrino–nucleon inclusive charged current cross-section off an isoscalar target in the energy range 2.5 < E_ν < 40 GeV by NOMAD"
+short = "NOMAD: νμ CC inclusive σ/E on an isoscalar target"
+collaboration = "NOMAD"
+doi = "10.1016/j.physletb.2007.12.027"
+journal = "Phys. Lett. B 660, 19–25"
+year = 2008
+arxiv = "0711.1183"
+inspire = 767013
+experiments = ["NOMAD"]
+parameters = ["cross sections"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-12"
+summary = """
+The inclusive νμ charged-current cross section per isoscalar nucleon divided by energy, 2.5–300 GeV (HEPData Table 1), \
+compared with the cross sections carried by Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` on \
+carbon (NOMAD's target is mostly carbon; the result is quoted for an isoscalar nucleon) and the reference model of \
+`CorrelatedXsec` (G18_10a_02_11a), the cross-section model shared by all experiments in global fits, with its prior 1σ band. \
+The reference agrees with the data to within 1–3 % across the whole range (χ² = 3.4 for 30 bins with stat ⊕ syst \
+errors), well inside its prior band (±3 % in the DIS region, ±5 % at 3 GeV). Above 20 GeV the tunes split into two \
+groups: G18_10a_02_11a, the G18_01a/G18_02a-type tunes and GENIE 2.12 follow the data, while AR23_20i and \
+G18_10a_02_11b lie 2–3 % higher (χ² = 15–16)."""
+caveats = [
+  "NOMAD normalised its σ/E to the world average above 40 GeV, so the absolute normalisation is not an independent test; the comparison tests the energy dependence from 2.5 to 40 GeV and, above, the agreement with the world average.",
+  "Systematic uncertainties are largely correlated between bins (flux shape, energy scale), but no covariance is published; χ² uses stat ⊕ syst as uncorrelated errors and is therefore small. The model is averaged over each energy bin (flat in E).",
+  "The model curves are per nucleon of ¹²C (isoscalar). NOMAD's drift-chamber target is not pure carbon; the measurement is corrected to an isoscalar nucleon.",
+  "The prior band is the 16–84 % range of 500 draws of all CorrelatedXsec parameters from their priors.",
+]
+links = [
+  { label = "HEPData ins767013", url = "https://www.hepdata.net/record/ins767013" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+modules = ["xsec (generator_sigma, CorrelatedXsec)"]
+
+[[figures]]
+id = "sigma_over_E"
+title = "νμ CC σ/E per isoscalar nucleon: NOMAD vs the GENIE tunes and the CorrelatedXsec reference with its prior 1σ band"
+paper_ref = "Fig. 3"
+original = "original/fig_sigma_over_E.png"
+ours = "ours/sigma_over_E.png"
