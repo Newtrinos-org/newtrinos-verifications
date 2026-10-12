@@ -3,6 +3,9 @@
 # Run from this directory with the Newtrinos.jl environment at the pinned commit:
 #   julia --project=<path to Newtrinos.jl> reproduce.jl
 using Newtrinos, CairoMakie, CSV, DataFrames, Printf, Statistics
+# up/horizontal flux parameter of the Barr model (spelled "uphorizonzal" before Newtrinos 2026-10-12)
+const UPHOR = :atm_flux_uphorizontal_sigma in keys(Newtrinos.atm_flux.get_params(Newtrinos.atm_flux.Barr())) ?
+              :atm_flux_uphorizontal_sigma : :atm_flux_uphorizonzal_sigma
 
 cd(@__DIR__); mkpath("ours"); mkpath("results")
 const PHYS = joinpath(pkgdir(Newtrinos), "src/physics")
@@ -29,7 +32,7 @@ ratios(f) = (
 pars(m) = m == :Barr ?
     (numu_numubar = (:atm_flux_numunumubar_sigma,), nue_nuebar = (:atm_flux_nuenuebar_sigma,),
      numu_nue = (:atm_flux_nuenumu_sigma,), numu_updown = (:atm_flux_updown_sigma,), nue_updown = (:atm_flux_updown_sigma,),
-     numu_uphor = (:atm_flux_uphorizonzal_sigma,), nue_uphor = (:atm_flux_uphorizonzal_sigma,)) :
+     numu_uphor = (UPHOR,), nue_uphor = (UPHOR,)) :
     (numu_numubar = Symbol.("atm_flux_numunumubar_sigma_" .* ("lo", "mid", "hi")),
      nue_nuebar = Symbol.("atm_flux_nuenuebar_sigma_" .* ("lo", "mid", "hi")),
      numu_nue = Symbol.("atm_flux_nuenumu_sigma_" .* ("lo", "mid", "hi")),

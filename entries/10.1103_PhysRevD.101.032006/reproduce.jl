@@ -5,6 +5,9 @@
 # Run from this directory with the Newtrinos.jl environment at the pinned commit:
 #   julia -t 16 --project=<path to Newtrinos.jl> reproduce.jl
 using Newtrinos, Distributions, DataStructures, FileIO, CairoMakie, CSV, DataFrames, Printf, BAT
+# up/horizontal flux parameter of the Barr model (spelled "uphorizonzal" before Newtrinos 2026-10-12)
+const UPHOR = :atm_flux_uphorizontal_sigma in keys(Newtrinos.atm_flux.get_params(Newtrinos.atm_flux.Barr())) ?
+              :atm_flux_uphorizontal_sigma : :atm_flux_uphorizonzal_sigma
 using BAT: distprod
 
 cd(@__DIR__); mkpath("ours"); mkpath("results"); mkpath("cache")
@@ -43,7 +46,7 @@ function priors(exps, truth, T; wrong)
         pr = merge(pr, (atm_flux_delta_spectral_index = Truncated(Normal(0, 0.05), -0.3, 0.3),
                         ic_upgrade_energy_scale = Truncated(Normal(1, 0.10), 0.5, 1.5),
                         ic_upgrade_lifetime = Truncated(Normal(T, 0.10T), 0.3T, 1.7T),
-                        atm_flux_updown_sigma = 0.0, atm_flux_uphorizonzal_sigma = 0.0, nc_norm = 1.0, nutau_cc_norm = 1.0))
+                        atm_flux_updown_sigma = 0.0, nc_norm = 1.0, nutau_cc_norm = 1.0), NamedTuple{(UPHOR,)}((0.0,)))
     end
     pr
 end
