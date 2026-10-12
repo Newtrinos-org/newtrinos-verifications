@@ -1,0 +1,39 @@
+title = "First measurement of the muon neutrino charged current quasielastic double differential cross section"
+short = "MiniBooNE: νμ CCQE σ(Eν) on carbon — QE vs QE + 2p2h"
+collaboration = "MiniBooNE"
+doi = "10.1103/PhysRevD.81.092005"
+journal = "Phys. Rev. D 81, 092005"
+year = 2010
+arxiv = "1002.2680"
+inspire = 845845
+experiments = ["MiniBooNE"]
+parameters = ["cross sections", "axial mass"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-12"
+summary = """
+The flux-unfolded νμ CCQE cross section per neutron of carbon (mineral oil), 0.4–2 GeV (Table XI), compared with the \
+cross sections carried by Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` on carbon and the \
+reference model of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band, for QE alone and for QE + MEC (2p2h). \
+MiniBooNE's signal is defined by the absence of pions, so it contains 2p2h events: QE alone falls 30–60 % short for all \
+tunes (the origin of MiniBooNE's effective M_A = 1.35 GeV). With MEC the tunes with the empirical MEC model describe the \
+data (G00_00b: χ² = 0.6/14; GENIE 2.12: 10), the Valencia-MEC tunes are 14 % low (G18_01a/02a: 13), and the reference is \
+33 % low (χ² = 50.6, 26.2 with its prior band): the prior band does not cover this measurement."""
+caveats = [
+  "Eν is MiniBooNE's unfolded E_ν^{QE,RFG}: the energy is reconstructed from the muon kinematics assuming quasi-elastic scattering on a nucleon at rest, and unfolded with an RFG model. 2p2h events reconstruct at lower energy, so a comparison of the true-energy model cross section with σ(E^QE) is biased at the 10 % level in shape (Nieves et al., Martini et al.); the strong excess over QE alone is nevertheless well established.",
+  "All CC1π⁺ backgrounds, including events whose pion was absorbed in the nucleus, are subtracted with MiniBooNE's tuned NUANCE model. Errors: shape (black) and total including the 10.7 % normalisation (grey); χ² uses the total errors as uncorrelated (no covariance is published for σ(E)).",
+  "Per neutron of carbon: σ per carbon nucleon × 2 (the hydrogen of CH₂ has no neutrons).",
+  "Together with MicroBooNE (argon) and the low-energy part of the Formaggio & Zeller compilation, this shows that the reference tune G18_10a_02_11a lies low below ~1.5 GeV and that the prior band of CorrelatedXsec does not cover the spread of the measurements there.",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+modules = ["xsec (generator_sigma, CorrelatedXsec)"]
+
+[[figures]]
+id = "sigma"
+title = "MiniBooNE νμ CCQE σ per neutron vs the GENIE tunes and the CorrelatedXsec reference: QE only (left) and QE + MEC (right)"
+paper_ref = "Fig. 15"
+original = "original/fig_sigma.png"
+ours = "ours/sigma.png"
