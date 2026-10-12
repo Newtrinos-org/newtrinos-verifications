@@ -14,16 +14,17 @@ added = "2026-10-05"
 summary = """
 Total charged-current νμ and ν̄μ cross sections per nucleon divided by energy, from 0.1 to 500 GeV, as carried by \
 Newtrinos.jl (module `xsec`): the per-process GENIE cross sections of ten tunes (`generator_sigma`, GENIE 2.12 to \
-AR23_20i, on carbon, i.e. an isoscalar target as in the compilation), NEUT 5.4.0 on water, and the reference model \
-of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band, the cross-section model shared by all experiments in \
+AR23_20i, on carbon, i.e. an isoscalar target as in the compilation), NEUT 5.4.0 on water, and the nominal model of \
+`CorrelatedXsec` (the mean of the tunes) with its prior 1σ band, the cross-section model shared by all experiments in \
 global fits. They are compared with the world data and the NUANCE prediction (total, and QE / RES / DIS) of the \
 review's Fig. 15. Curves and data points are extracted from the vector figures of the arXiv source \
-(data/extract_fz.py). In the deep-inelastic region (30–300 GeV) the reference gives σ/E = 0.669 (νμ) and 0.326 (ν̄μ) \
-× 10⁻³⁸ cm²/GeV with prior 1σ bands [0.649, 0.690] and [0.316, 0.336], against 0.677 and 0.323 for the extracted \
-world data; the ten tunes span 0.669–0.695 and 0.326–0.337."""
+(data/extract_fz.py). In the deep-inelastic region (30–300 GeV) the prior 1σ bands are [0.662, 0.701] (νμ) and \
+[0.319, 0.345] (ν̄μ) × 10⁻³⁸ cm²/GeV, against 0.677 and 0.323 for the extracted world data; the ten tunes span \
+0.669–0.695 and 0.326–0.337. Below 1 GeV the tunes differ by up to 60 %; the band (νμ: 0.62–0.90 at 0.5 GeV, \
+0.88–1.05 at 1 GeV) covers most of them."""
 caveats = [
   "GENIE curves are per nucleon of ¹²C (isoscalar); NEUT 5.4.0 is only available for water (digitised from T. Wester's Super-K thesis, valid up to 26 GeV and continued with the G18_10a_02_11a shape above), which makes it a few percent lower than isoscalar for neutrinos in the DIS region (0.654 vs 0.669–0.695).",
-  "Below ~1 GeV the tunes differ strongly (νμ at 0.5 GeV: 0.63–1.04 × 10⁻³⁸ cm²/GeV): nuclear models (Fermi gas vs local Fermi gas / spectral function, RPA), M_A and MEC. The reference tune G18_10a_02_11a lies at the low end, and its prior 1σ band (0.50–0.77 at 0.5 GeV, 0.80–0.96 at 1 GeV) does not cover the high tunes (GENIE 2.12, G00_00b). The NUANCE total is higher still; the low-energy data in the figure are mostly QE-only measurements on other targets.",
+  "Below ~1 GeV the tunes differ strongly (νμ at 0.5 GeV: 0.63–1.04 × 10⁻³⁸ cm²/GeV): nuclear models (Fermi gas vs local Fermi gas / spectral function, RPA), M_A and MEC. The nominal (mean of the tunes) lies in the middle of this spread; its prior band (16–84 % of 500 draws) covers most tunes, while G18_10a_02_11a and AR23 are at the low end and GENIE 2.12 / G00_00b at the high end. The NUANCE total is higher still; the low-energy data in the figure are mostly QE-only measurements on other targets.",
   "Per process, definitions differ between generators: NUANCE's QE is per free nucleon (no nuclear suppression), GENIE's on carbon; GENIE's DIS includes the non-resonant low-W region; GENIE's MEC (2p2h) has no NUANCE counterpart. Only totals are directly comparable.",
   "The prior band is the 16–84 % range of 500 draws of all CorrelatedXsec parameters from their priors (PCA modes of the tune spread, M_A^QE, process normalisations, ν̄/ν); it describes the model uncertainty before any experiment constrains it.",
   "Data extraction: points are recovered from the marker shapes of the vector figure, with symmetric errors from the vertical bars. 109 νμ and 45 ν̄μ points are recovered, which is incomplete where markers overlap (the dense QE points at 1–3 GeV and most ν̄ points above 60 GeV).",
@@ -31,12 +32,12 @@ caveats = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "bf40f9a4fa72db8627960e47b79d129c2a3ac846"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
 modules = ["xsec (generator_sigma, CorrelatedXsec)"]
 
 [[figures]]
 id = "fig15nu"
-title = "νμ CC cross section per nucleon / E: world data, NUANCE, the GENIE tunes and NEUT, and the CorrelatedXsec reference with its prior band"
+title = "νμ CC cross section per nucleon / E: world data, NUANCE, the GENIE tunes and NEUT, and the CorrelatedXsec nominal with its prior band"
 paper_ref = "Fig. 15 (top)"
 original = "original/cc_inclusive_nu.png"
 ours = "ours/fig15_nu.png"
@@ -50,6 +51,6 @@ ours = "ours/fig15_nubar.png"
 
 [[figures]]
 id = "processes"
-title = "Per process (QE, RES, DIS; MEC): the reference tune and the spread of the tunes vs NUANCE"
+title = "Per process (QE, RES, DIS; MEC): the nominal (mean of the tunes) and the spread of the tunes vs NUANCE"
 paper_ref = "Fig. 15 (QE, RES, DIS curves)"
 ours = "ours/fig15_processes.png"

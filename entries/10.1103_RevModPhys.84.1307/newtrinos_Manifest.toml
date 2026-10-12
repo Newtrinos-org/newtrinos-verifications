@@ -2444,9 +2444,9 @@ version = "5.9.1"
 
 [[deps.OptimizationBase]]
 deps = ["ADTypes", "ArrayInterface", "DifferentiationInterface", "DocStringExtensions", "FastClosures", "LinearAlgebra", "PrecompileTools", "SciMLBase", "SciMLLogging", "SparseArrays", "SparseConnectivityTracer", "SparseMatrixColorings", "SymbolicIndexingInterface"]
-git-tree-sha1 = "fb0574a40242414430664d47f35c5b0f98e90ff7"
+git-tree-sha1 = "c154c5867b5b25e434f242acb08ad459fa6d33af"
 uuid = "bca83a33-5cc9-4baa-983d-23429ab6bcbb"
-version = "5.7.0"
+version = "5.8.0"
 
     [deps.OptimizationBase.extensions]
     OptimizationChainRulesCoreExt = "ChainRulesCore"

@@ -46,7 +46,7 @@ for (k, (anti, name, ymax, lab)) in enumerate(((false, "nu", 1.5, "ν"), (true, 
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, anti), color = (tunecol(i), 0.8), linewidth = 1, label = "GENIE $(t), C")
     end
-    lines!(ax, E, sig[anti](xs.params), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref), C")
+    lines!(ax, E, sig[anti](xs.params), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref)), C")
     lines!(ax, E, σ_tune(:NEUT5_4_0, anti; target = :H2O), color = :black, linewidth = 2, linestyle = :dash, label = "NEUT 5.4.0, H₂O")
     Legend(fig[1, 2], ax, framevisible = false, labelsize = 9)
     save("ours/fig15_$(name).png", fig)
