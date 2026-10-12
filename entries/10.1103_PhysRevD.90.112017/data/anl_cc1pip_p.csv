@@ -1,0 +1,15 @@
+# ANL reanalysed (flux-free: ratio to CCQE x GENIE 2.8 CCQE on D2) sigma(E_nu) for nu_mu p -> mu- p pi+ (CC1pi+p) on D2, no W cut
+# Wilkinson et al. PRD 90 112017 (arXiv:1411.4482); Rodrigues, Wilkinson, McFarland EPJC 76 474 (arXiv:1601.01888)
+# Source: NUISANCE https://raw.githubusercontent.com/NUISANCEMC/nuisance/master/data/ANL/CC1pip_on_p/anl82corr-numu-p-to-mu-p-piplus-noW_edges.txt (cols: low edge, sigma, err; last row = upper edge)
+# Cross-checked against vector-digitised figure: 1601.01888 source file ANL_BNL_CC1pi_xsection.pdf (in tarball, not \includegraphics-ed; same data as Fig.1b global_ccppiplus_EXTRACTED.pdf) (identical to 1411.4482 Fig.6 (ANL_BNL_CC1pi_xsection.pdf) except the two highest ANL bins, see anl_cc1pip_p_1411version.csv)
+# Units: E [GeV]; sigma, err [1e-38 cm^2 per target nucleon of the struck type (= per deuteron); no D2 nuclear correction]; err = statistical only
+# Additional unquoted norm. uncertainties: ~2% (CCQE M_A), ~5% det. corr. for CC1pi+p, ~10-15% for CC1pi0 / CC1pi+n; bin-to-bin and cross-channel correlations (shared CCQE) not provided
+E_lo_GeV,E_hi_GeV,sigma_1e-38cm2,err_1e-38cm2
+0.2,0.4,0.002,0.002
+0.4,0.6,0.07,0.012
+0.6,0.8,0.278,0.032
+0.8,1,0.497,0.06
+1,1.4,0.476,0.046
+1.4,2.2,0.714,0.091
+2.2,3,0.773,0.227
+3,6,0.952,0.38

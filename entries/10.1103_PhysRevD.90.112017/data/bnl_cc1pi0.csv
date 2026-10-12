@@ -1,0 +1,17 @@
+# BNL reanalysed (flux-free: ratio to CCQE x GENIE 2.8 CCQE on D2) sigma(E_nu) for nu_mu n -> mu- p pi0 (CC1pi0) on D2, no W cut
+# Wilkinson et al. PRD 90 112017 (arXiv:1411.4482); Rodrigues, Wilkinson, McFarland EPJC 76 474 (arXiv:1601.01888)
+# Source: NUISANCE https://raw.githubusercontent.com/NUISANCEMC/nuisance/master/data/BNL/CC1pi0_on_n/BNL_CC1pi0_on_n_1986_corr.txt (cols: low edge, sigma, err; last row = upper edge)
+# Cross-checked against vector-digitised figure: 1601.01888 App. A cross-section figure (ANL_BNL_CC1pi0_xsection.pdf)
+# Units: E [GeV]; sigma, err [1e-38 cm^2 per target nucleon of the struck type (= per deuteron); no D2 nuclear correction]; err = statistical only
+# Additional unquoted norm. uncertainties: ~2% (CCQE M_A), ~5% det. corr. for CC1pi+p, ~10-15% for CC1pi0 / CC1pi+n; bin-to-bin and cross-channel correlations (shared CCQE) not provided
+E_lo_GeV,E_hi_GeV,sigma_1e-38cm2,err_1e-38cm2
+0.4,0.6,0.057,0.016
+0.6,0.8,0.138,0.021
+0.8,1,0.175,0.023
+1,1.2,0.189,0.024
+1.2,1.4,0.218,0.028
+1.4,1.6,0.252,0.032
+1.6,1.8,0.31,0.042
+1.8,2,0.278,0.043
+2,2.4,0.381,0.044
+2.4,3,0.464,0.06
