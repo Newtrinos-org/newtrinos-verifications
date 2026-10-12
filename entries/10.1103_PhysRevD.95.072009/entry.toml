@@ -1,0 +1,57 @@
+title = "Measurement of the antineutrino to neutrino charged-current interaction cross section ratio in MINERvA"
+short = "MINERvA: ν̄/ν CC inclusive cross-section ratio and σ/E on carbon"
+collaboration = "MINERvA"
+doi = "10.1103/PhysRevD.95.072009"
+journal = "Phys. Rev. D 95, 072009; addendum Phys. Rev. D 97, 019902"
+year = 2017
+arxiv = "1701.04857"
+inspire = 1509504
+experiments = ["MINERvA"]
+parameters = ["cross sections"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-12"
+summary = """
+The ratio of the ν̄μ to νμ inclusive charged-current cross sections, R_CC, and the two σ/E per nucleon of carbon \
+(isoscalar corrected), 2–22 GeV (Table IV and the supplemental covariance matrices, from the arXiv source), compared with \
+the cross sections carried by Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` on carbon and the \
+reference model of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band, ν and ν̄ sampled jointly. The ratio is \
+described well: χ² = 4.3 for 9 bins with the published covariance (3.1 including the model's prior covariance); all tunes \
+give 1.3–4.6. In σ/E the νμ data at 3–7 GeV lie 8–12 % below all tunes, as the paper also finds for its GENIE model; the \
+reference gives χ² = 35.4 for 18 bins (20.9 with its prior covariance), the tunes 27–56."""
+caveats = [
+  "MINERvA normalised the low-ν flux, and hence the neutrino cross section, to the NOMAD carbon data at 12–22 GeV; the antineutrino normalisation follows from the same flux method, so R_CC needs no external antineutrino input. Absolute σ/E values are therefore partly tied to NOMAD (a separate entry).",
+  "The results are total cross sections, extrapolated from the muon acceptance (E_μ > 1.8 GeV, θ_μ < 0.35 rad) with MINERvA's GENIE-Hybrid model, and corrected for the proton excess of the CH tracker to an isoscalar (carbon) target.",
+  "The model is averaged flat in energy within each bin (the flux shape within a bin is not used); the ratio is formed from the bin-averaged cross sections.",
+  "In the deep-inelastic region the shared model's prior band on the ratio is narrow (±1 % at 15–22 GeV): its ν̄/ν parameter acts on QE, MEC, RES and coherent scattering only. MINERvA's ratio agrees with the reference within its 6 % errors; MINOS (separate entry) is 5–8 % lower around 10 GeV.",
+  "Covariance matrices: the σ/E covariance rows in the source are labelled off by one and were assigned by structure; their diagonals agree with the tabulated total errors.",
+]
+links = [
+  { label = "arXiv:1701.04857", url = "https://arxiv.org/abs/1701.04857" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+modules = ["xsec (generator_sigma, CorrelatedXsec)"]
+
+[[figures]]
+id = "ratio"
+title = "σ(ν̄μ)/σ(νμ) on carbon: MINERvA vs the GENIE tunes and the CorrelatedXsec reference with its prior 1σ band"
+paper_ref = "Fig. 11 (right)"
+original = "original/fig11_ratio.png"
+ours = "ours/ratio.png"
+
+[[figures]]
+id = "nu"
+title = "νμ CC σ/E per nucleon of carbon"
+paper_ref = "Fig. 10"
+original = "original/fig10_sigma.png"
+ours = "ours/nu.png"
+
+[[figures]]
+id = "nubar"
+title = "ν̄μ CC σ/E per nucleon of carbon"
+paper_ref = "Fig. 10"
+original = "original/fig10_sigma.png"
+ours = "ours/nubar.png"

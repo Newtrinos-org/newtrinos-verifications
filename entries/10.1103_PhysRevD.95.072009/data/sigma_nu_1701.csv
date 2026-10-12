@@ -1,0 +1,15 @@
+# MINERvA numu CC inclusive total cross section divided by E, CH target, per nucleon, isoscalar-corrected (see NOTES.md); low-nu flux normalised to NOMAD 12-22 GeV
+# Source: arXiv:1701.04857v2 (PRD 95,072009), Table IV. Tabulated quantity is sigma/E in 1e-38 cm^2/GeV (per nucleon implied).
+# sigma_1e-38cm2_per_nucleon_at_Ecenter = (sigma/E) x E_center computed here (bin-centre approximation, NOT a paper number).
+# Digitised columns from vector PDF fig9a.pdf (Fig.9, data/GENIE-Hybrid); implied model values are derived, not tabulated.
+# Full covariance (nu and nubar jointly): cov_sigma_1701.csv
+E_lo_GeV,E_hi_GeV,E_center_GeV,sigma_over_E_1e-38cm2_per_GeV_per_nucleon,stat,syst,total,sigma_1e-38cm2_per_nucleon_at_Ecenter,sigma_total_err_1e-38cm2,digitised_data_over_GENIEHybrid_fig9a,implied_GENIEHybrid_sigma_over_E,digitised_NuWroExtracted_over_GENIEHybrid,implied_NuWroExtracted_sigma_over_E
+2,3,2.5,0.746,0.02,0.072,0.075,1.865,0.1875,0.9257,0.8059,0.8601,0.6931
+3,4,3.5,0.671,0.013,0.036,0.038,2.3485,0.133,0.8792,0.7632,0.9312,0.7107
+4,5,4.5,0.67,0.015,0.031,0.034,3.015,0.153,0.8998,0.7446,0.9445,0.7033
+5,7,6.0,0.678,0.016,0.032,0.036,4.068,0.216,0.9394,0.7217,0.9629,0.695
+7,9,8.0,0.697,0.015,0.029,0.032,5.576,0.256,0.9836,0.7086,0.9948,0.7049
+9,12,10.5,0.716,0.015,0.029,0.033,7.518,0.3465,1.0182,0.7032,1.022,0.7187
+12,15,13.5,0.708,0.014,0.027,0.031,9.558,0.4185,1.018,0.6955,1.0173,0.7075
+15,18,16.5,0.687,0.015,0.026,0.03,11.3355,0.495,0.991,0.6932,0.9922,0.6878
+18,22,20.0,0.698,0.017,0.027,0.032,13.96,0.64,1.0121,0.6897,1.0118,0.6978

@@ -1,0 +1,17 @@
+# MINERvA R_CC = sigma(numubar CC)/sigma(numu CC), inclusive, CH (scintillator) target, isoscalar-corrected (see NOTES.md)
+# Source: arXiv:1701.04857v2 (PRD 95,072009 (2017) + PRD 97,019902), Table IV (summary of measured quantities), columns R_CC; unchanged between v1 and v2
+# Bin edges from Table I of the paper. E_center = value in the first column of Table IV (= bin midpoint).
+# ratio,stat,syst,total: as tabulated (dimensionless). total_quadrature_check = sqrt(stat^2+syst^2) computed here.
+# Last 4 columns: DIGITISED from vector PDF fig11a.pdf (Fig.11 left, data/GENIE-Hybrid); implied_GENIEHybrid_ratio = ratio/digitised; NOT tabulated in paper. Digitisation precision ~0.001.
+# NuWro-extracted = data extracted using NuWro for model corrections (squares), value relative to GENIE-Hybrid; implied value = that x implied GENIE-Hybrid.
+# Full covariance: cov_ratio_1701.csv
+E_lo_GeV,E_hi_GeV,E_center_GeV,ratio,stat,syst,total,total_quadrature_check,digitised_data_over_GENIEHybrid_fig11a,implied_GENIEHybrid_ratio,digitised_NuWroExtracted_over_GENIEHybrid_fig11a,implied_NuWroExtracted_ratio
+2,3,2.5,0.447,0.029,0.017,0.033,0.0336,1.039,0.4302,1.0312,0.4436
+3,4,3.5,0.466,0.024,0.012,0.027,0.0268,1.0411,0.4476,1.0188,0.456
+4,5,4.5,0.459,0.026,0.013,0.029,0.0291,1.0178,0.451,0.997,0.4496
+5,7,6.0,0.455,0.027,0.014,0.03,0.0304,0.9997,0.4551,0.9817,0.4468
+7,9,8.0,0.46,0.027,0.01,0.028,0.0288,1.0101,0.4554,0.9984,0.4547
+9,12,10.5,0.454,0.027,0.007,0.028,0.0279,0.9932,0.4571,0.978,0.4471
+12,15,13.5,0.457,0.022,0.007,0.023,0.0231,0.9965,0.4586,0.9824,0.4505
+15,18,16.5,0.482,0.029,0.007,0.03,0.0298,1.0509,0.4587,1.0377,0.4759
+18,22,20.0,0.453,0.032,0.006,0.032,0.0326,0.9843,0.4602,0.9693,0.4461
