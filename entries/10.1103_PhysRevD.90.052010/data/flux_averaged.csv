@@ -1,0 +1,6 @@
+# nu_mu CC inclusive flux-averaged cross sections per nucleon (no isoscalar correction), T2K INGRID on-axis beam
+# syst = symmetrized (syst_up+syst_down)/2; use syst_up/syst_down for the asymmetric values quoted in the papers
+# NEUT/GENIE columns: generator predictions quoted by the paper for the same signal definition (see NOTES.md)
+target,sigma_1e-38cm2_per_nucleon,stat,syst,mean_E,phase_space,syst_up,syst_down,detector,POT,paper,NEUT_pred,GENIE_pred
+Fe,1.444,0.002,0.173,1.51,total (full phase space; efficiency-corrected with NEUT),0.189,0.157,INGRID standard module (central),6.04e20,arXiv:1407.4256,1.398,1.241
+CH,1.379,0.009,0.1625,1.51,total (full phase space; efficiency-corrected with NEUT),0.178,0.147,INGRID Proton Module,6.04e20,arXiv:1407.4256,1.348,1.188

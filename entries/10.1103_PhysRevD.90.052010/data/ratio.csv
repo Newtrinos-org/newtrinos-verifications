@@ -1,0 +1,4 @@
+# nu_mu CC inclusive cross-section ratios (per nucleon), T2K INGRID on-axis beam
+# NEUT_pred for 1904.09611: H2O/CH from the RPA+RFG+MEC nominal (Table 'neut_comparison'); Fe ratios from RFG+MEC (no RPA, RPA not implemented for Fe in NEUT 5.3.3)
+ratio,value,stat,syst,mean_E,phase_space,paper,NEUT_pred,GENIE_pred
+Fe/CH,1.047,0.007,0.035,1.51,total (full phase space),arXiv:1407.4256,1.037,1.044
