@@ -40,7 +40,7 @@ for (k, (procs, lab)) in enumerate((((:QE,), "QE only"), ((:QE, :MEC), "QE + MEC
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, procs), color = (Makie.wong_colors()[mod1(i, 7)], 0.7), linewidth = 1, label = "GENIE $(t)")
     end
-    lines!(ax, E, f(p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+    lines!(ax, E, f(p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
     errorbars!(ax, Ec, D.sigma_ccqe, D.err_total, color = (:black, 0.4), whiskerwidth = 4)
     errorbars!(ax, Ec, D.sigma_ccqe, D.err_shape, color = :black, whiskerwidth = 6)
     errorbars!(ax, Ec, D.sigma_ccqe, Ec .- D.E_lo, D.E_hi .- Ec, direction = :x, color = :black)
@@ -58,7 +58,7 @@ for (procs, lab) in (((:QE,), "QE"), ((:QE, :MEC), "QE+MEC"))
     fb = [sigma(procs, collect(range(lo, hi, length = 11))) for (lo, hi) in zip(D.E_lo, D.E_hi)]
     m0 = [mean(f(p0)) for f in fb]
     sd = vec(std(reduce(hcat, [[mean(f(p)) for f in fb] for p in samples]), dims = 2))
-    push!(rows, (model = "$(ref) (reference)", process = lab, chi2 = chi2(m0), chi2_with_prior = chi2(m0, sd), data_over_model = mean(D.sigma_ccqe ./ m0)))
+    push!(rows, (model = "$(ref) (nominal)", process = lab, chi2 = chi2(m0), chi2_with_prior = chi2(m0, sd), data_over_model = mean(D.sigma_ccqe ./ m0)))
     for t in TUNES
         m = binavg(e -> σ_tune(t, procs, e))
         push!(rows, (model = string(t), process = lab, chi2 = chi2(m), chi2_with_prior = NaN, data_over_model = mean(D.sigma_ccqe ./ m)))
