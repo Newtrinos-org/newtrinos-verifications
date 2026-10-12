@@ -48,7 +48,7 @@ function panel_sigma(pos, anti, dd, lab, lims)
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, anti), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
     end
-    lines!(ax, E, sig[anti](p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+    lines!(ax, E, sig[anti](p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
     errorbars!(ax, dd.E_mean, dd.sigma_over_E, dd.total, color = :black, whiskerwidth = 4)
     scatter!(ax, dd.E_mean, dd.sigma_over_E, color = :black, label = "MINOS (stat ⊕ syst ⊕ norm)")
     ax
@@ -60,7 +60,7 @@ function panel_ratio(pos)
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, true) ./ σ_tune(t, false), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
     end
-    lines!(ax, E, sig[true](p0) ./ sig[false](p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+    lines!(ax, E, sig[true](p0) ./ sig[false](p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
     errorbars!(ax, r.E_mean, r.r, r.total, color = :black, whiskerwidth = 4)
     scatter!(ax, r.E_mean, r.r, color = :black, label = "MINOS (total)")
     ax
@@ -81,7 +81,7 @@ mref = (nu = [f(p0) for f in bins.nu], nubar = [f(p0) for f in bins.nubar])
 msd = (nu = [std([f(p) for p in samples]) for f in bins.nu], nubar = [std([f(p) for p in samples]) for f in bins.nubar])
 rref = sig_r[true](p0) ./ sig_r[false](p0)
 rsd = [std(col) for col in eachrow(reduce(hcat, [sig_r[true](p) ./ sig_r[false](p) for p in samples]))]
-rows = [(model = "$(ref) (reference)", chi2_nu = chi2(dn.sigma_over_E, err_ss(dn), mref.nu), chi2_nubar = chi2(db.sigma_over_E, err_ss(db), mref.nubar),
+rows = [(model = "$(ref) (nominal)", chi2_nu = chi2(dn.sigma_over_E, err_ss(dn), mref.nu), chi2_nubar = chi2(db.sigma_over_E, err_ss(db), mref.nubar),
          chi2_ratio = chi2(r.r, r.total, rref), chi2_nu_band = chi2(dn.sigma_over_E, err_ss(dn), mref.nu, msd.nu),
          chi2_nubar_band = chi2(db.sigma_over_E, err_ss(db), mref.nubar, msd.nubar), chi2_ratio_band = chi2(r.r, r.total, rref, rsd))]
 binavg(t, anti, dd) = [mean(σ_tune(t, anti, binE(lo, hi))) for (lo, hi) in zip(dd.E_lo, dd.E_hi)]
