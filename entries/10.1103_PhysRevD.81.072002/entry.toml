@@ -1,0 +1,55 @@
+title = "Neutrino and antineutrino inclusive charged-current cross section measurements with the MINOS near detector"
+short = "MINOS: νμ and ν̄μ CC inclusive σ/E on iron, and their ratio"
+collaboration = "MINOS"
+doi = "10.1103/PhysRevD.81.072002"
+journal = "Phys. Rev. D 81, 072002"
+year = 2010
+arxiv = "0910.2201"
+inspire = 833709
+experiments = ["MINOS"]
+parameters = ["cross sections"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-12"
+summary = """
+The νμ (3–50 GeV) and ν̄μ (5–50 GeV) inclusive charged-current cross sections per nucleon of isoscalar iron, σ/E, and \
+their ratio r = σ(ν̄)/σ(ν) (the paper's tables, from the arXiv source), compared with the cross sections carried by \
+Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` on ⁵⁶Fe, corrected to an isoscalar nucleon with \
+each tune's free proton and neutron cross sections (`isoscalar_correction`: −2.3 % for ν, +2.1 % for ν̄), and the \
+reference model of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band. The neutrino cross section is described \
+well (reference χ² = 8.0 for 13 bins). The antineutrino cross section between 6 and 16 GeV, and with it the ratio, lies \
+5–8 % below all tunes (reference χ² = 12.5/11 for ν̄ and 24.8/11 for r; 7.6 and 15.6 with the prior band), while the \
+prior band of the ratio is only ±2 % in this deep-inelastic region: the shared model's ν̄/ν parameter acts on QE, MEC, \
+RES and coherent scattering only."""
+caveats = [
+  "MINOS normalised the neutrino cross section to the world average (0.675 × 10⁻³⁸ cm²/GeV) above 30 GeV and applied the same constant to the antineutrinos, so absolute normalisations are not tested independently; the ratio r does not depend on it.",
+  "χ² for σ/E uses stat ⊕ syst (the 1.5 % normalisation uncertainty, common to all bins, is left out); for r the total errors. Systematics are partly correlated between bins (no covariance is published). The model is averaged over each σ/E bin (flat in E) and evaluated at the bin-average energy for r.",
+  "The low antineutrino cross section around 10 GeV is a known feature of this measurement; later data (MINERvA's ν̄/ν ratio, a separate entry) can tell whether the shared model needs a ν̄/ν uncertainty in the deep-inelastic region.",
+  "The isoscalar correction is computed from each tune's free-nucleon cross sections; MINOS used its own (NEUGEN3-based) correction.",
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+modules = ["xsec (generator_sigma, isoscalar_correction, CorrelatedXsec)"]
+
+[[figures]]
+id = "ratio"
+title = "σ(ν̄μ)/σ(νμ) on isoscalar iron: MINOS vs the GENIE tunes and the CorrelatedXsec reference with its prior 1σ band"
+paper_ref = "Fig. 12 (left)"
+original = "original/fig12a_ratio.png"
+ours = "ours/ratio.png"
+
+[[figures]]
+id = "nu"
+title = "νμ CC σ/E per isoscalar nucleon of iron"
+paper_ref = "Fig. 10 (left)"
+original = "original/fig10a_nu.png"
+ours = "ours/nu.png"
+
+[[figures]]
+id = "nubar"
+title = "ν̄μ CC σ/E per isoscalar nucleon of iron"
+paper_ref = "Fig. 10 (right)"
+original = "original/fig10b_nubar.png"
+ours = "ours/nubar.png"
