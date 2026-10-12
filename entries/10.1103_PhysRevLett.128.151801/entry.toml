@@ -14,17 +14,17 @@ added = "2026-10-12"
 summary = """
 The νμ charged-current inclusive cross section per nucleon of argon as a function of the neutrino energy, 0.2–4 GeV, \
 unfolded with the Wiener-SVD method (HEPData: σ, covariance, additional smearing matrix A_c), compared with the cross \
-sections carried by Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` on ⁴⁰Ar and the reference model \
-of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band. As in the paper, each model is averaged over the true-energy \
-bins with the nominal BNB flux and smeared with A_c. The paper's "GENIE v3.00.06" is G18_10a_02_11a, the reference here: \
-the Newtrinos chain reproduces the paper's (digitised) curve to 0.1 % in nine bins (0.7 % in the lowest) and its χ²: \
-19.1 vs 18.8 for 10 bins. The data lie 20–30 % above the reference at 0.5–1.3 GeV; with the model's prior covariance \
-added, χ² = 11.1. Tunes with larger low-energy cross sections fit better: GENIE 2.12 (8.2–8.6), G00_00b (9.4), \
-G18_02a (11.6); the paper finds 8.6 for NEUT, 6.5 for GiBUU and 8.0 for its tuned GENIE."""
+sections carried by Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` on ⁴⁰Ar and the nominal \
+model of `CorrelatedXsec` (the mean of the tunes) with its prior 1σ band. As in the paper, each model is averaged over \
+the true-energy bins with the nominal BNB flux and smeared with A_c. The paper's "GENIE v3.00.06" is G18_10a_02_11a, one \
+of the tunes: the Newtrinos chain reproduces the paper's (digitised) curve for it to 0.1 % in nine bins (0.7 % in the \
+lowest) and its χ²: 19.1 vs 18.8 for 10 bins. The nominal model gives χ² = 11.3 (8.3 with its prior covariance); the \
+tunes give 8.2–19.3 (GENIE 2.12 and G00_00b, with the largest low-energy cross sections, fit best), and the paper finds \
+8.6 for NEUT, 6.5 for GiBUU and 8.0 for its tuned GENIE."""
 caveats = [
   "The covariance has several near-zero eigenvalues (a property of the Wiener filter), so χ² is sensitive at the O(1) level to 10⁻³-level differences in binning or flux averaging. The published flux reproduces the quoted flux-weighted bin centres to 0.001 GeV except in the first and the last two bins (2.676 vs 2.619 GeV in 2.05–4 GeV), so the flux used in the analysis differed slightly.",
   "The paper's model curves are not tabulated; they were digitised from the vector figure (precision ≈ 0.1 %). Recomputing their χ² with the published covariance gives 0.4–0.9 more than quoted (19.2 vs 18.8 for GENIE v3), from that sensitivity.",
-  "The low-energy excess of the data over G18_10a_02_11a (also seen against the paper's GENIE v3) is a model question: the reference tune lies at the low end of the tune spread below ~1.5 GeV, and its prior band (from the tune spread and the physics knobs) covers the data only partly. See also the Formaggio & Zeller entry.",
+  "Below ~1.5 GeV the tunes differ by up to 40 % on argon; the data lie at the upper end. G18_10a_02_11a, the paper's GENIE v3, is at the low end (20–30 % below the data at 0.5–1.3 GeV); the nominal (mean of the tunes) is closer, and its prior band, from the tune spread and the physics knobs, covers most of the data.",
   "Model cross sections per nucleon of ⁴⁰Ar (σ per nucleus / 40), as the paper.",
 ]
 links = [
@@ -33,12 +33,12 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
 modules = ["xsec (generator_sigma, CorrelatedXsec)"]
 
 [[figures]]
 id = "sigma_enu"
-title = "νμ CC σ/⟨Eν⟩ on argon: MicroBooNE vs the A_c-smeared GENIE tunes and CorrelatedXsec reference with its prior 1σ band, and the paper's GENIE v3 curve"
+title = "νμ CC σ/⟨Eν⟩ on argon: MicroBooNE vs the A_c-smeared GENIE tunes and CorrelatedXsec nominal with its prior 1σ band, and the paper's GENIE v3 curve"
 paper_ref = "Fig. 3a"
 original = "original/fig3a_sigma.png"
 ours = "ours/sigma_enu.png"

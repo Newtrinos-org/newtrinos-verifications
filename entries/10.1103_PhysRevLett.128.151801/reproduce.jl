@@ -45,7 +45,7 @@ M = reduce(hcat, [model(p) for p in samples])
 Ccov = cov(M, dims = 2)
 
 chi2(m, Cm = C) = (r = D.sigma .- m; dot(r, Cm \ r))
-rows = [(model = "$(ref) (reference)", chi2 = chi2(model(p0)), chi2_with_prior = chi2(model(p0), C + Ccov))]
+rows = [(model = "$(ref) (nominal)", chi2 = chi2(model(p0)), chi2_with_prior = chi2(model(p0), C + Ccov))]
 smeared = Dict(t => Ac * fluxavg(σ_tune(t, Ef)) for t in TUNES)
 for t in TUNES
     push!(rows, (model = string(t), chi2 = chi2(smeared[t]), chi2_with_prior = NaN))
@@ -71,7 +71,7 @@ band!(ax, stairs_(lo ./ Ec)[1], stairs_(lo ./ Ec)[2], stairs_(hi ./ Ec)[2], colo
 for (i, t) in enumerate(TUNES)
     lines!(ax, stairs_(smeared[t] ./ Ec)..., color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
 end
-lines!(ax, stairs_(model(p0) ./ Ec)..., color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+lines!(ax, stairs_(model(p0) ./ Ec)..., color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
 scatter!(ax, Ec, paper[!, "GENIE_v3.00.06"] ./ Ec, marker = :xcross, color = :red, markersize = 10, label = "paper: GENIE v3 (G18_10a_02_11a)")
 errorbars!(ax, Ec, D.sigma ./ Ec, D.err ./ Ec, color = :black, whiskerwidth = 4)
 scatter!(ax, Ec, D.sigma ./ Ec, color = :black, label = "MicroBooNE")
