@@ -1,0 +1,12 @@
+# MicroBooNE PRL 128,151801 (2022) arXiv:2110.14023 HEPData ins1954078 table sigmaEnu. numu CC inclusive sigma(E_nu) on Ar, unit 1e-38 cm^2 per NUCLEON (=per Ar40 nucleus /40). err = sqrt(diag cov) stat+syst. E_center = nominal-BNB-flux-weighted mean E in bin.
+E_lo,E_hi,E_center,sigma,err
+0.2,0.54,0.3818,0.3367,0.04369
+0.54,0.705,0.622,0.6751,0.06562
+0.705,0.805,0.7546,0.9309,0.08193
+0.805,0.92,0.8615,1.092,0.08613
+0.92,1.05,0.9833,1.192,0.09354
+1.05,1.2,1.122,1.234,0.1199
+1.2,1.375,1.282,1.292,0.1394
+1.375,1.57,1.463,1.401,0.1877
+1.57,2.05,1.735,1.571,0.2641
+2.05,4.0,2.619,1.977,0.378
