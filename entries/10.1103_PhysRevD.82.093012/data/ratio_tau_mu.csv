@@ -1,0 +1,247 @@
+source,neutrino,cuts,E_GeV,ratio_sigma_tau_over_sigma_mu,method
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),1,0.0000,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),3.009,0.0000,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),4.009,0.0079,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),5.014,0.0370,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),6.024,0.0701,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),7.034,0.1045,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),8.026,0.1376,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),9.002,0.1680,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),10.04,0.1971,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),20.1,0.4021,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),30.03,0.5159,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),40.24,0.5886,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),50.04,0.6402,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),60.13,0.6786,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),70.2,0.7090,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),80.1,0.7315,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),90.36,0.7513,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),100.2,0.7685,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),200.6,0.8545,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),301.5,0.8876,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),401.6,0.9087,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),502.3,0.9193,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),603.6,0.9325,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),704.7,0.9378,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),804.1,0.9444,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),907.1,0.9471,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),1006,0.9497,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),2014,0.9683,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),3026,0.9762,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),4032,0.9802,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),5043,0.9841,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),7034,0.9841,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),8072,0.9868,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nu (nu_tau/nu_mu),none (uncut; ratio insensitive to cuts per caption),9053,0.9881,vector-digitised hep-ph/0208187 fig6.eps
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),3.223,0.0000,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),3.554,0.0013,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),3.918,0.0026,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4.009,0.0026,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4.294,0.0093,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4.707,0.0172,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),5.014,0.0238,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),5.13,0.0278,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),5.527,0.0423,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),5.99,0.0556,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),6.417,0.0714,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),6.874,0.0873,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),7.322,0.1045,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),7.844,0.1204,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),8.355,0.1376,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),8.899,0.1548,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),9.424,0.1733,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),10.04,0.1905,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),10.63,0.2077,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),11.32,0.2262,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),12.06,0.2434,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),12.77,0.2606,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),13.61,0.2791,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),14.41,0.2963,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),15.35,0.3135,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),16.35,0.3320,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),17.31,0.3492,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),18.44,0.3664,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),19.53,0.3836,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),20.1,0.3915,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),20.8,0.4021,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),22.16,0.4180,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),23.74,0.4352,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),25.28,0.4524,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),26.93,0.4696,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),28.68,0.4868,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),30.03,0.3995,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),30.03,0.4987,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),30.55,0.5026,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),32.73,0.5198,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),35.06,0.5357,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),37.35,0.5529,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),40.01,0.5688,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),42.86,0.5847,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),46.18,0.5992,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),49.76,0.6138,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),50.04,0.6164,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),53.3,0.6296,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),57.43,0.6442,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),60.13,0.6548,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),61.88,0.6587,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),66.67,0.6733,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),70.2,0.6839,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),71.83,0.6878,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),77.84,0.7011,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),80.1,0.7063,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),84.35,0.7130,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),90.36,0.3995,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),91.4,0.7262,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),98.48,0.7394,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),107.3,0.7513,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),117,0.7619,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),127.5,0.7725,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),138.9,0.7831,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),151.4,0.7937,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),165,0.8042,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),179.9,0.8148,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),196,0.8254,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),214.9,0.8333,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),235.6,0.8413,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),258.2,0.8492,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),283,0.8571,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),310.2,0.8651,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),340.1,0.8730,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),372.8,0.8810,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),401.6,0.8876,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),408.6,0.8876,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),450.5,0.8915,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),493.8,0.8968,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),541.2,0.9034,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),593.3,0.9114,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),654.1,0.9167,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),704.7,0.9206,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),716.9,0.9220,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),790.4,0.9259,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),804.1,0.9259,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),871.4,0.9286,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),960.6,0.9325,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1006,0.9352,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1059,0.9365,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1161,0.9392,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1280,0.9418,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1411,0.9458,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1555,0.9484,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1715,0.9511,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),1891,0.9550,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),2084,0.9577,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),2285,0.9603,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),2519,0.9630,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),2777,0.9656,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),3061,0.9683,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),3375,0.9696,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),3720,0.9709,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4032,0.9709,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4102,0.9722,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4522,0.9749,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),4985,0.9775,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),5496,0.9762,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),6024,0.9762,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),6059,0.9762,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),6680,0.9775,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),7034,0.9775,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),7364,0.9788,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),8118,0.9815,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Kretzer_Reno_2002_Fig6_lower,nubar (nubar_tau/nubar_mu),none (uncut),8950,0.9828,vector-digitised hep-ph/0208187 fig6.eps (dash segments)
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),10,0.1592,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),17.79,0.3473,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),31.64,0.5219,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),56.28,0.6623,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),100.1,0.7658,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),178.1,0.8402,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),315.7,0.8914,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),561.6,0.9267,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),998.9,0.9500,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),1777,0.9659,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),3160,0.9761,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),5622,0.9824,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nu (nu_tau/nu_mu),W>1.4 GeV (DIS),1e+04,0.9869,vector-digitised arXiv:1007.1966 ratio.eps (Origin paths); polyline nodes every 0.25 decade
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),10,0.1313,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),10.45,0.1455,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),11.07,0.1654,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),11.57,0.1796,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),12.28,0.1995,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),12.84,0.2138,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),13.59,0.2336,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),14.21,0.2479,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),15.09,0.2678,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),15.77,0.2820,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),16.7,0.3019,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),17.45,0.3161,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),18.59,0.3360,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),19.5,0.3502,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),20.84,0.3701,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),21.85,0.3843,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),23.35,0.4042,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),24.49,0.4184,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),26.17,0.4383,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),27.44,0.4525,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),29.32,0.4724,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),30.65,0.4866,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),33.07,0.5065,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),35.12,0.5207,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),38.13,0.5406,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),40.5,0.5549,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),44.11,0.5748,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),46.69,0.5890,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),50.86,0.6089,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),53.84,0.6231,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),59.39,0.6430,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),64.28,0.6572,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),71.8,0.6765,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),77.71,0.6907,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),86.82,0.7101,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),93.96,0.7243,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),105,0.7419,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),113.6,0.7521,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),126.9,0.7669,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),137.4,0.7771,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),153.5,0.7919,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),166.1,0.8022,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),185.5,0.8152,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),200.8,0.8226,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),224.3,0.8334,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),242.8,0.8408,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),271.2,0.8516,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),293.6,0.8590,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),327.9,0.8681,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),354.9,0.8738,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),396.5,0.8812,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),429.1,0.8863,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),479.4,0.8937,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),518.9,0.8994,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),579.6,0.9062,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),627.4,0.9102,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),700.8,0.9159,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),758.5,0.9198,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),847.4,0.9250,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),917.1,0.9289,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1025,0.9346,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1109,0.9369,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1239,0.9409,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1341,0.9437,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1498,0.9477,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1621,0.9500,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1811,0.9539,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),1960,0.9556,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),2189,0.9579,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),2370,0.9596,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),2647,0.9625,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),2865,0.9642,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),3201,0.9664,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),3464,0.9682,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),3870,0.9699,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),4189,0.9710,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),4679,0.9733,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),5064,0.9744,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),5657,0.9761,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),6123,0.9773,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),6840,0.9784,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),7403,0.9790,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),8270,0.9801,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)
+Jeong_Reno_2010_Fig2,nubar (nubar_tau/nubar_mu),W>1.4 GeV (DIS),8951,0.9812,vector-digitised arXiv:1007.1966 ratio.eps (dash segments)

@@ -1,0 +1,60 @@
+title = "Atmospheric tau neutrinos in a multi-kiloton liquid argon detector"
+short = "ντ CC cross section: models (Conrad et al.), σ(ντ)/σ(νμ) and the measured ντ normalisations"
+collaboration = "J. Conrad, A. de Gouvêa, S. Shalgar, J. Spitz"
+doi = "10.1103/PhysRevD.82.093012"
+journal = "Phys. Rev. D 82, 093012"
+year = 2010
+arxiv = "1008.2984"
+inspire = 865622
+experiments = ["DONuT", "OPERA", "Super-Kamiokande", "IceCube DeepCore"]
+parameters = ["cross sections", "ντ"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-12"
+summary = """
+The ντ charged-current cross section, which has a kinematic threshold (≈ 3.5 GeV) and is suppressed by the τ mass up \\
+to high energies, compared between the models of Conrad et al. (Kretzer–Reno, Paschos–Yu, Hagiwara–Mawatari–Yokoya on \\
+an isoscalar target and NUANCE on argon; vector-digitised from the arXiv figure), the NLO deep-inelastic calculations of \\
+Kretzer & Reno (2002) and Jeong & Reno (2010) for σ(ντ)/σ(νμ), and the cross sections carried by Newtrinos.jl (module \\
+`xsec`): the ten GENIE tunes of `generator_sigma` (carbon and argon) and the nominal model of `CorrelatedXsec` (the mean \\
+of the tunes) with its prior 1σ band. The GENIE tunes agree with each other to a few % and lie between the models of the \\
+paper; fitted with the paper's threshold parametrisation σ/E = (1 − exp(−a √(E − b))) × 10⁻³⁸ cm²/GeV on 4–30 GeV, the \\
+nominal gives a = 0.094, b = 4.7 GeV (carbon), as NUANCE (0.089, 4.7 GeV) in the paper's table (Kretzer–Reno 0.080, \\
+5.6 GeV; Paschos–Yu 0.105, 4.1 GeV). The ratio σ(ντ)/σ(νμ) agrees with Jeong–Reno and Kretzer–Reno above 30 GeV to \\
+1–2 % and is up to 30 % higher at 10 GeV, where the nuclear QE and resonance contributions, absent in their DIS \\
+calculation, matter. The measured ντ normalisations (relative to each experiment's model) scatter around 1: Super-K \\
+1.47 ± 0.32, IceCube DeepCore 0.57–0.73 (CC: 0.57 +0.36/−0.30), OPERA 1.2 +0.6/−0.5, DONuT 0.78 ± 0.37."""
+caveats = [
+  "The models in Conrad et al.'s figure are digitised from the vector graphics; their 'Kretzer et al.' curve starts below the free-nucleon threshold and is ~25 % above Kretzer & Reno's own curve at 10 GeV (0.16 vs 0.13), so Kretzer & Reno's own (no-cut) curve is shown as well. The NLO calculations are DIS only (Jeong–Reno with W > 1.4 GeV), so they lack the quasi-elastic and resonance contributions near threshold.",
+  "The prior band includes the 20 % ντ normalisation (xsec_nutau_cc_norm), which is energy independent; at high energies, where σ(ντ)/σ(νμ) → 1 is well known, it overstates the uncertainty, near threshold it is the dominant model uncertainty (τ-mass corrections, structure functions F4/F5, nuclear effects).",
+  "The measured normalisations refer to different models (Super-K: NEUT; DeepCore: GENIE 2.8.6; OPERA: GENIE 2.6; DONuT: σ_const relative to the Standard-Model value 0.50 × 10⁻³⁸ cm²/GeV) and different energy ranges, and they are correlated with oscillation parameters and flux uncertainties in the fits; they are not a direct cross-section measurement except for DONuT and OPERA. A fit of xsec_nutau_cc_norm with Super-K and DeepCore and the shared model is on the roadmap.",
+  "GENIE 2.12 splines end at 400 GeV; above, σ/E is held constant, which flattens its ratio.",
+]
+links = [
+  { label = "Kretzer & Reno, PRD 66, 113007", url = "https://arxiv.org/abs/hep-ph/0208187" },
+  { label = "Jeong & Reno, PRD 82, 033010", url = "https://arxiv.org/abs/1007.1966" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
+modules = ["xsec (generator_sigma, CorrelatedXsec)"]
+
+[[figures]]
+id = "sigma_over_E"
+title = "ντ CC σ/E: the models of Conrad et al. and Kretzer–Reno vs the GENIE tunes and the CorrelatedXsec nominal with its prior 1σ band"
+paper_ref = "Fig. 5"
+original = "original/fig_xsec.png"
+ours = "ours/sigma_over_E.png"
+
+[[figures]]
+id = "ratio_tau_mu"
+title = "σ(ντ)/σ(νμ): Kretzer–Reno and Jeong–Reno vs the GENIE tunes and the CorrelatedXsec nominal"
+paper_ref = "Jeong & Reno 2010, Fig. 2"
+original = "original/jeong_reno2010_fig2_ratio.png"
+ours = "ours/ratio_tau_mu.png"
+
+[[figures]]
+id = "measurements"
+title = "Measured ντ normalisations (DONuT, OPERA, Super-K, IceCube DeepCore) and the prior of the shared ντ normalisation"
+ours = "ours/measurements.png"
