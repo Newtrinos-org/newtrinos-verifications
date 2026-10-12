@@ -15,7 +15,7 @@ r = CSV.read("data/minos_ratio.csv", DataFrame; comment = "#")
 dn, db = d[d.nu .== "nu", :], d[d.nu .== "nubar", :]
 
 tab = X.load_table()
-E = 10 .^ range(log10(2.5), log10(60), length = 250)
+E = 10 .^ range(log10(0.2), log10(60), length = 300)   # down to the threshold region
 at(v, e = E) = X.at_energies(tab.E, v, e)
 TUNES = Symbol.(sort(tab.tunes))
 iso(t, anti, e = E) = at(X.isoscalar_correction(t, 26, 56, :numu, anti), e)
@@ -34,16 +34,16 @@ sig_r = Dict(anti => (f = xs.sigma(r.E_mean; flavour = :numu, anti, current = :C
 rng = MersenneTwister(1)
 draw() = map(p -> p isa Distribution ? rand(rng, p) : p, xs.priors)
 samples = [draw() for _ in 1:500]
-q(M, a) = [quantile(row, a) for row in eachrow(M)]
+q(M, a) = [quantile(filter(!isnan, row), a) for row in eachrow(M)]   # ratios are undefined where a draw has σ = 0
 band = Dict(anti => (M = reduce(hcat, [sig[anti](p) for p in samples]); (lo = q(M, 0.16), hi = q(M, 0.84))) for anti in (false, true))
 Rs = reduce(hcat, [sig[true](p) ./ sig[false](p) for p in samples])
 rband = (lo = q(Rs, 0.16), hi = q(Rs, 0.84))
 p0 = xs.params
 
-ticks = ([3, 5, 10, 20, 50], ["3", "5", "10", "20", "50"])
+ticks = ([0.2, 0.5, 1, 2, 5, 10, 20, 50], ["0.2", "0.5", "1", "2", "5", "10", "20", "50"])
 function panel_sigma(pos, anti, dd, lab, lims)
     ax = Axis(pos, xscale = log10, xlabel = "E_ν (GeV)", ylabel = "$lab CC σ / E (10⁻³⁸ cm²/GeV per nucleon)",
-              title = "MINOS $lab, isoscalar Fe", limits = (2.5, 60, lims...), xticks = ticks)
+              title = "MINOS $lab, isoscalar Fe", limits = (0.2, 60, lims...), xticks = ticks)
     band!(ax, E, band[anti].lo, band[anti].hi, color = (:dodgerblue, 0.25), label = "CorrelatedXsec prior 1σ")
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, anti), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
@@ -55,7 +55,7 @@ function panel_sigma(pos, anti, dd, lab, lims)
 end
 function panel_ratio(pos)
     ax = Axis(pos, xscale = log10, xlabel = "E_ν (GeV)", ylabel = "σ(ν̄μ) / σ(νμ)", title = "MINOS ratio r, isoscalar Fe",
-              limits = (2.5, 60, 0.35, 0.6), xticks = ticks)
+              limits = (0.2, 60, 0.2, 0.6), xticks = ticks)
     band!(ax, E, rband.lo, rband.hi, color = (:dodgerblue, 0.25), label = "CorrelatedXsec prior 1σ")
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, true) ./ σ_tune(t, false), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
@@ -65,8 +65,8 @@ function panel_ratio(pos)
     scatter!(ax, r.E_mean, r.r, color = :black, label = "MINOS (total)")
     ax
 end
-for (name, mk) in (("nu", pos -> panel_sigma(pos, false, dn, "νμ", (0.6, 0.82))),
-                   ("nubar", pos -> panel_sigma(pos, true, db, "ν̄μ", (0.26, 0.38))), ("ratio", panel_ratio))
+for (name, mk) in (("nu", pos -> panel_sigma(pos, false, dn, "νμ", (0.0, 1.05))),
+                   ("nubar", pos -> panel_sigma(pos, true, db, "ν̄μ", (0.0, 0.42))), ("ratio", panel_ratio))
     fig = Figure(size = (800, 470))
     ax = mk(fig[1, 1])
     Legend(fig[1, 2], ax, framevisible = false, labelsize = 9)
