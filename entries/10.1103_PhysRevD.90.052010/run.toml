@@ -1,9 +1,9 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/ratio.png" = "2b151659501353039af62e8b36b951a7cfe33fb832690da66becd1c8b7dc7592"
-"ours/xsec_CH.png" = "b6896f5fb758c3ebccfa6db1ee0ac3b025af1053af41891102e5e02bc9138357"
-"ours/xsec_Fe.png" = "0f928be678a8dd392a236d3f7eca534a67bb8c8d23532547a2ada2464327cead"
-"results/flux_averaged.csv" = "ac55f04b0eb3eae5cada39eac34310e89daaea28a574f6a9c000eed258cd769f"
+"ours/ratio.png" = "de12bb257ab0f5969de9144c34a9c07d5a87aa43043d91e371dff8a7fc071d05"
+"ours/xsec_CH.png" = "e91294432be64ff808df2d2ac580b23ccf69e3dc9f2e28d1601071287fd9e6b5"
+"ours/xsec_Fe.png" = "4b1db057dcb54e71578143daa01e75751fd62ea360f95b5a6ff80d309c89e513"
+"results/flux_averaged.csv" = "dc079ca51a58f7453235ede01bb357f133636998a4f0c17ae62e1524cdc0e495"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -11,15 +11,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 4 --project=<Newtrinos.jl @ 7faca3137d> reproduce.jl"
+command = "julia -t 4 --project=<Newtrinos.jl @ 78e71c310b> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-12T09:12:51Z"
+date = "2026-10-12T12:23:11Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 4
-wall_time_s = 85.6
+wall_time_s = 85.9

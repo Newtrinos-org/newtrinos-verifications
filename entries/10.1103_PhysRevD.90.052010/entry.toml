@@ -14,12 +14,13 @@ added = "2026-10-12"
 summary = """
 The flux-averaged νμ charged-current inclusive cross sections per nucleon on iron (INGRID modules) and hydrocarbon \
 (Proton Module) at ⟨Eν⟩ = 1.51 GeV, full phase space, and their ratio, compared with the cross sections carried by \
-Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` (⁵⁶Fe and CH per nucleon) and the reference model \
-of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band, averaged with the official T2K νμ flux at the Proton Module. \
-The target dependence is reproduced: σ(Fe)/σ(CH) = 1.060 ± 0.021 (prior) for the reference against 1.047 ± 0.036 measured \
-(tunes 1.015–1.067; the paper's NEUT 1.037, GENIE 1.044). The absolute cross sections of the reference, 1.28 (Fe) and \
-1.21 (CH) × 10⁻³⁸ cm², are 11–13 % below the data, 1.44 +0.19/−0.16 and 1.38 +0.18/−0.15, within the measurement's \
-uncertainty; the tunes span 1.26–1.50 (Fe) and 1.19–1.42 (CH), the paper's NEUT and GENIE give 1.40/1.35 and 1.24/1.19."""
+Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` (⁵⁶Fe and CH per nucleon) and the nominal model \
+of `CorrelatedXsec` (the mean of the tunes) with its prior 1σ band, averaged with the official T2K νμ flux at the \
+Proton Module. The target dependence is reproduced: σ(Fe)/σ(CH) = 1.048 ± 0.017 (prior) for the nominal against \
+1.047 ± 0.036 measured (tunes 1.015–1.067; the paper's NEUT 1.037, GENIE 1.044). The nominal absolute cross sections, \
+1.36 ± 0.08 (Fe) and 1.30 ± 0.08 (CH) × 10⁻³⁸ cm², are 6 % below the data, 1.44 +0.19/−0.16 and 1.38 +0.18/−0.15, \
+well within the measurement's uncertainty; the tunes span 1.26–1.50 (Fe) and 1.19–1.42 (CH), the paper's NEUT and \
+GENIE give 1.40/1.35 and 1.24/1.19."""
 caveats = [
   "Flux: the official release (ingriddata-numu-ccqe-xs-2015) provides the Proton Module flux, which its README states was used for this measurement. The iron modules' flux is not public; according to the paper its normalisation differs by about 1 % (Φ_Fe/Φ_CH = 0.991) and the digitised flux of the paper agrees in shape to 1–2 %, so the Proton Module flux is used for both. The released flux gives ⟨E⟩ = 1.537 GeV (paper 1.51 GeV).",
   "Per nucleon without isoscalar correction (iron: 26 protons, 30 neutrons; CH: 7 protons, 6 neutrons per 13 nucleons), as the paper.",
@@ -32,12 +33,12 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
 modules = ["xsec (generator_sigma, CorrelatedXsec)"]
 
 [[figures]]
 id = "ratio"
-title = "σ(Fe)/σ(CH) per nucleon: T2K vs the GENIE tunes and the CorrelatedXsec reference with its prior 1σ band"
+title = "σ(Fe)/σ(CH) per nucleon: T2K vs the GENIE tunes and the CorrelatedXsec nominal with its prior 1σ band"
 paper_ref = "Fig. 17"
 original = "original/fig_ratio.png"
 ours = "ours/ratio.png"

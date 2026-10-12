@@ -38,8 +38,8 @@ samples = [draw() for _ in 1:500]
 p0 = xs.params
 sFe = [avg(p, :Fe) for p in samples]; sCH = [avg(p, :CH) for p in samples]; sR = sFe ./ sCH
 
-rows = [(model = "$(ref) (reference)", Fe = avg(p0, :Fe), CH = avg(p0, :CH), Fe_over_CH = avg(p0, :Fe) / avg(p0, :CH))]
-push!(rows, (model = "prior 1σ of the reference", Fe = std(sFe), CH = std(sCH), Fe_over_CH = std(sR)))
+rows = [(model = "$(ref) (nominal)", Fe = avg(p0, :Fe), CH = avg(p0, :CH), Fe_over_CH = avg(p0, :Fe) / avg(p0, :CH))]
+push!(rows, (model = "prior 1σ of the nominal", Fe = std(sFe), CH = std(sCH), Fe_over_CH = std(sR)))
 for t in TUNES
     a, b = fluxavg(σ_tune(t, :Fe, Ef)), fluxavg(σ_tune(t, :CH, Ef))
     push!(rows, (model = string(t), Fe = a, CH = b, Fe_over_CH = a / b))
@@ -68,10 +68,10 @@ for (tg, d, name) in ((:Fe, dFe, "xsec_Fe"), (:CH, dCH, "xsec_CH"))
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, tg, E), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
     end
-    lines!(ax, E, sig[tg](p0) .* E, color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+    lines!(ax, E, sig[tg](p0) .* E, color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
     errorbars!(ax, [dCH.mean_E], [d.sigma_1e_38cm2_per_nucleon], [d.syst_down], [d.syst_up], color = :black, whiskerwidth = 6)
     scatter!(ax, [dCH.mean_E], [d.sigma_1e_38cm2_per_nucleon], color = :black, markersize = 12, label = "T2K (flux-averaged)")
-    scatter!(ax, [dCH.mean_E], [avg(p0, tg)], color = :dodgerblue, marker = :diamond, markersize = 12, label = "reference, flux-averaged")
+    scatter!(ax, [dCH.mean_E], [avg(p0, tg)], color = :dodgerblue, marker = :diamond, markersize = 12, label = "nominal, flux-averaged")
     Legend(fig[1, 2], ax, framevisible = false, labelsize = 9)
     save("ours/$(name).png", fig)
 end
@@ -82,10 +82,10 @@ band!(ax, E, q(MR, 0.16), q(MR, 0.84), color = (:dodgerblue, 0.25), label = "Cor
 for (i, t) in enumerate(TUNES)
     lines!(ax, E, σ_tune(t, :Fe, E) ./ σ_tune(t, :CH, E), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
 end
-lines!(ax, E, sig[:Fe](p0) ./ sig[:CH](p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+lines!(ax, E, sig[:Fe](p0) ./ sig[:CH](p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
 e = sqrt(Rt.stat[1]^2 + Rt.syst[1]^2)
 errorbars!(ax, [Rt.mean_E[1]], [Rt.value[1]], [e], color = :black, whiskerwidth = 6)
 scatter!(ax, [Rt.mean_E[1]], [Rt.value[1]], color = :black, markersize = 12, label = "T2K (flux-averaged)")
-scatter!(ax, [Rt.mean_E[1]], [avg(p0, :Fe) / avg(p0, :CH)], color = :dodgerblue, marker = :diamond, markersize = 12, label = "reference, flux-averaged")
+scatter!(ax, [Rt.mean_E[1]], [avg(p0, :Fe) / avg(p0, :CH)], color = :dodgerblue, marker = :diamond, markersize = 12, label = "nominal, flux-averaged")
 Legend(fig[1, 2], ax, framevisible = false, labelsize = 9)
 save("ours/ratio.png", fig)
