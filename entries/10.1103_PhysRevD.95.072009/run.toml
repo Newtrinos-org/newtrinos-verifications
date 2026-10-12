@@ -1,8 +1,8 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/nu.png" = "aa86d7a895958fc8f4a695b260b4a963984378571fcfb5e974f631731f39f9da"
-"ours/nubar.png" = "84b19b50b3a46c27b0afbd1b30bd62adf1fd94c7dddb4d6f2dcf208fff906c60"
-"ours/ratio.png" = "e3c3516f937fe8febf0eb3e68fcb1f25560d59b5045c1bbe66053a282853b503"
+"ours/nu.png" = "30826dfb3574109fe7ca116c988852cd70add76fe1730dd49ff8d698dbf88179"
+"ours/nubar.png" = "a2086c0e14c5bd2187ce3abc1c43175bba884c39bddaaa31fcc155d5f9475f33"
+"ours/ratio.png" = "460ceae74b91f7db762a72df8c7f36c00366cc881fc89f4951cd86cb9a59a024"
 "results/chi2.csv" = "61f1488c2d82857818c0268e9069ca693a8386008584b39a8289f79b4913a39b"
 "results/ratio.csv" = "8b8f8d29621b78b1771bac7ad5bdbc2298a9a98c9070aae6194c3e6d2d8a6476"
 
@@ -19,8 +19,8 @@ repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 command = "julia -t 4 --project=<Newtrinos.jl @ 78e71c310b> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-12T12:19:17Z"
+date = "2026-10-12T14:40:57Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 4
-wall_time_s = 85.9
+wall_time_s = 99.0

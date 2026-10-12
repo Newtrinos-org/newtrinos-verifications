@@ -20,6 +20,7 @@ is described well: χ² = 2.6 for 9 bins with the published covariance (2.1 incl
 the tunes give 1.3–4.6. In σ/E the νμ data at 3–7 GeV lie 8–12 % below all tunes, as the paper also finds for its \
 GENIE model; the nominal gives χ² = 39.2 for 18 bins (21.5 with its prior covariance), the tunes 27–56."""
 caveats = [
+  "The model curves are shown from 0.2 GeV to show their full energy dependence (the data start at 2 GeV): σ/E of νμ rises towards the quasi-elastic peak at ≈ 1 GeV (0.97 × 10⁻³⁸ cm²/GeV for the nominal on carbon) and falls to zero at threshold; for ν̄μ the maximum is broader and at ≈ 3 GeV (0.36). Near 0.2 GeV a few prior draws (3 of 500) reach σ = 0 (large negative tune-spread modes, clipped at zero); the ratio band ignores them.",
   "MINERvA normalised the low-ν flux, and hence the neutrino cross section, to the NOMAD carbon data at 12–22 GeV; the antineutrino normalisation follows from the same flux method, so R_CC needs no external antineutrino input. Absolute σ/E values are therefore partly tied to NOMAD (a separate entry).",
   "The results are total cross sections, extrapolated from the muon acceptance (E_μ > 1.8 GeV, θ_μ < 0.35 rad) with MINERvA's GENIE-Hybrid model, and corrected for the proton excess of the CH tracker to an isoscalar (carbon) target.",
   "The model is averaged flat in energy within each bin (the flux shape within a bin is not used); the ratio is formed from the bin-averaged cross sections.",

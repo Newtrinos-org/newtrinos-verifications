@@ -18,7 +18,7 @@ CR, CS = covmat("data/cov_ratio_1701.csv"), covmat("data/cov_sigma_1701.csv")
 @assert isapprox(sqrt.(diag(CS)), vcat(Sn.total, Sb.total); rtol = 0.05)
 
 tab = X.load_table()
-E = 10 .^ range(log10(1.8), log10(25), length = 250)
+E = 10 .^ range(log10(0.2), log10(25), length = 300)   # down to the threshold region
 at(v, e = E) = X.at_energies(tab.E, v, e)
 TUNES = Symbol.(sort(tab.tunes))
 σ_tune(t, anti, e = E) = at(sum(X.generator_sigma(t, :C, :numu, anti, :CC)), e)
@@ -37,16 +37,16 @@ rng = MersenneTwister(1)
 draw() = map(p -> p isa Distribution ? rand(rng, p) : p, xs.priors)
 samples = [draw() for _ in 1:500]
 p0 = xs.params
-q(M, a) = [quantile(row, a) for row in eachrow(M)]
+q(M, a) = [quantile(filter(!isnan, row), a) for row in eachrow(M)]   # ratios are undefined where a draw has σ = 0
 band = Dict(anti => (M = reduce(hcat, [sig[anti](p) for p in samples]); (lo = q(M, 0.16), hi = q(M, 0.84))) for anti in (false, true))
 Rs = reduce(hcat, [sig[true](p) ./ sig[false](p) for p in samples])
 rband = (lo = q(Rs, 0.16), hi = q(Rs, 0.84))
 
-ticks = ([2, 3, 5, 10, 20], ["2", "3", "5", "10", "20"])
+ticks = ([0.2, 0.5, 1, 2, 5, 10, 20], ["0.2", "0.5", "1", "2", "5", "10", "20"])
 tunecol(i) = (Makie.wong_colors()[mod1(i, 7)], 0.8)
 function panel_ratio(pos)
     ax = Axis(pos, xscale = log10, xlabel = "E_ν (GeV)", ylabel = "σ(ν̄μ) / σ(νμ)", title = "MINERvA ratio, carbon (isoscalar)",
-              limits = (1.8, 25, 0.33, 0.6), xticks = ticks)
+              limits = (0.2, 25, 0.2, 0.6), xticks = ticks)
     band!(ax, E, rband.lo, rband.hi, color = (:dodgerblue, 0.25), label = "CorrelatedXsec prior 1σ")
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, true) ./ σ_tune(t, false), color = tunecol(i), linewidth = 1, label = "GENIE $(t)")
@@ -59,7 +59,7 @@ function panel_ratio(pos)
 end
 function panel_sigma(pos, anti, S, lab, lims)
     ax = Axis(pos, xscale = log10, xlabel = "E_ν (GeV)", ylabel = "$lab CC σ / E (10⁻³⁸ cm²/GeV per nucleon)",
-              title = "MINERvA $lab, carbon (isoscalar)", limits = (1.8, 25, lims...), xticks = ticks)
+              title = "MINERvA $lab, carbon (isoscalar)", limits = (0.2, 25, lims...), xticks = ticks)
     band!(ax, E, band[anti].lo, band[anti].hi, color = (:dodgerblue, 0.25), label = "CorrelatedXsec prior 1σ")
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, anti), color = tunecol(i), linewidth = 1, label = "GENIE $(t)")
@@ -71,8 +71,8 @@ function panel_sigma(pos, anti, S, lab, lims)
     scatter!(ax, S.E_center_GeV, y, color = :black, label = "MINERvA (total)")
     ax
 end
-for (name, mk) in (("ratio", panel_ratio), ("nu", pos -> panel_sigma(pos, false, Sn, "νμ", (0.6, 0.9))),
-                   ("nubar", pos -> panel_sigma(pos, true, Sb, "ν̄μ", (0.25, 0.4))))
+for (name, mk) in (("ratio", panel_ratio), ("nu", pos -> panel_sigma(pos, false, Sn, "νμ", (0.0, 1.05))),
+                   ("nubar", pos -> panel_sigma(pos, true, Sb, "ν̄μ", (0.0, 0.42))))
     fig = Figure(size = (800, 470))
     ax = mk(fig[1, 1])
     Legend(fig[1, 2], ax, framevisible = false, labelsize = 9)
