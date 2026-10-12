@@ -44,3 +44,53 @@ title = "Three-flavour global fit (NuFIT 6.0)"
 reference = "Esteban et al., JHEP 12 (2024) 216, arXiv:2410.05380"
 module = "combined experiments"
 note = "1D Δχ² profiles of the oscillation parameters from the Newtrinos experiment set, compared with NuFIT (partial overlap of data sets)."
+
+# ---- cross sections (xsec, CorrelatedXsec) -------------------------------------------------------
+[[item]]
+category = "inputs"
+title = "NOMAD and MINOS inclusive CC σ/E (C, Fe)"
+reference = "NOMAD, Phys. Lett. B 660, 19 (2008), arXiv:0711.1183 (HEPData ins767013); MINOS, Phys. Rev. D 81, 072002 (2010), arXiv:0910.2201"
+module = "xsec (generator_sigma, CorrelatedXsec)"
+note = "DIS and RES→DIS normalisation per target, ν and ν̄ on iron."
+
+[[item]]
+category = "inputs"
+title = "MINERvA ν̄/ν CC inclusive ratio"
+reference = "MINERvA, Phys. Rev. D 95, 072009 (2017), arXiv:1701.04857"
+module = "xsec (CorrelatedXsec)"
+note = "Tests the shared ν̄/ν ratio knob, 2–22 GeV on CH."
+
+[[item]]
+category = "inputs"
+title = "MicroBooNE σ(Eν) CC inclusive on argon"
+reference = "MicroBooNE, Phys. Rev. Lett. 128, 151801 (2022), arXiv:2110.14023 (HEPData ins1954078)"
+module = "xsec (generator_sigma, CorrelatedXsec)"
+note = "Argon target and AR23; the model is folded with the published Wiener-SVD smearing matrix."
+
+[[item]]
+category = "inputs"
+title = "T2K on-axis CC inclusive on H₂O, CH and Fe"
+reference = "T2K, PTEP 2019, 093C02, arXiv:1904.09611"
+module = "xsec (CorrelatedXsec)"
+note = "Target dependence O vs C vs Fe of the shared model, flux-averaged with the published T2K flux."
+
+[[item]]
+category = "inputs"
+title = "CCQE: MiniBooNE vs NOMAD, and the bubble-chamber axial mass"
+reference = "MiniBooNE, PRD 81, 092005 (2010) and PRD 88, 032001 (2013); NOMAD, EPJC 63, 355 (2009); Bodek et al., EPJC 53, 349 (2008)"
+module = "xsec (CorrelatedXsec: xsec_ma_qe, MEC)"
+note = "M_A^QE and MEC normalisation together (the MiniBooNE/NOMAD tension)."
+
+[[item]]
+category = "inputs"
+title = "ANL/BNL single-pion production (reanalysis)"
+reference = "Wilkinson et al., PRD 90, 112017 (2014), arXiv:1411.4482; Rodrigues et al., EPJC 76, 474 (2016)"
+module = "xsec (CorrelatedXsec: xsec_res_norm)"
+note = "RES normalisation on deuterium with the flux cancelled."
+
+[[item]]
+category = "experimental"
+title = "ντ CC normalisation: Super-K and DeepCore"
+reference = "Super-K, PRD 98, 052006 (2018), arXiv:1711.09436; IceCube, PRD 99, 032007 (2019), arXiv:1901.05366"
+module = "super_k, deepcore (xsec_nutau_cc_norm)"
+note = "Fit the ντ normalisation with the shared cross-section model (water, ice)."
