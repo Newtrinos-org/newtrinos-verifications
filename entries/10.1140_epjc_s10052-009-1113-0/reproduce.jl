@@ -42,9 +42,9 @@ function panel(pos, target, anti, title, ylab, data)
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, target, anti, (:QE,)), color = tunecol(i), linewidth = 1, label = "GENIE $(t) QE")
     end
-    lines!(ax, E, fQE(p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref) QE")
+    lines!(ax, E, fQE(p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref)) QE")
     target === :C && lines!(ax, E, sigma(target, anti, (:QE, :MEC))(p0), color = :dodgerblue, linestyle = :dash, linewidth = 2,
-                            label = "reference QE + MEC")
+                            label = "nominal QE + MEC")
     for (d, lab, mk) in data
         errorbars!(ax, d.x, d.y, d.e, color = :black, whiskerwidth = 4)
         scatter!(ax, d.x, d.y, marker = mk, color = mk == :circle ? :black : :white, strokecolor = :black, strokewidth = 1.2, label = lab)

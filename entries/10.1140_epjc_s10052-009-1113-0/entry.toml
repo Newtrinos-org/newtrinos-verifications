@@ -16,11 +16,11 @@ The quasi-elastic νμ (per neutron) and ν̄μ (per proton) cross sections on N
 and the νμ result converted to a free neutron, together with the deuterium bubble-chamber measurements the paper \
 compares to (ANL 1977, BNL 1981, FNAL 1983; NUISANCE data files), compared with the quasi-elastic cross sections carried \
 by Newtrinos.jl (module `xsec`): the ten GENIE tunes of `generator_sigma` (process QE) on carbon and on free nucleons, and \
-the reference model of `CorrelatedXsec` (G18_10a_02_11a) with its prior 1σ band, which includes the axial-mass knob \
-(xsec_ma_qe, ±10 %). On carbon the data are on average 8 % (ν) and 12 % (ν̄) above the reference QE (χ² = 7.6/10 and \
-3.4/6; 4.4 and 2.8 with the prior band); the reference QE + MEC (shown dashed) lies above the data at high energy, as \
-NOMAD's selection (one or two tracks) suppresses 2p2h only partially. On free neutrons the reference describes the \
-deuterium data from 0.2 GeV and NOMAD's converted points (χ² = 5.6/10)."""
+the nominal model of `CorrelatedXsec` (the mean of the tunes) with its prior 1σ band, which includes the axial-mass knob \
+(xsec_ma_qe, ±10 %). On carbon the data are on average 6 % (ν) and 10 % (ν̄) above the nominal QE (χ² = 5.7/10 and \
+3.2/6; 3.2 and 2.6 with the prior band); the nominal QE + MEC (shown dashed) lies above the data at high energy, as \
+NOMAD's selection (one or two tracks) suppresses 2p2h only partially. On free neutrons the nominal describes the \
+deuterium data from 0.2 GeV and NOMAD's converted points (χ² = 4.2/10, data/model 1.04)."""
 caveats = [
   "NOMAD normalised its quasi-elastic sample to its deep-inelastic events (not to a flux prediction) and subtracted about 50 % background with its Monte Carlo; the conversion to a free neutron uses the Smith–Moniz model and is model dependent.",
   "NOMAD's 'quasi-elastic' signal on carbon is defined by its event selection: 2p2h (MEC) events enter partly. The model is shown both as QE only and QE + MEC; χ² uses QE only.",
@@ -31,12 +31,12 @@ caveats = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
 modules = ["xsec (generator_sigma, CorrelatedXsec)"]
 
 [[figures]]
 id = "nu_carbon"
-title = "νμ quasi-elastic σ per neutron of carbon: NOMAD vs the GENIE tunes and the CorrelatedXsec reference (QE, and QE + MEC)"
+title = "νμ quasi-elastic σ per neutron of carbon: NOMAD vs the GENIE tunes and the CorrelatedXsec nominal (QE, and QE + MEC)"
 paper_ref = "Fig. 14 (ν)"
 original = "original/fig_nu_carbon.png"
 ours = "ours/nu_carbon.png"
