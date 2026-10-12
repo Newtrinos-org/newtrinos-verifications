@@ -1,10 +1,10 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/nu.png" = "1bb15c4f792fe60757f59bf5d440455ed62639132cf8ad3f9ee917435afb7755"
-"ours/nubar.png" = "66bc5ef075941787616490fa3e7342ac90d994a283d723f33c1c1a5e377fecb0"
-"ours/ratio.png" = "0b1ec37bc1b655c3c155f7dc1fb75f0f34c15ade1971c3368725d59b22e45755"
-"results/chi2.csv" = "7459bef4123a5e6774ba21ee88c1bc7a2464dbbeb467f2c16a8574f880d4108e"
-"results/ratio.csv" = "cad2d93523a5cd6a1844b41476307d0263d312fbb67911a51136c2eed273e425"
+"ours/nu.png" = "aa86d7a895958fc8f4a695b260b4a963984378571fcfb5e974f631731f39f9da"
+"ours/nubar.png" = "84b19b50b3a46c27b0afbd1b30bd62adf1fd94c7dddb4d6f2dcf208fff906c60"
+"ours/ratio.png" = "e3c3516f937fe8febf0eb3e68fcb1f25560d59b5045c1bbe66053a282853b503"
+"results/chi2.csv" = "61f1488c2d82857818c0268e9069ca693a8386008584b39a8289f79b4913a39b"
+"results/ratio.csv" = "8b8f8d29621b78b1771bac7ad5bdbc2298a9a98c9070aae6194c3e6d2d8a6476"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -12,15 +12,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "7faca3137d5e64e53d6df02fd873c0b940b8ac66"
+commit = "78e71c310bd56bd3478f27e68e4e8f20f17126a6"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 4 --project=<Newtrinos.jl @ 7faca3137d> reproduce.jl"
+command = "julia -t 4 --project=<Newtrinos.jl @ 78e71c310b> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-12T09:09:02Z"
+date = "2026-10-12T12:19:17Z"
 julia = "1.12.5"
 os = "Linux"
 threads = 4
-wall_time_s = 85.7
+wall_time_s = 85.9

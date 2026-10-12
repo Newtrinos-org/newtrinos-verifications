@@ -51,7 +51,7 @@ function panel_ratio(pos)
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, true) ./ σ_tune(t, false), color = tunecol(i), linewidth = 1, label = "GENIE $(t)")
     end
-    lines!(ax, E, sig[true](p0) ./ sig[false](p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+    lines!(ax, E, sig[true](p0) ./ sig[false](p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
     errorbars!(ax, R.E_center_GeV, R.ratio, R.total, color = :black, whiskerwidth = 4)
     errorbars!(ax, R.E_center_GeV, R.ratio, R.E_center_GeV .- R.E_lo_GeV, R.E_hi_GeV .- R.E_center_GeV, direction = :x, color = :black)
     scatter!(ax, R.E_center_GeV, R.ratio, color = :black, label = "MINERvA (total)")
@@ -64,7 +64,7 @@ function panel_sigma(pos, anti, S, lab, lims)
     for (i, t) in enumerate(TUNES)
         lines!(ax, E, σ_tune(t, anti), color = tunecol(i), linewidth = 1, label = "GENIE $(t)")
     end
-    lines!(ax, E, sig[anti](p0), color = :dodgerblue, linewidth = 2.5, label = "reference $(ref)")
+    lines!(ax, E, sig[anti](p0), color = :dodgerblue, linewidth = 2.5, label = "nominal ($(ref))")
     y = S[!, 4]
     errorbars!(ax, S.E_center_GeV, y, S.total, color = :black, whiskerwidth = 4)
     errorbars!(ax, S.E_center_GeV, y, S.E_center_GeV .- S.E_lo_GeV, S.E_hi_GeV .- S.E_center_GeV, direction = :x, color = :black)
@@ -84,7 +84,7 @@ chi2(d, m, C) = (r = d .- m; dot(r, C \ r))
 dS = vcat(Sn[!, 4], Sb[!, 4])
 mS(p) = vcat(mbin(p, false), mbin(p, true))
 MSs = reduce(hcat, [mS(p) for p in samples]); MRs = reduce(hcat, [mratio(p) for p in samples])
-rows = [(model = "$(ref) (reference)", chi2_ratio = chi2(R.ratio, mratio(p0), CR), chi2_sigma = chi2(dS, mS(p0), CS),
+rows = [(model = "$(ref) (nominal)", chi2_ratio = chi2(R.ratio, mratio(p0), CR), chi2_sigma = chi2(dS, mS(p0), CS),
          chi2_ratio_with_prior = chi2(R.ratio, mratio(p0), CR + cov(MRs, dims = 2)),
          chi2_sigma_with_prior = chi2(dS, mS(p0), CS + cov(MSs, dims = 2)))]
 tbin(t, anti) = [mean(σ_tune(t, anti, binE(b...))) for b in bins]
