@@ -14,7 +14,7 @@ rename!(d, [:E, :E_lo, :E_hi, :s, :stat_p, :stat_m, :sys_p, :sys_m])
 d.err = sqrt.(d.stat_p .^ 2 .+ d.sys_p .^ 2)
 
 tab = X.load_table()
-E = 10 .^ range(log10(2), log10(400), length = 300)
+E = 10 .^ range(log10(0.2), log10(400), length = 400)   # down to the threshold region
 at(v, e = E) = X.at_energies(tab.E, v, e)
 TUNES = Symbol.(sort(tab.tunes))
 σ_tune(t) = at(sum(X.generator_sigma(t, :C, :numu, false, :CC)))
@@ -35,8 +35,8 @@ band_bins = reduce(hcat, [[mean(f(p)) for f in sig_bins] for p in samples])
 σ_band_bins = [std(r) for r in eachrow(band_bins)]
 
 fig = Figure(size = (820, 640))
-ax = Axis(fig[1, 1], xscale = log10, ylabel = "νμ CC σ / E (10⁻³⁸ cm²/GeV per nucleon)", limits = (2, 400, 0.6, 0.85),
-          xticks = ([2, 5, 10, 20, 50, 100, 200], ["2", "5", "10", "20", "50", "100", "200"]), title = "NOMAD (isoscalar, mostly C)")
+ax = Axis(fig[1, 1], xscale = log10, ylabel = "νμ CC σ / E (10⁻³⁸ cm²/GeV per nucleon)", limits = (0.2, 400, 0.0, 1.05),
+          xticks = ([0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200], ["0.2", "0.5", "1", "2", "5", "10", "20", "50", "100", "200"]), title = "NOMAD (isoscalar, mostly C)")
 band!(ax, E, lo, hi, color = (:dodgerblue, 0.25), label = "CorrelatedXsec prior 1σ (C)")
 for (i, t) in enumerate(TUNES)
     lines!(ax, E, σ_tune(t), color = (Makie.wong_colors()[mod1(i, 7)], 0.8), linewidth = 1, label = "GENIE $(t)")
@@ -47,8 +47,8 @@ errorbars!(ax, d.E, d.s, d.E .- d.E_lo, d.E_hi .- d.E, direction = :x, color = :
 scatter!(ax, d.E, d.s, color = :black, label = "NOMAD (stat ⊕ syst)")
 hidexdecorations!(ax, grid = false)
 Legend(fig[1:2, 2], ax, framevisible = false, labelsize = 9)
-ax2 = Axis(fig[2, 1], xscale = log10, xlabel = "E_ν (GeV)", ylabel = "data / nominal", limits = (2, 400, 0.88, 1.12),
-           xticks = ([2, 5, 10, 20, 50, 100, 200], ["2", "5", "10", "20", "50", "100", "200"]))
+ax2 = Axis(fig[2, 1], xscale = log10, xlabel = "E_ν (GeV)", ylabel = "data / nominal", limits = (0.2, 400, 0.88, 1.12),
+           xticks = ([0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200], ["0.2", "0.5", "1", "2", "5", "10", "20", "50", "100", "200"]))
 band!(ax2, E, lo ./ sig(xs.params), hi ./ sig(xs.params), color = (:dodgerblue, 0.25))
 hlines!(ax2, [1.0], color = :dodgerblue)
 errorbars!(ax2, d.E, d.s ./ model_bins, d.err ./ model_bins, color = :black, whiskerwidth = 4)
