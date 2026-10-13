@@ -1,0 +1,92 @@
+title = "Quasi-vacuum solar neutrino oscillations"
+short = "Fogli, Lisi, Montanino & Palazzo 2000 (+ Friedland 2000): solar matter effects between the vacuum and MSW regimes"
+collaboration = "G. L. Fogli, E. Lisi, D. Montanino, A. Palazzo"
+doi = "10.1103/PhysRevD.62.113004"
+journal = "Phys. Rev. D 62, 113004"
+year = 2000
+arxiv = "hep-ph/0005261"
+experiments = ["Sun"]
+parameters = ["θ12", "Δm²21"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-13"
+summary = """
+The conversion of solar νe in the Sun for 10⁻¹⁰ ≲ δm²/E ≲ 10⁻⁷ eV²/MeV, where it is neither vacuum-like nor \
+adiabatic: the correction c²ω − P☉ (P☉ = P(νe → ν₁) at the solar surface) in the full mixing plane for the standard \
+solar model and for the exponential density (Figs. 2, 3), the Earth correction (Fig. 4), the level-crossing \
+probability at the ⁷Be energy in both octants (Friedland, Fig. 1), and the interference term that the averaged \
+Sun–Earth propagation drops. Newtrinos is also compared with an independent two-flavour integration of the \
+evolution equation (RK4), with both the B23 and the BP2000 density (the one used in the papers). Newtrinos \
+reproduces Fig. 2 along its isolines within ~2 % and agrees with the RK4 integration within 4×10⁻⁴ in both octants \
+and at maximal mixing (B23 vs BP2000: ≤ 0.006); Friedland's P_c isolines are reproduced within 0.01 for θ < 45° and \
+0.003 for θ > 45°; its Parke formula reproduces the semianalytical Fig. 3 exactly, and the Earth correction agrees \
+within ~3 % (medians along the isolines). The comparison led to a fix of the level crossing for θ > 45° and near \
+maximal mixing (Newtrinos f64fa41). Not covered: the coherent Sun–Earth interference term, which Newtrinos averages \
+out (valid for Δm² ≳ 10⁻⁸ eV² for the ⁷Be and pep lines).
+"""
+caveats = [
+  "Before Newtrinos f64fa41 (e.g. 09ed1fe), the level crossing was wrong in two cases. (1) θ > 45°: `solar_crossing_probability` returned P_c = 0 for cos 2θ ≤ 0 (no resonance) and the conversion was treated as adiabatic, e.g. c²ω − P☉ = 0.333 (0.167) instead of 0.061 (0.037) at tan²ω = 2 (5) and δm²/E = 10⁻⁹ eV²/MeV; Friedland's P_c = 0.1–0.4 isolines came out as 0. (2) Near maximal mixing the numerical evolution started at 1000 × the resonance density, which vanishes as cos 2θ → 0: |Newtrinos − RK4| was 0.007 at tan²ω = 0.9 and 0.095 at 0.99 (≤ 3×10⁻⁴ for tan²ω ≤ 0.5); a profile ending above the resonance density (exponential profile cut at R☉, δm²/E ≲ 10⁻⁹) was likewise treated as adiabatic. Both only affect Δm²₂₁ ≲ 10⁻⁷ eV² (not LMA). Since f64fa41 the scale height for Parke's formula (which holds in both octants) is taken at |cos 2θ| n_* (n_* = Δm²/(2E√2 G_F c₁₃²), floor 10⁻² n_*, outermost interval beyond the table) and the numerical evolution starts at 1000 n_*; solar regression references were unchanged by this change.",
+  "Newtrinos averages the Sun–Earth propagation: P_ee = Σᵢ P(νe → νᵢ)|U_ei|², i.e. Fogli et al.'s Eq. (28) without the interference term 2 s c √(P☉(1−P☉)) cos ξ. The yearly average alone (Eq. 26) damps it only like |J₀(εξ)| ~ (εξ)^(−1/2): for a monoenergetic line its amplitude is still 0.13 (⁷Be) and 0.16 (pep) at Δm² = 10⁻⁹ eV², and 0.017 / 0.046 at 10⁻⁸ eV². The thermal line width (Fogli et al. Fig. 5, not reproduced) removes it for δm²/E ≳ 10⁻⁸ eV²/MeV, and energy integration of continuous spectra removes it at lower δm²/E. The Newtrinos solar code comment states validity for Δm² ≳ 10⁻⁹ eV²; for the ⁷Be and pep lines the averaging is accurate only for Δm² ≳ 10⁻⁸ eV². No vacuum/just-so solution can be fitted with Newtrinos.",
+  "Fogli et al. used the BP2000 ('year 2000') electron density (Bahcall's neordered.output, in data/); Newtrinos uses B23. The two agree within ~2 % up to 0.95 R☉ and 10 % at 0.98 R☉, and the correction c²ω − P☉ differs by ≤ 0.006 between them; the comparisons with the paper are therefore made with both. The non-adiabatic region (nₑ ≈ δm²/(2√2 G_F E)) lies at 0.82–0.985 R☉ for δm²/E = 10⁻⁸–10⁻¹⁰ eV²/MeV, where the local scale height falls from R☉/10 to below R☉/100 (Friedland's effective R☉/18.4 is reached at ~0.91 R☉).",
+  "Fogli et al. quote that at tan²ω ≃ 1 the correction reaches 0.05 at δm²/E ≃ 8×10⁻¹⁰ eV²/MeV for the true density and ~2× lower for the exponential one. Their Fig. 2 isoline is at 6.8×10⁻¹⁰; the RK4 integration gives 6.9×10⁻¹⁰ (BP2000), 7.0×10⁻¹⁰ (B23), 5.1×10⁻¹⁰ (exponential ending at R☉), Newtrinos 6.9×10⁻¹⁰ (BP2000, tan²ω = 0.99) and the semianalytical formula 3.8×10⁻¹⁰.",
+  "The paper curves were digitised from the vector graphics of the arXiv versions (data/). The isoline levels of the solid lines are those printed in the figures; the dotted lines (Fig. 2 resonance radii, Fig. 3 analytical, Fig. 4 at η = 45°) are unlabelled dots and are compared by evaluating Newtrinos at each dot. Fig. 3 'analytical' (exponential profile up to R☉, vacuum outside) is compared with the Newtrinos numerical evolution through that profile (within 0.5 % median / 1.5 % at the 90th percentile of the nearest level); Newtrinos has no hypergeometric-function solution. The Fig. 2 isoline statistics use tan²ω < 0.9; the second octant is tested with the cuts (RK4) and Friedland's figure.",
+  "Earth (Fig. 4): Newtrinos uses `PREM_discontinuities` with chord-averaged densities (as the solar experiment modules), Fogli et al. a five-step biquadratic PREM with a first-order perturbative evolution. The two-flavour limit is taken as θ₁₃ = 0 (ν₃ decouples exactly). The three-flavour analysis (Figs. 6–8) is not reproduced.",
+]
+links = [
+  { label = "Friedland, MSW effects in vacuum oscillations (PRL 85, 936)", url = "https://doi.org/10.1103/PhysRevLett.85.936" },
+  { label = "arXiv:hep-ph/0005261", url = "https://arxiv.org/abs/hep-ph/0005261" },
+  { label = "BP2000 electron density (Bahcall)", url = "https://www.sns.ias.edu/~jnb/SNdata/Export/BP2000/neordered.output" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aa98e0c2181d37f94bcd33fee69813aa84935644"
+requires = ["f64fa41"]
+modules = ["osc (SI: solar_mass_fractions, solar_transition_matrix, solar_crossing_probability, earth_mass_to_flavour)", "solar_flux", "earth_layers"]
+
+[[figures]]
+id = "electron_density"
+title = "Solar electron density (B23, BP2000, exponential fit) and its local scale height, with the region where the quasi-vacuum conversion happens"
+paper_ref = "Fig. 1"
+original = "original/flmp_fig1.png"
+ours = "ours/electron_density.png"
+
+[[figures]]
+id = "psun_ssm"
+title = "Isolines of c²ω − P☉ for the solar-model density, and resonance radii: Fogli et al. vs Newtrinos (BP2000 and B23 density)"
+paper_ref = "Fig. 2"
+original = "original/flmp_fig2.png"
+ours = "ours/psun_ssm.png"
+
+[[figures]]
+id = "psun_exponential"
+title = "Isolines of c²ω − P☉ for the exponential density: analytical and semianalytical (Fogli et al.) vs Newtrinos numerical evolution and Parke formula"
+paper_ref = "Fig. 3"
+original = "original/flmp_fig3.png"
+ours = "ours/psun_exponential.png"
+
+[[figures]]
+id = "psun_cuts"
+title = "c²ω − P☉ at fixed mixing angle in both octants: Newtrinos vs an independent RK4 integration vs the Fig. 2 isolines"
+paper_ref = "Fig. 2 (sections)"
+ours = "ours/psun_cuts.png"
+
+[[figures]]
+id = "friedland_pc"
+title = "Level-crossing probability at the ⁷Be energy in both octants: Friedland (BP2000 numerical, exponential r₀ = R☉/18.4) vs RK4 and Newtrinos"
+paper_ref = "Friedland, PRL 85, 936, Fig. 1"
+original = "original/friedland_fig1.png"
+ours = "ours/friedland_pc.png"
+
+[[figures]]
+id = "earth"
+title = "Isolines of the Earth correction c²ω − P⊕ (PREM) for nadir angles 0° and 45°"
+paper_ref = "Fig. 4"
+original = "original/flmp_fig4.png"
+ours = "ours/earth.png"
+
+[[figures]]
+id = "interference"
+title = "The interference term of Eq. (28) left out by the averaged Sun–Earth propagation: ⁷Be P_ee with the yearly average (Eq. 26), and its amplitude for line energies"
+paper_ref = "Eqs. (26), (28)"
+ours = "ours/interference.png"

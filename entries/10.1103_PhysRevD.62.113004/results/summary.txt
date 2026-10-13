@@ -1,0 +1,103 @@
+non-adiabatic region nₑ = δm²/(2√2 G_F E) for δm²/E = 1e-8 … 1e-10 eV²/MeV: r = 0.820 … 0.985 R☉ (BP2000), 0.821 … 0.984 R☉ (B23)
+  nₑ(0.80 R☉): B23 0.08073, BP2000 0.07962, exponential 0.05336 mol/cm³
+  nₑ(0.90 R☉): B23 0.0229, BP2000 0.0228, exponential 0.0186 mol/cm³
+  nₑ(0.95 R☉): B23 0.006794, BP2000 0.00686, exponential 0.01098 mol/cm³
+  nₑ(0.98 R☉): B23 0.001131, BP2000 0.001246, exponential 0.008003 mol/cm³
+
+computing c²ω − P_sun grids …
+  2 × 4941 points in 133 s
+
+Fogli et al. Fig. 2 isolines (tan²ω < 0.9), Newtrinos with the BP2000 density at the digitised points:
+  level 0.01: 119 points, Newtrinos median 0.0098, 10–90% range 0.0097 … 0.0098
+  level 0.05: 118 points, Newtrinos median 0.0491, 10–90% range 0.0487 … 0.0508
+  level 0.10: 120 points, Newtrinos median 0.0982, 10–90% range 0.0975 … 0.1015
+  level 0.30:  98 points, Newtrinos median 0.2959, 10–90% range 0.2929 … 0.3055
+  level 0.50:  88 points, Newtrinos median 0.4962, 10–90% range 0.4908 … 0.5081
+  level 0.70:  98 points, Newtrinos median 0.6995, 10–90% range 0.6914 … 0.7088
+  level 0.90:  44 points, Newtrinos median 0.8985, 10–90% range 0.8957 … 0.9002
+… and with the B23 density (pp production region):
+  level 0.01: 119 points, Newtrinos median 0.0097, 10–90% range 0.0096 … 0.0098
+  level 0.05: 118 points, Newtrinos median 0.0486, 10–90% range 0.0480 … 0.0510
+  level 0.10: 120 points, Newtrinos median 0.0973, 10–90% range 0.0961 … 0.1014
+  level 0.30:  98 points, Newtrinos median 0.2937, 10–90% range 0.2892 … 0.3062
+  level 0.50:  88 points, Newtrinos median 0.4962, 10–90% range 0.4856 … 0.5097
+  level 0.70:  98 points, Newtrinos median 0.6997, 10–90% range 0.6868 … 0.7103
+  level 0.90:  44 points, Newtrinos median 0.8999, 10–90% range 0.8976 … 0.9011
+
+exponential-profile grids in 125 s
+
+Fogli et al. Fig. 3 semianalytical isolines (tan²ω < 0.9), Newtrinos' Parke formula at the digitised points:
+  level 0.01: 114 points, Newtrinos median 0.0100, 10–90% range 0.0100 … 0.0100
+  level 0.05: 136 points, Newtrinos median 0.0500, 10–90% range 0.0498 … 0.0501
+  level 0.10: 121 points, Newtrinos median 0.1000, 10–90% range 0.0998 … 0.1003
+  level 0.30: 100 points, Newtrinos median 0.3001, 10–90% range 0.2995 … 0.3009
+  level 0.50:  92 points, Newtrinos median 0.5003, 10–90% range 0.4995 … 0.5010
+  level 0.70:  99 points, Newtrinos median 0.7002, 10–90% range 0.6998 … 0.7013
+  level 0.90:  37 points, Newtrinos median 0.9003, 10–90% range 0.9000 … 0.9006
+… Newtrinos numerical, exponential continued to 3 R☉:
+  level 0.01: 114 points, Newtrinos median 0.0100, 10–90% range 0.0100 … 0.0100
+  level 0.05: 136 points, Newtrinos median 0.0500, 10–90% range 0.0498 … 0.0501
+  level 0.10: 121 points, Newtrinos median 0.1000, 10–90% range 0.0998 … 0.1003
+  level 0.30: 100 points, Newtrinos median 0.3001, 10–90% range 0.2995 … 0.3009
+  level 0.50:  92 points, Newtrinos median 0.5003, 10–90% range 0.4995 … 0.5010
+  level 0.70:  99 points, Newtrinos median 0.7002, 10–90% range 0.6998 … 0.7013
+  level 0.90:  37 points, Newtrinos median 0.9003, 10–90% range 0.9000 … 0.9006
+Fig. 3 analytical dots (tan²ω < 0.9, δm²/E ≥ 1.2e-9, 576 dots): Newtrinos numerical (profile ends at R☉) within 0.5% (median) / 1.4% (90%) of the nearest level
+Fig. 3 analytical dots (tan²ω < 0.9, δm²/E < 1.2e-9, 104 dots): Newtrinos numerical (profile ends at R☉) within 1.2% (median) / 1.5% (90%) of the nearest level
+tan²ω = 1.00: c²ω − P☉ = 0.05 at δm²/E = 6.93e-10 eV²/MeV (BP2000, RK4)
+tan²ω = 1.00: c²ω − P☉ = 0.05 at δm²/E = 6.99e-10 eV²/MeV (B23, RK4)
+tan²ω = 1.00: c²ω − P☉ = 0.05 at δm²/E = 5.06e-10 eV²/MeV (exponential ending at R☉, RK4)
+tan²ω = 0.99: c²ω − P☉ = 0.05 at δm²/E = 3.82e-10 eV²/MeV (exponential, Parke formula (semianalytical), Newtrinos)
+tan²ω = 0.90: c²ω − P☉ = 0.05 at δm²/E = 6.92e-10 eV²/MeV (BP2000, Newtrinos)
+tan²ω = 0.99: c²ω − P☉ = 0.05 at δm²/E = 6.93e-10 eV²/MeV (BP2000, Newtrinos)
+
+cuts (Newtrinos and RK4, BP2000 and B23) in 57 s
+tan²ω = 0.01: max |Newtrinos − RK4| = 1.5e-04 (BP2000), 8.4e-05 (B23); max |RK4 B23 − RK4 BP2000| = 0.004
+tan²ω = 0.10: max |Newtrinos − RK4| = 2.3e-05 (BP2000), 1.9e-05 (B23); max |RK4 B23 − RK4 BP2000| = 0.006
+tan²ω = 0.50: max |Newtrinos − RK4| = 5.1e-05 (BP2000), 5.0e-05 (B23); max |RK4 B23 − RK4 BP2000| = 0.003
+tan²ω = 0.90: max |Newtrinos − RK4| = 5.7e-05 (BP2000), 5.6e-05 (B23); max |RK4 B23 − RK4 BP2000| = 0.002
+tan²ω = 0.99: max |Newtrinos − RK4| = 5.7e-05 (BP2000), 5.6e-05 (B23); max |RK4 B23 − RK4 BP2000| = 0.002
+tan²ω = 2.00: max |Newtrinos − RK4| = 1.2e-04 (BP2000), 1.1e-04 (B23); max |RK4 B23 − RK4 BP2000| = 0.001
+tan²ω = 5.00: max |Newtrinos − RK4| = 4.1e-04 (BP2000), 4.3e-04 (B23); max |RK4 B23 − RK4 BP2000| = 0.000
+
+Friedland grids in 244 s
+Friedland Fig. 1 numerical isolines (BP2000), RK4 and Newtrinos (BP2000) at the digitised points:
+  first  octant, P_c = 0.1:  12 points, RK4 median 0.098 (max dev 0.008), Newtrinos median 0.098 (max dev 0.008)
+  first  octant, P_c = 0.2:  16 points, RK4 median 0.199 (max dev 0.009), Newtrinos median 0.199 (max dev 0.009)
+  first  octant, P_c = 0.3:  20 points, RK4 median 0.298 (max dev 0.009), Newtrinos median 0.298 (max dev 0.009)
+  first  octant, P_c = 0.4:  23 points, RK4 median 0.398 (max dev 0.008), Newtrinos median 0.398 (max dev 0.008)
+  first  octant, P_c = 0.5:  32 points, RK4 median 0.499 (max dev 0.007), Newtrinos median 0.499 (max dev 0.007)
+  first  octant, P_c = 0.6:  39 points, RK4 median 0.600 (max dev 0.006), Newtrinos median 0.600 (max dev 0.006)
+  first  octant, P_c = 0.7:  36 points, RK4 median 0.700 (max dev 0.003), Newtrinos median 0.700 (max dev 0.003)
+  first  octant, P_c = 0.8:  29 points, RK4 median 0.800 (max dev 0.001), Newtrinos median 0.800 (max dev 0.001)
+  first  octant, P_c = 0.9:  14 points, RK4 median 0.900 (max dev 0.000), Newtrinos median 0.900 (max dev 0.000)
+  second octant, P_c = 0.1:  36 points, RK4 median 0.100 (max dev 0.003), Newtrinos median 0.100 (max dev 0.003)
+  second octant, P_c = 0.2:  34 points, RK4 median 0.200 (max dev 0.001), Newtrinos median 0.200 (max dev 0.001)
+  second octant, P_c = 0.3:  28 points, RK4 median 0.300 (max dev 0.002), Newtrinos median 0.300 (max dev 0.002)
+  second octant, P_c = 0.4:  23 points, RK4 median 0.400 (max dev 0.001), Newtrinos median 0.400 (max dev 0.001)
+
+Earth grids in 1 s
+Fogli et al. Fig. 4 (η = 0°) isolines, Newtrinos (PREM_discontinuities, chord-averaged) at the digitised points:
+  level 0.01: 130 points, Newtrinos median 0.0103, 10–90% range 0.0091 … 0.0114
+  level 0.05:  61 points, Newtrinos median 0.0514, 10–90% range 0.0506 … 0.0530
+  level 0.10:  44 points, Newtrinos median 0.1019, 10–90% range 0.0999 … 0.1042
+  level 0.20:  16 points, Newtrinos median 0.2024, 10–90% range 0.2004 … 0.2049
+Fig. 4 η = 45° dots (180): Newtrinos within 1% (median) / 2% (90%) of the nearest level
+
+interference term (Newtrinos P☉ with the BP2000 density):
+  pp (0.3 MeV)     Δm² = 1e-10 eV²: P☉ = 0.672, εξ =    2.1, yearly-averaged interference amplitude ≤ 0.208
+  pp (0.3 MeV)     Δm² = 1e-09 eV²: P☉ = 0.464, εξ =   21.1, yearly-averaged interference amplitude ≤ 0.079
+  pp (0.3 MeV)     Δm² = 3e-09 eV²: P☉ = 0.085, εξ =   63.3, yearly-averaged interference amplitude ≤ 0.026
+  pp (0.3 MeV)     Δm² = 1e-08 eV²: P☉ = 0.000, εξ =  211.0, yearly-averaged interference amplitude ≤ 0.000
+  ⁷Be (0.862 MeV)  Δm² = 1e-10 eV²: P☉ = 0.686, εξ =    0.7, yearly-averaged interference amplitude ≤ 0.292
+  ⁷Be (0.862 MeV)  Δm² = 1e-09 eV²: P☉ = 0.618, εξ =    7.3, yearly-averaged interference amplitude ≤ 0.127
+  ⁷Be (0.862 MeV)  Δm² = 3e-09 eV²: P☉ = 0.453, εξ =   22.0, yearly-averaged interference amplitude ≤ 0.077
+  ⁷Be (0.862 MeV)  Δm² = 1e-08 eV²: P☉ = 0.042, εξ =   73.4, yearly-averaged interference amplitude ≤ 0.017
+  pep (1.44 MeV)   Δm² = 1e-10 eV²: P☉ = 0.689, εξ =    0.4, yearly-averaged interference amplitude ≤ 0.329
+  pep (1.44 MeV)   Δm² = 1e-09 eV²: P☉ = 0.649, εξ =    4.4, yearly-averaged interference amplitude ≤ 0.157
+  pep (1.44 MeV)   Δm² = 3e-09 eV²: P☉ = 0.554, εξ =   13.2, yearly-averaged interference amplitude ≤ 0.098
+  pep (1.44 MeV)   Δm² = 1e-08 eV²: P☉ = 0.222, εξ =   44.0, yearly-averaged interference amplitude ≤ 0.046
+  ⁸B (10 MeV)      Δm² = 1e-10 eV²: P☉ = 0.692, εξ =    0.1, yearly-averaged interference amplitude ≤ 0.406
+  ⁸B (10 MeV)      Δm² = 1e-09 eV²: P☉ = 0.687, εξ =    0.6, yearly-averaged interference amplitude ≤ 0.303
+  ⁸B (10 MeV)      Δm² = 3e-09 eV²: P☉ = 0.674, εξ =    1.9, yearly-averaged interference amplitude ≤ 0.217
+  ⁸B (10 MeV)      Δm² = 1e-08 eV²: P☉ = 0.629, εξ =    6.3, yearly-averaged interference amplitude ≤ 0.135
