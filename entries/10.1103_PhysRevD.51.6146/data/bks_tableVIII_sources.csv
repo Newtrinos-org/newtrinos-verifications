@@ -1,0 +1,8 @@
+# Bahcall, Kamionkowski & Sirlin, PRD 51, 6146 (1995), Table VIII: spectrum-averaged total cross sections, T_min = 0 (the 15O endpoint is printed as 1.1732 in the paper; it is 1.732)
+source,q_MeV,Tmax_MeV,sigma_e_1e-46cm2,sigma_mu_1e-46cm2
+pp,0.420,0.261,11.6,3.3
+be7_862,0.862,0.665,57.9,12.8
+be7_384,0.384,0.231,19.2,5.1
+b8,15.0,14.5,594,106
+n13,1.199,0.988,45.8,10.4
+o15,1.732,1.509,70.8,15.1

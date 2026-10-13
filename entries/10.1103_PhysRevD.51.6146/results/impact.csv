@@ -1,0 +1,22 @@
+quantity,flavour,newtrinos_over_bks,before_8b620af_over_bks
+"8B, T > 3.49 MeV (SK-IV, E_tot > 4 MeV)",e,1.00000,1.01250
+"8B, T > 3.49 MeV (SK-IV, E_tot > 4 MeV)",x,1.00000,1.03384
+"8B, T > 4.5 MeV",e,1.00000,1.01424
+"8B, T > 4.5 MeV",x,1.00000,1.03658
+"7Be 862 keV, all T",e,1.00000,1.00470
+"7Be 862 keV, all T",x,1.00000,1.01691
+"pp, all T",e,1.00000,1.00318
+"pp, all T",x,1.00000,1.01078
+"10 MeV, all T",e,1.00000,1.00819
+"10 MeV, all T",x,1.00000,1.02281
+"8B nue recoil shape, T = 4.0 MeV, relative to T = 4 MeV",e,1.00000,1.00000
+"8B nue recoil shape, T = 5.0 MeV, relative to T = 4 MeV",e,1.00000,1.00210
+"8B nue recoil shape, T = 6.0 MeV, relative to T = 4 MeV",e,1.00000,1.00439
+"8B nue recoil shape, T = 7.0 MeV, relative to T = 4 MeV",e,1.00000,1.00689
+"8B nue recoil shape, T = 8.0 MeV, relative to T = 4 MeV",e,1.00000,1.00965
+"8B nue recoil shape, T = 9.0 MeV, relative to T = 4 MeV",e,1.00000,1.01274
+"8B nue recoil shape, T = 10.0 MeV, relative to T = 4 MeV",e,1.00000,1.01631
+"8B nue recoil shape, T = 11.0 MeV, relative to T = 4 MeV",e,1.00000,1.02056
+"8B nue recoil shape, T = 12.0 MeV, relative to T = 4 MeV",e,1.00000,1.02586
+"8B nue recoil shape, T = 13.0 MeV, relative to T = 4 MeV",e,1.00000,1.03262
+"8B nue recoil shape, T = 14.0 MeV, relative to T = 4 MeV",e,1.00000,1.03944

@@ -1,0 +1,32 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig1_be7_recoil.png" = "9ef96a51236cfa5d26ec2230f550265e1f5194de53fe2c641fe4d0dc997b592b"
+"ours/fig4_b8_recoil.png" = "e67b59100c8b5b5b23526bba2c369031083fe2dbaa76aaeefccff5f9cff17841"
+"ours/fig6_sigma_tot.png" = "2708761431ac3a20e83b0946d73271a631bf04950241bf2882ef14aef205c606"
+"ours/newtrinos_vs_bks.png" = "a244d56331f67213dd8e70df9631f080e1016a4bbbcb19771e7a722194726bd2"
+"ours/recoil_tables.png" = "b1e17a5a9709452e4652ac5481ce9f54a62c56c14fbb22127bdfb396bad280c9"
+"ours/sigma_tot.png" = "ec291f7f0b8738c087739ce30424cd5797bcfc9fcb0f595e76c42edde4cd6f40"
+"ours/sources.png" = "456dc9e4e21c2647f4f49b49aabf9729e97956dcba0cc138112d443ca92617dd"
+"results/impact.csv" = "e08f782b01c005d71564d9b1d42bf6845fdf06f118ee3f1f47bb09669e688850"
+"results/recoil_spectra.csv" = "4e8126bb939e480fc4f3066d84e2efb17ec8bdf555b2796ec7e3be18ab375e68"
+"results/sigma_tot.csv" = "8d65dc1c6a61c12b2e30d58dcb4eeb32c275297d0e837b8704b6e10ca625dc1b"
+"results/sources.csv" = "31ab5209a8141e6f7414482b7157e78eaf75fa81d056d4a4fc3012e7996043fd"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "aa98e0c2181d37f94bcd33fee69813aa84935644"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ aa98e0c218> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-13T12:04:27Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 107.2

@@ -1,0 +1,83 @@
+title = "Solar neutrinos: radiative corrections in neutrino-electron scattering experiments"
+short = "ν–e elastic scattering with electroweak and QED radiative corrections: total cross sections and recoil spectra"
+collaboration = "J. N. Bahcall, M. Kamionkowski, A. Sirlin"
+doi = "10.1103/PhysRevD.51.6146"
+journal = "Phys. Rev. D 51, 6146"
+year = 1995
+experiments = ["Super-Kamiokande", "SNO", "Borexino"]
+parameters = ["ν–e cross section"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-13"
+summary = """
+The ν–e elastic scattering cross section of Newtrinos' `solar_xsec` module (`dσdT_es`, used by the Super-Kamiokande \
+and Borexino modules) compared with Bahcall, Kamionkowski & Sirlin (BKS). The BKS formulae (electroweak corrections \
+ρ_NC and κ(T), Eqs. A1–A7; QED corrections f₋, f₊, f₊₋, Eqs. B3–B5) are implemented independently in this entry; they \
+reproduce the paper's total cross sections (Table VII) within 0.5 %, its recoil spectra for the ⁷Be lines (Tables I, \
+II) to 0.15 % and its Figs. 1, 4 and 6. Newtrinos (since commit 8b620af) implements the same electroweak and QED \
+corrections and agrees with these formulae at the same sin²θ_W, including the QED tilt of the ⁸B recoil spectrum \
+(−4 % at the highest recoil energies). This comparison led to that change: before, the QED corrections were missing \
+and ν_μ,τ used the νₑ form of κ(T).
+"""
+caveats = [
+  "Commits before 8b620af (e.g. 09ed1fe) neglected the QED corrections and used κ^(νₑ,e)(T) = 0.9791 + 0.0097 I(T) instead of κ^(ν_μ,e)(T) = 0.9970 − 0.00037 I(T) (Eq. A7) for ν_μ,τ: their νₑ cross section was 0.35 % (0.38 MeV) to 0.9 % (20 MeV) too high and lacked the QED tilt of the ⁸B recoil spectrum (about 4 % between 4 and 14 MeV), their ν_μ,τ cross section 1.2–2.3 % too high (κ +1.5 %, QED +0.8 % at 10 MeV). They are shown dashed (\"before 8b620af\") in the figures and in results/impact.csv. Effect of the fix at default parameters (measured on 09ed1fe with only this change): Super-Kamiokande I–IV predictions −0.5 % (flat in energy to 0.15 %, since the SK modules scale SK's own MC by the Newtrinos oscillated/unoscillated ratio), Δ ln L −1.35, −0.45, −0.97, −1.90 for SK-I–IV; Borexino phase I/II rates −0.7 % / −0.5 %; SNO unchanged.",
+  "Table VII lists 0.38, 0.86 and 1.44 MeV; these rows are the ⁷Be and pep lines (Table VIII gives the same values for the ⁷Be lines), so they are evaluated at 0.3843, 0.8613 and 1.442 MeV. For ν_μ the BKS formulae (and Newtrinos) lie 0.2–0.5 % below Table VII and Fig. 6 at all energies (beyond the 3-digit rounding at a few points); for νₑ they agree within rounding.",
+  "Tables III–VI (pp, ⁸B, ¹³N, ¹⁵O) are averaged over Bahcall's 1989 spectra. This entry uses the Newtrinos spectra (pp: Bahcall 1997, CNO, and for ⁸B the Bahcall et al. 1996 shape, `read_spectra(:bahcall)`, not the Newtrinos default of Winter et al. 2006); they differ near the end points, so the BKS formulae and Newtrinos deviate from these tables in the same way (up to 3 % for ⁸B below 12 MeV, more at the end points). The tables also show a saw-tooth from BKS's coarse numerical grid. The direct comparison of the cross sections is the Newtrinos/BKS figure. Table VIII prints the ¹⁵O end point as 1.1732 MeV; it is 1.732 MeV.",
+  "sin²θ_W: BKS use sin²θ̂_W(m_Z) = 0.2317 (MS-bar), Newtrinos the current MS-bar value 0.23129 with the same ρ_NC and κ; the difference is ≲ 0.3 %, which is why Newtrinos is slightly offset from the BKS curves in the Fig. 6 comparison. The Newtrinos/BKS comparisons are made at the Newtrinos value. The BKS formulae for f₋ and f₊ are approximations with an absolute error of ~0.1 % (up to 0.4 % near the end point, Appendix B).",
+]
+links = [
+  { label = "arXiv:astro-ph/9502003", url = "https://arxiv.org/abs/astro-ph/9502003" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aa98e0c2181d37f94bcd33fee69813aa84935644"
+modules = ["solar_xsec", "solar_flux"]
+
+[[figures]]
+id = "sigma_tot"
+title = "Total cross sections (T_min = 0): BKS formulae and Newtrinos relative to Table VII"
+paper_ref = "Table VII"
+original = "original/table7_sigma.png"
+ours = "ours/sigma_tot.png"
+
+[[figures]]
+id = "fig6"
+title = "Fractional changes of the total cross section w.r.t. sin²θ_W = 0.23 without radiative corrections: net, radiative corrections, sin²θ_W (heavy νₑ, light ν_μ); Newtrinos (red) and Newtrinos before 8b620af (red dashed)"
+paper_ref = "Fig. 6"
+original = "original/fig6_sigma_tot.png"
+ours = "ours/fig6_sigma_tot.png"
+
+[[figures]]
+id = "fig4"
+title = "⁸B: change of the normalised recoil spectrum ξ(T); Newtrinos (red) and before 8b620af (red dashed)"
+paper_ref = "Fig. 4"
+original = "original/fig4_b8_recoil.png"
+ours = "ours/fig4_b8_recoil.png"
+
+[[figures]]
+id = "fig1"
+title = "⁷Be 0.862 MeV line: change of the normalised recoil spectrum ξ(T); Newtrinos (red) and before 8b620af (red dashed)"
+paper_ref = "Fig. 1"
+original = "original/fig1_be7_recoil.png"
+ours = "ours/fig1_be7_recoil.png"
+
+[[figures]]
+id = "recoil_tables"
+title = "Normalised recoil spectra relative to Tables I–VI (original: Table IV, ⁸B): BKS formulae (black) and Newtrinos (red), νₑ solid, ν_μ,τ dashed"
+paper_ref = "Tables I–VI"
+original = "original/table4_b8.png"
+ours = "ours/recoil_tables.png"
+
+[[figures]]
+id = "sources"
+title = "Spectrum-averaged total cross sections relative to Table VIII (grey: printed precision); Newtrinos spectra, see caveats"
+paper_ref = "Table VIII"
+original = "original/table8_sources.png"
+ours = "ours/sources.png"
+
+[[figures]]
+id = "newtrinos_vs_bks"
+title = "dσ/dT of Newtrinos relative to BKS at the same sin²θ_W: pinned commit (solid) and before 8b620af (dashed)"
+paper_ref = "Eq. (A1)"
+ours = "ours/newtrinos_vs_bks.png"
