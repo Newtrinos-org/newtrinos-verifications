@@ -1,0 +1,63 @@
+title = "Precise quasielastic neutrino/nucleon cross section"
+short = "Inverse beta decay ν̄ₑ p → e⁺ n: Newtrinos' cross section (Strumia–Vissani Eq. 25) vs the full calculation and Vogel–Beacom"
+collaboration = "A. Strumia, F. Vissani"
+doi = "10.1016/S0370-2693(03)00616-6"
+journal = "Phys. Lett. B 564, 42"
+year = 2003
+arxiv = "astro-ph/0302055"
+experiments = ["KamLAND"]
+parameters = ["IBD cross section"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-13"
+summary = """
+The inverse-beta-decay cross section used by Newtrinos' `reactor_flux` module (the approximation of Strumia & Vissani, \
+Eq. 25) compared with the full Strumia–Vissani calculation, implemented here from the paper's Eqs. (3)–(14) with its inputs, \
+and with the O(1/M) result of Vogel & Beacom (PRD 60, 053003). The implementation reproduces Table 1 within its rounding \
+for all rows up to 40 MeV (σ in 41 of 44 rows, ⟨E_e⟩ in 43), and Table 2's comparison of Eq. (25) and of Vogel–Beacom. At \
+reactor energies Newtrinos' cross section is within 0.35 % of the full one between 2.2 and 10 MeV (+0.7 % at 2 MeV, where \
+Eq. 25 has the zeroth-order threshold); the IBD yield per fission of the Huber–Mueller spectra is 0.19 % below the full \
+calculation for KamLAND's and Bugey-4's fission fractions. Vogel–Beacom with the same inputs agrees with the full result \
+to 0.1 % below 6 MeV. Also shown: the relation between neutrino and prompt energy including the neutron recoil. This \
+comparison led to a change in Newtrinos (3082702): the KamLAND module now maps prompt to neutrino energy with \
+`reactor_flux.positron_energy`/`neutrino_energy` (Eq. 16), which agree with the mean positron energy of the full \
+calculation to within 1.7 keV below 10 MeV, instead of a constant offset of 0.792 MeV.
+"""
+caveats = [
+  "The 'full' curve is this entry's implementation of the paper's Eqs. (3)–(7), (11)–(14) (form factors of Eq. (7), radiative correction of Eq. (14), the paper's G_F, cos θ_C = 0.9746, g₁(0) = −1.270, M_A² = 1 GeV², PDG 2002 masses). It agrees with Table 1 within the rounding of σ and E_ν at all energies up to 40 MeV; above 40 MeV σ is up to 0.9 % and ⟨cos θ⟩ up to 0.005 off (σ outside the rounding at 144–179 MeV), probably from an input detail of the paper that is not stated; this does not affect reactor energies.",
+  "Table 2, row 1 (naïve Eq. 24) is reproduced to 0.3–0.8 points up to 80 MeV (5 points at 160 MeV) only when Eq. (24) is also given the radiative correction of Eq. (14); row 2 (Eq. 25) is reproduced at all energies except 20 MeV, where the paper quotes +0.4 % and we find −0.4 % (possibly a sign misprint; the neighbouring values match); row 3 (Vogel–Beacom, evaluated with the Strumia–Vissani inputs and radiative correction) is reproduced to 0.2 points up to 80 MeV and to 5 points at 160 MeV.",
+  "Normalisation: the paper's inputs correspond to |V_ud|²(1 + 3λ²) = 5.546, i.e. a neutron lifetime of 885.1 s (with τn |V_ud|²(1 + 3λ²) = 4908.6 s, Czarnecki, Marciano & Sirlin 2018). With today's values the cross section is 0.76 % larger (PDG 2024 τn = 878.4 s) or 0.51 % larger (PDG 2024 V_ud and λ). Newtrinos (pinned commit) uses the paper's normalisation unchanged. This has no effect on the KamLAND module, whose rate is anchored to the Bugey-4 measured yield per fission computed with the same cross section (the scale cancels to 10⁻⁴); it would matter for any prediction of absolute IBD rates.",
+  "Vogel–Beacom as published (f = 1, g = 1.26, cos θ_C = 0.974, inner radiative correction 2.4 %, no outer radiative correction) is 2.1–2.8 % below the full Strumia–Vissani cross section at reactor energies; the difference is entirely due to the inputs and the outer radiative correction, not to the O(1/M) expansion.",
+  "Prompt energy (E_prompt = E_e + mₑ): before Newtrinos 3082702 the KamLAND module used E_ν = E_prompt + 0.792 MeV at all energies. With the neutron recoil, E_ν − ⟨E_prompt⟩ grows from 0.784 MeV at threshold to 0.803 MeV at E_ν = 5 MeV and 0.841 MeV at 8 MeV (0.798 MeV averaged over the KamLAND spectrum), so the constant put prompt energies up to 50 keV (0.7 %) too high at the upper end of the spectrum and 8 keV too low near threshold (within KamLAND's 1.8 % energy-scale uncertainty). Since 3082702 (the pinned commit) the prediction integrates over E_ν(E_prompt) from `reactor_flux.neutrino_energy` with the Jacobian; ΔE_NU is kept only for plots. Effect on KamLAND: no-oscillation shape χ² against KamLAND's published expectation 1.67 → 1.63 (17 bins), log-likelihood at the default point −143.632 → −144.639, grid best fit with nuisances fixed Δm²₂₁ 7.675 → 7.70 ×10⁻⁵ eV² (+0.3 %). Results of KamLAND entries run at earlier commits use the constant offset. The spread of E_e at fixed E_ν (blue band) is far below the detector resolution.",
+  "Only ν̄ₑ p is checked; ⟨cos θ⟩ and νₑ n are not used by Newtrinos. Huber–Mueller spectra are used here only as weights (they are the subject of a separate entry).",
+]
+links = [
+  { label = "arXiv:astro-ph/0302055", url = "https://arxiv.org/abs/astro-ph/0302055" },
+  { label = "Vogel & Beacom, PRD 60, 053003 (1999)", url = "https://doi.org/10.1103/PhysRevD.60.053003" },
+  { label = "Czarnecki, Marciano & Sirlin, PRL 120, 202002 (2018) (neutron lifetime and V_ud)", url = "https://doi.org/10.1103/PhysRevLett.120.202002" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "3082702195de377ef7ba6782ee2f0fae6cf08ccd"
+modules = ["reactor_flux (ibd_xsec, spectrum, positron_energy, neutrino_energy)", "kamland"]
+
+[[figures]]
+id = "table1"
+title = "σ(ν̄ₑ p → e⁺ n) at reactor energies: Newtrinos (Eq. 25), the full Strumia–Vissani calculation, Table 1, Vogel–Beacom and the naïve formula; ratios to the full result, with the Huber–Mueller IBD spectrum"
+paper_ref = "Table 1"
+original = "original/sv_table1.png"
+ours = "ours/xsec_reactor.png"
+
+[[figures]]
+id = "table2"
+title = "Approximations vs the full cross section, 2–200 MeV: naïve Eq. (24), Vogel–Beacom O(1/M) and Newtrinos' Eq. (25), with the values of Table 2"
+paper_ref = "Table 2"
+original = "original/sv_table2.png"
+ours = "ours/approximations.png"
+
+[[figures]]
+id = "prompt_energy"
+title = "E_ν − E_prompt with the neutron recoil: full ⟨E_e⟩, Eq. (16), Newtrinos' positron_energy / neutrino_energy (since 3082702) and the constant offset used before; prompt-energy differences to the full calculation"
+paper_ref = "Eq. (16)"
+ours = "ours/positron_energy.png"

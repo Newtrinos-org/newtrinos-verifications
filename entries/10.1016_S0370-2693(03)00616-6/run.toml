@@ -1,0 +1,27 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/approximations.png" = "651f24307a5f9ea3a71bb576ff8dbd02c8d7e9d5ab3f983b26ba9c2151fcfc61"
+"ours/positron_energy.png" = "6b90d78ac525cfbf25e04d07108a6f39fbce5bee7a89549773324db17c696c06"
+"ours/xsec_reactor.png" = "9e78d972728aa33320fb96c5e71a2735c2d39ba595322cce1121ec872b75050a"
+"results/summary.csv" = "06768e0918fb38f42256553bdf303df381e91848b1efc5cfa3e9a5f85e1ab42c"
+"results/table1.csv" = "c3ed8403665b4c85c290d68060c83b2f4b52b32cb3d3063274c746996344a795"
+"results/table2.csv" = "8303d7632216f675565ed58799622e5ddb2ac97df97a61dedf4bea2099d3db14"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "3082702195de377ef7ba6782ee2f0fae6cf08ccd"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ 3082702195> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-13T12:07:55Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 73.3
