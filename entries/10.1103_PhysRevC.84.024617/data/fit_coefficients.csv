@@ -1,0 +1,8 @@
+# Published coefficients α1..α6 of S(E) = exp(Σ α_p E^(p-1)), E in MeV: Huber, PRC 84, 024617 (2011), Table III
+# (235U, 239Pu, 241Pu) and Mueller et al., PRC 83, 054615 (2011), Table VI (238U; with its 1σ errors δα).
+isotope,source,a1,a2,a3,a4,a5,a6
+U235,Huber Table III,4.367,-4.577,2.100,-5.294e-1,6.186e-2,-2.777e-3
+Pu239,Huber Table III,4.757,-5.392,2.563,-6.596e-1,7.820e-2,-3.536e-3
+Pu241,Huber Table III,2.990,-2.882,1.278,-3.343e-1,3.905e-2,-1.754e-3
+U238,Mueller Table VI,4.833e-1,1.927e-1,-1.283e-1,-6.762e-3,2.233e-3,-1.536e-4
+U238_err,Mueller Table VI,1.24e-1,5.86e-2,1.11e-2,1.92e-3,2.84e-4,2.86e-5

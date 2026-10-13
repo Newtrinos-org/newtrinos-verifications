@@ -1,0 +1,8 @@
+# Published IBD yields per fission σ_k [1e-43 cm²/fission] and Bugey-4 constants.
+# DayaBay2017: Daya Bay, PRL 118, 251801 (2017), arXiv:1704.01082: Huber–Mueller model values (235U 6.69±0.15, 239Pu 4.36±0.11;
+#   241Pu 6.05 from Huber, 238U 10.1 from Mueller, no errors quoted there).
+# Mention2011: Mention et al., PRD 83, 073006 (2011), arXiv:1101.2755, Table I, "new" (Mueller et al. converted spectra,
+#   with off-equilibrium corrections; errors in %).
+source,U235,U235_err,U238,U238_err,Pu239,Pu239_err,Pu241,Pu241_err
+DayaBay2017,6.69,0.15,10.1,,4.36,0.11,6.05,
+Mention2011,6.61,0.139,10.10,0.823,4.34,0.106,5.97,0.128

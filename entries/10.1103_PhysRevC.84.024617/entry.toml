@@ -1,0 +1,71 @@
+title = "Determination of antineutrino spectra from nuclear reactors"
+short = "Huber–Mueller reactor ν̄e spectra: fit coefficients, spectra vs tables, IBD yields per fission"
+collaboration = "P. Huber; Th. A. Mueller et al."
+doi = "10.1103/PhysRevC.84.024617"
+journal = "Phys. Rev. C 84, 024617"
+year = 2011
+arxiv = "1106.0687"
+experiments = ["KamLAND", "Daya Bay", "JUNO"]
+parameters = ["reactor ν̄e flux", "IBD yield"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-13"
+summary = """
+The reactor ν̄e spectra of Newtrinos.jl (module `reactor_flux`, the Huber–Mueller model) compared with Huber's converted \
+spectra of ²³⁵U, ²³⁹Pu and ²⁴¹Pu (PRC 84, 024617, Tables III, VII–IX and the machine-readable files) and the ab initio \
+²³⁸U spectrum of Mueller et al. (PRC 83, 054615, Tables II, III and VI). Newtrinos uses the published exponential-of-polynomial \
+coefficients unchanged. Refitting Huber's tables with his errors (stat ⊕ bias, correlated normalisation) reproduces his \
+coefficients to all printed digits and his χ²_min (49.3, 20.8, 15.0). Within 2–7 MeV the parametrisation follows the \
+tables to within 3 % (²³⁵U), 8 % (²⁴¹Pu) and 11 % (²³⁹Pu, one fluctuating bin), always within 1.7σ of the total error; \
+for ²³⁸U within 5.5 % against 10–20 % errors. The IBD yields per fission (Newtrinos' Strumia–Vissani cross section, \
+1.806–12 MeV) are 6.64, 10.10, 4.35 and 6.01×10⁻⁴³ cm² for ²³⁵U, ²³⁸U, ²³⁹Pu and ²⁴¹Pu, within 0.7 % of the \
+Huber–Mueller values quoted by Daya Bay (6.69, 10.1, 4.36, 6.05) and of Mention et al. (6.61, 10.10, 4.34, 5.97). The \
+Bugey-4 anchor used for KamLAND (5.752×10⁻⁴³ cm² at 0.538 : 0.078 : 0.328 : 0.056) matches Mention et al.; Newtrinos' \
+Huber–Mueller prediction at that fuel gives Bugey-4 / HM = 0.940 (the reactor anomaly; Mention et al.: 0.943).
+"""
+caveats = [
+  "Table III of Huber prints 4 significant digits. The spectra are very sensitive to this rounding, because the coefficients are strongly correlated: the printed coefficients deviate from the full-precision fit by up to 2.6 % (²³⁵U), 1.4 % (²³⁹Pu) and 4.2 % (²⁴¹Pu), mostly above 6 MeV, and change the IBD yields by −0.2, −0.3 and −0.8 %. The rounded coefficients are what everyone uses, and the differences are within the errors. Huber himself recommends interpolating the tables rather than using the parametrisation for analyses; the table-based yields differ from Newtrinos' by at most 0.6 %.",
+  "The ratios to the tables oscillate from bin to bin because the tabulated spectra fluctuate (the inversion has statistical scatter); the smooth parametrisation cannot follow this. The largest deviations (²³⁹Pu at 5.75 and 7.75 MeV, ²⁴¹Pu at 6.25 and 7 MeV) are single table points with 5–28 % errors.",
+  "Mueller's ²³⁸U coefficients (Table VI) are not reproduced by a fit to their Table III, neither the 12 h nor the 450 d column (the refit has different coefficients with χ² = 0.2 against 0.5 for the published ones, using the Table II errors without correlations); the published curve still follows both columns to within 5.5 %, far inside the 10–20 % errors. The ²³⁸U errors here are the quadratic sum of Table II, with \"> 20 %\" entered as 20 %.",
+  "The parametrisations stop at 2 and 8 MeV; Newtrinos integrates from the IBD threshold (1.806 MeV) to 12 MeV with the polynomial extrapolated. The extrapolated parts carry 0.5–1.0 % (below 2 MeV) and 0.1–0.9 % (above 8 MeV, largest for ²³⁸U) of the IBD yields.",
+  "The spectra are those of short irradiation (12 h for ²³⁵U and ²³⁸U, 36–43 h for Pu, as at the ILL). Newtrinos' reactor_flux has no off-equilibrium or spent-fuel correction (Mueller et al. Table VII: +1–2 % below 3 MeV, about +1 % on σ_f); the KamLAND module adds a constant factor 1.007. This is why Daya Bay's Huber–Mueller prediction at its fuel (5.91 / 0.946 = 6.25) is 1.4 % above Newtrinos' 6.16; Daya Bay's isotope values alone give 6.20 (−0.6 %).",
+  "The IBD yields depend on the cross section, which is Newtrinos' Strumia–Vissani approximation (checked in its own entry); the published yields used different cross sections and neutron lifetimes, which accounts for differences at the few-per-mille level.",
+]
+links = [
+  { label = "Huber, arXiv:1106.0687", url = "https://arxiv.org/abs/1106.0687" },
+  { label = "Mueller et al., PRC 83, 054615 (arXiv:1101.2663)", url = "https://doi.org/10.1103/PhysRevC.83.054615" },
+  { label = "Huber's machine-readable spectra", url = "http://www.phys.vt.edu/~pahuber/reactorfluxes/" },
+  { label = "Mention et al., PRD 83, 073006 (reactor antineutrino anomaly)", url = "https://doi.org/10.1103/PhysRevD.83.073006" },
+  { label = "Daya Bay, PRL 118, 251801 (Huber–Mueller yields)", url = "https://doi.org/10.1103/PhysRevLett.118.251801" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "c69601ed6d4a78aa54393517d4eac23de349a616"
+modules = ["reactor_flux"]
+
+[[figures]]
+id = "coefficients"
+title = "Fit coefficients: Huber, Table III (Newtrinos uses them unchanged; a refit of the tables reproduces them and the χ²_min)"
+paper_ref = "Huber, Table III"
+original = "original/huber_table3.png"
+ours = "ours/spectra.png"
+
+[[figures]]
+id = "u238"
+title = "²³⁸U: Mueller et al., Table III (12 h and 450 d) vs Newtrinos, lower right panel of the spectra figure (errors from Table II)"
+paper_ref = "Mueller et al., Tables II, III (coefficients: Table VI)"
+original = "original/mueller_table3.png"
+ours = "ours/spectra.png"
+
+[[figures]]
+id = "extrapolation"
+title = "Spectra and IBD-weighted spectra over the range Newtrinos integrates, with the table points"
+paper_ref = "Huber, Tables VII–IX; Mueller et al., Table III"
+ours = "ours/extrapolation.png"
+
+[[figures]]
+id = "yields"
+title = "IBD yields per fission vs published Huber–Mueller values; Bugey-4 and Daya Bay σ_f vs the Newtrinos prediction"
+paper_ref = "Daya Bay PRL 118, 251801; Mention et al. Table I"
+ours = "ours/yields.png"
