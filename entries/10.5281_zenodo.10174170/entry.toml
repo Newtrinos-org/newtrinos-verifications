@@ -1,0 +1,59 @@
+title = "Standard Solar Models B23 / SF-III"
+short = "B23 standard solar models: fluxes, correlations, electron density and production regions"
+collaboration = "Y. Herrera, A. Serenelli"
+doi = "10.5281/zenodo.10174170"
+journal = "Zenodo, v1.2"
+year = 2023
+experiments = ["Sun"]
+parameters = ["solar ν fluxes", "solar structure"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-13"
+summary = """
+The B23 standard solar models (Herrera & Serenelli, SF-III nuclear rates; MB22-met is the NuFIT 6.0 reference) as \
+used by Newtrinos' `solar_flux` module, compared with the B23 package (v1.2) and with the B23 fluxes published in \
+Solar fusion III (Rev. Mod. Phys. 97, 035002 (2025), Table II). The fluxes agree with Table II within its rounding \
+for GS98, AAG21 and MB22p, and are identical to the package for all six compositions; the correlated flux prior \
+(`solar_norms`) reproduces the package's uncertainties and correlation matrices to 10⁻¹⁶. The electron density used \
+for the MSW conversion agrees with B23 to 5×10⁻⁷ from the centre to the surface, and the 40-point production regions \
+reproduce the B23 production distributions (mean radius and mean nₑ at production identical to 10⁻⁴).
+"""
+caveats = [
+  "B23 has no journal publication; the reference is the Zenodo package (concept DOI 10.5281/zenodo.10174170; Newtrinos uses v1.2, doi:10.5281/zenodo.10822316, whose structure files differ from v1.1 by up to 0.5 % in nₑ and 1–6 % in the production distributions; the fluxes are the same). The published flux values are those of Solar fusion III, Table II, which quotes B23 for GS98, AAG21 and MB22p (2–3 significant digits; the original figure is that table).",
+  "This comparison led to a change in Newtrinos (in the pinned commit): the structure tables used to end at 0.5 R☉, and beyond it the electron density was BS05(OP) matched at 0.5 R☉. That tail was within 1 % of B23 up to 0.95 R☉ but 10 % above at 0.98 R☉, 27 % at 0.99 R☉ and a factor 2 at 0.995 R☉. Newtrinos now uses the B23 profile up to the surface. Only the non-adiabatic level crossing depends on it: the day-time P_ee changes by at most 3×10⁻⁴ (between the LOW and quasi-vacuum regions, Δm²₂₁ ≈ 10⁻⁸–3×10⁻⁹ eV²), and not at all for LMA or SMA.",
+  "The spectral shapes (⁸B, hep, CNO, pp), the ⁷Be line branching (89.56 % / 10.44 %; Table II rounds to 90 % / 10 %) and the absorption cross sections are not part of the B23 package and are not tested here (see the BP04 and Bahcall–Krastev–Smirnov entries).",
+]
+links = [
+  { label = "B23 package on Zenodo (v1.2)", url = "https://doi.org/10.5281/zenodo.10822316" },
+  { label = "Solar fusion III (Rev. Mod. Phys. 97, 035002)", url = "https://doi.org/10.1103/RevModPhys.97.035002" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "09ed1fe25acae490575f397456644df94d9dff0b"
+modules = ["solar_flux"]
+
+[[figures]]
+id = "fluxes"
+title = "B23 fluxes and uncertainties: Newtrinos vs Solar fusion III, Table II (GS98, AAG21, MB22p)"
+paper_ref = "Solar fusion III, Table II"
+original = "original/sf3_table2.png"
+ours = "ours/fluxes_sf3.png"
+
+[[figures]]
+id = "correlations"
+title = "Correlation matrix of the Newtrinos flux prior (MB22m) and its difference to the B23 package"
+paper_ref = "fluxes_SF3_MB22m.dat"
+ours = "ours/correlations.png"
+
+[[figures]]
+id = "electron_density"
+title = "Solar electron density: B23, Newtrinos, and the previous BS05(OP) tail beyond 0.5 R☉"
+paper_ref = "struct+nu_SF3_MB22m.dat"
+ours = "ours/electron_density.png"
+
+[[figures]]
+id = "production"
+title = "Production distributions per component: B23 vs Newtrinos' 40-point quantile compression"
+paper_ref = "struct+nu_SF3_MB22m.dat"
+ours = "ours/production.png"
