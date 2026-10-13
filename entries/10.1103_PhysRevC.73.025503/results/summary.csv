@@ -1,0 +1,13 @@
+quantity,value
+max_rel_dev_newtrinos_table4_0p5_15MeV,9.6451e-07
+max_rel_dev_newtrinos_table4_2_13MeV,9.6451e-07
+max_abs_dev_over_DeltaP_where_DeltaP_ge_0p01,0.012561
+mean_E_newtrinos_MeV,6.7701
+mean_E_table4_MeV,6.77
+mean_E_bahcall_MeV,6.7353
+dmeanE_per_solar_b8_shape_MeV,0.035516
+winter_1sigma_in_solar_b8_shape_units,0.24603
+bahcall_as_solar_b8_shape_meanE,-0.97798
+bahcall_as_solar_b8_shape_lsq,-1.1068
+max_rel_residual_newtrinos_slsq_vs_bahcall_2_13MeV,0.0099429
+max_rel_dev_winter_bahcall_2_13MeV,0.08512

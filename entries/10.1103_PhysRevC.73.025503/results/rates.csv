@@ -1,0 +1,10 @@
+# ⁸B predictions relative to b8_spectrum = :bahcall (the previous nominal), same Newtrinos commit and detection physics;
+# no oscillation and NuFIT 6.0 LMA (day+night). Cl, Ga: capture rate; SK-IV: ES rate in 3.49–19.49 MeV (kinetic, reconstructed);
+# Borexino: ES rate T > 3 and > 5 MeV. Absolute values for :bahcall, LMA: Cl ⁸B 1.9533 SNU, Ga ⁸B 4.1906 SNU
+shape,mean_E_MeV,Cl_noosc,Cl_osc,Ga_noosc,Ga_osc,SK4_noosc,SK4_osc,BX3_noosc,BX3_osc,BX5_noosc,BX5_osc
+"Bahcall (b8_spectrum = :bahcall)",6.7353,1.00000,1.00000,1.00000,1.00000,1.00000,1.00000,1.00000,1.00000,1.00000,1.00000
+"Newtrinos default (Winter)",6.7701,1.02451,1.02375,1.01856,1.01758,1.01083,1.01024,1.00967,1.00907,1.01548,1.01503
+"Newtrinos default, s = +1",6.8056,1.04690,1.04546,1.03577,1.03394,1.02142,1.02034,1.01928,1.01816,1.03005,1.02924
+"Newtrinos default, s = -1",6.7346,1.00212,1.00203,1.00135,1.00123,1.00023,1.00015,1.00007,0.99999,1.00091,1.00083
+"Winter Table IV +1σ",6.7613,1.01987,1.01922,1.01484,1.01402,1.00828,1.00779,1.00733,1.00683,1.01212,1.01174
+"Winter Table IV -1σ",6.7787,1.02886,1.02800,1.02208,1.02096,1.01331,1.01263,1.01196,1.01126,1.01873,1.01823

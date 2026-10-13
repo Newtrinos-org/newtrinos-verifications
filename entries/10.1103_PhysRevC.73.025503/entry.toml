@@ -1,0 +1,54 @@
+title = "The ⁸B neutrino spectrum"
+short = "⁸B neutrino spectrum of Winter et al. (Table IV), the Newtrinos default, compared with the previous Bahcall et al. (1996) nominal and its effect on the solar predictions"
+collaboration = "W. T. Winter, S. J. Freedman, K. E. Rehm, J. P. Schiffer"
+doi = "10.1103/PhysRevC.73.025503"
+journal = "Phys. Rev. C 73, 025503"
+year = 2006
+experiments = ["Sun", "Super-Kamiokande", "Borexino", "Homestake", "GALLEX/GNO", "SAGE"]
+parameters = ["⁸B spectral shape (solar_b8_shape)"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-13"
+summary = """
+The ⁸B neutrino spectrum deduced by Winter et al. from their measurement of the β-delayed α spectrum (Table IV, \
+recommended by Solar fusion II and used by the Super-Kamiokande and SNO analyses) is the default ⁸B spectrum of \
+Newtrinos' `solar_flux` module (`b8_spectrum = :winter`). At the tabulated energies the Newtrinos shape reproduces \
+Table IV to the rounding of the table (results/summary.csv, results/table4_comparison.csv); ⟨E_ν⟩ = 6.770 MeV. The \
+previous nominal, Bahcall et al., Phys. Rev. C 54, 411 (1996) (`b8_spectrum = :bahcall`, ⟨E_ν⟩ = 6.735 MeV), is shown \
+for comparison: it corresponds to `solar_b8_shape` ≈ −1 of the new default, whose prior keeps Bahcall's ±3σ variation \
+(Winter's own 1σ is a quarter of it). Compared at the same commit with the same detection physics, Winter's spectrum \
+raises the ⁸B capture rates by about 2.4 % (Cl) and 1.8 % (Ga) and the ν–e scattering rates by about 1.0 % (Super-K IV, \
+3.5–19.5 MeV) and 0.9 % / 1.5 % (Borexino, T > 3 / 5 MeV), with up to +8 % in the highest Super-K bins. Because the \
+Super-K module normalises to Super-K's own simulation, its prediction changes by less than 5×10⁻⁴; the SNO module does \
+not use the spectrum.
+"""
+caveats = [
+  "The detector numbers compare `b8_spectrum = :winter` and `:bahcall` at the pinned commit with identical detection physics (results/rates.csv, results/sk4_bins.csv), so they isolate the change of the ⁸B spectrum from the other solar changes of that commit (QED corrections of ν–e scattering, level-crossing probability).",
+  "Winter's ±1σ (ΔP column) is fully correlated and changes sign at 6.85 MeV; it covers the α-spectrum and recoil-order (weak magnetism) uncertainties. Later α-spectrum measurements (Kirsebom et al. 2011, Roger et al. 2012, Longfellow et al. 2023) put the α peak about 20 keV lower and differ from Winter's neutrino spectrum by up to ≈5 % below 15 MeV; Solar fusion III (Rev. Mod. Phys. 97, 035002, Sec. II.D.3) now recommends Longfellow et al. (2023), with Winter et al. as the alternative. Longfellow's tabulated spectrum is not public on arXiv and is not compared here.",
+  "Table IV was transcribed from the arXiv version (data/winter_table4.csv; original/table4.png is the table); it sums to 999.98 per 1000 and ends at 15.2 MeV. Newtrinos interpolates it with cubic splines on Bahcall's 0.02 MeV grid, renormalises it to 1 and continues it above 15.2 MeV with Bahcall's shape (1.1×10⁻⁵ of the flux); the reference curve of this entry is an independent cubic spline of the table. The wiggles of the ratios below 0.5 MeV and above 14 MeV come from the rounding of Winter's table and the point-to-point fluctuations (1–2 %) of Bahcall's tabulated spectrum, whose ±3σ differences also define the `solar_b8_shape` variation.",
+  "Detector predictions use Newtrinos' detection physics (ν–e scattering with radiative corrections, ³⁷Cl and ⁷¹Ga cross sections), Gaussian resolutions (SK-IV: that of the sk4_solar module and its bins; Borexino: 5 %/√T) and the NuFIT 6.0 solar parameters (sin²θ₁₂ = 0.308, Δm²₂₁ = 7.49×10⁻⁵ eV², day–night averaged). The Super-K module scales Super-K's simulated rates (made with Winter's spectrum) by the ratio of the Newtrinos prediction to its value at the nominal shape without oscillations, so only the double ratio shown in the figure changes its prediction.",
+  "The Cl and Ga absorption cross-section tables are Bahcall's; Bahcall's spectrum-averaged ⁸B cross section on ³⁷Cl (1.14×10⁻⁴² cm²) becomes 1.169×10⁻⁴² cm² with Winter's spectrum.",
+]
+links = [
+  { label = "arXiv:nucl-ex/0406019", url = "https://arxiv.org/abs/nucl-ex/0406019" },
+  { label = "Bahcall et al., PRC 54, 411 (1996) (previous nominal; shape variation)", url = "https://doi.org/10.1103/PhysRevC.54.411" },
+  { label = "Solar fusion III, Sec. II.D.3 (⁸B spectrum)", url = "https://doi.org/10.1103/RevModPhys.97.035002" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "aa98e0c2181d37f94bcd33fee69813aa84935644"
+modules = ["solar_flux (b8_spectrum = :winter, :bahcall)", "solar_xsec", "solar_common", "sk4_solar (bins, resolution)"]
+
+[[figures]]
+id = "spectrum"
+title = "⁸B spectrum: Newtrinos default vs Winter et al., Table IV (with its ±1σ and the solar_b8_shape prior), and the previous Bahcall (1996) nominal"
+paper_ref = "Fig. 12 (top) and Table IV"
+original = "original/fig12.png"
+ours = "ours/spectrum.png"
+
+[[figures]]
+id = "detectors"
+title = "Winter vs Bahcall nominal in the ν–e scattering spectra: Super-K IV bins (no oscillation, LMA, and the change of the Newtrinos Super-K prediction) and Borexino ⁸B"
+paper_ref = "—"
+ours = "ours/detectors.png"
