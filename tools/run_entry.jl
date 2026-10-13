@@ -35,8 +35,10 @@ root = dirname(dirname(entry))
 commit = strip(read(`git -C $clone rev-parse $rev^\{commit\}`, String))
 worktree = joinpath(root, ".worktrees", "newtrinos-$(commit[1:10])")
 # several entries may be started at the same time: create the worktree and its environment under a lock
+# (stale_age = 60: waiters re-check at least every minute, as the file watcher can miss the release; the
+# holder refreshes the pidfile every 30 s, so a long instantiate is never taken for stale)
 mkpath(dirname(worktree))
-lock = mkpidlock(joinpath(dirname(worktree), ".lock"); stale_age = 3600)
+lock = mkpidlock(joinpath(dirname(worktree), ".lock"); stale_age = 60)
 try
     isdir(worktree) || run(`git -C $clone worktree add --detach $worktree $commit`)
 finally
@@ -50,7 +52,7 @@ end
 @assert isempty(strip(read(`git -C $worktree status --porcelain --untracked-files=no`, String))) "worktree is not clean"
 
 julia = Base.julia_cmd()
-let lock = mkpidlock(joinpath(dirname(worktree), ".lock"); stale_age = 3600)
+let lock = mkpidlock(joinpath(dirname(worktree), ".lock"); stale_age = 60)
     try
         run(`$julia --project=$worktree -e "using Pkg; Pkg.instantiate(); Pkg.precompile()"`)
     finally
