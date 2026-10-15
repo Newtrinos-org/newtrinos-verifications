@@ -19,9 +19,9 @@ from the data with the reactor constraint (Fig. 28). Inputs extracted from the v
 caveats = [
   "The binned data agree: e-like 94 / 16 / 14 events in both, μ-like within ±2 events per sample below 2 GeV; single bins differ by ±1 event (E_rec reconstruction at bin edges).",
   "T2K's mean posterior prediction (Bayesian, without reactor constraint) lies 5–8% below the release nominal in the FHC samples (1Rμ −7.7% below 2 GeV, about uniform in energy), i.e. T2K's fit lands below the nominal we start from; part of this may be the change of near-detector fit between the 2023 analysis and the 2025 release.",
-  "Our δCP best fits are close (NO −2.4 in a flat valley from −2.6 to −1.5, official −1.97; IO −1.41, official −1.44); the exclusion of δCP ≈ +π/2 and the IO penalty are weaker than official: our fit absorbs the data deficit partly by θ₂₃ → maximal mixing, which lowers the e-like rate at δCP = −π/2.",
+  "Our δCP best fits are close (NO −2.2 in a flat valley from −2.6 to −1.5, official −1.97; IO −1.41, official −1.44; Δχ²(+π/2) 11.6 / 21.2, official 15.6 / 26.5); the exclusion of δCP ≈ +π/2 and the IO penalty are weaker than official: our fit absorbs the data deficit partly by θ₂₃ → maximal mixing, which lowers the e-like rate at δCP = −π/2.",
   "e-like samples are fitted in E_rec only (T2K fits momentum–angle); the paper attributes the stronger-than-expected δCP constraint to the FHC 1Re1de sample (14 events observed, ~10 expected).",
-  "Pinned to Newtrinos.jl main: the correction of the misidentified-νμ CC background in the e-like samples (branch feature/t2k-numu-bkg, under review) raises the NO Δχ²(+π/2) by about 1.",
+  "Pinned to Newtrinos.jl feature/t2k-numu-bkg (3c346d7): misidentified νμ CC events in the e-like samples oscillate with P_μμ (before, treated as beam νe: NO Δχ²(+π/2) 10.5).",
 ]
 links = [
   { label = "arXiv:2303.03222", url = "https://arxiv.org/abs/2303.03222" },
@@ -30,7 +30,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "3f6f19965102b8c761a46516d56c9dcb432b1cff"
+commit = "3c346d7f31b3666e86a883850db69fdb3d1f2cde"
 modules = ["t2k"]
 
 [[figures]]

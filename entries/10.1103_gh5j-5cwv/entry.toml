@@ -16,7 +16,8 @@ Three-flavour fit to the six T2K far-detector samples (FHC/RHC 1Rμ, FHC νμCC1
 19.7 (16.3)×10²⁰ POT in ν (ν̄) mode) with the reactor constraint on θ₁₃. All inputs are extracted from vector \
 PDFs: predictions from the T2K data release, data events from the figures of arXiv:2303.03222."""
 caveats = [
-  "e-like samples are fitted in E_rec only (T2K fits momentum–angle), which weakens the δCP and mass-ordering sensitivity (max Δχ² ≈ 10 vs 14.7 in NO).",
+  "The exclusion of δCP ≈ +π/2 and the mass-ordering preference are weaker than official (max Δχ² 11.5 vs 14.7 in NO, IO penalty 0.74 vs ≈ 2.2); the gap remains without any systematics (13.3 in NO), so it is in the predictions or the use of the data (e-like samples are fitted in E_rec only; T2K fits momentum–angle). Spectra and rates: see the T2K 2023 entry.",
+  "Pinned to Newtrinos.jl feature/t2k-numu-bkg (3c346d7): misidentified νμ CC events in the e-like samples now oscillate with P_μμ (before, as beam νe: max Δχ² 10.5 in NO).",
   "The released predictions are ~5–9% above T2K's own fitted rates; FHC 1Rμ data are 15% below the release prediction.",
   "The official θ₂₃–Δm² contours are digitised from a raster image; the official Δm² contour is smeared for simulated-data studies.",
 ]
@@ -27,7 +28,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "b59e68df183887c82785d74248f928ea67acd548"
+commit = "3c346d7f31b3666e86a883850db69fdb3d1f2cde"
 modules = ["t2k"]
 
 [[figures]]
@@ -36,7 +37,7 @@ title = "Δχ² as a function of δCP"
 paper_ref = "Fig. 3"
 original = "original/fig3_dcp.png"
 ours = "ours/fig3_dcp.png"
-agreement = "Best-fit δCP in both orderings reproduced (≈ −2.0 / −1.4); exclusion of δCP ≈ +π/2 and the IO penalty are weaker than official."
+agreement = "Best-fit δCP in both orderings close (−2.4 / −1.4, official ≈ −2.0 / −1.4); exclusion of δCP ≈ +π/2 and the IO penalty are weaker than official."
 
 [[figures]]
 id = "fig4_ssth23_dm2"
