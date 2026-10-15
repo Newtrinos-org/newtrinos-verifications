@@ -1,0 +1,50 @@
+title = "Measurements of neutrino oscillation parameters from the T2K experiment using 3.6×10²¹ protons on target"
+short = "T2K 2023: far-detector spectra, e-like rates vs δCP and Δχ²(δCP)"
+collaboration = "T2K"
+doi = "10.1140/epjc/s10052-023-11819-x"
+journal = "Eur. Phys. J. C 83, 782"
+year = 2023
+arxiv = "2303.03222"
+experiments = ["T2K"]
+parameters = ["δCP", "mass ordering", "event spectra"]
+status = "partial"
+category = "experimental"
+added = "2026-10-15"
+summary = """
+The Newtrinos `t2k` module uses the far-detector data events of this paper and the predictions of the 2025 T2K data \
+release (same exposure, 19.7 (16.3)×10²⁰ POT in ν (ν̄) mode, newer near-detector fit). Compared here: the binned \
+E_rec data and T2K's mean posterior prediction (Fig. 27), the predicted event rates vs δCP (Tab. 9) and Δχ²(δCP) \
+from the data with the reactor constraint (Fig. 28). Inputs extracted from the vector figures of the arXiv source \
+(data/extract.py)."""
+caveats = [
+  "The binned data agree: e-like 94 / 16 / 14 events in both, μ-like within ±2 events per sample below 2 GeV; single bins differ by ±1 event (E_rec reconstruction at bin edges).",
+  "T2K's mean posterior prediction (Bayesian, without reactor constraint) lies 5–8% below the release nominal in the FHC samples (1Rμ −7.7% below 2 GeV, about uniform in energy), i.e. T2K's fit lands below the nominal we start from; part of this may be the change of near-detector fit between the 2023 analysis and the 2025 release.",
+  "Our δCP best fits are close (NO −2.4 in a flat valley from −2.6 to −1.5, official −1.97; IO −1.41, official −1.44); the exclusion of δCP ≈ +π/2 and the IO penalty are weaker than official: our fit absorbs the data deficit partly by θ₂₃ → maximal mixing, which lowers the e-like rate at δCP = −π/2.",
+  "e-like samples are fitted in E_rec only (T2K fits momentum–angle); the paper attributes the stronger-than-expected δCP constraint to the FHC 1Re1de sample (14 events observed, ~10 expected).",
+  "Pinned to Newtrinos.jl main: the correction of the misidentified-νμ CC background in the e-like samples (branch feature/t2k-numu-bkg, under review) raises the NO Δχ²(+π/2) by about 1.",
+]
+links = [
+  { label = "arXiv:2303.03222", url = "https://arxiv.org/abs/2303.03222" },
+  { label = "Data release (zenodo 15701867)", url = "https://doi.org/10.5281/zenodo.15701867" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "3f6f19965102b8c761a46516d56c9dcb432b1cff"
+modules = ["t2k"]
+
+[[figures]]
+id = "fig27_spectra"
+title = "Far-detector E_rec spectra: data and predictions"
+paper_ref = "Fig. 27"
+original = "original/fig27_spectra.png"
+ours = "ours/fig27_spectra.png"
+agreement = "Data histograms identical up to ±1-event bin migrations; T2K's posterior mean is 5–8% below our nominal in FHC 1Rμ and 1Re (counts in the legend)."
+
+[[figures]]
+id = "fig28_dcp"
+title = "Δχ² as a function of δCP (reactor constraint)"
+paper_ref = "Fig. 28"
+original = "original/fig28_dcp.png"
+ours = "ours/fig28_dcp.png"
+agreement = "Best-fit δCP reproduced in both orderings; the maximum at δCP ≈ +π/2 and the IO penalty are lower than official (dashed: official curves, extracted)."
