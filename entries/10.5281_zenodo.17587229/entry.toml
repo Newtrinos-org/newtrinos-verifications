@@ -1,0 +1,62 @@
+title = "Full Data Release of the Daya Bay Reactor Neutrino Experiment"
+short = "Daya Bay: full data release, full analysis model"
+collaboration = "Daya Bay"
+doi = "10.5281/zenodo.17587229"
+journal = "Zenodo, data set v1.0.0 (2025); analysis of Phys. Rev. Lett. 130, 161802 (2023)"
+year = 2025
+experiments = ["Daya Bay"]
+parameters = ["θ13", "Δm²32"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-16"
+summary = """
+The complete Daya Bay analysis (8 ADs × 3 data-taking periods, 26 Erec bins each; reactor flux with Huber-Mueller \
+spectra, non-equilibrium and spent-fuel corrections and a free spectral shape; IBD at first order with exact kinematics; \
+IAV, LSNL, energy resolution; all backgrounds; ~180 nuisance parameters) fitted to the full data release, compared with \
+the official reproduction of the analysis (dayabay-analysis). At the nominal parameters the Newtrinos prediction agrees \
+with the official one to better than 1e-4 in every one of the 546 bins. The profile-likelihood fit finds \
+sin²2θ₁₃ = 0.08536 −0.00221 +0.00225 and Δm²₃₂ = (2.4748 −0.0565 +0.0536)×10⁻³ eV² with χ²min = 578.11, vs \
+0.08538 −0.00225 +0.00226, (2.4746 −0.0559 +0.0546)×10⁻³ eV² and 578.09 for the official model with the same statistic \
+(Poisson with pull terms); PRL 130, 161802: 0.0851 ± 0.0024 and (2.466 ± 0.060)×10⁻³ eV².
+"""
+caveats = [
+  "The reference is the official analysis code of the data release (dagflow-team/dayabay-analysis, dayabay_model 1.8.0), run by us; its predictions and fit results are in data/ (see data/official_extract.py). The red curves are the Δχ² table published with the data release, which is slightly wider towards low values than both the official code and Newtrinos.",
+  "Statistic: Poisson likelihood with Gaussian pull terms (official full.pull.chi2poisson; the official CNP χ² gives the same results to 1e-5). Solar parameters are fixed here (constrained in the official fit); θ₂₃ and δCP are irrelevant.",
+  "The free spectral-shape parameters have flat priors on [−1, 1] (unbounded in the official fit); the Huber-Mueller spectral uncertainties are not included, as in the official default fit.",
+  "Newtrinos commit: branch feature/dayabay-review on top of PR #271 (the module of PR #271 plus the fixes found in this comparison). reproduce.jl downloads the analysis dataset (hdf5) of the data release from Zenodo and links it into the module directory.",
+]
+links = [
+  { label = "Data release (Zenodo)", url = "https://doi.org/10.5281/zenodo.17587229" },
+  { label = "Official analysis code (dayabay-analysis)", url = "https://github.com/dagflow-team/dayabay-analysis" },
+  { label = "Phys. Rev. Lett. 130, 161802", url = "https://doi.org/10.1103/PhysRevLett.130.161802" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "6dcf16c9fa4aed097e91e35b19c1b02ceeb5f0ca"
+modules = ["dayabay_rewrite", "reactor_flux", "ibd_xsec"]
+
+[[figures]]
+id = "profile_th13"
+title = "Δχ²(sin²2θ₁₃), all other parameters profiled"
+ours = "ours/profile_sin2_2theta13.png"
+
+[[figures]]
+id = "profile_dm32"
+title = "Δχ²(Δm²₃₂), all other parameters profiled"
+ours = "ours/profile_dm2_32.png"
+
+[[figures]]
+id = "contour"
+title = "sin²2θ₁₃ – Δm²₃₂, 1σ, 2σ, 3σ"
+ours = "ours/contour_sin2_2theta13_dm2_32.png"
+
+[[figures]]
+id = "spectra"
+title = "Prompt spectra per experimental hall at the best fit: data, Newtrinos and the official model"
+ours = "ours/spectra_bestfit.png"
+
+[[figures]]
+id = "prediction"
+title = "Bin-by-bin prediction at the nominal parameters, Newtrinos / official model (21 AD-periods × 26 bins)"
+ours = "ours/prediction_ratio.png"

@@ -1,0 +1,6 @@
+Prediction at the official nominal parameters: Newtrinos/official per bin in [0.999954, 1.000060], total 5841496.6 vs 5841496.1
+Newtrinos best fit:  sin²2θ₁₃ = 0.08536, Δχ² = 1 interval [0.08315, 0.08761]
+                     Δm²₃₂ = 2.4748 ×10⁻³ eV², Δχ² = 1 interval [2.4183, 2.5284]
+                     χ²min = 578.11 (Poisson deviance of the 546 bins 572.02 + Gaussian pull terms 6.08)
+Official model (dayabay-analysis, full.pull.chi2poisson): sin²2θ₁₃ = 0.08538 −0.00225 +0.00226, Δm²₃₂ = 2.4746 −0.0559 +0.0546 ×10⁻³ eV², χ²min = 578.09 (incl. pull terms)
+Daya Bay Δχ² table (data release): sin²2θ₁₃ Δχ²=1 interval 0.08267 – 0.08747, Δm²₃₂ 2.4058 – 2.5259 ×10⁻³ eV²
