@@ -17,10 +17,11 @@ KM3NeT open-data release of the binned event sample and response, for both mass 
 sin²θ₂₃ and |Δm²₃₁| (Fig. 7) against the data-release χ² landscapes, and the event distributions in reconstructed energy and \
 cos θ per event class at the best fit, for NuFIT 5.0 and without oscillation (Fig. 10). In NO, Newtrinos finds \
 sin²θ₂₃ = 0.525 +0.058 −0.070 and |Δm²₃₁| = 2.33 +0.19 −0.25 ×10⁻³ eV² (data release: 0.509 +0.062 −0.063 and 2.18 +0.22 −0.34; paper: \
-0.51 +0.04 −0.05 and 2.18 +0.25 −0.35), and prefers NO by −2Δln L = 0.96 (KM3NeT: 0.31).
+0.51 +0.04 −0.05 and 2.18 +0.25 −0.35), and prefers NO by −2Δln L = 0.97 (KM3NeT: 0.31).
 """
 caveats = [
   "The official contours are computed from the χ² landscapes shipped with the data release; both are shown relative to the minimum over both orderings.",
+  "The energy scale Es is applied as in the paper, as a shift of the true energy of the detector response (flux and oscillation at E/Es, with the Jacobian 1/Es); the flux is the azimuth-averaged Honda 2014 table at Fréjus without mountain, solar minimum, as prescribed by the data release.",
   "The up/down flux ratio systematic is fixed, as in the Newtrinos validation.",
   "1D profiles are the minima over the other parameter of the 21×21 scans and of the data-release landscapes (coarse grids); the paper's Fig. 7 bands from pseudo-experiments are not reproduced. Fig. 10 projects the binned 2D distributions; the no-oscillation and NuFIT 5.0 curves keep the best-fit nuisance parameters, as in the paper.",
   "Approximate agreement only: our NO region extends further to large sin²θ₂₃ at |Δm²₃₁| ≈ 2.3×10⁻³ eV², and our IO region is narrower in |Δm²₃₁| than the official one.",
@@ -31,7 +32,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "9e58ed6a19406739a100ddb4a5e9184cf8c99e82"
 modules = ["orca"]
 
 [[figures]]

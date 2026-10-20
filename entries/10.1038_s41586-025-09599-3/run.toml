@@ -1,13 +1,13 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig3_dcp_ssth23.png" = "f35b2ac890d3f00d507b6706435a203ee317f0bad895fbcf35c291620cf5e85a"
-"results/bestfit_vs_official.toml" = "fe5f4d9c56f9ebedf38854b9923fedafe32ed715f8db0bdce60cc507c710e326"
-"results/nova_t2k_IO.jld2" = "a359515c1160f7e81670ae90f9abf28745cbfa54937b493cd9ecec43dbedb913"
-"results/nova_t2k_IO_dcp.csv" = "8ba8e0226fc4614bc180902c432dd5d623d595658adc81f16fbf12e61d5e20fd"
-"results/nova_t2k_IO_dcp_ssth23.csv" = "0ec29d8181216bb334a989f3c6b0ee71885edeb2efe2d569dd954e75a2398ecd"
-"results/nova_t2k_NO.jld2" = "5b9f4d5fe608f2e6a0ed4ed466d74ab19bb2ec10eb7fbf8b18d12541a7497fde"
-"results/nova_t2k_NO_dcp.csv" = "97b6a820265ddc2b2f9388383970994b4fd02d9e4823a2e8e0248ae166de4fc0"
-"results/nova_t2k_NO_dcp_ssth23.csv" = "7cdea0c598111ce7dfa8ae3d27f8dc80599156f24f16089a9f687c75821e6f4c"
+"ours/fig3_dcp_ssth23.png" = "dd7bfb39c02342276107ffcd2dfdb5554aefaed5a030dc8f43e55f2481213582"
+"results/bestfit_vs_official.toml" = "7d699dfb0b8490cbff0a520e65c719b6925e63d05006896b87c54a101ed4ea93"
+"results/nova_t2k_IO.jld2" = "ab69975237328dfeb21fd24e4a0a66a74b662c31a5a309db73cfbf0d91edf636"
+"results/nova_t2k_IO_dcp.csv" = "59976c01c23ea4f2541e587c9526103047679c99bc44ccd5b9eb830214499985"
+"results/nova_t2k_IO_dcp_ssth23.csv" = "e2a225191c47dcd7cdf182c2bedd5789228af17c74fa558233518d36502adee9"
+"results/nova_t2k_NO.jld2" = "1b9062871c9f758ad6553eb355dbb25e7b8a386457ac3246597778d442df8d20"
+"results/nova_t2k_NO_dcp.csv" = "e277e049273cf58fdb257159905f1e36e98bc0374f2702acdd44489182b70095"
+"results/nova_t2k_NO_dcp_ssth23.csv" = "444b6600caf061777a423f8c32f5bc18dc4da79166323b78407034e0ec585c68"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -15,15 +15,15 @@ reused_points = 0
 total_points = 1214
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "922dd22ecbee098bd15b11d22df8b7f8b3e5a1fb"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 16 --project=<Newtrinos.jl @ 922dd22ecb> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T15:05:02Z"
+date = "2026-10-20T12:36:40Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 8
-wall_time_s = 244.9
+threads = 16
+wall_time_s = 280.2

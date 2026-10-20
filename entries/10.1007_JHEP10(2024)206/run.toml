@@ -1,12 +1,12 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/contour_NOIO.png" = "4fdf4daf921055aaddf538bb03d3404fa4611cff6072ef5c559d6b937f2049ce"
-"ours/fig10_distributions.png" = "aec053b11ab534c702fcd68660b250b84676d146dcd05ca0c04b0b854710bb21"
-"ours/fig7_profiles.png" = "2f1ca0a4e77b579b7c12fcb42e4beea4dfd4171d2b83d79e82a08fafd2cdc5ba"
-"results/orca6.jld2" = "cae72bab08d60e815f21863a370e449446c261e6b624ce19c630cb54f12558f6"
-"results/orca6_IO_ssth23_dm31.csv" = "1343580c39cbda1d2403b57637873cc506d4c8b314bd1b5c5ed2eb1b0cf031be"
-"results/orca6_NO_ssth23_dm31.csv" = "39bdf197b0943b447ee5dd66f06582fc28b6bfd53623330a7e8bc6f6dddb70b7"
-"results/summary.txt" = "f62e7a19fd2db66f610df51be0659d4ac510fcae14392bd1543656b2e8ee5975"
+"ours/contour_NOIO.png" = "f61490b04636749b59ee3154cd98533ef63ae285facda250a969d1b1ddbe4787"
+"ours/fig10_distributions.png" = "bdaa2c05c4f4cbd8799da7a19a57b05686619633452b9eaf7adb57c9fff73c9b"
+"ours/fig7_profiles.png" = "110b16b7f40186284347b7744547b8ee4cf3225d05b5045a05348e1da89979e5"
+"results/orca6.jld2" = "fe770d7f4e5b0588a8c9a92d779103f3a1d625ad32f745cd2d67095bc963cbd3"
+"results/orca6_IO_ssth23_dm31.csv" = "4d9d0ea9faa5c523b661567700c6f3bd600fdda1645f5ad3f536e9d22ff25bfd"
+"results/orca6_NO_ssth23_dm31.csv" = "bc517c937bb2a8344c648a2ce5c1bce92e4bf0dcadfb5ae74e33775413f7c30b"
+"results/summary.txt" = "b0e3e55f50b8ba7f75135c21b8a10e99ff017d2c2e19ccef8d56d8f3760113b3"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -14,15 +14,15 @@ reused_points = 0
 total_points = 882
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "9e58ed6a19406739a100ddb4a5e9184cf8c99e82"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 16 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 24 --project=<Newtrinos.jl @ 9e58ed6a19> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T11:20:08Z"
+date = "2026-10-20T12:34:59Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 16
-wall_time_s = 1065.1
+threads = 24
+wall_time_s = 1331.1

@@ -17,6 +17,8 @@ samples of the 2024 data release (26.6×10²⁰ ν + 12.5×10²⁰ ν̄ POT), wi
 conditional on each mass ordering."""
 caveats = [
   "The release contains no true-energy information or systematic templates: predictions reweight the released components with oscillation probabilities averaged over an effective, calibrated energy response.",
+  "The νμ disappearance predictions carry a fixed per-bin correction, (released Oscillated_Signal)/(our prediction) at NOvA's reference oscillation point, which absorbs the non-Gaussian feed-down of the real response into the oscillation dip (2–3% FHC, ~1% RHC). It makes the prediction exact at that point and is approximate away from it.",
+  "The ντ CC background of the νe samples is averaged over its own true-energy density (νμ spectrum × σ(ντ CC)/σ(νμ CC)) rather than over the νe proxy energy, most of which lies below the τ threshold.",
   "Systematics are a reduced set (normalisations, νe/νμ cross-section ratios, muon/hadronic energy scales) sized to the paper's post-extrapolation uncertainties.",
   "Official regions are Bayesian (marginalised); ours are profile likelihood (Wilks).",
 ]
@@ -26,7 +28,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "b59e68df183887c82785d74248f928ea67acd548"
+commit = "42a953700da7824edac3e32df24b56278f3cd69c"
 modules = ["nova"]
 
 [[figures]]
