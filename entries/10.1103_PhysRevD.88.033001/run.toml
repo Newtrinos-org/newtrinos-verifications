@@ -1,17 +1,17 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig3_spectra.png" = "2d415359d61d7894c5dbbd0ad7ab2de71a8568533a825d475447609bc055dcc8"
-"ours/fig4a_th12_dm21.png" = "2e23d9d9a6a790ab651008771a8fda10e24eb6540d12a6137cc7c5b0198afa63"
-"ours/fig5_survival_LE.png" = "dbe594cc28135d1e1f0476384a7a77120256ff7a8fcbfea8a38e69cfb41f5d26"
-"ours/fig7_geo.png" = "2c57a598a5fa172c8d318502086563ab3e98e11e464fccecc9dba18b9ece2320"
-"results/dm21_profile.csv" = "f171738c6ea81e3f08e6b5133806bc81e3109e30e10509ea7dc957bf23625852"
-"results/fig5_survival_LE.csv" = "b93ffc1b8c77701b4e314701ada1fb30fb3baa2a3589e28a151a24850af8af36"
-"results/geo_NU_NTh.csv" = "57b8b2597599366aa502defdd0b331b69ad42d9f9da3aaecf284c1e3bf5feeaa"
-"results/geo_total_profile.csv" = "9feb2ea977cd1a5ad4e7d62fb0e34ebc6f86f9e35d26232592310dae7086224b"
-"results/kamland2013.jld2" = "d3531a8a02539b5b615b0ee0df38e4380a9ccd7c894131ece3a7d598a952800b"
-"results/summary.txt" = "3133eccc747be8b0e014937a8bb79fb840e24c33e14d5c661c690ed2e3060f22"
-"results/tan2_theta12_profile.csv" = "ab9da7e7424e468fd1baa81b3edf9aff5e63669514481d7a3f45fdd0ed63f878"
-"results/th12_dm21.csv" = "aa242deb7d294a2ca5e2e01f11936bca112687ef9315b7209b0397060088fe17"
+"ours/fig3_spectra.png" = "1588c7f63c65f73dc9e0a34aad27ae35c66949f7344ee45f28b1e0eec9af8a0b"
+"ours/fig4a_th12_dm21.png" = "ce6aa2cdaf7641da8f1ce3877376dd20df5a00815e2ef0e6dceab13c8bec3514"
+"ours/fig5_survival_LE.png" = "c7cd20ed0dc53e7c216208a4214680b2054aa494176a7a4af2b6721a42ff986d"
+"ours/fig7_geo.png" = "0a163a463af104093964b86332c2aa0b421dd101c7ce1246831f5e30ecee882c"
+"results/dm21_profile.csv" = "55fddd5637b2a2294fe23c8f17a1cc9181e845c3de3775acb957be10ef7027d3"
+"results/fig5_survival_LE.csv" = "fcc2ee4d873342d07bf419fd1773064db182017654b797e2af471b1ef8985a67"
+"results/geo_NU_NTh.csv" = "78ea8992278dc59542aa82b0765c58a631313d4bac4d07e0952badbeea528cb9"
+"results/geo_total_profile.csv" = "4578e98409cc6296b6a6bfd70a095777a1dcb2a4a7fa7da280804dba122f3892"
+"results/kamland2013.jld2" = "ffb5f3342c31651efda2374cbe1725f1c041f5fccbc1e569cf1d140174002a4e"
+"results/summary.txt" = "145b0efd248c5c68d766d791758060b0596c3e2b6eb5ee55766e233d4c1a9d09"
+"results/tan2_theta12_profile.csv" = "ce96365956d563276c407f91236bcbdd764b870170e4cea6a20c9f2ce9b9836a"
+"results/th12_dm21.csv" = "f92d26b1df59050a102b7791c8f0bd67adb56746223240e388831e10eec5ec75"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -19,15 +19,15 @@ reused_points = 0
 total_points = 896
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 32 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T10:47:24Z"
+date = "2026-10-21T16:09:57Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 32
-wall_time_s = 1216.1
+threads = 128
+wall_time_s = 1653.2

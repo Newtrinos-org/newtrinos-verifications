@@ -1,17 +1,17 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig1_prompt_spectrum.png" = "901a757e2936f3ad705a76ed240995928c86aea0c5e4d8705325fb40a7cdb74a"
-"ours/fig2a_tan2th12_dm21.png" = "31bd0ad38e46db08a408ecacb3d01bf0f07028fc9fc60c68a035b537351536b7"
-"ours/fig4_sin2th13_profile.png" = "42e8cfbc0404d64ef56051fa368a941dd92daf15ba9136a1c8a866c4d2a0f103"
-"ours/fig5_survival_LE.png" = "b2e3258b4ed77f5e3dfcee9e7d5ff45848ec9a5e73f80ae06c76ebd9e0797979"
-"ours/fig6_survival_x.png" = "98594b0fab71e1c54fc672a494df0759a4a7fd0d25a1f0ec3b07d9abeaa8a08f"
-"results/dm21_profile.csv" = "c7c69afd47f0f17e96285472f65599e93ad27435b222f8098e8d440439ddaa65"
-"results/fig5_survival_LE.csv" = "8964e49b203bda743184d27fa32c96e775984266a46e65ad114f5d6ae145eca6"
-"results/fig6_survival_x.csv" = "429cec0d6b6847e055843c2904cf5eb887579f6915dbbcd0b18d0fcc0463bd24"
-"results/kamland2011.jld2" = "4e6dc10b71465b76e70b68b63d33a3da013048cab83bf565ea3844831e0e27e8"
-"results/sin2_theta13_profile.csv" = "a2fab3591d5449911a55a9762927cff5efcbed934cba32b87ddee4ce0468a5e1"
-"results/summary.txt" = "474745e77c753cc144d92c512ed475363037b9907a145de3545ea02f9a492831"
-"results/tan2_theta12_profile.csv" = "a50c88ed0199140dec294f603e4d89f940a9ff460181d17976abeb72c93410d9"
+"ours/fig1_prompt_spectrum.png" = "636a63df3cac1fec4cb11efa41af389532f2b9261ef6f120bad7b7c5de4c3092"
+"ours/fig2a_tan2th12_dm21.png" = "cbf8d783ae0de69015f2206f1c2bfbf98b2d176d7de90b9bbc444c30ee6ad3b3"
+"ours/fig4_sin2th13_profile.png" = "3b4e94130d6c992dab4c0d83bb8222511fd97859273b6e541c15527c003a7ab2"
+"ours/fig5_survival_LE.png" = "e97dbeee4ce8193a5e306bc395c1b933686b96dcd83d40e6cbc14b9629f45240"
+"ours/fig6_survival_x.png" = "c2ef48f357b39593f1603235822c856b7fec77444494904a8251fe2651205476"
+"results/dm21_profile.csv" = "8f370529d569209d9ca524ecb8a2a045463f6b4be44b134eb2997af0dd5227f4"
+"results/fig5_survival_LE.csv" = "803010c350805bd762333478f8a8bc24105aabdab594f23c5d8fb4d79564703b"
+"results/fig6_survival_x.csv" = "e384f875d40f5400304d22788b5f62e68cc89d4b52b2542470fa79ee6a3b796d"
+"results/kamland2011.jld2" = "7ddd655380d8715a6d7447cca009671a085f5afc81591e8777e38b8535d1cef3"
+"results/sin2_theta13_profile.csv" = "9c117963f70aff848919ea7e2d8610d2aa4b9266160ea6eb33d43425e15f7ab4"
+"results/summary.txt" = "6596514b6bb36042a67183a4c0aff12763ab11b7569a26fb1889edfb02d9108b"
+"results/tan2_theta12_profile.csv" = "6ccaf8a0b06799116399d4981a562498fa89a06a710322be4f5d4418195fb64c"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -19,15 +19,15 @@ reused_points = 0
 total_points = 342
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 32 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T10:36:24Z"
+date = "2026-10-21T16:04:59Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 32
-wall_time_s = 252.0
+threads = 128
+wall_time_s = 277.7

@@ -5,7 +5,7 @@
 "ours/profile_dm2_32.png" = "7b6618488bda1be2df707b797bb2b8e56cfa8baf1ed55c8a2d59926510b97bd5"
 "ours/profile_sin2_2theta13.png" = "fa3db687c095d0948b1569c9652c0e7254ec487618ba454eee44af2ed29f67ed"
 "ours/spectra_bestfit.png" = "72d13a98950ecc60057e95f259905611e56fec7a6565b1aa74dd6206c4bcc911"
-"results/dayabay_full.jld2" = "4792b88bf1cd9a71bbfb7d18976164e49c7e3be23c051c7b342a9f65240299e1"
+"results/dayabay_full.jld2" = "8cd79e4517a83b9e75e4e7e114e6533d134d4a746352941a9d026cc4aa511bee"
 "results/prediction_bestfit.csv" = "c1d04241b250c56b1c23b408ac2df256a57104567276045463b5522c70a13e69"
 "results/prediction_nominal.csv" = "b079834a099cf0c6f7769933a9cdf9af4e7f4159db22c29fa7187b09f1ecb340"
 "results/profile_dm2_32.csv" = "1f87ec6b921b7c3547428055ca5761bbaf9d96ff92beb4d88f48ffb205c7f87e"
@@ -14,19 +14,19 @@
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 272
+reused_points = 0
 total_points = 272
 
 [newtrinos]
-commit = "6dcf16c9fa4aed097e91e35b19c1b02ceeb5f0ca"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 64 --project=<Newtrinos.jl @ 6dcf16c9fa> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-16T08:34:28Z"
+date = "2026-10-21T11:56:15Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 64
-wall_time_s = 152.9
+threads = 128
+wall_time_s = 14077.8

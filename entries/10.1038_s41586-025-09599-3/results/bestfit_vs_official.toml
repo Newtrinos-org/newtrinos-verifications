@@ -8,5 +8,5 @@ minus2_dlogL_vs_global = 0.000
 abs_dm2_32 = 2.4882  # official 2.48 (1e-3 eV²)
 sin2_theta23 = 0.5489  # official 0.563
 dcp_over_pi = -0.450  # official -0.47
-minus2_dlogL_vs_global = 0.601
+minus2_dlogL_vs_global = 0.599
 

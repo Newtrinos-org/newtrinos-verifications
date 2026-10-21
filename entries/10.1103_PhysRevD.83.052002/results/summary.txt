@@ -1,9 +1,9 @@
 KamLAND-only, θ13 = 0 (Newtrinos | official Δχ² table | paper)
-dm2_21 [1e-5 eV^2]   7.650 +0.285 -0.258 | 7.500 +0.200 -0.189 | 7.50 +0.20 -0.20
-tan2_theta12         0.498 +0.095 -0.073 | 0.492 +0.087 -0.067 | 0.492 +0.086 -0.067
-geo nu (x reference model 85 U / 21 Th): U 1.04, Th 1.95
-pull kamland_energy_scale   +0.08 sigma
-pull kamland_flux_scale     -0.52 sigma
+dm2_21 [1e-5 eV^2]   7.700 +0.264 -0.265 | 7.500 +0.200 -0.189 | 7.50 +0.20 -0.20
+tan2_theta12         0.498 +0.091 -0.074 | 0.492 +0.087 -0.067 | 0.492 +0.086 -0.067
+geo nu (x reference model 85 U / 21 Th): U 0.99, Th 2.20
+pull kamland_energy_scale   +0.19 sigma
+pull kamland_flux_scale     -0.54 sigma
 pull kamland_alpha_n        +0.14 sigma
-pull kamland_li9            -0.01 sigma
-KamLAND-only, θ13 free: sin2_theta13 0.046 +0.034 -0.042 | official table 0.032 +0.037 -0.032 | paper 0.032 +0.037 -0.037
+pull kamland_li9            +0.00 sigma
+KamLAND-only, θ13 free: sin2_theta13 0.052 +0.028 -0.046 | official table 0.032 +0.037 -0.032 | paper 0.032 +0.037 -0.037

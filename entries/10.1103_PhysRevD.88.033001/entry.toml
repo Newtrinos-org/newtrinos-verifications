@@ -19,10 +19,10 @@ to Bugey-4, the IBD cross section, 3ν oscillations with matter effects, energy 
 of each period; KamLAND's systematics (reactor rate, energy scale, ¹³C(α,n), ⁹Li) and free geo-ν̄e U and Th. Nothing \
 is tuned to KamLAND's fit: the no-oscillation expectation, 3631 events, agrees with KamLAND's 3564 ± 145, and the \
 spectral shape with KamLAND's published expectation for the 2002–2009 data (χ² 1.9 for 17 bins). The KamLAND-only fit \
-with θ₁₃ free gives Δm²₂₁ = 7.55 +0.17 −0.20 ×10⁻⁵ eV² and tan²θ₁₂ = 0.451 +0.114 −0.079 (KamLAND: 7.54 +0.19 −0.18, \
+with θ₁₃ free gives Δm²₂₁ = 7.55 +0.17 −0.20 ×10⁻⁵ eV² and tan²θ₁₂ = 0.451 +0.103 −0.085 (KamLAND: 7.54 +0.19 −0.18, \
 0.481 +0.092 −0.080). Also shown: the ratio to no oscillation vs L₀/E (Fig. 5) and the geo-ν̄e event numbers (Fig. 7): with \
 the oscillation parameters at the paper's solar + KamLAND + θ₁₃ values and the chondritic Th/U ratio, Newtrinos finds \
-N_U + N_Th = 136 +28 −36 (KamLAND: 116 +28 −27); the (N_U, N_Th) regions have KamLAND's shape, shifted up by about 15–20 events.
+N_U + N_Th = 136 +32 −31 (KamLAND: 116 +28 −27); the (N_U, N_Th) regions have KamLAND's shape, shifted up by about 15–20 events.
 """
 caveats = [
   "Spectra, backgrounds, efficiencies and geo-ν̄e shapes are extracted from the vector graphics of the paper's Figs. 3 and 6 (17 bins of 0.425 MeV per period); KamLAND fits the unbinned, time-dependent data.",
@@ -37,7 +37,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 modules = ["kamland", "reactor_flux", "osc"]
 
 [[figures]]
