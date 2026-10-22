@@ -13,15 +13,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "09ed1fe25acae490575f397456644df94d9dff0b"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 8 --project=<Newtrinos.jl @ 09ed1fe25a> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-13T08:04:26Z"
+date = "2026-10-21T16:37:50Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 8
-wall_time_s = 81.0
+threads = 128
+wall_time_s = 83.7

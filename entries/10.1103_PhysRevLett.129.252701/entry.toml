@@ -17,8 +17,8 @@ CNO-ν interaction rate from the Borexino Phase-III TFC-subtracted energy spectr
 spectral shapes, the solar rates predicted by its solar-flux, oscillation and ν–e scattering modules, free \
 background rates, an energy response calibrated on Borexino's best-fit spectrum and the ²¹⁰Bi upper limit \
 (10.8 ± 1.0 cpd/100 t). Borexino finds 6.7 (+2.0/−0.8) cpd/100 t (6.6 +2.0/−0.7 statistical only); Newtrinos \
-finds 6.68 (+1.84/−1.57) with the priors that stand in for the TFC-tagged spectrum and radial distribution (module \
-default) and 6.84 (+3.02/−2.16) with these backgrounds left free (intervals from −2Δln L = 1). The profile with \
+finds 6.80 (+1.83/−1.59) with the priors that stand in for the TFC-tagged spectrum and radial distribution (module \
+default) and 6.98 (+3.03/−2.22) with these backgrounds left free (intervals from −2Δln L = 1). The profile with \
 priors follows the published one between 0.5 and 12 cpd/100 t.
 """
 caveats = [
@@ -34,7 +34,7 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 modules = ["solar_flux", "solar_xsec", "solar_common", "borexino_ph3"]
 
 [[figures]]

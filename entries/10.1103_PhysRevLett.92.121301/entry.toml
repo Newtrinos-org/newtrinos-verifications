@@ -16,9 +16,10 @@ Chlorine and gallium capture rates without oscillations for the BP04 standard so
 per solar-neutrino source, from Newtrinos' solar spectra (`solar_flux`) and absorption cross sections \
 (`solar_xsec`), with the solar-model fluxes set to the BP04 values. The per-source reference is the output of \
 Bahcall's own rate code (exportrates.f with the BP04 input of the paper). Newtrinos finds Cl = 8.51 SNU and \
-Ga = 131.7 SNU (Bahcall: 8.50 and 130.5; Table 1: 8.5 ± 1.8 and 131 +12/−10).
+Ga = 131.6 SNU (Bahcall: 8.50 and 130.5; Table 1: 8.5 ± 1.8 and 131 +12/−10).
 """
 caveats = [
+  "The ⁸B spectrum is Bahcall et al. (1996), as in BP04 (`solar_flux` option `b8_spectrum = :bahcall`). With the Newtrinos default, Winter et al. (2006), the ⁸B chlorine rate is 6.80 instead of 6.64 SNU (+2.5 %; Cl total 8.68 SNU) and the ⁸B gallium rate 14.29 instead of 14.03 SNU.",
   "The per-source reference is Bahcall's published code output (exportrates.output), which uses the ⁸B flux 5.82×10⁶ cm⁻²s⁻¹ of the code input instead of the 5.79×10⁶ of Table 1; the totals of Table 1 are rounded.",
   "Gallium pp: Newtrinos integrates Bahcall's tabulated σ(E) (Phys. Rev. C 56, 3391) over the pp spectrum and obtains a spectrum-averaged cross section of 11.90×10⁻⁴⁶ cm², 1.5 % above the 11.72×10⁻⁴⁶ cm² used in the code (within the 2.3 % 1σ uncertainty).",
   "This comparison found a bug in Newtrinos (fixed in the pinned commit): the chlorine cross section at the 0.862 MeV ⁷Be line was set to the value per ⁷Be neutrino of both lines (2.38×10⁻⁴⁶ cm²) instead of 2.38/0.8956 = 2.66×10⁻⁴⁶ cm², which made the ⁷Be chlorine rate 11 % low.",
@@ -29,7 +30,7 @@ links = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 modules = ["solar_flux", "solar_xsec"]
 
 [[figures]]

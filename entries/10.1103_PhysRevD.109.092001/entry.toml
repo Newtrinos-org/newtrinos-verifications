@@ -16,11 +16,11 @@ Solar oscillation parameters from Super-Kamiokande IV alone (spectrum plus the d
 constrained by SNO's NC measurement), and from the global solar analysis (SK I–IV, SNO, Borexino, radiochemical \
 experiments) compared with and combined with KamLAND, with sin²θ₁₃ = 0.0218; plus the day/night asymmetry from \
 SK's amplitude fit as a function of Δm²₂₁, with the expected asymmetry computed by Newtrinos. On coarse validation \
-grids, Newtrinos finds sin²θ₁₂ = 0.305 [0.269, 0.338], Δm²₂₁ = 6.65 [5.05, 8.62]×10⁻⁵ eV² for SK-IV (SK: 0.308 \
-+0.030/−0.029, 6.90 +1.62/−1.21) and sin²θ₁₂ = 0.304 [0.290, 0.318], Δm²₂₁ = 6.26 [5.46, 7.27]×10⁻⁵ eV² for the \
-solar global fit (SK: 0.306 ± 0.013, 6.10 +0.95/−0.81); with KamLAND (per-period 2013 data) 0.305 [0.292, 0.317] and \
-7.52 [7.35, 7.70]×10⁻⁵ eV² (SK: 0.307, 7.50); the expected SK-I–IV day/night asymmetry agrees with SK's \
-within 1–2 %.
+grids, Newtrinos finds sin²θ₁₂ = 0.309 [0.272, 0.341], Δm²₂₁ = 6.87 [5.07, 8.71]×10⁻⁵ eV² for SK-IV (SK: 0.308 \
++0.030/−0.029, 6.90 +1.62/−1.21) and sin²θ₁₂ = 0.303 [0.289, 0.317], Δm²₂₁ = 6.29 [5.52, 7.34]×10⁻⁵ eV² for the \
+solar global fit (SK: 0.306 ± 0.013, 6.10 +0.95/−0.81); with KamLAND (per-period 2013 data) 0.303 [0.291, 0.316] and \
+7.53 [7.36, 7.71]×10⁻⁵ eV² (SK: 0.307, 7.50); the expected SK-I–IV day/night asymmetry agrees with SK's \
+within 0–3.5 % for Δm²₂₁ = 4–9×10⁻⁵ eV² (Newtrinos slightly larger in magnitude).
 """
 caveats = [
   "sin²θ₁₃ is fixed at 0.0218 (SK: Gaussian, ± 0.0007), so that the solar and KamLAND profiles add exactly; the solar + KamLAND region is their sum, with the solar profile spline-interpolated onto KamLAND's finer Δm²₂₁ grid. Coarse validation grids (SK-IV 20×40, global 10×10); intervals from spline-interpolated 1D profiles.",
@@ -28,13 +28,13 @@ caveats = [
   "The energy-correlated systematics are modelled with energy-scale and resolution shifts of a Gaussian response and the ⁸B shape uncertainty, not SK's tabulated distortion factors.",
   "The global solar fit uses the B23 MB22-met solar model with uncorrelated flux priors; SK uses the BP2004/B16 model with its flux covariance and the SK+SNO ⁸B and hep fluxes.",
   "Borexino enters through its Phase I–II interaction rates and a spectral fit of the Phase-III TFC-subtracted spectrum (backgrounds with Gaussian priors standing in for the non-public tagged spectrum and radial distribution); SK uses only the Phase-II pp, pep and ⁷Be rates.",
-  "The KamLAND curve uses the Newtrinos per-period KamLAND module (2013 data, PRIS reactor fluxes; see the KamLAND PRD 88, 033001 entry), the KamLAND result SK combines with; KamLAND alone gives sin²θ₁₂ = 0.321 [0.291, 0.351] and Δm²₂₁ = 7.53 [7.37, 7.72]×10⁻⁵ eV² at sin²θ₁₃ = 0.0218.",
+  "The KamLAND curve uses the Newtrinos per-period KamLAND module (2013 data, PRIS reactor fluxes; see the KamLAND PRD 88, 033001 entry), the KamLAND result SK combines with; KamLAND alone gives sin²θ₁₂ = 0.320 [0.291, 0.351] and Δm²₂₁ = 7.54 [7.37, 7.73]×10⁻⁵ eV² at sin²θ₁₃ = 0.0218.",
 ]
 links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 modules = ["solar_flux", "solar_xsec", "solar_common", "sk_solar_common", "sk_solar_dn", "sk1_solar", "sk2_solar", "sk3_solar", "sk4_solar", "sno", "borexino_ph1", "borexino_ph2", "borexino_ph3", "chlorine", "gallex_gno", "sage", "kamland"]
 
 [[figures]]

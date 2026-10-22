@@ -1,9 +1,9 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig_survival_msw.png" = "7cb1a59777f267edf98929b1ddce63df3bff91f0664e2590b30adccade2b60f9"
-"results/survival_lma.csv" = "16e1e6c49430b0febd59a4c6872a062f5e0c0905155e9fe443781e322dacd6b2"
-"results/survival_low.csv" = "8c417df61a00484534addafdcf773f60c9b0c25dd52c94655ec76ac1d83602d8"
-"results/survival_sma.csv" = "7f9f5faa8479cd5ee64a0349b65c38ee7d351a7f51a77d6c500cd4661126117c"
+"ours/fig_survival_msw.png" = "7c86698cc88004ecd09ee6b17c0162604487bafa078ce6a02a90f1b05f24bec9"
+"results/survival_lma.csv" = "669361756935c954ecbbf2ab8ca61483b814f8d09795736e951fb60587dfefe0"
+"results/survival_low.csv" = "244529dbf343942a9e561c502ecb3cb7432851cb083940bec08e323e6fdac067"
+"results/survival_sma.csv" = "f8720a44ab14ad1203cf2d27d6da18ab4f1b7f4f45e04a2ec772dcf1c257d914"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -11,15 +11,15 @@ reused_points = 0
 total_points = 0
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 8 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T11:43:08Z"
+date = "2026-10-21T16:43:45Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 8
-wall_time_s = 216.6
+threads = 128
+wall_time_s = 231.4

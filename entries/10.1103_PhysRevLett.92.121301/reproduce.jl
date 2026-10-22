@@ -7,7 +7,7 @@ using Newtrinos, CairoMakie, CSV, DataFrames, Printf
 
 cd(@__DIR__); mkpath("ours"); mkpath("results")
 const SF = Newtrinos.solar_flux
-sf = SF.configure()
+sf = SF.configure(SF.SolarFluxConfig(b8_spectrum = :bahcall))   # BP04 uses Bahcall et al. (1996) ⁸B spectrum; Newtrinos default is Winter et al. (2006)
 xs = Newtrinos.solar_xsec.configure()
 p = merge(sf.params, xs.params)
 

@@ -1,17 +1,17 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig_global_th12_dm21.png" = "8ea39e451410bea2172b6b3cc2e063daca1b9cbe5bf310dd8355acece8c8a2b3"
-"ours/fig_sk1to4_adn_vs_dm2.png" = "21b672c0ccba03cfe86868d3530570459a8e9b2918a7f812890e2514f221119e"
-"ours/fig_sk4_adn_vs_dm2.png" = "e7fb212dee24229269ace9f6305a17ca440956d7e655b0db3a574aa744bc29a5"
-"ours/fig_sk4_th12_dm21.png" = "add4bdfd76df9688cf45b9afe8570b605eba205e90f0701de97332cd3c411fd9"
-"results/SK_IV_day_night_amplitude_fit.csv" = "1b8e422fbfad72a292310bb70513d7042ccb887eb6980210b50c0692bad072e4"
-"results/SK_I_IV_day_night_amplitude_fit.csv" = "b6d4d6112d00d6e034cfceca83d2534686ba7ead302371340a1e6ae9b641e826"
-"results/kamland_th12_dm21.csv" = "20445ef94945bf75c5f466e4f692aeb0b3cf937dbd431e92b661d5aa569def10"
-"results/sk4_solar_osc.jld2" = "2bbc8c936a1db693c63d51239b5a39e97558c52f28cea874665d8dbb02bae857"
-"results/sk4_th12_dm21.csv" = "59b2fb91bb20da96daaeafeb7c9a815f30e3f7b2ef3cd17f18ccc26cb8dc90d2"
-"results/solar_kamland_th12_dm21.csv" = "80cdb487a27c5035cb61068aaadb52e51e141fa94a90851299993d927e1ee49a"
-"results/solar_th12_dm21.csv" = "c6c5f50575ad10dcc18bc0167abc4419a56d4ca2c1e2aa8763b9e4062e59d53f"
-"results/summary.txt" = "fc36cc030b98f559838b6612675325aa1b61435238ec4f5fb81bc6aa32d2e6fe"
+"ours/fig_global_th12_dm21.png" = "0b62a72fc780a497751af09c61f68bf70644d44312755b0b66c31b3f5b57f6e8"
+"ours/fig_sk1to4_adn_vs_dm2.png" = "58d31d1621d102206a8b56df37cfd77035c210f0ef35fb35c0f384e89afe3ea1"
+"ours/fig_sk4_adn_vs_dm2.png" = "b343e00abba1a316e516a42c2bedfebc1f50d6a9da7b88f13c501deee42bde79"
+"ours/fig_sk4_th12_dm21.png" = "a7b427d9705eaa9fbe7d2c0eae8ba4f05fea0c4f227d872e28c93d9fdfa91143"
+"results/SK_IV_day_night_amplitude_fit.csv" = "97edbfde6c398fa9b18b9da6c113f5913273e5d6854178fe9767251010c5d4c8"
+"results/SK_I_IV_day_night_amplitude_fit.csv" = "545f512ea605a69ae95f74cf453443fd79e2515ac1fe17cc61598e9fcf3861a1"
+"results/kamland_th12_dm21.csv" = "1c12ae3d99ac7399511105b3cb642d3480728adac2ab70cb1ccf7c2ff8f8995c"
+"results/sk4_solar_osc.jld2" = "93a44b500ca35476ab4753df819c611a0edbc249e7accf1d820493d262dd6455"
+"results/sk4_th12_dm21.csv" = "d315abfc42b42284eac7976f12c6ab23c75eecc9b9216edd9b2e3b6cbe8b661f"
+"results/solar_kamland_th12_dm21.csv" = "086b6de18d52f2488949f82b8b74f98128c5ff74a03529a0da9a71e0dd22152d"
+"results/solar_th12_dm21.csv" = "1288a3afe2ed8da67a8832982614d6fb1a0f01b10586beee381aef31de1fde04"
+"results/summary.txt" = "9b5bc423a0b2481aca10be53d9f74312d3dfd8388046e4bc802023479370300c"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
@@ -19,15 +19,15 @@ reused_points = 0
 total_points = 2810
 
 [newtrinos]
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 64 --project=<Newtrinos.jl @ e1b5a89439> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-11T12:06:05Z"
+date = "2026-10-21T17:17:57Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 64
-wall_time_s = 3176.5
+threads = 128
+wall_time_s = 4681.7

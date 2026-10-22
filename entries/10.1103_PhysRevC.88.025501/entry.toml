@@ -18,7 +18,7 @@ SNO's prescription (projecting the model's day and night probabilities onto the 
 sensitivity S(E_ν) tabulated in the paper). With two flavours and a free ⁸B flux, the SNO-only LMA region of \
 Fig. 14 is reproduced: tan²θ₁₂ = 0.422 [0.398, 0.447], Δm²₂₁ = 5.8 [4.5, 7.4]×10⁻⁵ eV², χ²/ndf = 1.55/3 (SNO: \
 0.427 [0.398, 0.460], 5.62 [4.26, 7.54]×10⁻⁵ eV², 1.39/3), and so is the LOW island, which closes thanks to the \
-non-adiabatic conversion in the Sun: Δm²₂₁ = 1.35×10⁻⁷ eV², χ²/ndf = 1.54/3 (SNO: 1.35 +0.35/−0.14 ×10⁻⁷ eV², 1.41/3).
+non-adiabatic conversion in the Sun: Δm²₂₁ = 1.35×10⁻⁷ eV², χ²/ndf = 1.57/3 (SNO: 1.35 +0.35/−0.14 ×10⁻⁷ eV², 1.41/3).
 """
 caveats = [
   "Below Δm²₂₁ ≈ 10⁻⁷ eV² the conversion of ⁸B neutrinos in the Sun is non-adiabatic; Newtrinos computes it numerically through the solar density profile where Parke's level-crossing estimate is not negligible (an earlier, purely adiabatic version did not close the LOW island). This makes the scan of the low-Δm² region slow (the run takes hours instead of minutes).",
@@ -31,7 +31,7 @@ links = []
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "e1b5a8943903ee94803558c4362fa9b1e5035d7d"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 modules = ["sno", "solar_flux", "solar_common", "osc", "earth_layers"]
 
 [[figures]]
