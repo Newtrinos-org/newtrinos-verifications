@@ -1,33 +1,33 @@
 # written by tools/run_entry.jl — do not edit
 [files]
-"ours/fig11_solar_kamland.png" = "2e9c7c7c8bdb27732574b7becf1df50754d20e16115cbac0bb9ec7cc16d3dffe"
-"ours/fig1_global_profiles.png" = "f2d5f072417fcf7ce003acb286155f482124790151835e0492537efd560e098e"
-"ours/fig8_dcp_th23.png" = "856daf0ccba2e71cb7275abb72fc1c3336ef379f45a5074efb498f1d02375ad7"
-"results/global_dcp_th23.csv" = "5e16b8a913fa89bbc4445a4219dd74bfc99b1048df7b8a300e1c9715a0370cf6"
-"results/global_profiles.csv" = "bb32a2012a40a167f3a7714b78413647a00fd1d3ef12a660426dca0d7b58097a"
-"results/kamland_dm21.csv" = "3e104aaf3749425671a23f2c9c0656e5a33312d4947bdeb2138dd2c824310f7b"
-"results/nufit6_fig11.jld2" = "0e2e3e182384871673a1dc15dc585115cac9cdbfd7263d3ab030a7477a4cd03f"
-"results/solar_dm21.csv" = "ceb7cb2faf8f94432767219f9c5e0775836bffc41dc21c2a3abcdec5bd51dcc3"
-"results/solar_table.csv" = "2a08592d72244c30d5be35bdc3b5c964b38a7274034f7ec6f97841731b862e49"
-"results/solar_th12_dm21.csv" = "84d957453bd0d8b10f2697c9d0334ca82a683775e6ed1281c4777a7e9e71f46d"
-"results/summary.txt" = "c4a0e40e03b93b0493b4961cab9a5b0f4e4faa1b56554f66e63d3f63faee6def"
-"results/summary_global.txt" = "f23cad53d8bd72af48103897e657e6a97a050f5f7e8ef12fe0e5988d21e028ab"
+"ours/fig11_solar_kamland.png" = "df61f73ce19436df59dd4a81b26fb32ae604040f439fc2ca7437224554296d5c"
+"ours/fig1_global_profiles.png" = "28547b6d61ae30073f536baaa3c3cfceae12bbe4207c800251a91ec74479ecba"
+"ours/fig8_dcp_th23.png" = "d3e7f88674ee0aced1b2c2aabfd01378c6b37f16fe9390f59ebeb375da42672f"
+"results/global_dcp_th23.csv" = "c8eb7e2e3148530c01408eec3436b4bebc028bbb443295733a793d060de0c2b3"
+"results/global_profiles.csv" = "9c308dac4eb7d100fd211e656484b6e7254571131f405b886bc247681b7a0ea8"
+"results/kamland_dm21.csv" = "1bd4e18278b424f076e1d7ef041c4910cdfde58fc973ddf94ff94a3b26c4425b"
+"results/nufit6_fig11.jld2" = "d2b3150c75f6ef78ad52d18ebb3f0eb0a1ebc5bd282f01df4396624ac85fb3f5"
+"results/solar_dm21.csv" = "8a0566632fbaa7853c3622d79ecdb29a6c7c9183577414ba673fb5c3e140177f"
+"results/solar_table.csv" = "126e70b1ee562d87600d109dad58e2a5830f78ceaa1fa4af3ec1df33f1219ac3"
+"results/solar_th12_dm21.csv" = "2c5f9c4f842688a816ee58169f5f9bc57c824368eb7cce96a55a8de6d2803433"
+"results/summary.txt" = "a659904b64d0cba85535f05fa626b04b009c62aca915990ef8e49be8c718ec97"
+"results/summary_global.txt" = "ec3230ff470f4d142edbb6106a13765bb1f2772fdd6303fb71166a7b8f0bed10"
 
 [fit_cache]
 note = "cached fit points are reused only from runs at the same Newtrinos commit"
-reused_points = 112
+reused_points = 1616
 total_points = 1947
 
 [newtrinos]
-commit = "3bbf92e0f8af59359f2f79648dacff279ddf4e86"
+commit = "c6612c255a251daa05fd20a40d47227151ba3dc3"
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
 
 [run]
-command = "julia -t 60 --project=<Newtrinos.jl @ 3bbf92e0f8> reproduce.jl"
+command = "julia -t 128 --project=<Newtrinos.jl @ c6612c255a> reproduce.jl"
 cpu = "AMD EPYC 7702P 64-Core Processor"
 cpu_threads = 128
-date = "2026-10-10T08:16:18Z"
+date = "2026-10-22T07:22:57Z"
 julia = "1.12.5"
 os = "Linux"
-threads = 60
-wall_time_s = 22755.2
+threads = 128
+wall_time_s = 8129.1
