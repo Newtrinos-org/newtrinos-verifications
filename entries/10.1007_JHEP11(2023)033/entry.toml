@@ -27,7 +27,7 @@ caveats = [
 
 [newtrinos]
 repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
-commit = "640f88eb4e7a8d3cb8a4ff48bd87c14c6b9ba51c"
+commit = "43f10d333949824840dee7a36e28f8bb9d171a71"
 modules = ["osc (Spray, SI)", "nova", "t2k"]
 
 [[figures]]
