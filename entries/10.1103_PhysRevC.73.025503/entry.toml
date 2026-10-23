@@ -32,7 +32,7 @@ caveats = [
 links = [
   { label = "arXiv:nucl-ex/0406019", url = "https://arxiv.org/abs/nucl-ex/0406019" },
   { label = "Bahcall et al., PRC 54, 411 (1996) (previous nominal; shape variation)", url = "https://doi.org/10.1103/PhysRevC.54.411" },
-  { label = "Solar fusion III, Sec. II.D.3 (⁸B spectrum)", url = "https://doi.org/10.1103/RevModPhys.97.035002" },
+  { label = "Solar fusion III, Sec. II.D.3 (⁸B spectrum)", url = "https://doi.org/10.1103/8lm7-gs18" },
 ]
 
 [newtrinos]
