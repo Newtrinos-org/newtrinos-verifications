@@ -61,7 +61,8 @@ h3 { font-size: 1.05rem; margin: 0 0 0.5rem; }
 .site-header { border-bottom: 1px solid var(--border); background: var(--surface); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 56px; flex-wrap: wrap; }
 .brand { font-weight: 650; color: var(--text); display: inline-flex; align-items: center; gap: 0.55rem; }
-.brand:hover { text-decoration: none; }
+.brand a { color: inherit; }
+.brand a:hover { text-decoration: none; }
 .brand-logo { width: 32px; height: 32px; display: block; }
 .brand-mark { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border-radius: 6px; background: var(--accent); color: #fff; margin-right: 0.3em; }
 .main-nav { display: flex; gap: 1.2rem; }

@@ -88,7 +88,7 @@ function full_page(title, body; depth = 0, description = SITE.tagline, active = 
 <body data-root="$r" data-index="$(ARTIFACT ? "index.html" : "")">
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="$(d(r))"><picture><source srcset="$(r)assets/logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="brand-logo" src="$(r)assets/logo.svg" alt="Newtrinos.jl logo" width="32" height="32"></picture> $(SITE.name)</a>
+    <span class="brand"><a href="https://newtrinos-org.github.io/" title="Newtrinos home"><picture><source srcset="$(r)assets/logo-dark.svg" media="(prefers-color-scheme: dark)"><img class="brand-logo" src="$(r)assets/logo.svg" alt="Newtrinos home" width="32" height="32"></picture></a> <a href="$(d(r))">$(SITE.name)</a></span>
     <nav class="main-nav">
       $(join([nav("categories/$(k)/", label, k) for (k, label) in first.(CATEGORIES, 2)], "\n      "))
       $(nav("entries/", "All entries", "entries"))
