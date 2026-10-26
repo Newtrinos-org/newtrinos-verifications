@@ -1,0 +1,51 @@
+title = "NOvA 2024 official data release (26.61E20 neutrino + 12.5E20 antineutrino): Bayesian credible regions"
+short = "NOvA 2024: Bayesian posterior vs the official credible regions"
+collaboration = "NOvA"
+doi = "10.5281/zenodo.17822358"
+journal = "Zenodo (data release for Phys. Rev. Lett. 136, 011802)"
+year = 2025
+arxiv = "2509.04361"
+inspire = 2966613
+experiments = ["NOvA"]
+parameters = ["δCP", "θ23", "Δm²32", "mass ordering", "θ23 octant"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-26"
+summary = """
+Bayesian version of the Newtrinos NOvA 2024 module (`nova`, same inputs as the frequentist NOvA 2024 entry \
+10.1103/x53y-2b86) compared with NOvA's own Bayesian results: the 2D credible regions of the data release \
+(TGraphs, extracted by data/extract_contours.py) and the Bayes factors of the supplemental material (Table I). NOvA \
+has released MCMC chains only for its 2020 data set; for the 2024 data the credible regions are the official posterior \
+information. Newtrinos samples the NOvA likelihood by adaptive importance sampling (MoleWhacker), separately per mass \
+ordering with equal prior mass, reweighted to NOvA's priors (uniform in sin²θ₂₃, δCP, Δm²₃₂ and sin²2θ₁₃; θ₁₂ and \
+Δm²₂₁ fixed), without and with the 1D Daya Bay constraint sin²2θ₁₃ = 0.0851 ± 0.0024."""
+caveats = [
+  "Posterior probabilities (results/summary.csv): P(NO) = 0.75 (NOvA 0.70) without and 0.84 (NOvA 0.77) with the 1D Daya Bay constraint; P(upper octant) = 0.55 (0.56) and 0.69 (0.68). The credible regions agree closely, but the Newtrinos likelihood prefers the normal ordering somewhat more strongly (Bayes factor NO/IO 3.0 vs 2.3 without, 5.3 vs 3.3 with the constraint). The 2D Daya Bay constraint (NOvA: P(NO) = 0.87) needs Daya Bay's joint sin²2θ₁₃–Δm²₃₂ likelihood and is not reproduced here.",
+  "The NOvA module reweights the released far-detector components with oscillation probabilities averaged over a calibrated energy response, with a reduced set of systematics (see the frequentist entry); NOvA's official fit uses its full systematics model and the near detector.",
+  "Our credible regions are highest-density regions of a weighted 2D histogram smoothed with a Gaussian kernel of one bin.",
+]
+links = [
+  { label = "Data release (zenodo 17822358)", url = "https://doi.org/10.5281/zenodo.17822358" },
+  { label = "Frequentist NOvA 2024 entry", url = "../10.1103_x53y-2b86/" },
+  { label = "NOvA data releases", url = "https://novaexperiment.fnal.gov/data-releases/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "c7b835f"
+modules = ["nova", "molewhacker (whack_many_moles)"]
+
+[[figures]]
+id = "credible_regions_RCDB1D"
+title = "68.27 % and 90 % credible regions with the 1D Daya Bay constraint, per mass ordering"
+paper_ref = "Suppl. Figs. S5, S6"
+original = "original/credible_regions_RCDB1D.png"
+ours = "ours/fig_credible_regions_RCDB1D.png"
+agreement = "see results/summary.csv"
+
+[[figures]]
+id = "credible_regions_NOvAOnly"
+title = "68.27 % and 90 % credible regions without external constraint, per mass ordering"
+paper_ref = "data release (contours_NOvAOnly_cond.root)"
+ours = "ours/fig_credible_regions_NOvAOnly.png"
+agreement = "see results/summary.csv"
