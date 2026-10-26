@@ -1,0 +1,27 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig_b23_day.png" = "79c8fe81ed0856f4e50823dac8ed12ee8fe813fe116094b322582920f810aefb"
+"ours/fig_daynight_kamioka.png" = "47a6e7eaf8efb4939fdc049081cc005a27fcd2553c68913cc76bcb54cba23fa8"
+"ours/fig_earth_regeneration.png" = "f156413804d04e298f23b66622d56c03903039991b973c5579bcf2f71a17bd55"
+"ours/fig_nadir_exposure.png" = "0846773155f1fecb99bd17d8b7af16ecaaab7b28975e6b02fb41e463c8195623"
+"ours/fig_sno_8B_hep.png" = "6130c63fab3bf47adb3908e58637bddbcce90497ae36fc0ea5702f2eb53437b2"
+"results/max_abs_differences.csv" = "626f925fff61912f9a8f06a47cbc9af9bcb4b434d0ebf0a58393d9d66ad4aa36"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "5bb7976c1453901b128085d86a289aaac413f7fc"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ 5bb7976c14> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-26T09:33:20Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 85.9

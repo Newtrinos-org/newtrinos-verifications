@@ -1,0 +1,73 @@
+title = "PEANUTS: a software for the automatic computation of solar neutrino flux and its propagation within Earth"
+short = "Solar oscillations and Earth regeneration: PEANUTS benchmark"
+collaboration = "T. E. Gonzalo, M. Lucente"
+doi = "10.1140/epjc/s10052-024-12423-3"
+journal = "Eur. Phys. J. C 84, 119"
+year = 2024
+arxiv = "2303.15527"
+inspire = 2646490
+experiments = ["solar neutrinos", "SNO", "Super-Kamiokande"]
+parameters = ["MSW effect", "Earth regeneration", "day–night asymmetry", "solar model"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-26"
+summary = """
+Code benchmark of the Newtrinos.jl solar oscillations (module `osc`: solar_prob with MSW conversion averaged over \
+the production region and Earth regeneration; module `solar_flux`: B23 production regions and the yearly nadir \
+exposure) against PEANUTS (github.com/michelelucente/PEANUTS, commit 39ef11f), an independent Python code with an \
+analytical evolutor through a polynomial Earth model. Reproduced: the paper's SNO validation (⁸B and hep at the \
+solar surface with BS05(AGS,OP), Fig. 8) and the yearly nadir exposure (Fig. 5); in addition, all B23 components in \
+daytime, the regeneration probability per nadir angle on identical Earth zones and on the two codes' own Earth \
+models, and the ⁸B day–night asymmetry at Kamioka. The references are produced by data/peanuts_reference.py."""
+caveats = [
+  "PEANUTS writes the matter-to-vacuum ratio in the Sun as 3.868·10⁻⁷/2.533 · n_e E/Δm² (peanuts/matter_mixing.py, Vk), with 1/(2ħc) rounded to 2.533 instead of 2.5339: its solar matter potential is 3.6·10⁻⁴ too large, which shifts P_ee by up to 4·10⁻⁵. The references are given as published and with the electron densities rescaled to Newtrinos' constants (\"matched\"); with matched constants and the same radial quadrature, Newtrinos and PEANUTS agree to 2·10⁻⁶ (BS05) and 4·10⁻⁶ (B23) in daytime P_ee.",
+  "Newtrinos compresses each production region to 40 points of equal production probability (solar_flux, n_production); against the full radial table this costs ≤ 1.5·10⁻⁵ in P_ee (⁸B and hep above 10 MeV) and ≤ 2·10⁻⁶ for the low-energy components.",
+  "Earth crossing on identical constant-density zones (the Newtrinos solar zoning PREM_discontinuities(continental=true), passed to PEANUTS as a tabulated density): agreement to 2·10⁻⁹ in P(νᵢ → νe). PEANUTS' analytical evolutor differs from its own numerical one by 2·10⁻⁴ for core-crossing paths (spot checks in results/max_abs_differences.csv).",
+  "Earth models: PEANUTS' default Lisi–Montanino parametrisation of PREM has no crust (≈ 3.4 g/cm³ up to the surface), Newtrinos uses the PREM table with 2.6 g/cm³ continental crust for solar detectors. The regeneration probabilities differ by up to 0.03 for grazing and core-boundary paths, and the ⁸B day–night asymmetry at Kamioka is 0.1–0.4 percentage points (≈ 9 %) smaller in Newtrinos, e.g. 3.15 % vs 3.45 % at 10 MeV.",
+  "Exposure: Newtrinos weights the sun's yearly path with the flux ∝ 1/d² (d the Earth–Sun distance), PEANUTS' ideal exposure is time-weighted; the night fractions agree to 1.5·10⁻⁵. Regeneration oscillates fast in cos θz: evaluating it at the centres of 80 night bins (the default of solar_common.Site) biases the unsmeared A_DN at Kamioka by up to 0.3 percentage points, but after the SK energy response the SK I–IV likelihoods change by ≤ 0.012 with 20× finer sampling, so the default is kept.",
+]
+links = [
+  { label = "PEANUTS (GitHub)", url = "https://github.com/michelelucente/PEANUTS" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "5bb7976"
+modules = ["osc (solar_prob, solar_mass_fractions, earth_mass_to_flavour)", "solar_flux (B23 production, nadir_exposure)", "earth_layers"]
+
+[[figures]]
+id = "sno_8B_hep"
+title = "⁸B and hep survival probabilities at the solar surface (BS05(AGS,OP), SNO parameters)"
+paper_ref = "Fig. 8"
+original = "original/sno_8B_hep.png"
+ours = "ours/fig_sno_8B_hep.png"
+agreement = "2·10⁻⁶ with matched constants; 4·10⁻⁵ against PEANUTS as published."
+
+[[figures]]
+id = "nadir_exposure"
+title = "Yearly nadir exposure at latitudes 0°, 45°, 89°"
+paper_ref = "Fig. 5"
+original = "original/eta_weights_ideal.png"
+ours = "ours/fig_nadir_exposure.png"
+agreement = "Same shape; night fractions agree to 1.5·10⁻⁵ (Newtrinos weights by flux ∝ 1/d²)."
+
+[[figures]]
+id = "b23_day"
+title = "B23 solar model, all components: daytime P_ee, Newtrinos − PEANUTS"
+paper_ref = "not in the paper"
+ours = "ours/fig_b23_day.png"
+agreement = "≤ 1.5·10⁻⁵ (Newtrinos default production compression) with matched constants."
+
+[[figures]]
+id = "earth_regeneration"
+title = "Earth regeneration P(ν₂ → νe) − |U_e2|² vs cos θz of the Sun, Super-K depth"
+paper_ref = "not in the paper"
+ours = "ours/fig_earth_regeneration.png"
+agreement = "Identical zones: 2·10⁻⁹. Own Earth models (crust): up to 0.03."
+
+[[figures]]
+id = "daynight_kamioka"
+title = "⁸B day–night asymmetry at Kamioka"
+paper_ref = "not in the paper"
+ours = "ours/fig_daynight_kamioka.png"
+agreement = "Newtrinos 0.1–0.4 percentage points (≈ 9 %) below PEANUTS: crust vs no crust."

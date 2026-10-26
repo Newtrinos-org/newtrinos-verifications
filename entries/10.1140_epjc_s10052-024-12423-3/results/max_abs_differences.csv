@@ -1,0 +1,59 @@
+case,quantity,max_abs_diff
+"SNO validation (BS05), 8B, PEANUTS constants published",P(νe → νe),4.144785693471764e-5
+"SNO validation (BS05), 8B, PEANUTS constants matched",P(νe → νe),2.0022334305536127e-6
+"SNO validation (BS05), hep, PEANUTS constants published",P(νe → νe),3.576028205698467e-5
+"SNO validation (BS05), hep, PEANUTS constants matched",P(νe → νe),1.7875163356717572e-6
+"exposure, latitude 0°: night fraction",PEANUTS − Newtrinos,-1.3378187446733136e-13
+"exposure, latitude 45°: night fraction",PEANUTS − Newtrinos,-4.4143291739739965e-6
+"exposure, latitude 89°: night fraction",PEANUTS − Newtrinos,1.4682084851336263e-5
+"B23 day, pp, constants published, full radial table",P(νe → νe),3.1708323803281147e-6
+"B23 day, pp, constants published, Newtrinos default (40 production points)",P(νe → νe),3.220456215147216e-6
+"B23 day, pp, constants matched, full radial table",P(νe → νe),1.555749845616461e-7
+"B23 day, pp, constants matched, Newtrinos default (40 production points)",P(νe → νe),2.0519881938074747e-7
+"B23 day, pep, constants published, full radial table",P(νe → νe),1.3636334005417972e-5
+"B23 day, pep, constants published, Newtrinos default (40 production points)",P(νe → νe),1.4226854357257679e-5
+"B23 day, pep, constants matched, full radial table",P(νe → νe),6.264186466209409e-7
+"B23 day, pep, constants matched, Newtrinos default (40 production points)",P(νe → νe),1.2169389984606482e-6
+"B23 day, hep, constants published, full radial table",P(νe → νe),3.941458503953221e-5
+"B23 day, hep, constants published, Newtrinos default (40 production points)",P(νe → νe),3.543695105312494e-5
+"B23 day, hep, constants matched, full radial table",P(νe → νe),3.4316857088767527e-6
+"B23 day, hep, constants matched, Newtrinos default (40 production points)",P(νe → νe),1.5370614850573894e-5
+"B23 day, be7, constants published, full radial table",P(νe → νe),9.334118636239452e-6
+"B23 day, be7, constants published, Newtrinos default (40 production points)",P(νe → νe),9.611564071643208e-6
+"B23 day, be7, constants matched, full radial table",P(νe → νe),4.3875829103257047e-7
+"B23 day, be7, constants matched, Newtrinos default (40 production points)",P(νe → νe),7.162037264363263e-7
+"B23 day, b8, constants published, full radial table",P(νe → νe),4.5838372831896734e-5
+"B23 day, b8, constants published, Newtrinos default (40 production points)",P(νe → νe),4.32427641404165e-5
+"B23 day, b8, constants matched, full radial table",P(νe → νe),3.7915403100496903e-6
+"B23 day, b8, constants matched, Newtrinos default (40 production points)",P(νe → νe),1.5032010075466395e-5
+"B23 day, n13, constants published, full radial table",P(νe → νe),1.1362048526475377e-5
+"B23 day, n13, constants published, Newtrinos default (40 production points)",P(νe → νe),1.1755430201487727e-5
+"B23 day, n13, constants matched, full radial table",P(νe → νe),5.267045873891263e-7
+"B23 day, n13, constants matched, Newtrinos default (40 production points)",P(νe → νe),9.200862624014761e-7
+"B23 day, o15, constants published, full radial table",P(νe → νe),2.1875459478681858e-5
+"B23 day, o15, constants published, Newtrinos default (40 production points)",P(νe → νe),2.2379793942428616e-5
+"B23 day, o15, constants matched, full radial table",P(νe → νe),9.83710215618494e-7
+"B23 day, o15, constants matched, Newtrinos default (40 production points)",P(νe → νe),1.4880446793652524e-6
+"B23 day, f17, constants published, full radial table",P(νe → νe),2.2108168483692126e-5
+"B23 day, f17, constants published, Newtrinos default (40 production points)",P(νe → νe),2.2636472525761064e-5
+"B23 day, f17, constants matched, full radial table",P(νe → νe),9.937793329362066e-7
+"B23 day, f17, constants matched, Newtrinos default (40 production points)",P(νe → νe),1.5220833750051455e-6
+"Earth, Newtrinos zones, E = 3.0 MeV (PEANUTS analytical)",P(νi → νe),2.3285618988566625e-9
+"Earth, Newtrinos solar default vs Lisi–Montanino (PEANUTS analytical), E = 3.0 MeV",P(νi → νe),0.006552492448078928
+"Earth, Newtrinos zones, E = 5.0 MeV (PEANUTS analytical)",P(νi → νe),1.8365937659581277e-9
+"Earth, Newtrinos solar default vs Lisi–Montanino (PEANUTS analytical), E = 5.0 MeV",P(νi → νe),0.005782988500931396
+"Earth, Newtrinos zones, E = 7.0 MeV (PEANUTS analytical)",P(νi → νe),1.8842807314456422e-9
+"Earth, Newtrinos solar default vs Lisi–Montanino (PEANUTS analytical), E = 7.0 MeV",P(νi → νe),0.01578068564046381
+"Earth, Newtrinos zones, E = 10.0 MeV (PEANUTS analytical)",P(νi → νe),2.140022048457979e-9
+"Earth, Newtrinos solar default vs Lisi–Montanino (PEANUTS analytical), E = 10.0 MeV",P(νi → νe),0.011456723390402546
+"Earth, Newtrinos zones, E = 13.0 MeV (PEANUTS analytical)",P(νi → νe),1.9692079078481584e-9
+"Earth, Newtrinos solar default vs Lisi–Montanino (PEANUTS analytical), E = 13.0 MeV",P(νi → νe),0.026725493862198968
+"Earth, Newtrinos zones, E = 16.0 MeV (PEANUTS analytical)",P(νi → νe),2.0640835152185844e-9
+"Earth, Newtrinos solar default vs Lisi–Montanino (PEANUTS analytical), E = 16.0 MeV",P(νi → νe),0.031624608790586706
+"PEANUTS analytical − numerical, lisi-montanino, E = 5.0 MeV, η = 0.0",P(ν₂ → νe),0.00022790790058163646
+"PEANUTS analytical − numerical, lisi-montanino, E = 10.0 MeV, η = 0.0",P(ν₂ → νe),-0.00010782173593792965
+"PEANUTS analytical − numerical, newtrinos-zones, E = 5.0 MeV, η = 0.0",P(ν₂ → νe),0.0002240234183489287
+"PEANUTS analytical − numerical, newtrinos-zones, E = 10.0 MeV, η = 0.0",P(ν₂ → νe),-0.00013786819328343025
+⁸B Kamioka day (B23),P_ee,1.5057428374598558e-5
+"⁸B Kamioka night: Newtrinos (PREM, continental crust) − PEANUTS (Lisi–Montanino)",P_ee,0.0013287069591791378
+⁸B Kamioka A_DN: Newtrinos − PEANUTS,A_DN,0.004039506912176194
