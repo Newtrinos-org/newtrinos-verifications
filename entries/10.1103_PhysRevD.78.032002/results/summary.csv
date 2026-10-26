@@ -1,0 +1,6 @@
+quantity,newtrinos,sk
+best fit tan²θ,17.78279410038923,18.1970081
+best fit Δm² [eV²],1.778279410038923e-6,2.399e-6
+fraction of grid points excluded,0.2944,0.3168
+grid points with the same exclusion verdict,0.9776,NaN
+Pearson r of Δχ² on the grid (both capped at 25),0.9634495362088698,NaN

@@ -1,0 +1,50 @@
+title = "Solar neutrino measurements in Super-Kamiokande-II"
+short = "SK-II solar: correlated systematics and the SK-I + SK-II χ² map"
+collaboration = "Super-Kamiokande"
+doi = "10.1103/PhysRevD.78.032002"
+journal = "Phys. Rev. D 78, 032002"
+year = 2008
+arxiv = "0803.4312"
+inspire = 782360
+experiments = ["Super-Kamiokande"]
+parameters = ["θ₁₂", "Δm²₂₁", "⁸B flux", "energy scale", "energy resolution"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-26"
+summary = """
+The Newtrinos SK-I and SK-II solar modules (`sk1_solar`, `sk2_solar`) compared with the SK-II data release \
+(www-sk.icrr.u-tokyo.ac.jp/sk/lowe/sk2_data/, offline, recovered from the Internet Archive): (1) the energy-correlated \
+systematic uncertainties (ecorrerr.txt; energy scale, energy resolution, ⁸B spectrum shape), which the modules now take \
+from SK's tables (SKPhase correlated_file; SK-I from hep-ex/0508053) instead of shifting the detector response; \
+(2) the χ² map of SK's combined SK-I + SK-II analysis with free ⁸B and hep fluxes (skc_exclude_dn_flux.txt), i.e. \
+the 95 % CL excluded region of the paper's Fig. 15(a), from a 25 × 25 grid of Newtrinos profile fits (⁸B and hep \
+free, θ₁₃ = 0)."""
+caveats = [
+  "Excluded region: 97.8 % of the grid points have the same 95 % CL verdict as SK's map; the excluded fraction is 29.4 % (SK 31.7 %) and the Δχ² values correlate with r = 0.96 (both capped at 25). Newtrinos excludes less at large mixing near Δm² ≈ 10⁻⁶–10⁻⁵ eV² (tan²θ ≈ 10) and slightly more along the upper edge at Δm² ≈ 2·10⁻⁴ eV².",
+  "Newtrinos fits the binned day/night spectra of SK-I and SK-II; SK's map comes from its unbinned time-variation analysis (day/night via the full zenith-angle dependence), a likely source of the differences at large mixing.",
+  "Correlated systematics: with SK's tables (default) the energy scale and resolution shifts reproduce the data release exactly; shifting the Newtrinos response instead overestimates the resolution effect by up to 2 percentage points at 18 MeV. The ⁸B spectrum shape is the shared solar_flux parameter (Winter et al. ± Bahcall's uncertainty), not SK's own table, and is ≈ 0.5 percentage points wider at low energy.",
+  "The SK-II data release is available only through the Internet Archive; the files used are kept in data/.",
+]
+links = [
+  { label = "SK-II data release (archived)", url = "https://web.archive.org/web/2016/http://www-sk.icrr.u-tokyo.ac.jp/sk/lowe/sk2_data/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "a75b318"
+modules = ["sk1_solar", "sk2_solar", "sk_solar_common (correlated systematics tables)"]
+
+[[figures]]
+id = "sk12_excluded"
+title = "SK-I + SK-II with free ⁸B and hep fluxes: region excluded at 95 % CL"
+paper_ref = "Fig. 15(a)"
+original = "original/fig15a_excluded.png"
+ours = "ours/fig_sk12_excluded.png"
+agreement = "97.8 % of grid points agree (results/summary.csv)"
+
+[[figures]]
+id = "correlated_systematics"
+title = "SK-II energy-correlated systematics: ±1σ rate changes"
+paper_ref = "data release, ecorrerr.txt"
+ours = "ours/fig_correlated_systematics.png"
+agreement = "exact with SK's table (results/correlated_systematics.csv)"
