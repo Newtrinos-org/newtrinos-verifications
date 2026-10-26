@@ -1,0 +1,52 @@
+title = "Data-driven muon-calibrated neutrino flux"
+short = "daemonflux in Newtrinos: atmospheric flux uncertainties vs Barr, DeepCore impact"
+collaboration = "J. P. Yañez, A. Fedynitch"
+doi = "10.1103/PhysRevD.107.123037"
+journal = "Phys. Rev. D 107, 123037"
+year = 2023
+arxiv = "2303.00022"
+inspire = 2637710
+experiments = ["atmospheric neutrinos", "IceCube DeepCore", "KM3NeT/ORCA", "Super-Kamiokande"]
+parameters = ["atmospheric flux", "flux uncertainties", "θ23", "Δm²31"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-26"
+summary = """
+The muon-calibrated atmospheric neutrino flux of daemonflux (pip package daemonflux 0.9.0, generic location) in \
+Newtrinos.jl (branch feature/daemonflux): `atm_flux.Daemonflux()` (nominal flux) and `atm_flux.Daemon()` (systematics: \
+the flux varies linearly in the 24 daemonflux parameters, one vector parameter `atm_flux_daemon` with the calibration \
+correlation as MvNormal prior), tabulated by src/physics/daemonflux/make_daemonflux_tables.py. Compared with the \
+daemonflux package (data/daemonflux_reference.py) and with the Barr et al. (2006) scheme used by the Newtrinos \
+atmospheric modules: flux uncertainties (cf. Fig. 12), their effect on the binned predictions of DeepCore 8 y, ORCA6 \
+and Super-K I–V, and DeepCore 8 y profiles in sin²θ₂₃ and Δm²₃₁ with either systematics model."""
+caveats = [
+  "Implementation: Newtrinos reproduces the daemonflux fluxes to 2·10⁻⁵ and their relative 1σ errors to ≤ 5·10⁻⁴ (vertical direction; results/flux_comparison.csv). For the ratios ν/ν̄ and νμ/νe the reference is the linear propagation of daemonflux's own per-flavour parameter shifts, which is what Daemon() does; daemonflux's separately tabulated ratio Jacobians (black curves) agree with it below ~200 GeV but give up to 2.4× smaller ratio errors at 10 TeV.",
+  "The comparison is made for vertical directions: daemonflux's \"average\" zenith averages the ratio quantities over zenith (not the fluxes), so it is not the ratio of averaged fluxes; the paper's Fig. 12 shows zenith-averaged errors.",
+  "The generic location has no geomagnetic or solar-modulation effects (up- and down-going directions are mirrored): below a few GeV, as for the sub-GeV Super-K samples, daemonflux's uncertainty is optimistic and HKKM remains the better nominal flux; Daemon() can be combined with the HKKM nominal (relative variations).",
+  "Flux-systematics budget, propagated linearly to the analysis bins (results/flux_budget.csv): median per-bin uncertainty 7.0 % → 1.3 % (DeepCore 8 y), 12.6 % → 2.0 % (ORCA6), 23 % → 2.3 % (Super-K I–V), Barr → daemonflux.",
+  "DeepCore 8 y with daemonflux instead of Barr: sin²θ₂₃ profile unchanged; Δm²₃₁ best fit 2.45·10⁻³ eV² instead of 2.50·10⁻³ eV², with a steeper profile above the minimum (21-point grid, 0.05·10⁻³ eV² steps, so the quoted intervals are grid-quantised).",
+]
+links = [
+  { label = "daemonflux (GitHub)", url = "https://github.com/mceq-project/daemonflux" },
+  { label = "Newtrinos.jl feature/daemonflux", url = "https://github.com/Newtrinos-org/Newtrinos.jl/tree/feature/daemonflux" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "74503ac"
+modules = ["atm_flux (Daemonflux, Daemon, Barr)", "deepcore_8y, orca, super_k (budget)"]
+
+[[figures]]
+id = "uncertainties"
+title = "Relative 1σ flux uncertainties: daemonflux (package and Newtrinos) and Newtrinos' Barr scheme"
+paper_ref = "Fig. 12"
+original = "original/uncertainties_vs_bartol.png"
+ours = "ours/fig_uncertainties.png"
+agreement = "Newtrinos Daemon() = daemonflux per-flavour propagation to ≤ 5·10⁻⁴; the Barr scheme is 3–10× larger below 100 GeV, as the paper's Bartol curves."
+
+[[figures]]
+id = "deepcore_profiles"
+title = "IceCube DeepCore 8 y: profiles in sin²θ₂₃ and Δm²₃₁ with Barr and daemonflux systematics"
+paper_ref = "not in the paper"
+ours = "ours/fig_deepcore_profiles.png"
+agreement = "sin²θ₂₃ unchanged; Δm²₃₁ 2.45 vs 2.50 ×10⁻³ eV²."

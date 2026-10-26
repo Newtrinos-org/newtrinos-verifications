@@ -1,0 +1,16 @@
+quantity,comparison,max_abs
+numu_sum,"relative error, Newtrinos Daemon() / daemonflux − 1",0.00019371110132215819
+numu_sum,"relative error, Newtrinos Daemon() / daemonflux per-flavour shifts − 1",8.905510521950433e-5
+numu_sum,"value, Newtrinos Daemonflux() / daemonflux − 1",2.214989925619637e-5
+nue_sum,"relative error, Newtrinos Daemon() / daemonflux − 1",0.00012740333778693547
+nue_sum,"relative error, Newtrinos Daemon() / daemonflux per-flavour shifts − 1",0.00011547409920698026
+nue_sum,"value, Newtrinos Daemonflux() / daemonflux − 1",7.999698321770055e-6
+numu_ratio,"relative error, Newtrinos Daemon() / daemonflux − 1",1.562761671449553
+numu_ratio,"relative error, Newtrinos Daemon() / daemonflux per-flavour shifts − 1",0.00029011688802960123
+numu_ratio,"value, Newtrinos Daemonflux() / daemonflux − 1",0.07075917429919931
+nue_ratio,"relative error, Newtrinos Daemon() / daemonflux − 1",1.1683360405250833
+nue_ratio,"relative error, Newtrinos Daemon() / daemonflux per-flavour shifts − 1",0.0005231969753960453
+nue_ratio,"value, Newtrinos Daemonflux() / daemonflux − 1",0.01185282273966326
+flavour_ratio,"relative error, Newtrinos Daemon() / daemonflux − 1",0.13701337258896107
+flavour_ratio,"relative error, Newtrinos Daemon() / daemonflux per-flavour shifts − 1",0.0001260401152850532
+flavour_ratio,"value, Newtrinos Daemonflux() / daemonflux − 1",0.0012332200025468865
