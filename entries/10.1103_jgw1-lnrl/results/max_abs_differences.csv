@@ -1,0 +1,23 @@
+case,channel,max_abs_diff
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pee (ν),8.832868192421017e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pem (ν),4.88577013846303e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pet (ν),3.947097387824172e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pme (ν),4.841901685148642e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pmm (ν),2.632124954660142e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pmt (ν),2.835071337692341e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pte (ν),3.9909658605674636e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Ptm (ν),2.82799969830716e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Ptt (ν),2.882206047161162e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pee (ν̄),2.690517619807764e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pem (ν̄),1.2186275516468115e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pet (ν̄),2.0395458807942468e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pme (ν̄),1.235408904690094e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pmm (ν̄),2.876844898969111e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pmt (ν̄),2.8641523475148034e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Pte (ν̄),1.9953615964379834e-8
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Ptm (ν̄),2.86995900378173e-7
+"oscillogram, PREM_NDiscontinuityLayer(2,10,10,5)",Ptt (ν̄),2.7127713903007944e-7
+solar day,Pee,1.111186420654775e-9
+"solar night, per cos θz",Pee,6.171578392777377e-8
+"solar night, DUNE annual average (NuFast weights)",Pee,1.7064452073611847e-9
+"solar night, DUNE: Newtrinos exposure − NuFast weights",Pee,3.466436951615748e-5

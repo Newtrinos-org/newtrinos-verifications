@@ -1,0 +1,27 @@
+# written by tools/run_entry.jl — do not edit
+[files]
+"ours/fig_earth_discretisation.png" = "15b0dd1d5353bd5cfb545f37bc3f54fbac0525fc346a363bb95c654fff973bbf"
+"ours/fig_oscillogram_NO.png" = "91854930d3c9c5cb56153805f2a463bf026e97768163d140fcef77c3680b8652"
+"ours/fig_solar_day_night.png" = "63fa41af0fbf619c44a75bab5b630d0d01e32b1f1264ffafb3bcf30ab57b2efa"
+"results/earth_discretisation.csv" = "b9f081ef76cfbec5d8d1b7225bcf599a775defa731637e02bb2a29bfcdeaacdf"
+"results/earth_model_impact.csv" = "317fcfe3d706d530c7bf0736b7dde5ced983972d575bada5df9f249ab73f46b7"
+"results/max_abs_differences.csv" = "6f25b56b275c1a247a853d21319941f5cce73348cbefab6ede766ee2909f4391"
+
+[fit_cache]
+note = "cached fit points are reused only from runs at the same Newtrinos commit"
+reused_points = 0
+total_points = 0
+
+[newtrinos]
+commit = "9f4a48e00add771b45dff888778409057e1ae3db"
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+
+[run]
+command = "julia -t 8 --project=<Newtrinos.jl @ 9f4a48e00a> reproduce.jl"
+cpu = "AMD EPYC 7702P 64-Core Processor"
+cpu_threads = 128
+date = "2026-10-26T08:34:26Z"
+julia = "1.12.5"
+os = "Linux"
+threads = 8
+wall_time_s = 241.4

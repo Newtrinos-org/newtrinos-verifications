@@ -1,0 +1,6 @@
+experiment,earth,reference,asimov_chi2,max_rel_bin_shift,asimov_chi2_NO_vs_IO
+IceCube DeepCore 8 y,default 4 zones,"PREM_discontinuities, chord-averaged ≤ 200 km",0.0035158954235011957,0.0025092459405890617,1.2648345312187184
+IceCube DeepCore 8 y,PREM_discontinuities zones,"PREM_discontinuities, chord-averaged ≤ 200 km",9.721250386821178e-5,0.0010108722655539299,1.2648345312187184
+KM3NeT/ORCA6,default 4 zones,"PREM_discontinuities, chord-averaged ≤ 200 km",0.0070896535970018885,0.005463997810996913,0.3330098993506538
+KM3NeT/ORCA6,PREM_discontinuities zones,"PREM_discontinuities, chord-averaged ≤ 200 km",0.00014256315800370076,0.0010567634794813275,0.3330098993506538
+Super-K I–V atmospheric,default 4 zones,PREM_discontinuities zones,0.0990245881183338,0.0357741081741921,52.3935202581853
