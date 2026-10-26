@@ -1,0 +1,13 @@
+spectrum,check,value
+²³⁵U,bin means of the model / unfolded bin contents − 1,6.661338147750939e-16
+²³⁵U,"Daya Bay / Huber–Mueller, 4–6 MeV bin-weighted mean",0.9257340096928179
+Pu combo,bin means of the model / unfolded bin contents − 1,6.661338147750939e-16
+Pu combo,"Daya Bay / Huber–Mueller, 4–6 MeV bin-weighted mean",1.007578607522789
+Total,bin means of the model / unfolded bin contents − 1,8.881784197001252e-16
+Total,"Daya Bay / Huber–Mueller, 4–6 MeV bin-weighted mean",0.9603652851050015
+"IBD yield, Daya Bay fractions",Huber–Mueller × Bugey-4 anchoring [1e-43 cm²/fission],5.800132579744333
+"IBD yield, Daya Bay fractions",Daya Bay unfolded [1e-43 cm²/fission],5.8576010586135085
+"IBD yield, Bugey-4 fractions",Huber–Mueller × Bugey-4 anchoring [1e-43 cm²/fission],5.752000000039895
+"IBD yield, Bugey-4 fractions",Daya Bay unfolded [1e-43 cm²/fission],5.822044883601757
+"IBD yield, KamLAND fractions",Huber–Mueller × Bugey-4 anchoring [1e-43 cm²/fission],5.820168109149874
+"IBD yield, KamLAND fractions",Daya Bay unfolded [1e-43 cm²/fission],5.876492608265613

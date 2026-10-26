@@ -1,0 +1,50 @@
+title = "Antineutrino energy spectrum unfolding based on the Daya Bay measurement and its applications"
+short = "Daya Bay unfolded reactor spectra as data-driven reactor model (KamLAND)"
+collaboration = "Daya Bay"
+doi = "10.1088/1674-1137/abfc38"
+journal = "Chin. Phys. C 45, 073001"
+year = 2021
+arxiv = "2102.04614"
+inspire = 1845578
+experiments = ["Daya Bay", "KamLAND"]
+parameters = ["reactor flux", "5 MeV excess", "Δm²21", "θ12"]
+status = "reproduced"
+category = "inputs"
+added = "2026-10-26"
+summary = """
+The unfolded total, ²³⁵U and Pu-combo antineutrino spectra of Daya Bay (arXiv ancillary files) as the data-driven \
+spectrum model of Newtrinos.jl (`reactor_flux.configure(DayaBayUnfolded())`, branch feature/reactor-dyb-spectra): \
+the paper's prediction formula (Eq. 9) for other fission fractions, with Huber–Mueller ²³⁸U and ²⁴¹Pu, and the \
+measured absolute normalisation. Shown: the unfolded spectra and their ratio to Huber–Mueller (Fig. 7), IBD yields, \
+and the KamLAND (2013, three periods) profiles in Δm²₂₁ and sin²θ₁₂ with the Huber–Mueller and the Daya Bay spectra."""
+caveats = [
+  "Each unfolded spectrum is used as Huber–Mueller times a ratio linear between bin centres, with node values solved such that the bin means reproduce the published bin contents exactly (≤ 10⁻¹⁵); interpolating the plain bin ratios instead misses the bin contents by up to 5 % around the 5 MeV excess. Beyond the outermost bin centres (1.925 and 8.65 MeV) the ratio is held constant; the node of the wide last bin (7.8–9.5 MeV) is 1.13 for the total spectrum, which affects < 1 % of the IBD events.",
+  "The Wiener-SVD regularisation smearing (A_c of the release) is not undone; it is small compared with the energy resolution of KamLAND and JUNO-like detectors.",
+  "Normalisation: Huber–Mueller is anchored to Bugey-4 (rate_scale = bugey4_scale, unchanged default); the Daya Bay spectra keep their measured normalisation. At Bugey-4 fission fractions they give 5.82·10⁻⁴³ cm²/fission, 1.2 % above the Bugey-4 measurement (5.752, ±1.4 %).",
+  "KamLAND (2013, three periods): the measured spectra shift the best fit to Δm²₂₁ = 7.47·10⁻⁵ eV² (Huber–Mueller 7.54) and sin²θ₁₂ = 0.312 (0.318), about half a standard deviation in Δm²₂₁; the minimum −2 ln L is 0.78 higher than with Huber–Mueller (KamLAND has its own flux and energy-scale nuisances that absorb most of the 5 MeV excess).",
+  "The covariance of the unfolded spectra (CovMatrix_UnfoldAntineutrinoSpectra.txt) is shipped with the model but not yet turned into nuisance parameters; KamLAND keeps its own flux-normalisation and energy-scale parameters.",
+]
+links = [
+  { label = "Newtrinos.jl feature/reactor-dyb-spectra", url = "https://github.com/Newtrinos-org/Newtrinos.jl/tree/feature/reactor-dyb-spectra" },
+  { label = "arXiv ancillary files", url = "https://arxiv.org/src/2102.04614v3/anc" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "eb2fd8b"
+modules = ["reactor_flux (DayaBayUnfolded)", "kamland"]
+
+[[figures]]
+id = "unfolded_spectra"
+title = "Unfolded IBD-weighted spectra and their ratio to Huber–Mueller"
+paper_ref = "Fig. 7"
+original = "original/unfolding_results.png"
+ours = "ours/fig_unfolded_spectra.png"
+agreement = "Bin contents reproduced to 10⁻¹⁵; ratio to Huber–Mueller shows the flux deficit and the 5–6 MeV excess."
+
+[[figures]]
+id = "kamland_profiles"
+title = "KamLAND 2013: profiles in Δm²₂₁ and sin²θ₁₂ with the two spectrum models"
+paper_ref = "not in the paper"
+ours = "ours/fig_kamland_profiles.png"
+agreement = "Δm²₂₁ 7.47 (7.33–7.64) vs 7.54 (7.40–7.71) ×10⁻⁵ eV², sin²θ₁₂ 0.312 vs 0.318 with Daya Bay vs Huber–Mueller spectra; Huber–Mueller fits KamLAND marginally better (Δχ² = 0.78)."
