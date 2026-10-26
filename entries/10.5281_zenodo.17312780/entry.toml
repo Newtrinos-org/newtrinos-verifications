@@ -1,0 +1,44 @@
+title = "Markov Chain Monte Carlo chain release for \"Results from the T2K experiment on neutrino mixing including a new far detector muon-like sample\""
+short = "T2K 2025: Bayesian posterior vs the official MCMC chains"
+collaboration = "T2K"
+doi = "10.5281/zenodo.17312780"
+journal = "Zenodo (data release for Phys. Rev. Lett. 135, 261801)"
+year = 2025
+arxiv = "2506.05889"
+inspire = 2931390
+experiments = ["T2K"]
+parameters = ["δCP", "θ23", "θ13", "Δm²32", "mass ordering"]
+status = "reproduced"
+category = "experimental"
+added = "2026-10-26"
+summary = """
+Bayesian version of the Newtrinos T2K 2025 module (`t2k`, same inputs as the frequentist T2K 2025 entry \
+10.1103/gh5j-5cwv) compared with T2K's own posterior: the 181 M samples of the official MCMC chain release \
+(NuMCMCTools format, ND280 + SK fit) reduced to marginal histograms by data/reduce_chains.py. Newtrinos samples \
+the T2K likelihood by adaptive importance sampling (MoleWhacker), separately per mass ordering with equal prior mass, \
+and is reweighted to the release's priors: flat in sin²θ₂₃, sin²θ₁₃, Δm²₃₂ and δCP, Gaussian sin²θ₁₂ = 0.307 ± 0.013 \
+and Δm²₂₁ = (7.53 ± 0.18)·10⁻⁵ eV². Both posteriors are shown without and with the reactor constraint \
+sin²θ₁₃ = 0.0220 ± 0.0007, applied by reweighting as for the official chains."""
+caveats = [
+  "Posterior probability of the normal ordering: Newtrinos 0.55 vs T2K 0.63 without and 0.69 vs 0.74 with the reactor constraint; the weaker mass-ordering preference is the same one seen in the frequentist entry (IO penalty 0.74 vs ≈ 2.2), i.e. it comes from the predictions or the use of the data (e-like samples in E_rec only), not from the statistical treatment.",
+  "δCP, sin²θ₂₃ and sin²θ₁₃ marginals agree closely in shape and position; the Newtrinos Δm²₃₂ posterior is somewhat wider, although the official chains already include an additional smearing of Δm²₃₂ for out-of-model biases (README of the release).",
+  "The official chains are a joint ND280 + SK fit with T2K's full systematics model; Newtrinos uses the released far-detector predictions with 13 effective nuisance parameters.",
+  "The release contains only the six oscillation parameters per sample; nuisance and detector-response parameters are marginalised in it, so the chains cannot inform the Newtrinos response model.",
+]
+links = [
+  { label = "MCMC chain release (zenodo 17312780)", url = "https://doi.org/10.5281/zenodo.17312780" },
+  { label = "NuMCMCTools", url = "https://github.com/NuMCMCTools/NuMCMCTools" },
+  { label = "Frequentist T2K 2025 entry", url = "../10.1103_gh5j-5cwv/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "c7b835f"
+modules = ["t2k", "molewhacker (whack_many_moles)"]
+
+[[figures]]
+id = "marginals"
+title = "Marginal posteriors, without (top) and with (bottom) the reactor constraint"
+paper_ref = "MCMC chain release"
+ours = "ours/fig_marginals.png"
+agreement = "δCP, sin²θ₂₃, sin²θ₁₃ agree; Δm²₃₂ wider in Newtrinos; P(NO) 0.55 / 0.69 vs 0.63 / 0.74."
