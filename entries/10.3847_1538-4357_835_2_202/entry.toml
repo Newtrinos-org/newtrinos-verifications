@@ -1,0 +1,45 @@
+title = "A new generation of standard solar models (B16)"
+short = "B16 standard solar models next to B23, and the measured ⁸B and ⁷Be fluxes"
+collaboration = "N. Vinyoles, A. M. Serenelli, F. L. Villante, S. Basu, J. Bergström, M. C. Gonzalez-Garcia, M. Maltoni, C. Peña-Garay, N. Song"
+doi = "10.3847/1538-4357/835/2/202"
+journal = "Astrophys. J. 835, 202"
+year = 2017
+arxiv = "1611.09867"
+inspire = 1500944
+experiments = ["solar neutrinos", "KamLAND"]
+parameters = ["solar fluxes", "⁸B flux", "⁷Be flux", "solar model"]
+status = "reproduced"
+category = "theory"
+added = "2026-10-26"
+summary = """
+The B16 standard solar models (GS98 and AGSS09met compositions) as a cross-check of the default B23 model in \
+Newtrinos.jl (`solar_flux.B16(composition = :GS98 | :AGSS09)`): fluxes, fractional uncertainties, electron density \
+and production profiles, written by src/physics/solar/make_b16_structure.py from the files of the Barcelona \
+solar-model page. Reproduced: the paper's comparison of the models with the measured ⁸B and ⁷Be fluxes (Fig. 4), \
+with the measured fluxes determined here from all Newtrinos solar experiments (Homestake, GALLEX/GNO, SAGE, SNO, \
+SK I–IV with SK's day/night amplitude, Borexino Phases I–III) and KamLAND, with ⁸B and ⁷Be free and the other \
+components constrained by the B23 MB22-met model, next to the B23 models."""
+caveats = [
+  "B16's flux correlation matrices were published only on the Barcelona solar-model page (offline since 2023) and are not archived: the B16 models use the B23 correlations of the same composition. The ellipses of the figure therefore have B16 centres and widths but B23 tilts; they agree with the paper's Fig. 4 by eye, so the B23 correlations are a close stand-in.",
+  "Sources: the structure files (struct_b16_*.dat) from the Internet Archive copy of the Barcelona page (2022-07-01); the production and electron-density tables (nudistr_b16_*.dat) and fluxes (fluxes_b16.dat) as redistributed with PEANUTS (Data/). nudistr ends at 0.5 R☉; further out n_e is computed as ρ(1 + X)/2 from the structure file (0.7 % step at 0.5 R☉, where no neutrinos are produced).",
+  "Measured fluxes (results/summary.csv): Φ(⁷Be)/Φ_sun = 1.017 ± 0.021 and Φ(⁸B)/Φ_sun = 1.008 ± 0.021 (correlation −0.39), i.e. Φ(⁷Be) = (4.88 ± 0.10)·10⁹ and Φ(⁸B) = (5.20 ± 0.11)·10⁶ cm⁻² s⁻¹, compatible with the solar values used in the paper (⁷Be +5.0/−4.6 %, ⁸B +2.5/−1.7 %). The ⁷Be flux is better constrained than in the paper's input because of Borexino Phase III. Both B16 GS98 and B16 AGSS09met lie at the edge of the measured 1σ region; the measurement does not separate the compositions.",
+  "The paper's measured fluxes are the solar-neutrino global fit of Bergström et al. (JHEP 03 (2016) 132); ours come from the Newtrinos experiments with θ₁₂ and Δm²₂₁ free, θ₁₃ fixed to sin²θ₁₃ = 0.0218. The 1σ region is the Δχ² = 2.30 contour of a quadratic surface fitted to a 7 × 7 grid of profile fits (residuals in results/summary.csv).",
+]
+links = [
+  { label = "arXiv:1611.09867", url = "https://arxiv.org/abs/1611.09867" },
+  { label = "Barcelona solar-model page (archived)", url = "https://web.archive.org/web/2022/https://www.ice.csic.es/personal/aldos/Solar_Data.html" },
+  { label = "PEANUTS benchmark entry", url = "../10.1140_epjc_s10052-024-12423-3/" },
+]
+
+[newtrinos]
+repository = "https://github.com/Newtrinos-org/Newtrinos.jl"
+commit = "cfeac55"
+modules = ["solar_flux (B16, B23)", "solar experiments", "kamland"]
+
+[[figures]]
+id = "b8_be7"
+title = "⁸B and ⁷Be fluxes: B16 and B23 models (1σ, 2 dof) and the measured fluxes"
+paper_ref = "Fig. 4"
+original = "original/fig4_b8_be7.png"
+ours = "ours/fig_b8_be7.png"
+agreement = "B16 model ellipses match Fig. 4; measured fluxes compatible (results/summary.csv)"
